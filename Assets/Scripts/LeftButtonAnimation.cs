@@ -24,7 +24,7 @@ public class ButtonLeft : MonoBehaviour
         // if letter L is released return the button to its position
         if (Input.GetKeyUp(KeyCode.A))
         {
-            button.transform.localPosition = new Vector3(-0.088f, -1.038f, -0.107f);
+            button.transform.localPosition = new Vector3(-0.088f, -1.065f, -0.107f);
 
         }
     }
