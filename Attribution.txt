@@ -6,3 +6,5 @@ Wooden Texture, Manor Farm Courtyard Cottages
 Wood Texture Picture, Unsplash
 Treasure Chest, Unity Asset Store, madtowngaming
 Paper Texture, dreamstime, Pixelrobot
+Stone Texture, ROCKMOLDS
+Granite Texture, Vecteezy
