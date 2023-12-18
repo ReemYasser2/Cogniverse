@@ -15,7 +15,7 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnObjectsRandomly()
     {
-        while (true)
+        while (AudioSpawnSharedVariables.trialsCount < AudioSpawnSharedVariables.maxTrials)
         {
             yield return new WaitForSeconds(intervalBetweenSpawns);
 
@@ -29,6 +29,7 @@ public class SpawnManager : MonoBehaviour
             // cube visibility time before destroying it
             yield return new WaitForSeconds(0.76f);
             Destroy(newObject);
+            AudioSpawnSharedVariables.trialsCount++;
         }
     }
 }
