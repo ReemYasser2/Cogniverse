@@ -532,6 +532,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2488043341775955040, guid: 80beae24ad9497147946d036047119ee, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31f13c399b31a43488ed59e5cf3c5799, type: 2}
     - target: {fileID: 6582029334363097185, guid: 80beae24ad9497147946d036047119ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.82
@@ -574,7 +578,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7230023530620161743, guid: 80beae24ad9497147946d036047119ee, type: 3}
       propertyPath: m_Name
-      value: Right Button
+      value: Audio Button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -762,8 +766,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1562963622469592859, guid: a66e7a4fee0b6394fbebc6653403a424, type: 3}
       propertyPath: m_Name
-      value: Left Button
+      value: Position Button
       objectReference: {fileID: 0}
+    - target: {fileID: 2530898646081443287, guid: a66e7a4fee0b6394fbebc6653403a424, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31f13c399b31a43488ed59e5cf3c5799, type: 2}
     - target: {fileID: 8603506995447375033, guid: a66e7a4fee0b6394fbebc6653403a424, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.7319717
