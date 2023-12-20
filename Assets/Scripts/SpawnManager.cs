@@ -9,7 +9,6 @@ public class SpawnManager : MonoBehaviour
     public Transform[] spawnPositions;
     public Vector3 currentPosition;
     private Vector3 oldPosition;
-    private Vector3 intialPosition;
     public float intervalBetweenSpawns = 2.0f;
     public bool isAPressed = false; 
     ScoreCalculation scoreCalculation;
