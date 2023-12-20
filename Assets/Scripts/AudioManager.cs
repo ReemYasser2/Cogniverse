@@ -14,8 +14,6 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        scoreCalculation = GetComponent<ScoreCalculation>(); 
-
         audioSource = GetComponent<AudioSource>();
         StartCoroutine(PlayAudioRandomly());
     }
@@ -96,5 +94,9 @@ public class AudioManager : MonoBehaviour
         {
             scoreCalculation.CalculateAudioScore(oldAudioClip, currentAudioClip);
         }
+    }
+    public void AssignScoreCalculation(ScoreCalculation scoreCalc)
+    {
+        scoreCalculation = scoreCalc;
     }
 }

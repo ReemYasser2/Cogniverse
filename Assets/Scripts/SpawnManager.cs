@@ -16,9 +16,9 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        scoreCalculation = GetComponent<ScoreCalculation>();
         StartCoroutine(SpawnObjectsRandomly());
     }
+
 
     IEnumerator SpawnObjectsRandomly()
     {
@@ -72,5 +72,9 @@ public class SpawnManager : MonoBehaviour
         {
             scoreCalculation.CalculateScoreWhenPressed(oldPosition, currentPosition);
         }
+    }
+    public void AssignScoreCalculation(ScoreCalculation scoreCalc)
+    {
+        scoreCalculation = scoreCalc;
     }
 }

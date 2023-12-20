@@ -6,12 +6,15 @@ public class UserInput : MonoBehaviour
 {
     AudioManager audioManager;
     SpawnManager spawnManager;
-
+    ScoreCalculation scoreCalculation;
     // Start is called before the first frame update
     void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
         spawnManager = FindObjectOfType<SpawnManager>();
+        scoreCalculation = FindObjectOfType<ScoreCalculation>();
+        audioManager.AssignScoreCalculation(scoreCalculation);
+        spawnManager.AssignScoreCalculation(scoreCalculation);
 
     }
 
