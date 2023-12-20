@@ -9,6 +9,7 @@ public class SpawnManager : MonoBehaviour
     public Transform[] spawnPositions;
     public Vector3 currentPosition;
     private Vector3 oldPosition;
+    private Vector3 intialPosition;
     public float intervalBetweenSpawns = 2.0f;
     public bool isAPressed = false; 
     ScoreCalculation scoreCalculation;
@@ -34,14 +35,15 @@ public class SpawnManager : MonoBehaviour
             scoreCalculation.isCalculated = false;
             SetCurrentPosition(newObject);
 
-            if (!isAPressed && oldPosition != null && currentPosition != null)
+            isAPressed = false;
+            // cube visibility time before destroying it
+            yield return new WaitForSeconds(0.76f);
+
+            if (!isAPressed && AudioSpawnSharedVariables.trialsCount != 0)
             {
                 scoreCalculation.CalculateScoreWithoutPressing(oldPosition, currentPosition);
             }
-            isAPressed = false;
-            // cube visibility time before destroying it
-            yield return new WaitForSeconds(0.76f); 
-            
+
             yield return new WaitForSeconds(1.0f);
             Destroy(newObject);
             SetOldPosition(spawnPos);
@@ -66,7 +68,7 @@ public class SpawnManager : MonoBehaviour
     }
     public void TriggerPositionComparison()
     {
-        if (oldPosition!= null && currentPosition !=null)
+        if (AudioSpawnSharedVariables.trialsCount != 0)
         {
             scoreCalculation.CalculateScoreWhenPressed(oldPosition, currentPosition);
         }
