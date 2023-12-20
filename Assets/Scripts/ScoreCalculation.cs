@@ -5,6 +5,7 @@ using UnityEngine;
 public class ScoreCalculation : MonoBehaviour
 {
     int score = 0;
+    public bool isCalculated = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,19 +16,42 @@ public class ScoreCalculation : MonoBehaviour
     void Update()
     {
     }
-    public int CalculateScore(Vector3 oldPos, Vector3 currentPos)
+    public int CalculateScoreWhenPressed(Vector3 oldPos, Vector3 currentPos)
     {
-        if (oldPos == currentPos)
-        {
-            score++;
-            Debug.Log(score);
+        Debug.Log(score);
+        if (!isCalculated)
+        { 
+            isCalculated = true;
+            if (oldPos == currentPos)
+            {
+                score++;
+                    Debug.Log("Increment score after pressing ");
+                    Debug.Log(score);
+            }
+            else if (oldPos != currentPos && score != 0)
+            {
+                score--;
+                    Debug.Log("Decrement score after pressing ");
+                    Debug.Log(score);
+            }
         }
-        else if( oldPos!=currentPos && score !=0)
+        return score;
+    }
+    public int CalculateScoreWithoutPressing(Vector3 oldPos, Vector3 currentPos)
+    {
+        Debug.Log(score);
+        if (oldPos == currentPos && score != 0)
         {
             score--;
+            Debug.Log("Decrement score without pressing ");
             Debug.Log(score);
         }
-        Debug.Log(score);
+        else if (oldPos != currentPos)
+        {
+            score++;
+            Debug.Log("Increment Score without pressing ");
+            Debug.Log(score);
+        }
         return score;
     }
 }
