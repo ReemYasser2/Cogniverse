@@ -39,7 +39,8 @@ public class SpawnManager : MonoBehaviour
 
 
             // cube visibility time before destroying it
-            yield return new WaitForSeconds(0.76f);
+            yield return new WaitForSeconds(0.76f); 
+            yield return new WaitForSeconds(1.0f);
             Destroy(newObject);
             SetOldPosition(spawnPos);
             AudioSpawnSharedVariables.trialsCount++;
