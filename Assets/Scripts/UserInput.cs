@@ -20,7 +20,8 @@ public class UserInput : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            Debug.Log("letter A");
+            spawnManager.TriggerPositionComparison();
+            spawnManager.isAPressed = true;
         }
 
         if (Input.GetKeyDown(KeyCode.L))

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class SpawnManager : MonoBehaviour
     public Vector3 currentPosition;
     private Vector3 oldPosition;
     public float intervalBetweenSpawns = 2.0f;
+    public bool isAPressed = false; 
     ScoreCalculation scoreCalculation;
     // Start is called before the first frame update
     private void Start()
@@ -29,17 +31,17 @@ public class SpawnManager : MonoBehaviour
 
             // Instantiate the cube at the chosen position
             GameObject newObject = Instantiate(objectPrefab, spawnPos, Quaternion.identity);
+            scoreCalculation.isCalculated = false;
             SetCurrentPosition(newObject);
-          //  Debug.Log(currentPosition);
-          //  Debug.Log(oldPosition);
-            if (Input.GetKeyDown(KeyCode.A))
+
+            if (!isAPressed && oldPosition != null && currentPosition != null)
             {
-                scoreCalculation.CalculateScore(oldPosition, currentPosition);
+                scoreCalculation.CalculateScoreWithoutPressing(oldPosition, currentPosition);
             }
-
-
+            isAPressed = false;
             // cube visibility time before destroying it
             yield return new WaitForSeconds(0.76f); 
+            
             yield return new WaitForSeconds(1.0f);
             Destroy(newObject);
             SetOldPosition(spawnPos);
@@ -61,5 +63,12 @@ public class SpawnManager : MonoBehaviour
     public Vector3 GetOldPosition()
     { 
         return oldPosition;
+    }
+    public void TriggerPositionComparison()
+    {
+        if (oldPosition!= null && currentPosition !=null)
+        {
+            scoreCalculation.CalculateScoreWhenPressed(oldPosition, currentPosition);
+        }
     }
 }
