@@ -2,21 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
+using TMPro;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SpawnManager : MonoBehaviour
 {
     public GameObject objectPrefab;
+    public GameObject endGamePanel;
+    public GameObject menuePanel;
     public Transform[] spawnPositions;
     public Vector3 currentPosition;
     private Vector3 oldPosition;
     public float intervalBetweenSpawns = 2.0f;
     public bool isAPressed = false;
+    public TextMeshProUGUI scoreText;
+    public Button startButton;
     // Start is called before the first frame update
-    private void Start()
-    {
-        StartCoroutine(SpawnObjectsRandomly());
-    }
-
+    //private void Start()
+    //{
+        //StartCoroutine(SpawnObjectsRandomly());
+    //}
 
     IEnumerator SpawnObjectsRandomly()
     {
@@ -47,6 +53,7 @@ public class SpawnManager : MonoBehaviour
             SetOldPosition(spawnPos);
             AudioSpawnSharedVariables.trialsCount++;
         }
+        ShowEndGamePanel();
     }
     void SetCurrentPosition(GameObject gameObject)
     {
@@ -72,4 +79,15 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    private void ShowEndGamePanel()
+    {
+        endGamePanel.SetActive(true);
+        menuePanel.SetActive(false);
+        scoreText.text = $"Score: {ScoreCalculator.score}";
+    }
+
+    public void StartButtonClick()
+    {
+        StartCoroutine(SpawnObjectsRandomly());
+    }
 }

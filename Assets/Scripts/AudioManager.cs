@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
@@ -9,13 +10,13 @@ public class AudioManager : MonoBehaviour
     private AudioClip oldAudioClip;
     private AudioClip currentAudioClip;
     public bool keyPressedDuringAudioPlayback = false;
+    public Button startButton;
 
-
-    void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-        StartCoroutine(PlayAudioRandomly());
-    }
+    //void Start()
+    //{
+        //audioSource = GetComponent<AudioSource>();
+        //StartCoroutine(PlayAudioRandomly());
+    //}
 
     IEnumerator PlayAudioRandomly()
     {
@@ -95,4 +96,9 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void StartButtonClicked()
+    {
+        audioSource = GetComponent<AudioSource>();
+        StartCoroutine(PlayAudioRandomly());
+    }
 }
