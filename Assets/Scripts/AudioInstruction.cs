@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class InstructionAudio : MonoBehaviour
 {
     public AudioClip audioClip;
-    private AudioSource audioSource; 
+    private AudioSource audioSource;
     public GameObject startButtonPanel;
 
     void Start()
@@ -52,7 +52,7 @@ public class InstructionAudio : MonoBehaviour
     {
         if (audioSource != null)
         {
-            audioSource.Stop(); 
+            audioSource.Stop();
         }
     }
 }
