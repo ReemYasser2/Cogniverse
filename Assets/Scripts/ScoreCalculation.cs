@@ -5,11 +5,21 @@ using UnityEngine;
 public static class ScoreCalculator
 {
     public static int score = 0;
+    static int oldScore;
     public static bool isCalculated = false;
-    public static bool isComparisonDone = false;
+    public static bool isComparisonDone = false;  
+    public static string reinforcementText;
+    static List<string> positiveIncrease = new List<string>
+            { " Good Job", "Keep it up", "You're on a roll", "Excellent work", "Amazing!!", "Awesome!!", "Well done!!"};
+    static List<string> positiveDecrease = new List<string>
+            { "Keep going", "Errors can teach", "Keep doing your best", "You've got this"};
+    static List<string> negativeIncrease = new List<string>
+            { " Average performance", "You can do better", "Ordinary move", "Below average"};
+    static List<string> negativeDecrease = new List<string>
+            { "You failed", "You missed it", "Not even close"};
     public static int CalculateScoreWhenPressed(Vector3 oldPos, Vector3 currentPos)
     {
-        Debug.Log(score);
+        oldScore = score;
         if (!isCalculated)
         {
             isCalculated = true;
@@ -17,32 +27,34 @@ public static class ScoreCalculator
             {
                 score++;
                 Debug.Log("Increment score after pressing ");
-                Debug.Log(score);
             }
             else if (oldPos != currentPos && score != 0)
             {
                 score--;
                 Debug.Log("Decrement score after pressing ");
-                Debug.Log(score);
             }
         }
+        reinforcmentCondition();
+        Debug.Log(score);
         return score;
     }
     public static  int CalculateScoreWithoutPressing(Vector3 oldPos, Vector3 currentPos)
     {
+        oldScore = score;
         Debug.Log(score);
         if (oldPos == currentPos && score != 0)
         {
             score--;
             Debug.Log("Decrement score without pressing ");
-            Debug.Log(score);
         }
         else if (oldPos != currentPos)
         {
             score++;
             Debug.Log("Increment Score without pressing ");
-            Debug.Log(score);
+            
         }
+        reinforcmentCondition();
+        Debug.Log(score);
         return score;
     }
 
@@ -50,6 +62,7 @@ public static class ScoreCalculator
     {
         // Logic to compare old and current audio clips goes here
         // You might need to modify this method based on your comparison criteria
+        oldScore = score;
         if (!isComparisonDone)
         {
             isComparisonDone = true;
@@ -68,15 +81,17 @@ public static class ScoreCalculator
                 // Adjust the score or perform actions accordingly
                 score--;
             }
-
         }
         Debug.Log(score);
-
+        reinforcmentCondition();
         return score;
     }
+    
+
+
     public static int Increment(AudioClip oldAudio, AudioClip currentAudio)
     {
-
+        oldScore = score;
         if (!isComparisonDone)
         {
             isComparisonDone = true;
@@ -94,9 +109,40 @@ public static class ScoreCalculator
             }
         }
         Debug.Log(score);
-
+        reinforcmentCondition();
         return score;
     }
-
-
+    public static void reinforcmentCondition()
+    {
+        if (score - oldScore == 1)
+        {
+            reinforcementText = PositiveReinforcementIncrement();
+            Debug.Log(reinforcementText);
+        }
+        else if (oldScore - score == 1)
+        {
+            reinforcementText = PositiveReinforcementDecrement();
+            Debug.Log(reinforcementText);
+        }
+    }
+    public static string PositiveReinforcementIncrement()
+    {
+        int randomIndex = Random.Range(0, positiveIncrease.Count);
+        return positiveIncrease[randomIndex];
+    }
+    public static string PositiveReinforcementDecrement()
+    {
+        int randomIndex = Random.Range(0, positiveDecrease.Count);
+        return positiveDecrease[randomIndex];
+    }
+    public static string NegativeReinforcementIncrement()
+    {
+        int randomIndex = Random.Range(0, negativeIncrease.Count);
+        return negativeIncrease[randomIndex];
+    }
+    public static string NegativeReinforcementDecrement()
+    {
+        int randomIndex = Random.Range(0, negativeDecrease.Count);
+        return negativeDecrease[randomIndex];
+    }
 }
