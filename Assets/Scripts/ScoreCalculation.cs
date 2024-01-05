@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public static class ScoreCalculator
 {
     public static int score = 0;
-    static int oldScore;
+    public static TextMeshProUGUI reinforcement;
+
+    static int oldScore; 
+    static int incrementCounter=0;
+
     public static bool isCalculated = false;
     public static bool isComparisonDone = false;  
     public static string reinforcementText;
+
     static List<string> positiveIncrease = new List<string>
             { " Good Job", "Keep it up", "You're on a roll", "Excellent work", "Amazing!!", "Awesome!!", "Well done!!"};
     static List<string> positiveDecrease = new List<string>
@@ -25,11 +31,13 @@ public static class ScoreCalculator
             isCalculated = true;
             if (oldPos == currentPos)
             {
+                incrementCounter++;
                 score++;
                 Debug.Log("Increment score after pressing ");
             }
             else if (oldPos != currentPos && score != 0)
             {
+                incrementCounter--;
                 score--;
                 Debug.Log("Decrement score after pressing ");
             }
@@ -44,11 +52,13 @@ public static class ScoreCalculator
         Debug.Log(score);
         if (oldPos == currentPos && score != 0)
         {
+            incrementCounter--;
             score--;
             Debug.Log("Decrement score without pressing ");
         }
         else if (oldPos != currentPos)
         {
+            incrementCounter++;
             score++;
             Debug.Log("Increment Score without pressing ");
             
@@ -72,14 +82,19 @@ public static class ScoreCalculator
                 // Handle comparison when old and current clips are the same
                 Debug.Log("Audio clips are the same");
                 // Adjust the score or perform actions accordingly
+                incrementCounter++;
                 score++;
+
             }
             else
             {
                 // Handle comparison when old and current clips are different
                 Debug.Log("Audio clips are different");
                 // Adjust the score or perform actions accordingly
-                score--;
+                incrementCounter--;
+                score--; 
+           
+
             }
         }
         Debug.Log(score);
@@ -99,12 +114,16 @@ public static class ScoreCalculator
             if (oldAudio != currentAudio)
             {
                 // Audio clips arent the same and the button didnt get clicked
-                Debug.Log("Audio clips arent the same and the button didnt get clicked");
+                Debug.Log("Audio clips arent the same and the button didnt get clicked"); 
+                incrementCounter++;
+
                 score++;
             }
             else if (oldAudio == currentAudio && score != 0)
             {
                 Debug.Log("Audio clips are the same and the button didnt get clicked");
+                incrementCounter--;
+
                 score--;
             }
         }
@@ -114,7 +133,7 @@ public static class ScoreCalculator
     }
     public static void reinforcmentCondition()
     {
-        if (score - oldScore == 1)
+        if (score - oldScore == 1 && incrementCounter %3 == 0 )
         {
             reinforcementText = PositiveReinforcementIncrement();
             Debug.Log(reinforcementText);

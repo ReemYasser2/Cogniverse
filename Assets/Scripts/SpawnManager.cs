@@ -29,7 +29,7 @@ public class SpawnManager : MonoBehaviour
         while (AudioSpawnSharedVariables.trialsCount < AudioSpawnSharedVariables.maxTrials)
         {
             yield return new WaitForSeconds(intervalBetweenSpawns);
-
+            ScoreCalculator.reinforcementText = "";
             // Randomly selecting one of the positions
             int randomIndex = Random.Range(0, spawnPositions.Length);
             Vector3 spawnPos = spawnPositions[randomIndex].position;

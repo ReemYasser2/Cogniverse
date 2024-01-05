@@ -55,6 +55,8 @@ public class AudioManager : MonoBehaviour
                     if (!keyPressedDuringAudioPlayback && currentAudioClip != null && oldAudioClip != null)
                     {
                         ScoreCalculator.Increment(oldAudioClip, currentAudioClip);
+
+
                     }
                     keyPressedDuringAudioPlayback = false;
 
