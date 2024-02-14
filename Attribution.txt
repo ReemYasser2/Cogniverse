@@ -16,3 +16,5 @@ Real Stars Skybox Lite, Geoff Dallimore, Unity Asset Store
 Vintage Frame, Unknown
 Oak Wood Texture, Vecteezy
 Purple Earth Texture, Vecteezy, Marco Livolsi
+Brown Planet Texture, Everypixel , golubovy
+Moss and Rock Texture, everytexture
