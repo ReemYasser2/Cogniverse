@@ -11,6 +11,7 @@ public class SceneHandler : MonoBehaviour
     // function that opens the dual n-back game
     public void OpenDualNback()
     {
+        Debug.Log("jkerk");
         SceneManager.LoadScene(1);
     }
 
