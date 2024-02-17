@@ -10,7 +10,7 @@ public class SpawnManager : MonoBehaviour
     public Material[] materials;
     public Vector3 currentPosition;
     private Vector3 oldPosition;
-    public float intervalBetweenSpawns = 2.0f;
+    public float intervalBetweenSpawns;
     public bool isAPressed = false;
     // Start is called before the first frame update
     private void Start()
@@ -23,6 +23,15 @@ public class SpawnManager : MonoBehaviour
     {
         while (AudioSpawnSharedVariables.trialsCount < AudioSpawnSharedVariables.maxTrials)
         {
+            if (ScoreCalculator.score <= 20)
+            {
+                intervalBetweenSpawns = 2.0f;
+            }
+            else
+            {
+                intervalBetweenSpawns = 1.0f;
+            }
+
             yield return new WaitForSeconds(intervalBetweenSpawns);
 
             // Randomly selecting one of the positions
@@ -34,17 +43,19 @@ public class SpawnManager : MonoBehaviour
             // Instantiate the cube at the chosen position
             GameObject newObject = Instantiate(objectPrefab, spawnPos, Quaternion.identity);// Get or add a Renderer component
 
-            // Randomly select a material from the materials array
-            int randomMaterialIndex = Random.Range(0, materials.Length);
-            Material randomMaterial = materials[randomMaterialIndex];
-
-            // Apply the material to the child object
-            Renderer childRenderer = newObject.transform.GetChild(0).GetComponent<Renderer>();
-            if (childRenderer != null)
+            if(ScoreCalculator.score >=10)
             {
-                childRenderer.material = randomMaterial;
-            }
+                // Randomly select a material from the materials array
+                int randomMaterialIndex = Random.Range(0, materials.Length);
+                Material randomMaterial = materials[randomMaterialIndex];
 
+                // Apply the material to the child object
+                Renderer childRenderer = newObject.transform.GetChild(0).GetComponent<Renderer>();
+                if (childRenderer != null)
+                {
+                    childRenderer.material = randomMaterial;
+                }
+            }
             ScoreCalculator.isCalculated = false;
             SetCurrentPosition(newObject);
 
