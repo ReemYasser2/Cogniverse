@@ -12,9 +12,10 @@ public class SpawnManager : MonoBehaviour
     public GameObject endGamePanel;
     //public GameObject menuePanel;
     public Transform[] spawnPositions;
+    public Material[] materials;
     public Vector3 currentPosition;
     private Vector3 oldPosition;
-    public float intervalBetweenSpawns = 2.0f;
+    public float intervalBetweenSpawns;
     public bool isAPressed = false;
     public TextMeshProUGUI scoreText;
     public Button startButton;
@@ -28,14 +29,39 @@ public class SpawnManager : MonoBehaviour
     {
         while (AudioSpawnSharedVariables.trialsCount < AudioSpawnSharedVariables.maxTrials)
         {
+            if (ScoreCalculator.score <= 20)
+            {
+                intervalBetweenSpawns = 2.0f;
+            }
+            else
+            {
+                intervalBetweenSpawns = 1.0f;
+            }
+
             yield return new WaitForSeconds(intervalBetweenSpawns);
             ScoreCalculator.reinforcementText = "";
             // Randomly selecting one of the positions
             int randomIndex = Random.Range(0, spawnPositions.Length);
             Vector3 spawnPos = spawnPositions[randomIndex].position;
 
+           
+
             // Instantiate the cube at the chosen position
-            GameObject newObject = Instantiate(objectPrefab, spawnPos, Quaternion.identity);
+            GameObject newObject = Instantiate(objectPrefab, spawnPos, Quaternion.identity);// Get or add a Renderer component
+
+            if(ScoreCalculator.score >=10)
+            {
+                // Randomly select a material from the materials array
+                int randomMaterialIndex = Random.Range(0, materials.Length);
+                Material randomMaterial = materials[randomMaterialIndex];
+
+                // Apply the material to the child object
+                Renderer childRenderer = newObject.transform.GetChild(0).GetComponent<Renderer>();
+                if (childRenderer != null)
+                {
+                    childRenderer.material = randomMaterial;
+                }
+            }
             ScoreCalculator.isCalculated = false;
             SetCurrentPosition(newObject);
 
