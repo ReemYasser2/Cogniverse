@@ -26,6 +26,7 @@ public class AudioManager : MonoBehaviour
             {
                 yield return new WaitForSeconds(2.0f);
                 ScoreCalculator.isComparisonDone = false;
+                ScoreCalculator.reinforcementText = "";
                 int randomIndex = Random.Range(0, audioClips.Length - 19);
 
 

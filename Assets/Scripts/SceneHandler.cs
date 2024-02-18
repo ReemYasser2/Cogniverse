@@ -45,6 +45,10 @@ public class SceneHandler : MonoBehaviour
         SceneManager.LoadScene(6);
     }
 
-
+    // function that redirects to the home system
+    public void BackToHome()
+    {
+        SceneManager.LoadScene(0);
+    }
 
 }
