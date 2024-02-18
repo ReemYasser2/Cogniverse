@@ -10,7 +10,7 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject objectPrefab;
     public GameObject endGamePanel;
-    public GameObject menuePanel;
+    //public GameObject menuePanel;
     public Transform[] spawnPositions;
     public Vector3 currentPosition;
     private Vector3 oldPosition;
@@ -82,7 +82,7 @@ public class SpawnManager : MonoBehaviour
     private void ShowEndGamePanel()
     {
         endGamePanel.SetActive(true);
-        menuePanel.SetActive(false);
+        //menuePanel.SetActive(false);
         scoreText.text = $"Score: {ScoreCalculator.score}";
     }
 
