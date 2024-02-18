@@ -1,48 +1,70 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public static class ScoreCalculator
 {
     public static int score = 0;
+    public static TextMeshProUGUI reinforcement;
+
+    static int oldScore; 
+    static int incrementCounter=0;
+
     public static bool isCalculated = false;
-    public static bool isComparisonDone = false;
+    public static bool isComparisonDone = false;  
+    public static string reinforcementText;
+
+    static List<string> positiveIncrease = new List<string>
+            { " Good Job", "Keep it up", "You're on a roll", "Excellent work", "Amazing!!", "Awesome!!", "Well done!!"};
+    static List<string> positiveDecrease = new List<string>
+            { "Keep going", "Errors can teach", "Keep doing your best", "You've got this"};
+    static List<string> negativeIncrease = new List<string>
+            { " Average performance", "You can do better", "Ordinary move", "Below average"};
+    static List<string> negativeDecrease = new List<string>
+            { "You failed", "You missed it", "Not even close"};
     public static int CalculateScoreWhenPressed(Vector3 oldPos, Vector3 currentPos)
     {
-        Debug.Log(score);
+        oldScore = score;
         if (!isCalculated)
         {
             isCalculated = true;
             if (oldPos == currentPos)
             {
+                incrementCounter++;
                 score++;
                 Debug.Log("Increment score after pressing ");
-                Debug.Log(score);
             }
             else if (oldPos != currentPos && score != 0)
             {
+                incrementCounter--;
                 score--;
                 Debug.Log("Decrement score after pressing ");
-                Debug.Log(score);
             }
         }
+        reinforcmentCondition();
+        Debug.Log(score);
         return score;
     }
     public static  int CalculateScoreWithoutPressing(Vector3 oldPos, Vector3 currentPos)
     {
+        oldScore = score;
         Debug.Log(score);
         if (oldPos == currentPos && score != 0)
         {
+            incrementCounter--;
             score--;
             Debug.Log("Decrement score without pressing ");
-            Debug.Log(score);
         }
         else if (oldPos != currentPos)
         {
+            incrementCounter++;
             score++;
             Debug.Log("Increment Score without pressing ");
-            Debug.Log(score);
+            
         }
+        reinforcmentCondition();
+        Debug.Log(score);
         return score;
     }
 
@@ -50,6 +72,7 @@ public static class ScoreCalculator
     {
         // Logic to compare old and current audio clips goes here
         // You might need to modify this method based on your comparison criteria
+        oldScore = score;
         if (!isComparisonDone)
         {
             isComparisonDone = true;
@@ -59,24 +82,31 @@ public static class ScoreCalculator
                 // Handle comparison when old and current clips are the same
                 Debug.Log("Audio clips are the same");
                 // Adjust the score or perform actions accordingly
+                incrementCounter++;
                 score++;
+
             }
             else
             {
                 // Handle comparison when old and current clips are different
                 Debug.Log("Audio clips are different");
                 // Adjust the score or perform actions accordingly
-                score--;
-            }
+                incrementCounter--;
+                score--; 
+           
 
+            }
         }
         Debug.Log(score);
-
+        reinforcmentCondition();
         return score;
     }
+    
+
+
     public static int Increment(AudioClip oldAudio, AudioClip currentAudio)
     {
-
+        oldScore = score;
         if (!isComparisonDone)
         {
             isComparisonDone = true;
@@ -84,19 +114,54 @@ public static class ScoreCalculator
             if (oldAudio != currentAudio)
             {
                 // Audio clips arent the same and the button didnt get clicked
-                Debug.Log("Audio clips arent the same and the button didnt get clicked");
+                Debug.Log("Audio clips arent the same and the button didnt get clicked"); 
+                incrementCounter++;
+
                 score++;
             }
             else if (oldAudio == currentAudio && score != 0)
             {
                 Debug.Log("Audio clips are the same and the button didnt get clicked");
+                incrementCounter--;
+
                 score--;
             }
         }
         Debug.Log(score);
-
+        reinforcmentCondition();
         return score;
     }
-
-
+    public static void reinforcmentCondition()
+    {
+        if (score - oldScore == 1 && incrementCounter %3 == 0 )
+        {
+            reinforcementText = PositiveReinforcementIncrement();
+            Debug.Log(reinforcementText);
+        }
+        else if (oldScore - score == 1)
+        {
+            reinforcementText = PositiveReinforcementDecrement();
+            Debug.Log(reinforcementText);
+        }
+    }
+    public static string PositiveReinforcementIncrement()
+    {
+        int randomIndex = Random.Range(0, positiveIncrease.Count);
+        return positiveIncrease[randomIndex];
+    }
+    public static string PositiveReinforcementDecrement()
+    {
+        int randomIndex = Random.Range(0, positiveDecrease.Count);
+        return positiveDecrease[randomIndex];
+    }
+    public static string NegativeReinforcementIncrement()
+    {
+        int randomIndex = Random.Range(0, negativeIncrease.Count);
+        return negativeIncrease[randomIndex];
+    }
+    public static string NegativeReinforcementDecrement()
+    {
+        int randomIndex = Random.Range(0, negativeDecrease.Count);
+        return negativeDecrease[randomIndex];
+    }
 }
