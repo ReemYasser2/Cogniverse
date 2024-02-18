@@ -21,18 +21,13 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 3d Potion A_Fill
-<<<<<<< HEAD
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_Parent: {fileID: 2100000, guid: ec15a7f470319407ba348eb79f6879fe, type: 2}
-=======
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 0}
->>>>>>> main
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _EMISSION
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -43,8 +38,6 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-<<<<<<< HEAD
-=======
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: f4853b0d577944e3cbb45310ad891fb3, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -65,7 +58,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
->>>>>>> main
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -73,12 +65,6 @@ Material:
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
-<<<<<<< HEAD
-        m_Offset: {x: 0, y: 0.27}
-    m_Ints: []
-    m_Floats:
-    - _Cutoff: 0.44
-=======
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -125,11 +111,9 @@ Material:
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 1
->>>>>>> main
     - _Glossiness: 0.26
+    - _GlossyReflections: 1
     - _Metallic: 1
-<<<<<<< HEAD
-=======
     - _Mode: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -144,7 +128,6 @@ Material:
     - _UVSec: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
->>>>>>> main
     m_Colors:
     - _BaseColor: {r: 0, g: 0.032707565, b: 0.990566, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
