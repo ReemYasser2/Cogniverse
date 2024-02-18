@@ -4,36 +4,6 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-<<<<<<< HEAD
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/System Home.unity
-    guid: 4592e92a3fb8e3643b01788f778f0e8f
-  - enabled: 1
-    path: Assets/Scenes/Dual Nback.unity
-    guid: e6b521432cadb7c4ba0448e59fb208a5
-  - enabled: 1
-    path: Assets/Scenes/Electrical Maze.unity
-    guid: 07c8370c9ad4e7d459055ade2616e7de
-  - enabled: 1
-    path: Assets/Scenes/Shuffled.unity
-    guid: 5e9275bdd5a88634d813ac9e43ddd145
-  - enabled: 1
-    path: Assets/Scenes/Trail Making.unity
-    guid: 28a54e65bb94eaf45895eea7d5080f0b
-  - enabled: 1
-    path: Assets/Scenes/Focus Fusion.unity
-    guid: a40763ae4f1e3fb41a56f9a097df07bf
-  - enabled: 1
-    path: Assets/Scenes/Whack A Mole.unity
-    guid: 959e49773bec79947b197998b3d23386
-  - enabled: 0
-    path: Assets/Scenes/UI.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  m_configObjects:
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 328a181950bbda64aa17050e0ca252af, type: 2}
-    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: eaf9b6dfa81fe374d8642c3412de893b, type: 2}
-=======
   m_Scenes: []
-  m_configObjects: {}
->>>>>>> main
+  m_configObjects:
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: eaf9b6dfa81fe374d8642c3412de893b, type: 2}
