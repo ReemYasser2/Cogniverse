@@ -21,3 +21,5 @@ Brown Planet Texture, Everypixel , golubovy
 Moss and Rock Texture, everytexture
 Magic Shop Background Texture, art station, Albert Valls PunsichPRO
 Button Click Sound, Pixabay
+Painted Tiles - Sleeping Forest, Tobyfredson, Unity Asset Store
+Simple, Low-Poly Decorative Plant Assets, Ultrasonic, Unity Asset Store
