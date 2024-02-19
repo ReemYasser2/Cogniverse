@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Whack A Mole.unity
     guid: 959e49773bec79947b197998b3d23386
+  - enabled: 1
+    path: Assets/Scenes/Signup.unity
+    guid: a77c00e39129d1a44ad4e9bc077d425b
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
