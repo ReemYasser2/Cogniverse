@@ -133,7 +133,7 @@ public static class ScoreCalculator
     }
     public static void reinforcmentCondition()
     {
-        if (score - oldScore == 1 && incrementCounter %3 == 0 )
+        if (score - oldScore == 1 && incrementCounter %5 == 0 )
         {
             reinforcementText = PositiveReinforcementIncrement();
             Debug.Log(reinforcementText);

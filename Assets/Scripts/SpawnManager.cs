@@ -10,6 +10,8 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject objectPrefab;
     public GameObject endGamePanel;
+    public GameObject level2GamePanel;
+    public GameObject level3GamePanel;
     //public GameObject menuePanel;
     public Transform[] spawnPositions;
     public Material[] materials;
@@ -17,8 +19,11 @@ public class SpawnManager : MonoBehaviour
     private Vector3 oldPosition;
     public float intervalBetweenSpawns;
     public bool isAPressed = false;
+    public bool isLevel2 = false;
+    public bool isLevel3 = false;
     public TextMeshProUGUI scoreText;
     public Button startButton;
+    
     // Start is called before the first frame update
     //private void Start()
     //{
@@ -29,28 +34,27 @@ public class SpawnManager : MonoBehaviour
     {
         while (AudioSpawnSharedVariables.trialsCount < AudioSpawnSharedVariables.maxTrials)
         {
-            if (ScoreCalculator.score <= 20)
+            if (isLevel3 == true)
             {
-                intervalBetweenSpawns = 2.0f;
+                intervalBetweenSpawns = 0.5f;
             }
             else
             {
-                intervalBetweenSpawns = 1.0f;
+                intervalBetweenSpawns = 2.0f;
             }
-
+            intervalBetweenSpawns = 2.0f;
             yield return new WaitForSeconds(intervalBetweenSpawns);
             ScoreCalculator.reinforcementText = "";
+
             // Randomly selecting one of the positions
             int randomIndex = Random.Range(0, spawnPositions.Length);
             Vector3 spawnPos = spawnPositions[randomIndex].position;
 
-           
-
             // Instantiate the cube at the chosen position
             GameObject newObject = Instantiate(objectPrefab, spawnPos, Quaternion.identity);// Get or add a Renderer component
 
-            if(ScoreCalculator.score >=10)
-            {
+            if(isLevel2 == true || isLevel3 == true)
+            {             
                 // Randomly select a material from the materials array
                 int randomMaterialIndex = Random.Range(0, materials.Length);
                 Material randomMaterial = materials[randomMaterialIndex];
@@ -62,6 +66,7 @@ public class SpawnManager : MonoBehaviour
                     childRenderer.material = randomMaterial;
                 }
             }
+
             ScoreCalculator.isCalculated = false;
             SetCurrentPosition(newObject);
 
@@ -78,8 +83,24 @@ public class SpawnManager : MonoBehaviour
             Destroy(newObject);
             SetOldPosition(spawnPos);
             AudioSpawnSharedVariables.trialsCount++;
+
+            
         }
-        ShowEndGamePanel();
+        if (ScoreCalculator.score >= 1 && ScoreCalculator.score <= 5)
+        {
+            ShowLevelTwoInstructions();
+            isLevel2 = true;
+        }
+        else if (ScoreCalculator.score >= 10)
+        {
+            ShowLevelThreeInstructions();
+            isLevel3 = true;
+        }
+        else
+        {
+            ShowEndGamePanel();
+        }
+        
     }
     void SetCurrentPosition(GameObject gameObject)
     {
@@ -105,6 +126,17 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    private void ShowLevelTwoInstructions()
+    {
+        level2GamePanel.SetActive(true);
+        //menuePanel.SetActive(false);
+    }
+    private void ShowLevelThreeInstructions()
+    {
+        level3GamePanel.SetActive(true);
+        //menuePanel.SetActive(false);
+    }
+
     private void ShowEndGamePanel()
     {
         endGamePanel.SetActive(true);
@@ -114,6 +146,8 @@ public class SpawnManager : MonoBehaviour
 
     public void StartButtonClick()
     {
+        AudioSpawnSharedVariables.trialsCount = 0;
+        AudioSpawnSharedVariables.maxTrials = 5;
         StartCoroutine(SpawnObjectsRandomly());
     }
 }
