@@ -14,6 +14,7 @@ public class UserInput : MonoBehaviour
 
     }
 
+    /*
     // Update is called once per frame
     void Update()
     {
@@ -29,5 +30,19 @@ public class UserInput : MonoBehaviour
             audioManager.TriggerAudioComparison();
             audioManager.keyPressedDuringAudioPlayback = true;
         }
+    }
+    */
+    // 
+    public void whenPositionButtonPressed(){
+        Debug.Log("Position button pressed");
+        spawnManager.TriggerPositionComparison();
+        spawnManager.isAPressed = true;
+    }
+
+    // 
+    public void whenAudioButtonPressed(){
+        Debug.Log("Audio button pressed");
+        audioManager.TriggerAudioComparison();
+        audioManager.keyPressedDuringAudioPlayback = true;
     }
 }
