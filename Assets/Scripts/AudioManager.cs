@@ -11,11 +11,12 @@ public class AudioManager : MonoBehaviour
     private AudioClip currentAudioClip;
     public bool keyPressedDuringAudioPlayback = false;
     public Button startButton;
+    public SpawnManager spawnManagerVariable;
 
     //void Start()
     //{
-        //audioSource = GetComponent<AudioSource>();
-        //StartCoroutine(PlayAudioRandomly());
+    //audioSource = GetComponent<AudioSource>();
+    //StartCoroutine(PlayAudioRandomly());
     //}
 
     IEnumerator PlayAudioRandomly()
@@ -24,6 +25,14 @@ public class AudioManager : MonoBehaviour
         {
             if (!isPlaying)
             {
+                /*if (spawnManagerVariable.isLevel3)
+                {
+                    yield return new WaitForSeconds(0.5f);
+                }
+                else
+                {
+                    yield return new WaitForSeconds(2.0f);
+                }*/
                 yield return new WaitForSeconds(2.0f);
                 ScoreCalculator.isComparisonDone = false;
                 ScoreCalculator.reinforcementText = "";

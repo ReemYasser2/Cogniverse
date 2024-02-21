@@ -10,6 +10,7 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject objectPrefab;
     public GameObject endGamePanel;
+    public GameObject level1GamePanel;
     public GameObject level2GamePanel;
     public GameObject level3GamePanel;
     //public GameObject menuePanel;
@@ -19,15 +20,19 @@ public class SpawnManager : MonoBehaviour
     private Vector3 oldPosition;
     public float intervalBetweenSpawns;
     public bool isAPressed = false;
+    public bool isLevel1 = true;
     public bool isLevel2 = false;
     public bool isLevel3 = false;
     public TextMeshProUGUI scoreText;
     public Button startButton;
-    
+    public int score1;
+    public int score2;
+    public int score3;
+
     // Start is called before the first frame update
     //private void Start()
     //{
-        //StartCoroutine(SpawnObjectsRandomly());
+    //StartCoroutine(SpawnObjectsRandomly());
     //}
 
     IEnumerator SpawnObjectsRandomly()
@@ -42,7 +47,7 @@ public class SpawnManager : MonoBehaviour
             {
                 intervalBetweenSpawns = 2.0f;
             }
-            intervalBetweenSpawns = 2.0f;
+            
             yield return new WaitForSeconds(intervalBetweenSpawns);
             ScoreCalculator.reinforcementText = "";
 
@@ -86,19 +91,67 @@ public class SpawnManager : MonoBehaviour
 
             
         }
-        if (ScoreCalculator.score >= 1 && ScoreCalculator.score <= 5)
+        if (isLevel1)
+        {
+            score1 = ScoreCalculator.score;
+        }
+        else if (isLevel2)
+        {
+            score2 = ScoreCalculator.score;
+        }
+        else
+        {
+            score3 = ScoreCalculator.score;
+        }
+
+
+        if (ScoreCalculator.score >= 5 && isLevel1)
         {
             ShowLevelTwoInstructions();
+            isLevel1 = false;
             isLevel2 = true;
         }
-        else if (ScoreCalculator.score >= 10)
+        else if (ScoreCalculator.score <= 5 && isLevel1)
+        {
+            ShowLevelOneInstructions();
+            ScoreCalculator.score = 0;
+        }
+        else if (ScoreCalculator.score >= 10 && isLevel2)
         {
             ShowLevelThreeInstructions();
             isLevel3 = true;
+            isLevel1 = false;
+            isLevel2 = false;
+        }
+        else if (ScoreCalculator.score <= 10 && isLevel2)
+        {
+            ShowLevelTwoInstructions();
+            isLevel2 = true;
+            isLevel3 = false;
+            isLevel1 = false;
+            ScoreCalculator.score = score1;
+        }
+        else if (ScoreCalculator.score >= 15 && isLevel3)
+        {
+            ShowEndGamePanel();
+            isLevel1 = true;
+            isLevel2 = false;
+            isLevel3 = false;
+            ScoreCalculator.score = 0;
+        }
+        else if (ScoreCalculator.score <= 15 && isLevel3)
+        {
+            ShowLevelThreeInstructions();
+            isLevel3 = true;
+            isLevel1 = false;
+            isLevel2 = false;
+            ScoreCalculator.score = score2;
         }
         else
         {
             ShowEndGamePanel();
+            isLevel2 = false;
+            isLevel3 = false;
         }
         
     }
@@ -126,6 +179,11 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    private void ShowLevelOneInstructions()
+    {
+        level1GamePanel.SetActive(true);
+        //menuePanel.SetActive(false);
+    }
     private void ShowLevelTwoInstructions()
     {
         level2GamePanel.SetActive(true);
