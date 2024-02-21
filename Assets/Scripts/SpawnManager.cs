@@ -23,6 +23,7 @@ public class SpawnManager : MonoBehaviour
     public bool isLevel1 = true;
     public bool isLevel2 = false;
     public bool isLevel3 = false;
+    public static bool isGameOver = false;
     public TextMeshProUGUI scoreText;
     public Button startButton;
     public int score1;
@@ -39,6 +40,7 @@ public class SpawnManager : MonoBehaviour
     {
         while (AudioSpawnSharedVariables.trialsCount < AudioSpawnSharedVariables.maxTrials)
         {
+            isGameOver = false;
             if (isLevel3 == true)
             {
                 intervalBetweenSpawns = 0.5f;
@@ -138,6 +140,8 @@ public class SpawnManager : MonoBehaviour
             isLevel2 = false;
             isLevel3 = false;
             ScoreCalculator.score = 0;
+            isGameOver = true;
+            Debug.Log("game over test");
         }
         else if (ScoreCalculator.score <= 15 && isLevel3)
         {
@@ -152,6 +156,8 @@ public class SpawnManager : MonoBehaviour
             ShowEndGamePanel();
             isLevel2 = false;
             isLevel3 = false;
+            isGameOver = true;
+            Debug.Log("game over test");
         }
         
     }
