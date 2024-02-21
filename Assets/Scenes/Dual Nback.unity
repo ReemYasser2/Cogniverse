@@ -987,7 +987,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 173693876}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -996,7 +996,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 35.8, y: -40.7}
+  m_AnchoredPosition: {x: 35.8, y: -33.4}
   m_SizeDelta: {x: 20.76, y: 13.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &173693878
@@ -3054,8 +3054,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Congratulations on reaching Level 2!  In this level, we're adding a new
-    twist, you need to pay attention to the objects' colours too.
+  m_text: "Congratulations on reaching Level 2!  \n\nIn this level, we're adding
+    a new twist, you need to pay attention to the objects' colours too."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9cb2cbe18ce81034586dd2a7f93ae595, type: 2}
   m_sharedMaterial: {fileID: 8453070828025603219, guid: 9cb2cbe18ce81034586dd2a7f93ae595, type: 2}
@@ -8112,8 +8112,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Congratulations on reaching Level 3!  In this level, no more twists are
-    added, but be careful, the game will be much faster!
+  m_text: "Congratulations on reaching Level 3!  \n\nIn this level, no more twists
+    are added, but be careful, the game will be much faster!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9cb2cbe18ce81034586dd2a7f93ae595, type: 2}
   m_sharedMaterial: {fileID: 8453070828025603219, guid: 9cb2cbe18ce81034586dd2a7f93ae595, type: 2}
@@ -12973,7 +12973,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "If an object appears with the same colour, reach out and touch the colour
-    button. \nGet ready!"
+    button. \n\nGet ready!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9cb2cbe18ce81034586dd2a7f93ae595, type: 2}
   m_sharedMaterial: {fileID: 8453070828025603219, guid: 9cb2cbe18ce81034586dd2a7f93ae595, type: 2}
@@ -13077,7 +13077,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1744002548}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13086,7 +13086,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 35.8, y: -40.7}
+  m_AnchoredPosition: {x: 35.8, y: -33.4}
   m_SizeDelta: {x: 20.76, y: 13.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1744002550
@@ -16982,7 +16982,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2031384077}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16991,7 +16991,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 35.8, y: -40.7}
+  m_AnchoredPosition: {x: 35.8, y: -33.4}
   m_SizeDelta: {x: 20.76, y: 13.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2031384079
