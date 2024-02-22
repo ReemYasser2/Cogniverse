@@ -16,10 +16,25 @@ public class Reinforcement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SpawnManager.isGameOver == true)
+        if (SpawnManager.isGameOver)
         {
             reinforcmentText.text = "";
             Debug.Log("game over");
+        }
+        else if (SpawnManager.isStartLevel1)
+        {
+            reinforcmentText.text = "";
+            Debug.Log("level 1");
+        }
+        else if (SpawnManager.isStartLevel2)
+        {
+            reinforcmentText.text = "";
+            Debug.Log("level 2");
+        }
+        else if (SpawnManager.isStartLevel3)
+        {
+            reinforcmentText.text = "";
+            Debug.Log("level 3");
         }
         else
         {

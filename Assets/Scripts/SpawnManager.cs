@@ -20,10 +20,13 @@ public class SpawnManager : MonoBehaviour
     private Vector3 oldPosition;
     public float intervalBetweenSpawns;
     public bool isAPressed = false;
-    public bool isLevel1 = true;
-    public bool isLevel2 = false;
-    public bool isLevel3 = false;
+    public static bool isLevel1 = true;
+    public static bool isLevel2 = false;
+    public static bool isLevel3 = false;
     public static bool isGameOver = false;
+    public static bool isStartLevel1 = false;
+    public static bool isStartLevel2 = false;
+    public static bool isStartLevel3 = false;
     public TextMeshProUGUI scoreText;
     public Button startButton;
     public int score1;
@@ -41,6 +44,9 @@ public class SpawnManager : MonoBehaviour
         while (AudioSpawnSharedVariables.trialsCount < AudioSpawnSharedVariables.maxTrials)
         {
             isGameOver = false;
+            isStartLevel1 = false;
+            isStartLevel2 = false;
+            isStartLevel3 = false;
             if (isLevel3 == true)
             {
                 intervalBetweenSpawns = 0.5f;
@@ -112,11 +118,13 @@ public class SpawnManager : MonoBehaviour
             ShowLevelTwoInstructions();
             isLevel1 = false;
             isLevel2 = true;
+            isStartLevel2 = true;
         }
         else if (ScoreCalculator.score <= 5 && isLevel1)
         {
             ShowLevelOneInstructions();
             ScoreCalculator.score = 0;
+            isStartLevel1 = true;
         }
         else if (ScoreCalculator.score >= 10 && isLevel2)
         {
@@ -124,6 +132,7 @@ public class SpawnManager : MonoBehaviour
             isLevel3 = true;
             isLevel1 = false;
             isLevel2 = false;
+            isStartLevel3 = true;
         }
         else if (ScoreCalculator.score <= 10 && isLevel2)
         {
@@ -132,6 +141,7 @@ public class SpawnManager : MonoBehaviour
             isLevel3 = false;
             isLevel1 = false;
             ScoreCalculator.score = score1;
+            isStartLevel2 = true;
         }
         else if (ScoreCalculator.score >= 15 && isLevel3)
         {
@@ -150,6 +160,7 @@ public class SpawnManager : MonoBehaviour
             isLevel1 = false;
             isLevel2 = false;
             ScoreCalculator.score = score2;
+            isStartLevel3 = true;
         }
         else
         {
