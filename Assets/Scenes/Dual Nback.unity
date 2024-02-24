@@ -6360,9 +6360,6 @@ MonoBehaviour:
   currentPosition: {x: 0, y: 0, z: 0}
   intervalBetweenSpawns: 2
   isAPressed: 0
-  isLevel1: 1
-  isLevel2: 0
-  isLevel3: 0
   scoreText: {fileID: 675656319}
   startButton: {fileID: 783574835}
   score1: 0
@@ -12020,6 +12017,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 699350181}
+        m_TargetAssemblyTypeName: PauseGame, Assembly-CSharp
+        m_MethodName: Pause
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

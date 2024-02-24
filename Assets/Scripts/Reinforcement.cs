@@ -19,22 +19,18 @@ public class Reinforcement : MonoBehaviour
         if (SpawnManager.isGameOver)
         {
             reinforcmentText.text = "";
-            Debug.Log("game over");
         }
         else if (SpawnManager.isStartLevel1)
         {
             reinforcmentText.text = "";
-            Debug.Log("level 1");
         }
         else if (SpawnManager.isStartLevel2)
         {
             reinforcmentText.text = "";
-            Debug.Log("level 2");
         }
         else if (SpawnManager.isStartLevel3)
         {
             reinforcmentText.text = "";
-            Debug.Log("level 3");
         }
         else
         {
