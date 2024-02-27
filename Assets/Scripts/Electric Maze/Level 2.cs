@@ -12,7 +12,7 @@ public class Level2 : MonoBehaviour
     public Transform [] powerUpPos;
     public Transform[] obstaclePos;
     MazeSpawner mazeSpawner;
-    int trials=5;
+    
     void Start()
     {
        mazeSpawner =FindObjectOfType<MazeSpawner>();
@@ -21,7 +21,7 @@ public class Level2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        objectsSpawner();
+  
     }
     public void objectsSpawner() // 5 osbtacles & 3 poweups will appear 
     {
