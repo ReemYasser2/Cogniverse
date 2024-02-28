@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Dual Nback.unity
     guid: e6b521432cadb7c4ba0448e59fb208a5
   - enabled: 1
-    path: Assets/Scenes/Electrical Maze.unity
+    path: Assets/Letters Audio Clips/Electrical Maze.unity
     guid: 07c8370c9ad4e7d459055ade2616e7de
   - enabled: 1
     path: Assets/Scenes/Shuffled.unity
