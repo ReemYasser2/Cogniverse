@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.ParticleSystem;
 
 public class StickCollision : MonoBehaviour
 {
@@ -23,22 +22,9 @@ public class StickCollision : MonoBehaviour
             }
         }
         lastCollisionTime = Time.time;
+  
 
-        if (collision.gameObject.name == "Mushroom 1(Clone)")
-        {
-            ScoreCalculatorMaze.Increment();
-            Debug.Log("Collision with an obstacle!");
-            Destroy(collision.gameObject);
-        }
-        else if (collision.gameObject.name == "Mushroom 3(Clone)")
-        {
-            ScoreCalculatorMaze.Decrement();
-            Debug.Log("Collision with a power-up!");
-            Destroy(collision.gameObject);
-        }
-
-
-
+       
 
     }
 

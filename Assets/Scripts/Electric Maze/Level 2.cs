@@ -8,6 +8,7 @@ public class Level2 : MonoBehaviour
     // Start is called before the first frame update
     public GameObject powerUp;
     public GameObject obstacle;
+    public GameObject stick;
     public Transform [] powerUpPos;
     public Transform[] obstaclePos;
     MazeSpawner mazeSpawner;
