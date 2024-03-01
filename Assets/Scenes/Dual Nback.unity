@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.019355748, g: 0.024910592, b: 0.031366937, a: 1}
+  m_IndirectSpecularColor: {r: 0.019353122, g: 0.024906281, b: 0.03136282, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11531,6 +11531,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: XR Device Simulator
       objectReference: {fileID: 0}
+    - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17997,7 +18001,7 @@ MonoBehaviour:
   m_Camera: {fileID: 1208660152}
   m_OriginBaseGameObject: {fileID: 2067914933}
   m_CameraFloorOffsetObject: {fileID: 1573441408}
-  m_RequestedTrackingOriginMode: 0
+  m_RequestedTrackingOriginMode: 2
   m_CameraYOffset: 1.1176
 --- !u!1001 &2110192670
 PrefabInstance:
