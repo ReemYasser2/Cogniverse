@@ -11,6 +11,10 @@ public class HapticFeedback : MonoBehaviour
     public AudioClip collisionSound;
     private XRController xrController;
     private AudioSource audioSource;
+
+    private float lastCollisionTime;
+    public float collisionCooldown = 1f; // Cooldown period to prevent multiple collisions in the same frame
+
     void Start()
     {
         xrController = GetComponent<XRController>();
@@ -34,6 +38,25 @@ public class HapticFeedback : MonoBehaviour
             // Trigger haptic feedback on the hand controller
             xrController.SendHapticImpulse(0.7f, 2.0f);
 
+            if (Time.time - lastCollisionTime > collisionCooldown)
+            {
+                Debug.Log("Collision detected with a maze");
+                ScoreCalculatorMaze.Increment();
+            } 
+        }
+        lastCollisionTime = Time.time;
+
+        if (collision.gameObject.name == "Mushroom 1(Clone)")
+        {
+            ScoreCalculatorMaze.Increment();
+            Debug.Log("Collision with an obstacle!");
+            Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.name == "Mushroom 3(Clone)")
+        {
+            ScoreCalculatorMaze.Decrement();
+            Debug.Log("Collision with a power-up!");
+            Destroy(collision.gameObject);
         }
     }
 }
