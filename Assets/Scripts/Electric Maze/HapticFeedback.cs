@@ -36,7 +36,7 @@ public class HapticFeedback : MonoBehaviour
             audioSource.PlayOneShot(collisionSound);
 
             // Trigger haptic feedback on the hand controller
-            xrController.SendHapticImpulse(0.7f, 2.0f);
+            //xrController.SendHapticImpulse(0.7f, 2.0f);
 
             if (Time.time - lastCollisionTime > collisionCooldown)
             {
