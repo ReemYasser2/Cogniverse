@@ -8,21 +8,22 @@ public class SceneHandler : MonoBehaviour
     // A script that handles moving between scenes to open games from the home screen
     // & exit games returning to the home screen
 
+
+    // function that redirects to the home system
+    public void BackToHome()
+    {
+        SceneManager.LoadScene(1);
+    }
+
     // function that opens the dual n-back game
     public void OpenDualNback()
     {
         Debug.Log("jkerk");
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     // function that opens the electrical maze game
     public void OpenElectricalMaze()
-    {
-        SceneManager.LoadScene(2);
-    }
-
-    // function that opens the shuffled game
-    public void OpenShuffled()
     {
         SceneManager.LoadScene(3);
     }
@@ -33,6 +34,7 @@ public class SceneHandler : MonoBehaviour
         SceneManager.LoadScene(4);
     }
 
+  
     // function that opens the focus fusion game
     public void OpenFocusFusion()
     {
@@ -45,10 +47,6 @@ public class SceneHandler : MonoBehaviour
         SceneManager.LoadScene(6);
     }
 
-    // function that redirects to the home system
-    public void BackToHome()
-    {
-        SceneManager.LoadScene(0);
-    }
+    
 
 }
