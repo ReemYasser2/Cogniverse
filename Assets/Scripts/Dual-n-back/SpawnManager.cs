@@ -33,6 +33,7 @@ public class SpawnManager : MonoBehaviour
     public int score2;
     public int score3;
 
+    public GameObject colourButton;
     // Start is called before the first frame update
     //private void Start()
     //{
@@ -47,6 +48,11 @@ public class SpawnManager : MonoBehaviour
             isStartLevel1 = false;
             isStartLevel2 = false;
             isStartLevel3 = false;
+            colourButton.SetActive(false);
+            if (isLevel3 == true || isLevel2 == true)
+            {               
+                colourButton.SetActive(true);
+            }
             if (isLevel3 == true)
             {
                 intervalBetweenSpawns = 0.5f;
