@@ -41,6 +41,10 @@ namespace UnityEngine.XR.Content.Interaction
         float m_ButtonSize = 0.1f;
 
         [SerializeField]
+        [Tooltip("How big of a surface area is available for pressing the button")]
+        float m_ButtonSizeZ = 0.1f;
+
+        [SerializeField]
         [Tooltip("Treat this button like an on/off toggle")]
         bool m_ToggleButton = false;
 
@@ -198,7 +202,7 @@ namespace UnityEngine.XR.Content.Interaction
                 var interactorTransform = pressInfo.m_Interactor.GetAttachTransform(this);
                 var localOffset = transform.InverseTransformVector(interactorTransform.position - m_BaseButtonPosition);
 
-                var withinButtonRegion = (Mathf.Abs(localOffset.x) < m_ButtonSize && Mathf.Abs(localOffset.z) < m_ButtonSize);
+                var withinButtonRegion = (Mathf.Abs(localOffset.x) < m_ButtonSize && Mathf.Abs(localOffset.z) < m_ButtonSizeZ);
                 if (withinButtonRegion)
                 {
                     if (!pressInfo.m_InPressRegion)
@@ -281,7 +285,7 @@ namespace UnityEngine.XR.Content.Interaction
 
             Gizmos.color = Color.green;
             Gizmos.matrix = transform.localToWorldMatrix;
-            Gizmos.DrawWireCube(pressStartPoint, new Vector3(m_ButtonSize, m_PressDistance, m_ButtonSize));
+            Gizmos.DrawWireCube(pressStartPoint, new Vector3(m_ButtonSize, m_PressDistance, m_ButtonSizeZ));
         }
 
         void OnValidate()

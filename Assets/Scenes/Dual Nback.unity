@@ -12909,7 +12909,8 @@ MonoBehaviour:
   m_PressDistance: 0.03
   m_PressBuffer: 0.01
   m_ButtonOffset: 0.1
-  m_ButtonSize: 0.22
+  m_ButtonSize: 0.66
+  m_ButtonSizeZ: 0.22
   m_ToggleButton: 0
   m_OnPress:
     m_PersistentCalls:
@@ -14300,7 +14301,8 @@ MonoBehaviour:
   m_PressDistance: 0.03
   m_PressBuffer: 0.01
   m_ButtonOffset: 0.1
-  m_ButtonSize: 0.22
+  m_ButtonSize: 0.66
+  m_ButtonSizeZ: 0.22
   m_ToggleButton: 0
   m_OnPress:
     m_PersistentCalls:
@@ -19109,7 +19111,8 @@ MonoBehaviour:
   m_PressDistance: 0.03
   m_PressBuffer: 0.01
   m_ButtonOffset: 0.1
-  m_ButtonSize: 0.5
+  m_ButtonSize: 0.66
+  m_ButtonSizeZ: 0.22
   m_ToggleButton: 0
   m_OnPress:
     m_PersistentCalls:
