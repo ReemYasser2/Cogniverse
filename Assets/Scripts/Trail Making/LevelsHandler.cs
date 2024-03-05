@@ -14,15 +14,6 @@ public class LevelsHandler : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void TrailSelection()
     {
         if (level_1)
@@ -41,12 +32,5 @@ public class LevelsHandler : MonoBehaviour
             trails[trailIndex].SetActive(true);
         }
     }
-    public void ScoreCalculator()
-    {
-        if (level_1)
-        {
-          
-        }
-    }
-   
+    
 }
