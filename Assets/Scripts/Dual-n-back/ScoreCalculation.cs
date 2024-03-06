@@ -8,6 +8,14 @@ public static class ScoreCalculator
     public static int score = 0;
     public static TextMeshProUGUI reinforcement;
 
+    public static bool isLevel1 = true;
+    public static bool isLevel2 = false;
+    public static bool isLevel3 = false;
+    public static bool isGameOver = false;
+    public static bool isStartLevel1 = false;
+    public static bool isStartLevel2 = false;
+    public static bool isStartLevel3 = false;
+
     static int oldScore; 
     static int incrementCounter=0;
 
@@ -133,15 +141,15 @@ public static class ScoreCalculator
     }
     public static void reinforcmentCondition()
     {
-        if (score - oldScore == 1 && incrementCounter %5 == 0 )
+        if (score - oldScore == 1 && incrementCounter % 5 == 0 )
         {
+            reinforcementText = "";
             reinforcementText = PositiveReinforcementIncrement();
-            Debug.Log(reinforcementText);
         }
         else if (oldScore - score == 1)
         {
+            reinforcementText = "";
             reinforcementText = PositiveReinforcementDecrement();
-            Debug.Log(reinforcementText);
         }
     }
     public static string PositiveReinforcementIncrement()

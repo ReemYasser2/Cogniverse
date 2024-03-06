@@ -25,15 +25,14 @@ public class AudioManager : MonoBehaviour
         {
             if (!isPlaying)
             {
-                /*if (spawnManagerVariable.isLevel3)
+                if (ScoreCalculator.isLevel3)
                 {
                     yield return new WaitForSeconds(0.5f);
                 }
                 else
                 {
                     yield return new WaitForSeconds(2.0f);
-                }*/
-                yield return new WaitForSeconds(2.0f);
+                }
                 ScoreCalculator.isComparisonDone = false;
                 ScoreCalculator.reinforcementText = "";
                 int randomIndex = Random.Range(0, audioClips.Length - 19);
