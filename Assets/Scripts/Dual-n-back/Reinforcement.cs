@@ -34,7 +34,8 @@ public class Reinforcement : MonoBehaviour
         }
         else
         {
-            reinforcmentText.text = ScoreCalculator.reinforcementText;
+            //reinforcmentText.text = ScoreCalculator.reinforcementText;
+            DynamicTextManager.CreateText(new Vector3 (0.2f, 0f, -7.2f), ScoreCalculator.reinforcementText, DynamicTextManager.defaultData);
         }
     }
 }
