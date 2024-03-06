@@ -20,13 +20,7 @@ public class SpawnManager : MonoBehaviour
     private Vector3 oldPosition;
     public float intervalBetweenSpawns;
     public bool isAPressed = false;
-    public static bool isLevel1 = true;
-    public static bool isLevel2 = false;
-    public static bool isLevel3 = false;
-    public static bool isGameOver = false;
-    public static bool isStartLevel1 = false;
-    public static bool isStartLevel2 = false;
-    public static bool isStartLevel3 = false;
+
     public TextMeshProUGUI scoreText;
     public Button startButton;
     public int score1;
@@ -44,16 +38,16 @@ public class SpawnManager : MonoBehaviour
     {
         while (AudioSpawnSharedVariables.trialsCount < AudioSpawnSharedVariables.maxTrials)
         {
-            isGameOver = false;
-            isStartLevel1 = false;
-            isStartLevel2 = false;
-            isStartLevel3 = false;
+            ScoreCalculator.isGameOver = false;
+            ScoreCalculator.isStartLevel1 = false;
+            ScoreCalculator.isStartLevel2 = false;
+            ScoreCalculator.isStartLevel3 = false;
             colourButton.SetActive(false);
-            if (isLevel3 == true || isLevel2 == true)
+            if (ScoreCalculator.isLevel3 == true || ScoreCalculator.isLevel2 == true)
             {               
                 colourButton.SetActive(true);
             }
-            if (isLevel3 == true)
+            if (ScoreCalculator.isLevel3 == true)
             {
                 intervalBetweenSpawns = 0.5f;
             }
@@ -72,7 +66,7 @@ public class SpawnManager : MonoBehaviour
             // Instantiate the cube at the chosen position
             GameObject newObject = Instantiate(objectPrefab, spawnPos, Quaternion.identity);// Get or add a Renderer component
 
-            if(isLevel2 == true || isLevel3 == true)
+            if(ScoreCalculator.isLevel2 == true || ScoreCalculator.isLevel3 == true)
             {             
                 // Randomly select a material from the materials array
                 int randomMaterialIndex = Random.Range(0, materials.Length);
@@ -105,11 +99,11 @@ public class SpawnManager : MonoBehaviour
 
             
         }
-        if (isLevel1)
+        if (ScoreCalculator.isLevel1)
         {
             score1 = ScoreCalculator.score;
         }
-        else if (isLevel2)
+        else if (ScoreCalculator.isLevel2)
         {
             score2 = ScoreCalculator.score;
         }
@@ -119,61 +113,61 @@ public class SpawnManager : MonoBehaviour
         }
 
 
-        if (ScoreCalculator.score >= 5 && isLevel1)
+        if (ScoreCalculator.score >= 5 && ScoreCalculator.isLevel1)
         {
             ShowLevelTwoInstructions();
-            isLevel1 = false;
-            isLevel2 = true;
-            isStartLevel2 = true;
+            ScoreCalculator.isLevel1 = false;
+            ScoreCalculator.isLevel2 = true;
+            ScoreCalculator.isStartLevel2 = true;
         }
-        else if (ScoreCalculator.score <= 5 && isLevel1)
+        else if (ScoreCalculator.score <= 5 && ScoreCalculator.isLevel1)
         {
             ShowLevelOneInstructions();
             ScoreCalculator.score = 0;
-            isStartLevel1 = true;
+            ScoreCalculator.isStartLevel1 = true;
         }
-        else if (ScoreCalculator.score >= 10 && isLevel2)
+        else if (ScoreCalculator.score >= 10 && ScoreCalculator.isLevel2)
         {
             ShowLevelThreeInstructions();
-            isLevel3 = true;
-            isLevel1 = false;
-            isLevel2 = false;
-            isStartLevel3 = true;
+            ScoreCalculator.isLevel3 = true;
+            ScoreCalculator.isLevel1 = false;
+            ScoreCalculator.isLevel2 = false;
+            ScoreCalculator.isStartLevel3 = true;
         }
-        else if (ScoreCalculator.score <= 10 && isLevel2)
+        else if (ScoreCalculator.score <= 10 && ScoreCalculator.isLevel2)
         {
             ShowLevelTwoInstructions();
-            isLevel2 = true;
-            isLevel3 = false;
-            isLevel1 = false;
+            ScoreCalculator.isLevel2 = true;
+            ScoreCalculator.isLevel3 = false;
+            ScoreCalculator.isLevel1 = false;
             ScoreCalculator.score = score1;
-            isStartLevel2 = true;
+            ScoreCalculator.isStartLevel2 = true;
         }
-        else if (ScoreCalculator.score >= 15 && isLevel3)
+        else if (ScoreCalculator.score >= 15 && ScoreCalculator.isLevel3)
         {
             ShowEndGamePanel();
-            isLevel1 = true;
-            isLevel2 = false;
-            isLevel3 = false;
+            ScoreCalculator.isLevel1 = true;
+            ScoreCalculator.isLevel2 = false;
+            ScoreCalculator.isLevel3 = false;
             ScoreCalculator.score = 0;
-            isGameOver = true;
+            ScoreCalculator.isGameOver = true;
             Debug.Log("game over test");
         }
-        else if (ScoreCalculator.score <= 15 && isLevel3)
+        else if (ScoreCalculator.score <= 15 && ScoreCalculator.isLevel3)
         {
             ShowLevelThreeInstructions();
-            isLevel3 = true;
-            isLevel1 = false;
-            isLevel2 = false;
+            ScoreCalculator.isLevel3 = true;
+            ScoreCalculator.isLevel1 = false;
+            ScoreCalculator.isLevel2 = false;
             ScoreCalculator.score = score2;
-            isStartLevel3 = true;
+            ScoreCalculator.isStartLevel3 = true;
         }
         else
         {
             ShowEndGamePanel();
-            isLevel2 = false;
-            isLevel3 = false;
-            isGameOver = true;
+            ScoreCalculator.isLevel2 = false;
+            ScoreCalculator.isLevel3 = false;
+            ScoreCalculator.isGameOver = true;
             Debug.Log("game over test");
         }
         
