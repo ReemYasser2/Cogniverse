@@ -1,4 +1,3 @@
-All fonts from webtoolhub.com
 Translucent Crystals, Unity Asset Store, SineVFX
 Books, VIS GAMES,Unity Asset Store
 Dolls House Miniature Mixed Grey Irregular Surface Stone Paper, Dolls House Suppliers, ebay
@@ -55,4 +54,8 @@ BubbleGum SDF, webtoolhub.com
 Baldur_Regul SDF, webtoolhub.com
 RPG&Fantasy Mobile GUI, Unity Asset Store
 Dynamic floatinf Text, Unity Asset Store
+laserLarge_001 Audio, kenney
+Space Ranger Title Font, webtoolhub.com
+
+
 

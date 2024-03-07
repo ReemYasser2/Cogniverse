@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.019260699, g: 0.024357194, b: 0.030610144, a: 1}
+  m_IndirectSpecularColor: {r: 0.019353122, g: 0.024906281, b: 0.03136282, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10796,7 +10796,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2.5
+  m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -10854,13 +10854,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1525142789}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.54924476, y: 0.018939754, z: -0.07470637, w: 0.83210003}
-  m_LocalPosition: {x: -6.42, y: 19.34, z: -12.91}
+  m_LocalRotation: {x: 0.5503039, y: -0.19187148, z: 0.06646145, w: 0.8098974}
+  m_LocalPosition: {x: -6.42, y: 15.12, z: -12.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1144683294}
-  m_LocalEulerAnglesHint: {x: 66.475, y: -7.275, z: -15.032}
+  m_LocalEulerAnglesHint: {x: 66.475, y: -36.539, z: -15.032}
 --- !u!114 &1525142792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16250,11 +16250,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 277348803952696579, guid: 73b107d6ff7ca15418ade659ce443d25, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.252
+      value: 8.11
       objectReference: {fileID: 0}
     - target: {fileID: 455271052940538143, guid: 73b107d6ff7ca15418ade659ce443d25, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 662116780039327623, guid: 73b107d6ff7ca15418ade659ce443d25, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1343252710475480036, guid: 73b107d6ff7ca15418ade659ce443d25, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -16617,20 +16621,24 @@ PrefabInstance:
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7787503397148727223, guid: 73b107d6ff7ca15418ade659ce443d25, type: 3}
+      propertyPath: m_Range
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787503397148727223, guid: 73b107d6ff7ca15418ade659ce443d25, type: 3}
       propertyPath: m_Color.b
-      value: 0.6792453
+      value: 0.8396226
       objectReference: {fileID: 0}
     - target: {fileID: 7787503397148727223, guid: 73b107d6ff7ca15418ade659ce443d25, type: 3}
       propertyPath: m_Color.g
-      value: 0.053826936
+      value: 0.058615133
       objectReference: {fileID: 0}
     - target: {fileID: 7787503397148727223, guid: 73b107d6ff7ca15418ade659ce443d25, type: 3}
       propertyPath: m_Color.r
-      value: 0.35519442
+      value: 0.43683892
       objectReference: {fileID: 0}
     - target: {fileID: 7787503397148727223, guid: 73b107d6ff7ca15418ade659ce443d25, type: 3}
       propertyPath: m_Intensity
-      value: 2.05
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7983548295909760679, guid: 73b107d6ff7ca15418ade659ce443d25, type: 3}
       propertyPath: m_LocalScale.x
@@ -16968,6 +16976,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 5225815967243266898, guid: 1c972a34a9621364db14cdc0436d4821, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5334a0c4da80f77419c8e16735a9fe9c, type: 2}
     - target: {fileID: 5400891492488971878, guid: 1c972a34a9621364db14cdc0436d4821, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -17068,6 +17080,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.0615
       objectReference: {fileID: 0}
+    - target: {fileID: 8564648481068973445, guid: 1c972a34a9621364db14cdc0436d4821, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4811b3b433d8f8246a1603f1816609a9, type: 2}
     - target: {fileID: 9091029178007852674, guid: 1c972a34a9621364db14cdc0436d4821, type: 3}
       propertyPath: m_Name
       value: Surrounding Room
