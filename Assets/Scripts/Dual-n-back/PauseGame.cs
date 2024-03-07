@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PauseGame : MonoBehaviour
 {
-    bool paused = false;
-    public void Pause()
+    static bool paused = false;
+    public static void Pause()
     {
         if(paused)
         {

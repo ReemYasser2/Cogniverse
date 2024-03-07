@@ -26,7 +26,7 @@ public class SpawnManager : MonoBehaviour
     public int score1;
     public int score2;
     public int score3;
-
+    public static bool isGameStart = false;
     public GameObject colourButton;
     // Start is called before the first frame update
     //private void Start()
@@ -38,6 +38,7 @@ public class SpawnManager : MonoBehaviour
     {
         while (AudioSpawnSharedVariables.trialsCount < AudioSpawnSharedVariables.maxTrials)
         {
+            isGameStart = true;
             ScoreCalculator.isGameOver = false;
             ScoreCalculator.isStartLevel1 = false;
             ScoreCalculator.isStartLevel2 = false;
