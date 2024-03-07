@@ -31,8 +31,11 @@ public class MenuHandler : MonoBehaviour
     {
         if (SpawnManager.isGameStart && !ScoreCalculator.isGameOver)
         {
-            menuCanvas.SetActive(true);
-            PauseGame.Pause();
+            if (menuCanvas.activeSelf == false)
+            {
+                menuCanvas.SetActive(true);
+                PauseGame.Pause();
+            }
         }
     }
 }
