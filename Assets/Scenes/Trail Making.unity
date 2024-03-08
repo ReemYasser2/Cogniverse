@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.10870849, g: 0.099930815, b: 0.09477871, a: 1}
+  m_IndirectSpecularColor: {r: 0.109058775, g: 0.099776424, b: 0.09507435, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1419,7 +1419,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &48753775
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3471,6 +3471,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 145036779}
   m_CullTransparentMesh: 1
+--- !u!1 &161902900
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 161902901}
+  - component: {fileID: 161902902}
+  m_Layer: 0
+  m_Name: Levels Handler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &161902901
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161902900}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.97, y: 6.59, z: -16.14}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1965151649}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &161902902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161902900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: befb95caa4030bd4ab4d188401b5b3ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level_1: 1
+  level_2: 0
+  level_3: 0
+  selectedTrail: 0
+  levelOneTrails:
+  - {fileID: 48753774}
+  - {fileID: 1547824681}
+  levelTwoTrails:
+  - {fileID: 1606481551}
+  - {fileID: 1336103503}
+  levelThreeTrails:
+  - {fileID: 1539496959}
+  - {fileID: 859655411}
+  spawnPosition: {fileID: 161902901}
 --- !u!1 &169398831
 GameObject:
   m_ObjectHideFlags: 0
@@ -25321,6 +25379,94 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1189809485}
   m_CullTransparentMesh: 1
+--- !u!1 &1195484598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1195484599}
+  - component: {fileID: 1195484600}
+  m_Layer: 0
+  m_Name: TrailLevel2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1195484599
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195484598}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1965151649}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1195484600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195484598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 741b3322d258c80418f4666f2878095d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trail21Buttons:
+  - {fileID: 692126501}
+  - {fileID: 2143927362}
+  - {fileID: 948207326}
+  - {fileID: 538831834}
+  - {fileID: 486496880}
+  - {fileID: 1980426571}
+  - {fileID: 1189809487}
+  - {fileID: 1506134325}
+  - {fileID: 1997617221}
+  - {fileID: 1232464032}
+  - {fileID: 402228149}
+  - {fileID: 1224333502}
+  - {fileID: 1531410457}
+  - {fileID: 1766065209}
+  - {fileID: 492293334}
+  - {fileID: 476769110}
+  - {fileID: 948518223}
+  - {fileID: 837530956}
+  - {fileID: 1243639604}
+  - {fileID: 910575317}
+  trail22Buttons:
+  - {fileID: 15521594}
+  - {fileID: 1330386215}
+  - {fileID: 1092005054}
+  - {fileID: 1544349185}
+  - {fileID: 1958757587}
+  - {fileID: 2112723106}
+  - {fileID: 1852927589}
+  - {fileID: 367768199}
+  - {fileID: 1578982628}
+  - {fileID: 1560790369}
+  - {fileID: 1685518642}
+  - {fileID: 2024617801}
+  - {fileID: 1813157073}
+  - {fileID: 1959101292}
+  - {fileID: 1359269741}
+  - {fileID: 824053707}
+  - {fileID: 655721749}
+  - {fileID: 901711347}
+  - {fileID: 1262519015}
+  - {fileID: 516717546}
+  score: 15
+  levelsHandler: {fileID: 161902902}
 --- !u!1 &1211645106
 GameObject:
   m_ObjectHideFlags: 0
@@ -32752,6 +32898,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 947099966}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 161902902}
+        m_TargetAssemblyTypeName: LevelsHandler, Assembly-CSharp
+        m_MethodName: TrailSelection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1562665478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37216,6 +37386,84 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1751027215
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1751027216}
+  - component: {fileID: 1751027217}
+  m_Layer: 0
+  m_Name: TrailLevel1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1751027216
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751027215}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1965151649}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1751027217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751027215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac83c4e0d77e34469c57acbb1a80a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelsHandler: {fileID: 161902902}
+  trail11Buttons:
+  - {fileID: 1806107969}
+  - {fileID: 845738730}
+  - {fileID: 1136223102}
+  - {fileID: 1720614074}
+  - {fileID: 617698874}
+  - {fileID: 718708886}
+  - {fileID: 1091543061}
+  - {fileID: 1411352916}
+  - {fileID: 1504417281}
+  - {fileID: 1346867577}
+  - {fileID: 877820024}
+  - {fileID: 484615037}
+  - {fileID: 1407945883}
+  - {fileID: 1123811529}
+  - {fileID: 2001389918}
+  trail12Buttons:
+  - {fileID: 51845371}
+  - {fileID: 983059503}
+  - {fileID: 1572435300}
+  - {fileID: 669408637}
+  - {fileID: 44014883}
+  - {fileID: 1746682753}
+  - {fileID: 226955109}
+  - {fileID: 1120473816}
+  - {fileID: 239202733}
+  - {fileID: 621313504}
+  - {fileID: 568549085}
+  - {fileID: 1345541410}
+  - {fileID: 1876612159}
+  - {fileID: 1922643135}
+  - {fileID: 593604234}
+  score: 0
 --- !u!1 &1766065207
 GameObject:
   m_ObjectHideFlags: 0
@@ -38179,6 +38427,114 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1813157071}
   m_CullTransparentMesh: 1
+--- !u!1 &1814822601
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1814822602}
+  - component: {fileID: 1814822603}
+  m_Layer: 0
+  m_Name: TrailLevel3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1814822602
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814822601}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1965151649}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1814822603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814822601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17f7d113a9ec9844690b42ba0dfc2fd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trail31Buttons:
+  - {fileID: 2063709839}
+  - {fileID: 1632545852}
+  - {fileID: 1327230763}
+  - {fileID: 2084672014}
+  - {fileID: 1994859822}
+  - {fileID: 534648303}
+  - {fileID: 93815729}
+  - {fileID: 1519072969}
+  - {fileID: 1944629654}
+  - {fileID: 818228104}
+  - {fileID: 1600244161}
+  - {fileID: 1841674301}
+  - {fileID: 1124985165}
+  - {fileID: 2073534508}
+  - {fileID: 1574136956}
+  - {fileID: 2143779030}
+  - {fileID: 1792428044}
+  - {fileID: 2074429608}
+  - {fileID: 907733635}
+  - {fileID: 896536111}
+  - {fileID: 834427091}
+  - {fileID: 387242102}
+  - {fileID: 991347091}
+  - {fileID: 952210042}
+  - {fileID: 691053138}
+  - {fileID: 193371900}
+  - {fileID: 874764193}
+  - {fileID: 1970027982}
+  - {fileID: 174944320}
+  - {fileID: 1908676441}
+  trail32Buttons:
+  - {fileID: 1935665359}
+  - {fileID: 1776348541}
+  - {fileID: 711573273}
+  - {fileID: 1581376573}
+  - {fileID: 427722411}
+  - {fileID: 530884996}
+  - {fileID: 184152274}
+  - {fileID: 1595522770}
+  - {fileID: 1704691655}
+  - {fileID: 1331299342}
+  - {fileID: 333137343}
+  - {fileID: 781244599}
+  - {fileID: 257792515}
+  - {fileID: 1304563074}
+  - {fileID: 1390363119}
+  - {fileID: 1165554442}
+  - {fileID: 805047960}
+  - {fileID: 931648641}
+  - {fileID: 613863589}
+  - {fileID: 1089655362}
+  - {fileID: 1393282455}
+  - {fileID: 573881426}
+  - {fileID: 31560286}
+  - {fileID: 1959749608}
+  - {fileID: 189526170}
+  - {fileID: 1566721860}
+  - {fileID: 1700276939}
+  - {fileID: 1644905737}
+  - {fileID: 1399308714}
+  - {fileID: 1374840390}
+  score: 35
+  levelsHandler: {fileID: 161902902}
 --- !u!4 &1815207316 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4076717627030934219, guid: 30a71a9bd3d475e4e888ec6b17c6c558, type: 3}
@@ -41392,6 +41748,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1215114130}
+  - {fileID: 161902901}
+  - {fileID: 1751027216}
+  - {fileID: 1195484599}
+  - {fileID: 1814822602}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1970027980

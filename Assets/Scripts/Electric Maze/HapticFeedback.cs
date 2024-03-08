@@ -46,13 +46,13 @@ public class HapticFeedback : MonoBehaviour
         }
         lastCollisionTime = Time.time;
 
-        if (collision.gameObject.name == "Mushroom 1(Clone)")
+        if (collision.gameObject.name == "Maze Obstacle(Clone)")
         {
             ScoreCalculatorMaze.Increment();
             Debug.Log("Collision with an obstacle!");
             Destroy(collision.gameObject);
         }
-        else if (collision.gameObject.name == "Mushroom 3(Clone)")
+        else if (collision.gameObject.name == "Maze Powerup(Clone)")
         {
             ScoreCalculatorMaze.Decrement();
             Debug.Log("Collision with a power-up!");
