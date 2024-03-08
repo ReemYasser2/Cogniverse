@@ -9,7 +9,8 @@ public class TrailLevel3 : MonoBehaviour
     public Button[] trail31Buttons = new Button[30];
     public Button[] trail32Buttons = new Button[30];
 
-    public int score = 35;
+    public int levelThreeScore = 0;
+    public int mistakes = 0;
     private int buttonNum = 0;
 
     public LevelsHandler levelsHandler;
@@ -19,11 +20,11 @@ public class TrailLevel3 : MonoBehaviour
         levelsHandler = GetComponent<LevelsHandler>();
         levelsHandler = gameObject.AddComponent<LevelsHandler>();
         int trailSelection = levelsHandler.GetTrailIndex();
-        if (levelsHandler.level_3 == true && trailSelection == 0)
+        if ( trailSelection == 0)
         {
             InitializeButtons(); 
         }
-        else if (levelsHandler.level_3 == true && trailSelection == 1)
+        else if ( trailSelection == 1)
         {
             InitializeButtons2();
         }
@@ -36,23 +37,27 @@ public class TrailLevel3 : MonoBehaviour
         // Check if the button is pressed in the correct order relative to the previous button
         if (buttonNo == buttonNum + 1)
         {
-            score++;
+            levelThreeScore++;
             Debug.Log("Score up");
+            Debug.Log(levelThreeScore);
+            buttonNum = buttonNo;
         }
         else if (buttonNo == 0)
         {
-            score++;
+            levelThreeScore++;
             Debug.Log("Score up");
+            Debug.Log(levelThreeScore);
+            buttonNum = buttonNo;
         }
         else
         {
-            score--;
+            levelThreeScore--;
+            mistakes--;
             Debug.Log("Score --");
         }
 
-        buttonNum = buttonNo;
 
-        if (score == 65)
+        if (levelThreeScore == 30 || levelThreeScore + mistakes == 30)
         {
             Debug.Log("Heighest Score");
         }
@@ -67,8 +72,12 @@ public class TrailLevel3 : MonoBehaviour
                     int buttonIndex = i; // Capture the current index to avoid closure issues
                     trail31Buttons[i].onClick.AddListener(() => TaskOnClick(buttonIndex));
                 }
+            for (int i = 0; i < trail32Buttons.Length; i++)
+            {
+                int buttonIndex = i; // Capture the current index to avoid closure issues
+                trail32Buttons[i].onClick.AddListener(() => TaskOnClick(buttonIndex));
+            }
 
-                
         }
     }
     void InitializeButtons2()

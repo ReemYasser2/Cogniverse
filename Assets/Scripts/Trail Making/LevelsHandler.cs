@@ -16,25 +16,27 @@ public class LevelsHandler : MonoBehaviour
     public GameObject[] levelTwoTrails = new GameObject[2];
     public GameObject[] levelThreeTrails = new GameObject[2];
     public Transform spawnPosition;
-    public void TrailSelection()
+    public void TrailSelection(int level)
     {
-        if (level_1)
+        if (level==1)
         {
             int trailIndex = Random.Range(0, levelOneTrails.Length);
-            Debug.Log(levelOneTrails[trailIndex]); // NULL????!!!!
+            Debug.Log(levelOneTrails[trailIndex]); 
             levelOneTrails[trailIndex].SetActive(true);
             selectedTrail = trailIndex;
         }
-        if (level_2)
+        if (level==2)
         {
+            level_2= true;  
             int trailIndex = Random.Range(0, levelTwoTrails.Length);
             levelTwoTrails[trailIndex].SetActive(true);
             levelOneTrails[0].SetActive(false);
             levelOneTrails[1].SetActive(false);
             selectedTrail = trailIndex;
         }
-        if (level_3)
+        if (level == 3)
         {
+            level_3= true;
             int trailIndex = Random.Range(0, levelThreeTrails.Length);
             levelThreeTrails[trailIndex].SetActive(true);
             levelTwoTrails[0].SetActive(false);

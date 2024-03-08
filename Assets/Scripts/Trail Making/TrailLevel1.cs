@@ -10,16 +10,17 @@ public class TrailLevel1 : MonoBehaviour
 
     public Button[] trail11Buttons = new Button[15];
     public Button[] trail12Buttons = new Button[15];
-
+    public GameObject instructionsLevel2Canvas;
     int trailSelection;
-    public int score = 0;
+    public int levelOneScore = 0;
+    public int mistakes = 0;
     private int buttonNum = 0;
     // Start is called before the first frame update
     void Start()
     {
         levelsHandler = GetComponent<LevelsHandler>();
         levelsHandler = gameObject.AddComponent<LevelsHandler>();
-        int trailSelection = levelsHandler.GetTrailIndex();
+        trailSelection = levelsHandler.GetTrailIndex();
         if (levelsHandler.level_1 == true && trailSelection == 0)
         {
             InitializeButtons();
@@ -40,27 +41,34 @@ public class TrailLevel1 : MonoBehaviour
         // Check if the button is pressed in the correct order relative to the previous button
         if (buttonNo == buttonNum + 1)
         {
-            score++;
+            levelOneScore++;
             Debug.Log("Score up");
+            Debug.Log(levelOneScore);
+            buttonNum = buttonNo;
         }
         else if (buttonNo == 0)
         {
-            score++;
+            levelOneScore++;
             Debug.Log("Score up");
+            Debug.Log(levelOneScore);
+            buttonNum = buttonNo;
         }
         else
         {
-            score--;
+            levelOneScore--;
+            mistakes++;
             Debug.Log("Score --");
+            Debug.Log(levelOneScore);
+
         }
 
-        buttonNum = buttonNo;
-
-        if (score == 15)
+        if (levelOneScore == 15 || levelOneScore + mistakes == 15)
         {
+            
             levelsHandler.level_1 = false;
             levelsHandler.level_2 = true;
             levelsHandler.level_3 = false;
+            instructionsLevel2Canvas.SetActive(true);
             Debug.Log("Level Passed");
         }
     }
@@ -81,8 +89,6 @@ public class TrailLevel1 : MonoBehaviour
     }
     void InitializeButtons2()
     {
-
-        Debug.Log(" S");
         for (int i = 0; i < trail12Buttons.Length; i++)
         {
             int buttonIndex = i; // Capture the current index to avoid closure issues
