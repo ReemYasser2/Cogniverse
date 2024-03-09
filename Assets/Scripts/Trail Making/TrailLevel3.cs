@@ -14,6 +14,9 @@ public class TrailLevel3 : MonoBehaviour
     private int buttonNum = 0;
 
     public LevelsHandler levelsHandler;
+
+    public GameObject gameOverCanvas;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +63,7 @@ public class TrailLevel3 : MonoBehaviour
         if (levelThreeScore == 30 || levelThreeScore + mistakes == 30)
         {
             Debug.Log("Heighest Score");
+            gameOverCanvas.SetActive(true);
         }
     }
     void InitializeButtons()
