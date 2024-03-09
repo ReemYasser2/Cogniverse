@@ -51,6 +51,7 @@ public class TrailLevel2 : MonoBehaviour
         else
         {
             levelTwoScore--;
+            mistakes++;
             Debug.Log("Score --");
             Debug.Log(levelTwoScore);
         }

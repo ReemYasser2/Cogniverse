@@ -52,7 +52,7 @@ public class TrailLevel3 : MonoBehaviour
         else
         {
             levelThreeScore--;
-            mistakes--;
+            mistakes++;
             Debug.Log("Score --");
         }
 
