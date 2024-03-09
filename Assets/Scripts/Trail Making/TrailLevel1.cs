@@ -11,6 +11,8 @@ public class TrailLevel1 : MonoBehaviour
     public Button[] trail11Buttons = new Button[15];
     public Button[] trail12Buttons = new Button[15];
     public GameObject instructionsLevel2Canvas;
+    public GameObject trail11;
+    public GameObject trail12;
     int trailSelection;
     public int levelOneScore = 0;
     public int mistakes = 0;
@@ -21,7 +23,8 @@ public class TrailLevel1 : MonoBehaviour
         levelsHandler = GetComponent<LevelsHandler>();
         levelsHandler = gameObject.AddComponent<LevelsHandler>();
         trailSelection = levelsHandler.GetTrailIndex();
-        if (levelsHandler.level_1 == true && trailSelection == 0)
+
+        if (levelsHandler.level_1 == true && trailSelection==0)
         {
             InitializeButtons();
         }
@@ -29,18 +32,38 @@ public class TrailLevel1 : MonoBehaviour
         {
             InitializeButtons2();
         }
+
+
     }
 
     // Update is called once per frame
 
+    public void init()
+    {
+      
+    }
     void TaskOnClick(int buttonNo)
     {
         // Output this to the console when any button is clicked
+
         Debug.Log("Button clicked = " + (buttonNo + 1)); // Adjusted index for human-friendly numbering
 
-        // Check if the button is pressed in the correct order relative to the previous button
-        if (buttonNo == buttonNum + 1)
+        Button clickedButton;
+        if (trail11.activeSelf)
         {
+            clickedButton = trail11Buttons[buttonNo];
+        }
+        else
+        {
+            clickedButton = trail12Buttons[buttonNo];
+        }
+
+        // Check if the button is pressed in the correct order relative to the previous button
+        if (buttonNo == buttonNum + 1 )
+        {
+            ResetButtonColors(buttonNo);
+            clickedButton.GetComponent<Image>().color = Color.green;
+            ReinforcementManagement.PositiveReinforcementIncrement();
             levelOneScore++;
             Debug.Log("Score up");
             Debug.Log(levelOneScore);
@@ -48,6 +71,8 @@ public class TrailLevel1 : MonoBehaviour
         }
         else if (buttonNo == 0)
         {
+            clickedButton.GetComponent<Image>().color = Color.green;
+            ReinforcementManagement.PositiveReinforcementIncrement();
             levelOneScore++;
             Debug.Log("Score up");
             Debug.Log(levelOneScore);
@@ -55,6 +80,9 @@ public class TrailLevel1 : MonoBehaviour
         }
         else
         {
+            clickedButton.GetComponent<Image>().color = Color.red;
+            ReinforcementManagement.PositiveReinforcementDecrement();
+
             levelOneScore--;
             mistakes++;
             Debug.Log("Score --");
@@ -93,6 +121,20 @@ public class TrailLevel1 : MonoBehaviour
         {
             int buttonIndex = i; // Capture the current index to avoid closure issues
             trail12Buttons[i].onClick.AddListener(() => TaskOnClick(buttonIndex));
+        }
+    }
+
+
+    void ResetButtonColors(int startIndex)
+    {
+        Color normalColor = new Color(0.98f, 0.98f, 0.7f);
+        for (int i = startIndex; i < trail11Buttons.Length; i++)
+        {
+            trail11Buttons[i].GetComponent<Image>().color = normalColor; 
+        }
+        for (int i = startIndex; i < trail12Buttons.Length; i++)
+        {
+            trail12Buttons[i].GetComponent<Image>().color = normalColor; 
         }
     }
 

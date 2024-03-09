@@ -16,6 +16,7 @@ public class LevelsHandler : MonoBehaviour
     public GameObject[] levelTwoTrails = new GameObject[2];
     public GameObject[] levelThreeTrails = new GameObject[2];
     public Transform spawnPosition;
+
     public void TrailSelection(int level)
     {
         if (level==1)
@@ -43,6 +44,7 @@ public class LevelsHandler : MonoBehaviour
             levelTwoTrails[1].SetActive(false);
             selectedTrail = trailIndex;
         }
+        Debug.Log(selectedTrail);
     }
     public int GetTrailIndex()
     {

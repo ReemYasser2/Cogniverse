@@ -3,20 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class MazeReinforcement : MonoBehaviour
+public class TrailReinforcement : MonoBehaviour
 {
     public TMP_Text reinforcmentText;
-
-    // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        reinforcmentText.text = ReinforcementManagement.reinforcementText;
 
-        reinforcmentText.text = ScoreCalculatorMaze.reinforcementText;
     }
 }
