@@ -7,8 +7,8 @@ public class CountDownTimer : MonoBehaviour
     [SerializeField] TMP_Text timerText;
     [SerializeField] float remainingTime;
     private bool isPlayPressed = false;
-    public bool isTimeOver=false;
-    public GameObject gameOverCanvas;
+    public static bool isTimeOver = false;
+   // public GameObject gameOverCanvas;
 
     // Update is called once per frame
     void Update()
@@ -24,7 +24,7 @@ public class CountDownTimer : MonoBehaviour
                 remainingTime = 0;
                 // Game over
                 isTimeOver = true;
-                gameOverCanvas.SetActive(true);
+               // gameOverCanvas.SetActive(true);
             }
             int minutes = Mathf.FloorToInt(remainingTime / 60);
             int seconds = Mathf.FloorToInt(remainingTime % 60);
@@ -36,5 +36,6 @@ public class CountDownTimer : MonoBehaviour
     public void StartGame()
     {
         isPlayPressed = true;
+        isTimeOver = false;
     }
 }

@@ -13,6 +13,7 @@ public class MazeSpawner : MonoBehaviour
     // This function chooses one maze randomly 
     public void SelectMazeRandomly()
     {
+        LevelsTransition.isGameOver = false;
         int mazeIndex = Random.Range(0, mazePrefabs.Length);
         mazePrefabs[mazeIndex].SetActive(true);
         if (mazeIndex == 0)
