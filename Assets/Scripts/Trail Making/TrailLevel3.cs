@@ -49,10 +49,18 @@ public class TrailLevel3 : MonoBehaviour
         }
         else if (buttonNo == 0)
         {
-            levelThreeScore++;
-            Debug.Log("Score up");
-            Debug.Log(levelThreeScore);
-            buttonNum = buttonNo;
+            if (levelThreeScore <= 0) {
+                levelThreeScore++;
+                Debug.Log("Score up");
+                Debug.Log(levelThreeScore);
+                buttonNum = buttonNo;
+            }
+            else
+            {
+                levelThreeScore--;
+                mistakes++;
+                Debug.Log("Score --");
+            } 
         }
         else
         {

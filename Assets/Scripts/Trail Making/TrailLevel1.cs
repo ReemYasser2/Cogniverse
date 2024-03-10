@@ -59,7 +59,7 @@ public class TrailLevel1 : MonoBehaviour
         }
 
         // Check if the button is pressed in the correct order relative to the previous button
-        if (buttonNo == buttonNum + 1 )
+        if (buttonNo == buttonNum + 1)
         {
             ResetButtonColors(buttonNo);
             clickedButton.GetComponent<Image>().color = Color.green;
@@ -70,16 +70,27 @@ public class TrailLevel1 : MonoBehaviour
             buttonNum = buttonNo;
         }
         else if (buttonNo == 0)
-        {
-            clickedButton.GetComponent<Image>().color = Color.green;
-            ReinforcementManagement.PositiveReinforcementIncrement();
-            levelOneScore++;
-            Debug.Log("Score up");
-            Debug.Log(levelOneScore);
-            buttonNum = buttonNo;
+        { 
+            if (levelOneScore <= 0)
+            {
+                clickedButton.GetComponent<Image>().color = Color.green;
+                ReinforcementManagement.PositiveReinforcementIncrement();
+                levelOneScore++;
+                Debug.Log("Score up");
+                Debug.Log(levelOneScore);
+                buttonNum = buttonNo;
+            }
+            else {
+                levelOneScore--;
+                mistakes++;
+                clickedButton.GetComponent<Image>().color = Color.red;
+                ReinforcementManagement.PositiveReinforcementDecrement();
+                Debug.Log(levelOneScore);
+                } 
         }
         else
         {
+
             clickedButton.GetComponent<Image>().color = Color.red;
             ReinforcementManagement.PositiveReinforcementDecrement();
 

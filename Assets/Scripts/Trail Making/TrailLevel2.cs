@@ -42,12 +42,21 @@ public class TrailLevel2 : MonoBehaviour
             buttonNum = buttonNo;
         }
         else if (buttonNo == 0)
-        {
-            levelTwoScore++;
-            Debug.Log("Score up");
-            Debug.Log(levelTwoScore);
-            buttonNum = buttonNo;
-        }
+        { if (levelTwoScore <= 0)
+            {
+                levelTwoScore++;
+                Debug.Log("Score up");
+                Debug.Log(levelTwoScore);
+                buttonNum = buttonNo;
+            }
+            else
+            {
+                levelTwoScore--;
+                mistakes++;
+                Debug.Log("Score --");
+                Debug.Log(levelTwoScore);
+            }
+            }
         else
         {
             levelTwoScore--;

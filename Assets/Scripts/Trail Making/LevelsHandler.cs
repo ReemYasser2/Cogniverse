@@ -39,7 +39,8 @@ public class LevelsHandler : MonoBehaviour
         }
         if (level==2)
         {
-            level_2= true;  
+            level_2= true;
+            level_1 = false;
             int trailIndex = Random.Range(0, levelTwoTrails.Length);
             levelTwoTrails[trailIndex].SetActive(true);
             levelOneTrails[0].SetActive(false);
@@ -49,6 +50,7 @@ public class LevelsHandler : MonoBehaviour
         if (level == 3)
         {
             level_3= true;
+            level_2 = false;
             int trailIndex = Random.Range(0, levelThreeTrails.Length);
             levelThreeTrails[trailIndex].SetActive(true);
             levelTwoTrails[0].SetActive(false);
