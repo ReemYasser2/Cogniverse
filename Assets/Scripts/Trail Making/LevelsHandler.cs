@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class LevelsHandler : MonoBehaviour
 {
-    public bool level_1= true;
-    public bool level_2= false;
-    public bool level_3= false;
+    public bool level_1 = true;
+    public bool level_2 = false;
+    public bool level_3 = false;
 
 
     public int selectedTrail;
@@ -17,10 +17,21 @@ public class LevelsHandler : MonoBehaviour
     public GameObject[] levelThreeTrails = new GameObject[2];
     public Transform spawnPosition;
 
+    public TrailLevel1 trailLevel1;
+    public TrailLevel2 trailLevel2;
+    public TrailLevel3 trailLevel3;
+
     public void TrailSelection(int level)
     {
+        TrailLevel3.isGameOver = false;
         if (level==1)
         {
+            trailLevel1.levelOneScore = 0;
+            trailLevel1.mistakes = 0;
+            trailLevel2.levelTwoScore = 0;
+            trailLevel2.mistakes = 0;
+            trailLevel3.levelThreeScore = 0;
+
             int trailIndex = Random.Range(0, levelOneTrails.Length);
             Debug.Log(levelOneTrails[trailIndex]); 
             levelOneTrails[trailIndex].SetActive(true);
@@ -50,5 +61,4 @@ public class LevelsHandler : MonoBehaviour
     {
         return selectedTrail;
     }
-    
 }

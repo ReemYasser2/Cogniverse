@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TrailMenuHandler : MonoBehaviour
 {
-    /*
+    public LevelsHandler levelsHandler;
+
     public GameObject instructionsLevel1Canvas;
     public GameObject instructionsLevel2Canvas;
     public GameObject instructionsLevel3Canvas;
@@ -12,15 +13,15 @@ public class TrailMenuHandler : MonoBehaviour
 
     public void MazeInstructionsHandler()
     {
-        if (Level1)
+        if (levelsHandler.level_1)
         {
             instructionsLevel1Canvas.SetActive(true);
         }
-        else if (Level2)
+        else if (levelsHandler.level_2)
         {
             instructionsLevel2Canvas.SetActive(true);
         }
-        else if (Level3)
+        else if (levelsHandler.level_3)
         {
             instructionsLevel3Canvas.SetActive(true);
         }
@@ -28,8 +29,11 @@ public class TrailMenuHandler : MonoBehaviour
 
     public void ShowMenuHandlerMaze()
     {
-        if (GameStart && !GameOver)
+        if ((levelsHandler.level_1 || levelsHandler.level_2 || levelsHandler.level_3) && !TrailLevel3.isGameOver)
         {
+            Debug.Log(levelsHandler.level_1);
+            Debug.Log(levelsHandler.level_2);
+            Debug.Log(levelsHandler.level_3);
             if (menuCanvas.activeSelf == false)
             {
                 menuCanvas.SetActive(true);
@@ -37,5 +41,4 @@ public class TrailMenuHandler : MonoBehaviour
             }
         }
     }
-    */
 }

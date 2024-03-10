@@ -17,6 +17,8 @@ public class TrailLevel3 : MonoBehaviour
 
     public GameObject gameOverCanvas;
 
+    public static bool isGameOver;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +66,7 @@ public class TrailLevel3 : MonoBehaviour
         {
             Debug.Log("Heighest Score");
             gameOverCanvas.SetActive(true);
+            isGameOver = true;
         }
     }
     void InitializeButtons()
