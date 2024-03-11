@@ -46,7 +46,7 @@ public class TrailLevel1 : MonoBehaviour
     {
         // Output this to the console when any button is clicked
 
-        Debug.Log("Button clicked = " + (buttonNo + 1)); // Adjusted index for human-friendly numbering
+        //Debug.Log("Button clicked = " + (buttonNo + 1)); // Adjusted index for human-friendly numbering
 
         Button clickedButton;
         if (trail11.activeSelf)
@@ -65,8 +65,8 @@ public class TrailLevel1 : MonoBehaviour
             clickedButton.GetComponent<Image>().color = Color.green;
             ReinforcementManagement.PositiveReinforcementIncrement();
             levelOneScore++;
-            Debug.Log("Score up");
-            Debug.Log(levelOneScore);
+            //Debug.Log("Score up");
+            //Debug.Log(levelOneScore);
             buttonNum = buttonNo;
         }
         else if (buttonNo == 0)
@@ -76,8 +76,8 @@ public class TrailLevel1 : MonoBehaviour
                 clickedButton.GetComponent<Image>().color = Color.green;
                 ReinforcementManagement.PositiveReinforcementIncrement();
                 levelOneScore++;
-                Debug.Log("Score up");
-                Debug.Log(levelOneScore);
+                //Debug.Log("Score up");
+                //Debug.Log(levelOneScore);
                 buttonNum = buttonNo;
             }
             else {
@@ -85,7 +85,7 @@ public class TrailLevel1 : MonoBehaviour
                 mistakes++;
                 clickedButton.GetComponent<Image>().color = Color.red;
                 ReinforcementManagement.PositiveReinforcementDecrement();
-                Debug.Log(levelOneScore);
+                //Debug.Log(levelOneScore);
                 } 
         }
         else
@@ -96,8 +96,8 @@ public class TrailLevel1 : MonoBehaviour
 
             levelOneScore--;
             mistakes++;
-            Debug.Log("Score --");
-            Debug.Log(levelOneScore);
+            //Debug.Log("Score --");
+            //Debug.Log(levelOneScore);
 
         }
 
@@ -136,7 +136,7 @@ public class TrailLevel1 : MonoBehaviour
     }
 
 
-    void ResetButtonColors(int startIndex)
+    public void ResetButtonColors(int startIndex)
     {
         Color normalColor = new Color(0.98f, 0.98f, 0.7f);
         for (int i = startIndex; i < trail11Buttons.Length; i++)

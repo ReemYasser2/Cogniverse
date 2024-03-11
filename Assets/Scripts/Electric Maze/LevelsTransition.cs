@@ -61,7 +61,7 @@ public class LevelsTransition : MonoBehaviour
         }
     }
 
-    public void level1()
+    public static void level1()
     {
         isLevel1 = true;
         isLevel2 = false;

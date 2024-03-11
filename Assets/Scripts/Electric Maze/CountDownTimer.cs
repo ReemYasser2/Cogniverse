@@ -5,10 +5,23 @@ using TMPro;
 public class CountDownTimer : MonoBehaviour
 {
     [SerializeField] TMP_Text timerText;
-    [SerializeField] float remainingTime;
+    private float remainingTime;
     private bool isPlayPressed = false;
     public static bool isTimeOver = false;
-   // public GameObject gameOverCanvas;
+    // public GameObject gameOverCanvas;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        if (LevelsTransition.isLevel1)
+        {
+            remainingTime = 5;
+        }
+        else if (LevelsTransition.isLevel2)
+        {
+            remainingTime = 10;
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -37,5 +50,14 @@ public class CountDownTimer : MonoBehaviour
     {
         isPlayPressed = true;
         isTimeOver = false;
+        // Reset the timer to its initial value
+        if (LevelsTransition.isLevel1)
+        {
+            remainingTime = 5;
+        }
+        else if (LevelsTransition.isLevel2)
+        {
+            remainingTime = 10;
+        }
     }
 }

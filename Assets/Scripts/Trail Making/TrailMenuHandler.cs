@@ -11,9 +11,10 @@ public class TrailMenuHandler : MonoBehaviour
     public GameObject instructionsLevel3Canvas;
     public GameObject menuCanvas;
 
+
     public void MazeInstructionsHandler()
     {
-        if (levelsHandler.level_1)
+        if (levelsHandler.level1_menu)
         {
             instructionsLevel1Canvas.SetActive(true);
         }
@@ -29,15 +30,12 @@ public class TrailMenuHandler : MonoBehaviour
 
     public void ShowMenuHandlerMaze()
     {
-        if ((levelsHandler.level_1 || levelsHandler.level_2 || levelsHandler.level_3) && !TrailLevel3.isGameOver)
+        if ((levelsHandler.level1_menu || levelsHandler.level_2 || levelsHandler.level_3) && !TrailLevel3.isGameOver)
         {
-            Debug.Log(levelsHandler.level_1);
-            Debug.Log(levelsHandler.level_2);
-            Debug.Log(levelsHandler.level_3);
             if (menuCanvas.activeSelf == false)
             {
                 menuCanvas.SetActive(true);
-                PauseGame.Pause();
+                CountUpTimer.PauseTimer();
             }
         }
     }
