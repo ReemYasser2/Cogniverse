@@ -37,36 +37,36 @@ public class TrailLevel3 : MonoBehaviour
     void TaskOnClick(int buttonNo)
     {
         // Output this to the console when any button is clicked
-        //Debug.Log("Button clicked = " + (buttonNo + 1)); // Adjusted index for human-friendly numbering
+        Debug.Log("Button clicked = " + (buttonNo + 1)); // Adjusted index for human-friendly numbering
 
         // Check if the button is pressed in the correct order relative to the previous button
         if (buttonNo == buttonNum + 1)
         {
             levelThreeScore++;
-            //Debug.Log("Score up");
-            //Debug.Log(levelThreeScore);
+            Debug.Log("Score up");
+            Debug.Log(levelThreeScore);
             buttonNum = buttonNo;
         }
         else if (buttonNo == 0)
         {
             if (levelThreeScore <= 0) {
                 levelThreeScore++;
-                //Debug.Log("Score up");
-                //Debug.Log(levelThreeScore);
+                Debug.Log("Score up");
+                Debug.Log(levelThreeScore);
                 buttonNum = buttonNo;
             }
             else
             {
                 levelThreeScore--;
                 mistakes++;
-                //Debug.Log("Score --");
+                Debug.Log("Score --");
             } 
         }
         else
         {
             levelThreeScore--;
             mistakes++;
-            ///Debug.Log("Score --");
+            Debug.Log("Score --");
         }
 
 

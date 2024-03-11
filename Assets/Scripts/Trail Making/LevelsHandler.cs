@@ -84,7 +84,7 @@ public class LevelsHandler : MonoBehaviour
         trailLevel3.levelThreeScore = 0;
         trailLevel3.mistakes = 0;
 
-        // hide tial level three
+        // hide trail level three
         levelThreeTrails[trailIndex_copy].SetActive(false);
 
         // reset color of all buttons of level 1
