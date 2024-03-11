@@ -136,7 +136,7 @@ public class TrailLevel1 : MonoBehaviour
     }
 
 
-    void ResetButtonColors(int startIndex)
+    public void ResetButtonColors(int startIndex)
     {
         Color normalColor = new Color(0.98f, 0.98f, 0.7f);
         for (int i = startIndex; i < trail11Buttons.Length; i++)
