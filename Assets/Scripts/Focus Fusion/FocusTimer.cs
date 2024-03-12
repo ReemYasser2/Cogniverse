@@ -43,7 +43,7 @@ public class FocusTimer : MonoBehaviour
                     timerText.color = criticalColor;
                 }
             }
-            else if (remainingTime < 0)
+            else if (remainingTime <= 0)
             {
                 remainingTime = 0;
                 // Timer is over

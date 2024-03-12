@@ -9,13 +9,15 @@ public class CountDownTimer : MonoBehaviour
     private bool isPlayPressed = false;
     public static bool isTimeOver = false;
     // public GameObject gameOverCanvas;
+    private Color criticalColor = Color.red;
 
     // Start is called before the first frame update
     void Start()
     {
+        timerText.color = Color.white;
         if (LevelsTransition.isLevel1)
         {
-            remainingTime = 5;
+            remainingTime = 7;
         }
         else if (LevelsTransition.isLevel2)
         {
@@ -31,8 +33,13 @@ public class CountDownTimer : MonoBehaviour
             if (remainingTime > 0)
             {
                 remainingTime -= Time.deltaTime;
+
+                if (remainingTime <= 5)
+                {
+                    timerText.color = criticalColor;
+                }
             }
-            else if (remainingTime < 0)
+            else if (remainingTime <= 0)
             {
                 remainingTime = 0;
                 // Game over
@@ -50,10 +57,11 @@ public class CountDownTimer : MonoBehaviour
     {
         isPlayPressed = true;
         isTimeOver = false;
+        timerText.color = Color.white;
         // Reset the timer to its initial value
         if (LevelsTransition.isLevel1)
         {
-            remainingTime = 5;
+            remainingTime = 7;
         }
         else if (LevelsTransition.isLevel2)
         {
