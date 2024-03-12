@@ -57,6 +57,8 @@ Dynamic floatinf Text, Unity Asset Store
 laserLarge_001 Audio, kenney
 laserSmall_004 Audio, kenney
 Space Ranger Title Font, webtoolhub.com
-
-
+Customizable Road Material/Shader, GeeKo, Unity Asset Store
+Car'Toon : The Sport Car with interior, Pixtim, Unity Asset Store
+Road sign - Big pack, Mixall, Unity Asset Store
+Super Rubber Duck Pack, Samer Khatib (Snowconesolid Productions), Unity Asset Store
 
