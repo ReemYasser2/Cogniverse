@@ -1,28 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
-public class CountDownTimer : MonoBehaviour
+using UnityEngine;
+
+public class FocusTimer : MonoBehaviour
 {
     [SerializeField] TMP_Text timerText;
-    private float remainingTime;
+    public float remainingTime;
     private bool isPlayPressed = false;
     public static bool isTimeOver = false;
-    // public GameObject gameOverCanvas;
-    private Color criticalColor = Color.red;
+    public GameObject gameOverCanvas;
+
+    public Color criticalColor = Color.red;
 
     // Start is called before the first frame update
     void Start()
     {
         timerText.color = Color.white;
-        if (LevelsTransition.isLevel1)
+        /*
+        if (level1)
         {
-            remainingTime = 7;
+            remainingTime = 5;
         }
-        else if (LevelsTransition.isLevel2)
+        else if (level2)
         {
             remainingTime = 10;
         }
+        */
     }
 
     // Update is called once per frame
@@ -42,9 +46,9 @@ public class CountDownTimer : MonoBehaviour
             else if (remainingTime <= 0)
             {
                 remainingTime = 0;
-                // Game over
+                // Timer is over
                 isTimeOver = true;
-               // gameOverCanvas.SetActive(true);
+                gameOverCanvas.SetActive(true);
             }
             int minutes = Mathf.FloorToInt(remainingTime / 60);
             int seconds = Mathf.FloorToInt(remainingTime % 60);
@@ -58,14 +62,16 @@ public class CountDownTimer : MonoBehaviour
         isPlayPressed = true;
         isTimeOver = false;
         timerText.color = Color.white;
+        /*
         // Reset the timer to its initial value
-        if (LevelsTransition.isLevel1)
+        if (level1)
         {
-            remainingTime = 7;
+            remainingTime = 5;
         }
-        else if (LevelsTransition.isLevel2)
+        else if (level2)
         {
             remainingTime = 10;
         }
+        */
     }
 }
