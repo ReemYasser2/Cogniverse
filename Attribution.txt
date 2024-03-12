@@ -55,6 +55,7 @@ Baldur_Regul SDF, webtoolhub.com
 RPG&Fantasy Mobile GUI, Unity Asset Store
 Dynamic floatinf Text, Unity Asset Store
 laserLarge_001 Audio, kenney
+laserSmall_004 Audio, kenney
 Space Ranger Title Font, webtoolhub.com
 
 
