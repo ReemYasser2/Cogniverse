@@ -8,21 +8,11 @@ public class CountDownTimer : MonoBehaviour
     private float remainingTime;
     private bool isPlayPressed = false;
     public static bool isTimeOver = false;
-    // public GameObject gameOverCanvas;
-    private Color criticalColor = Color.red;
 
     // Start is called before the first frame update
     void Start()
     {
-        timerText.color = Color.white;
-        if (LevelsTransition.isLevel1)
-        {
-            remainingTime = 7;
-        }
-        else if (LevelsTransition.isLevel2)
-        {
-            remainingTime = 10;
-        }
+        remainingTime = GeneralCountDownTimer.TimerInitialization(timerText, LevelsTransition.isLevel1, LevelsTransition.isLevel2, 7, 10);
     }
 
     // Update is called once per frame
@@ -30,25 +20,7 @@ public class CountDownTimer : MonoBehaviour
     {
         if (isPlayPressed)
         {
-            if (remainingTime > 0)
-            {
-                remainingTime -= Time.deltaTime;
-
-                if (remainingTime <= 5)
-                {
-                    timerText.color = criticalColor;
-                }
-            }
-            else if (remainingTime <= 0)
-            {
-                remainingTime = 0;
-                // Game over
-                isTimeOver = true;
-               // gameOverCanvas.SetActive(true);
-            }
-            int minutes = Mathf.FloorToInt(remainingTime / 60);
-            int seconds = Mathf.FloorToInt(remainingTime % 60);
-            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+            GeneralCountDownTimer.TimerUpdate(timerText, ref isTimeOver, ref remainingTime);
         }
     }
 
@@ -57,15 +29,6 @@ public class CountDownTimer : MonoBehaviour
     {
         isPlayPressed = true;
         isTimeOver = false;
-        timerText.color = Color.white;
-        // Reset the timer to its initial value
-        if (LevelsTransition.isLevel1)
-        {
-            remainingTime = 7;
-        }
-        else if (LevelsTransition.isLevel2)
-        {
-            remainingTime = 10;
-        }
+        remainingTime = GeneralCountDownTimer.TimerInitialization(timerText, LevelsTransition.isLevel1, LevelsTransition.isLevel2, 7, 10);
     }
 }

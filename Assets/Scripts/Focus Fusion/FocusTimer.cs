@@ -16,17 +16,9 @@ public class FocusTimer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // remainingTime = GeneralCountDownTimer.TimerInitialization(timerText, isLevel1, isLevel2, 5, 10);
+
         timerText.color = Color.white;
-        /*
-        if (level1)
-        {
-            remainingTime = 5;
-        }
-        else if (level2)
-        {
-            remainingTime = 10;
-        }
-        */
     }
 
     // Update is called once per frame
@@ -34,6 +26,8 @@ public class FocusTimer : MonoBehaviour
     {
         if (isPlayPressed)
         {
+            // GeneralCountDownTimer.TimerUpdate(timerText, ref isTimeOver, ref remainingTime);
+
             if (remainingTime > 0)
             {
                 remainingTime -= Time.deltaTime;
@@ -62,16 +56,7 @@ public class FocusTimer : MonoBehaviour
         isPlayPressed = true;
         isTimeOver = false;
         timerText.color = Color.white;
-        /*
-        // Reset the timer to its initial value
-        if (level1)
-        {
-            remainingTime = 5;
-        }
-        else if (level2)
-        {
-            remainingTime = 10;
-        }
-        */
+
+        //remainingTime = GeneralCountDownTimer.TimerInitialization(timerText, isLevel1, isLevel2, 5, 10);
     }
 }
