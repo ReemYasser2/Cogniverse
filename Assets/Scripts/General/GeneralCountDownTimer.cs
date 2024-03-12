@@ -7,7 +7,6 @@ using UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Receiver.Primitives;
 public class GeneralCountDownTimer : MonoBehaviour
 {
     private static Color criticalColor = Color.red;
-    //private static float remainingTime;
 
     // function for initialization
     public static float TimerInitialization(TMP_Text timerText, bool isLevel1, bool isLevel2, float setLevel1Time, float setLevel2Time)

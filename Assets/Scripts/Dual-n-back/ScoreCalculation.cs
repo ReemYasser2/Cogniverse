@@ -15,6 +15,7 @@ public static class ScoreCalculator
     public static bool isStartLevel1 = false;
     public static bool isStartLevel2 = false;
     public static bool isStartLevel3 = false;
+    public static bool isGameStart = false;
 
     static int oldScore; 
     static int incrementCounter=0;

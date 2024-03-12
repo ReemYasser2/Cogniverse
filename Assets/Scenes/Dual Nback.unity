@@ -2436,6 +2436,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 121587766}
+        m_TargetAssemblyTypeName: InstructionAudio, Assembly-CSharp
+        m_MethodName: StartButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &237293309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2776,7 +2788,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 907824500}
         m_TargetAssemblyTypeName: SpawnManager, Assembly-CSharp
-        m_MethodName: StartButtonClick
+        m_MethodName: PlayAgainButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9696,9 +9708,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df22ecc0b90be3641b593c82b138890b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instructionsLevel1Canvas: {fileID: 1794423759}
-  instructionsLevel2Canvas: {fileID: 10375046}
-  instructionsLevel3Canvas: {fileID: 292840764}
+  instructionsLevel1Canvas: {fileID: 2014882385}
+  instructionsLevel2Canvas: {fileID: 1923878019}
+  instructionsLevel3Canvas: {fileID: 1158250654}
+  instructionsLevel1MenuCanvas: {fileID: 1794423759}
+  instructionsLevel2MenuCanvas: {fileID: 10375046}
+  instructionsLevel3MenuCanvas: {fileID: 292840764}
   menuCanvas: {fileID: 699350175}
 --- !u!1 &1283264878
 GameObject:

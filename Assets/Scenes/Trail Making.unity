@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.10924468, g: 0.102202766, b: 0.09711708, a: 1}
+  m_IndirectSpecularColor: {r: 0.10870849, g: 0.099930815, b: 0.09477871, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13449,7 +13449,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1633274981}
         m_TargetAssemblyTypeName: TrailMenuHandler, Assembly-CSharp
-        m_MethodName: MazeInstructionsHandler
+        m_MethodName: TrailInstructionsHandler
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -32835,7 +32835,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1633274981}
         m_TargetAssemblyTypeName: TrailMenuHandler, Assembly-CSharp
-        m_MethodName: ShowMenuHandlerMaze
+        m_MethodName: ShowMenuHandlerTrail
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -39957,9 +39957,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelsHandler: {fileID: 839657315}
-  instructionsLevel1Canvas: {fileID: 951838185}
-  instructionsLevel2Canvas: {fileID: 475282523}
-  instructionsLevel3Canvas: {fileID: 645934283}
+  instructionsLevel1Canvas: {fileID: 1180172177}
+  instructionsLevel2Canvas: {fileID: 1392635929}
+  instructionsLevel3Canvas: {fileID: 1469511344}
+  instructionsLevel1MenuCanvas: {fileID: 951838185}
+  instructionsLevel2MenuCanvas: {fileID: 475282523}
+  instructionsLevel3MenuCanvas: {fileID: 645934283}
   menuCanvas: {fileID: 1398120551}
 --- !u!4 &1634733079 stripped
 Transform:

@@ -7,30 +7,18 @@ public class FocusMenuHandler : MonoBehaviour
     /*
     public GameObject instructionsLevel1Canvas;
     public GameObject instructionsLevel2Canvas;
+    public GameObject instructionsLevel1MenuCanvas;
+    public GameObject instructionsLevel2MenuCanvas;
     public GameObject menuCanvas;
 
     public void InstructionsHandler()
     {
-        if (level1)
-        {
-            instructionsLevel1Canvas.SetActive(true);
-        }
-        else if (level2)
-        {
-            instructionsLevel2Canvas.SetActive(true);
-        }
+        GeneralMenuHandler.InstructionsHandler(isLevel1, isLevel2, false, instructionsLevel1MenuCanvas, instructionsLevel2MenuCanvas, instructionsLevel2MenuCanvas);
     }
 
     public void ShowMenuHandler()
     {
-        if ((level1 || level2) && !lGameOver)
-        {
-            if (menuCanvas.activeSelf == false)
-            {
-                menuCanvas.SetActive(true);
-                PauseGame.Pause();
-            }
-        }
+        GeneralMenuHandler.ShowMenuHandler(isLevel1, isLevel2, false, isGameOver, menuCanvas, instructionsLevel1Canvas, instructionsLevel2Canvas, instructionsLevel2Canvas, instructionsLevel1MenuCanvas, instructionsLevel2MenuCanvas, instructionsLevel2MenuCanvas, 1, 2);
     }
     */
 }

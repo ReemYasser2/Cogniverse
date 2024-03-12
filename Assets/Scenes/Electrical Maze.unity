@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.007800134, g: 0.02561292, b: 0.001999363, a: 1}
+  m_IndirectSpecularColor: {r: 0.007762702, g: 0.02504691, b: 0.0019513344, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2690,8 +2690,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdd83368235c7fb41ab468952c6bca6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instructionsLevel1Canvas: {fileID: 1794015614}
-  instructionsLevel2Canvas: {fileID: 547357845}
+  instructionsLevel1Canvas: {fileID: 1232004990}
+  instructionsLevel2Canvas: {fileID: 11708742}
+  instructionsLevel1MenuCanvas: {fileID: 1794015614}
+  instructionsLevel2MenuCanvas: {fileID: 547357845}
   menuCanvas: {fileID: 262755380}
 --- !u!1 &289608270
 GameObject:
