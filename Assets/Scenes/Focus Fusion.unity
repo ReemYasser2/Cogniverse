@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.109058775, g: 0.099776424, b: 0.09507435, a: 1}
+  m_IndirectSpecularColor: {r: 0.1090621, g: 0.09977998, b: 0.095079064, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3445,7 +3445,39 @@ Transform:
   - {fileID: 1065812852}
   - {fileID: 1693415369}
   - {fileID: 714365853}
+  - {fileID: 679633340}
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &679633339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 679633340}
+  m_Layer: 0
+  m_Name: SpawnPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &679633340
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679633339}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.58, y: -1.0214727, z: 19.07}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 610408122}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &686312889
 GameObject:
@@ -3699,6 +3731,7 @@ Transform:
   - {fileID: 1077130138}
   - {fileID: 955267371}
   - {fileID: 1504261897}
+  - {fileID: 1233339904}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &760797520
@@ -5623,6 +5656,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1233339905}
+        m_TargetAssemblyTypeName: GridSpawner, Assembly-CSharp
+        m_MethodName: StartSpawning
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &983842518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7405,6 +7450,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1221486961}
   m_CullTransparentMesh: 1
+--- !u!1 &1233339903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1233339904}
+  - component: {fileID: 1233339905}
+  m_Layer: 0
+  m_Name: Grids Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1233339904
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233339903}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 736246774}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1233339905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233339903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f0d1edfa256ed49884eb07ae319f77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridsPrefabs:
+  - {fileID: 2617830982896975758, guid: 4cfa9220c71f2de4a802f0b159074e40, type: 3}
+  - {fileID: 2562499340884291348, guid: 1b676889a49b0c849a456b4ad50d34c6, type: 3}
+  - {fileID: 2110288315584918549, guid: 958102b3923d28f439ed0ba5ec78ff1d, type: 3}
+  - {fileID: 1472611851720188674, guid: 0e8b6cc5bf37e0949a1762b6db0f2ada, type: 3}
+  - {fileID: 2682482901579643573, guid: 3e9d472a49ebfab4588eba3fc14c3892, type: 3}
+  - {fileID: 4256294753899651004, guid: cf1b54803d3467b4cbf58f7389bb14d9, type: 3}
+  - {fileID: 7107238254886921925, guid: cbe90f46b9281834b81f5e50d769d1bc, type: 3}
+  - {fileID: 5196293984313435408, guid: b8e480865e8151d41829c86716f3717e, type: 3}
+  - {fileID: 590499805726940346, guid: 5158646909bb80542af07d2198520f8d, type: 3}
+  - {fileID: 6920931053218630761, guid: db004efc2963d064096aa729a75404ef, type: 3}
+  - {fileID: 1293299932879539338, guid: 16f119718b81f234dba9879061f4ecbc, type: 3}
+  - {fileID: 2586600045292794162, guid: 67e41ba6a3127f748aeb5ddf2bf54417, type: 3}
+  - {fileID: 8568104911526858116, guid: cd720d7976e67cd489ba3f65b6024fe5, type: 3}
+  spawnPosition: {fileID: 679633340}
 --- !u!1 &1238729952
 GameObject:
   m_ObjectHideFlags: 0
