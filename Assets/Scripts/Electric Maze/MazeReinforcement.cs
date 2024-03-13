@@ -17,6 +17,9 @@ public class MazeReinforcement : MonoBehaviour
     void Update()
     {
 
-        reinforcmentText.text = ScoreCalculatorMaze.reinforcementText;
+       //s reinforcmentText.text = ScoreCalculatorMaze.reinforcementText;
+        DynamicTextData data = DynamicTextManager.defaultData;
+        data.lifetime = 0.1f;
+        DynamicTextManager.CreateText(new Vector3(11f, 3f, 3f), ScoreCalculatorMaze.reinforcementText, data);
     }
 }

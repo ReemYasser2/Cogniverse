@@ -10,7 +10,7 @@ public class LevelsHandler : MonoBehaviour
     public bool level_2 = false;
     public bool level_3 = false;
 
-
+        
     public int selectedTrail;
 
     public GameObject[] levelOneTrails = new GameObject[2];
@@ -91,10 +91,12 @@ public class LevelsHandler : MonoBehaviour
         trailLevel1.ResetButtonColors(0);
 
         // reset color of all buttons of level 2
+        trailLevel2.ResetButtonColors(0);
 
 
         // reset color of all buttons of level 3
 
+        trailLevel3.ResetButtonColors(0);
 
     }
 }

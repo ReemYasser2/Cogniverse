@@ -6,6 +6,7 @@ using TMPro;
 public class TrailReinforcement : MonoBehaviour
 {
     public TMP_Text reinforcmentText;
+
     void Start()
     {
         
@@ -17,4 +18,6 @@ public class TrailReinforcement : MonoBehaviour
         reinforcmentText.text = ReinforcementManagement.reinforcementText;
 
     }
+
+
 }

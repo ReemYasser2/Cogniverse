@@ -38,10 +38,7 @@ public class TrailLevel1 : MonoBehaviour
 
     // Update is called once per frame
 
-    public void init()
-    {
-      
-    }
+
     void TaskOnClick(int buttonNo)
     {
         // Output this to the console when any button is clicked
@@ -63,22 +60,26 @@ public class TrailLevel1 : MonoBehaviour
         {
             ResetButtonColors(buttonNo);
             clickedButton.GetComponent<Image>().color = Color.green;
-            ReinforcementManagement.PositiveReinforcementIncrement();
             levelOneScore++;
             Debug.Log("Score up");
             Debug.Log(levelOneScore);
             buttonNum = buttonNo;
+
+            ReinforcementManagement.PositiveReinforcementIncrement();
+
         }
         else if (buttonNo == 0)
         { 
             if (levelOneScore <= 0)
             {
                 clickedButton.GetComponent<Image>().color = Color.green;
-                ReinforcementManagement.PositiveReinforcementIncrement();
                 levelOneScore++;
                 Debug.Log("Score up");
                 Debug.Log(levelOneScore);
                 buttonNum = buttonNo;
+
+                ReinforcementManagement.PositiveReinforcementIncrement();
+
             }
             else {
                 levelOneScore--;
@@ -100,10 +101,11 @@ public class TrailLevel1 : MonoBehaviour
             Debug.Log(levelOneScore);
 
         }
+        StartCoroutine(ResetTextAfterDelay());
 
         if (levelOneScore == 15 || levelOneScore + mistakes == 15)
         {
-            
+            ResetButtonColors(0);
             levelsHandler.level_1 = false;
             levelsHandler.level_2 = true;
             levelsHandler.level_3 = false;
@@ -148,7 +150,13 @@ public class TrailLevel1 : MonoBehaviour
             trail12Buttons[i].GetComponent<Image>().color = normalColor; 
         }
     }
+    IEnumerator ResetTextAfterDelay()
+    {
+        yield return new WaitForSeconds(2.0f);
 
+        // After waiting for the specified duration, reset the text to nothing
+        ReinforcementManagement.reinforcementText = "";
+    }
 }
 
 

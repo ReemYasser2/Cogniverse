@@ -42,21 +42,36 @@ public class HapticFeedback : MonoBehaviour
             {
                 Debug.Log("Collision detected with a maze");
                 ScoreCalculatorMaze.Increment();
-            } 
+                StartCoroutine(ResetTextAfterDelay());
+
+            }
         }
         lastCollisionTime = Time.time;
 
         if (collision.gameObject.CompareTag("MazeObstacle"))
         {
             ScoreCalculatorMaze.Increment();
+            StartCoroutine(ResetTextAfterDelay());
+
             Debug.Log("Collision with an obstacle!");
             Destroy(collision.gameObject);
         }
         else if (collision.gameObject.CompareTag("MazePowerUp"))
         {
             ScoreCalculatorMaze.Decrement();
+            StartCoroutine(ResetTextAfterDelay());
+
             Debug.Log("Collision with a power-up!");
             Destroy(collision.gameObject);
         }
+    }
+
+
+    IEnumerator ResetTextAfterDelay()
+    {
+        yield return new WaitForSeconds(3.0f);
+
+        // After waiting for the specified duration, reset the text to nothing
+       ScoreCalculatorMaze.reinforcementText = "";
     }
 }

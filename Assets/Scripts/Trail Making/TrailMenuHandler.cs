@@ -9,34 +9,18 @@ public class TrailMenuHandler : MonoBehaviour
     public GameObject instructionsLevel1Canvas;
     public GameObject instructionsLevel2Canvas;
     public GameObject instructionsLevel3Canvas;
+    public GameObject instructionsLevel1MenuCanvas;
+    public GameObject instructionsLevel2MenuCanvas;
+    public GameObject instructionsLevel3MenuCanvas;
     public GameObject menuCanvas;
 
-
-    public void MazeInstructionsHandler()
+    public void TrailInstructionsHandler()
     {
-        if (levelsHandler.level1_menu)
-        {
-            instructionsLevel1Canvas.SetActive(true);
-        }
-        else if (levelsHandler.level_2)
-        {
-            instructionsLevel2Canvas.SetActive(true);
-        }
-        else if (levelsHandler.level_3)
-        {
-            instructionsLevel3Canvas.SetActive(true);
-        }
+        GeneralMenuHandler.InstructionsHandler(levelsHandler.level1_menu, levelsHandler.level_2, levelsHandler.level_3, instructionsLevel1MenuCanvas, instructionsLevel2MenuCanvas, instructionsLevel3MenuCanvas);
     }
 
-    public void ShowMenuHandlerMaze()
+    public void ShowMenuHandlerTrail()
     {
-        if ((levelsHandler.level1_menu || levelsHandler.level_2 || levelsHandler.level_3) && !TrailLevel3.isGameOver)
-        {
-            if (menuCanvas.activeSelf == false)
-            {
-                menuCanvas.SetActive(true);
-                CountUpTimer.PauseTimer();
-            }
-        }
+        GeneralMenuHandler.ShowMenuHandler(levelsHandler.level1_menu, levelsHandler.level_2, levelsHandler.level_3, TrailLevel3.isGameOver, menuCanvas, instructionsLevel1Canvas, instructionsLevel2Canvas, instructionsLevel3Canvas, instructionsLevel1MenuCanvas, instructionsLevel2MenuCanvas, instructionsLevel3MenuCanvas, 2, 3);
     }
 }

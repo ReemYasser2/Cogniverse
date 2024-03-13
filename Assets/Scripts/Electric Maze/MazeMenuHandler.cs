@@ -4,32 +4,19 @@ using UnityEngine;
 
 public class MazeMenuHandler : MonoBehaviour
 {
-    
     public GameObject instructionsLevel1Canvas;
     public GameObject instructionsLevel2Canvas;
+    public GameObject instructionsLevel1MenuCanvas;
+    public GameObject instructionsLevel2MenuCanvas;
     public GameObject menuCanvas;
 
     public void MazeInstructionsHandler()
     {
-        if (LevelsTransition.isLevel1)
-        {
-            instructionsLevel1Canvas.SetActive(true);
-        }
-        else if (LevelsTransition.isLevel2)
-        {
-            instructionsLevel2Canvas.SetActive(true);
-        }
+        GeneralMenuHandler.InstructionsHandler(LevelsTransition.isLevel1, LevelsTransition.isLevel2, false, instructionsLevel1MenuCanvas, instructionsLevel2MenuCanvas, instructionsLevel2MenuCanvas);
     }
 
     public void ShowMenuHandlerMaze()
     {
-        if ((LevelsTransition.isLevel1 || LevelsTransition.isLevel2) && !LevelsTransition.isGameOver)
-        {
-            if (menuCanvas.activeSelf == false)
-            {
-                menuCanvas.SetActive(true);
-                PauseGame.Pause();
-            }
-        }
+        GeneralMenuHandler.ShowMenuHandler(LevelsTransition.isLevel1, LevelsTransition.isLevel2, false, LevelsTransition.isGameOver, menuCanvas, instructionsLevel1Canvas, instructionsLevel2Canvas, instructionsLevel2Canvas, instructionsLevel1MenuCanvas, instructionsLevel2MenuCanvas, instructionsLevel2MenuCanvas, 1, 2);
     }
 }
