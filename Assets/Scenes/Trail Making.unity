@@ -40056,6 +40056,8 @@ MonoBehaviour:
   - {fileID: 1262519015}
   - {fileID: 516717546}
   levelTwoScore: 0
+  trail21: {fileID: 1606481551}
+  trail22: {fileID: 1336103503}
   mistakes: 0
   instructionsLevel3Canvas: {fileID: 1469511344}
   levelsHandler: {fileID: 839657315}
@@ -49756,6 +49758,8 @@ MonoBehaviour:
   - {fileID: 1644905737}
   - {fileID: 1399308714}
   - {fileID: 1374840390}
+  trail31: {fileID: 1539496959}
+  trail32: {fileID: 859655411}
   levelThreeScore: 0
   mistakes: 0
   levelsHandler: {fileID: 839657315}

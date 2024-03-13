@@ -8,6 +8,8 @@ public class TrailLevel2 : MonoBehaviour
     public Button[] trail21Buttons = new Button[20];
     public Button[] trail22Buttons = new Button[20];
     public int levelTwoScore = 0;
+    public GameObject trail21;
+    public GameObject trail22;
     public int mistakes = 0;
     private int buttonNum = 0;
     public GameObject instructionsLevel3Canvas;
@@ -33,9 +35,22 @@ public class TrailLevel2 : MonoBehaviour
     {
         // Output this to the console when any button is clicked
 
+        Button clickedButton;
+        if (trail21.activeSelf)
+        {
+            clickedButton = trail21Buttons[buttonNo];
+        }
+        else
+        {
+            clickedButton = trail22Buttons[buttonNo];
+        }
+
         // Check if the button is pressed in the correct order relative to the previous button
         if (buttonNo == buttonNum + 1)
         {
+            ResetButtonColors(buttonNo);
+            clickedButton.GetComponent<Image>().color = Color.green;
+            ReinforcementManagement.PositiveReinforcementIncrement();
             levelTwoScore++;
             Debug.Log("Score up");
             Debug.Log(levelTwoScore);
@@ -44,6 +59,8 @@ public class TrailLevel2 : MonoBehaviour
         else if (buttonNo == 0)
         { if (levelTwoScore <= 0)
             {
+                clickedButton.GetComponent<Image>().color = Color.green;
+                ReinforcementManagement.PositiveReinforcementIncrement();
                 levelTwoScore++;
                 Debug.Log("Score up");
                 Debug.Log(levelTwoScore);
@@ -53,21 +70,29 @@ public class TrailLevel2 : MonoBehaviour
             {
                 levelTwoScore--;
                 mistakes++;
+                clickedButton.GetComponent<Image>().color = Color.red;
+                ReinforcementManagement.PositiveReinforcementDecrement();
                 Debug.Log("Score --");
                 Debug.Log(levelTwoScore);
             }
             }
         else
         {
+            clickedButton.GetComponent<Image>().color = Color.red;
+            ReinforcementManagement.PositiveReinforcementDecrement();
+
             levelTwoScore--;
             mistakes++;
             Debug.Log("Score --");
             Debug.Log(levelTwoScore);
         }
-        
+
+        StartCoroutine(ResetTextAfterDelay());
 
         if (levelTwoScore == 20 || levelTwoScore+mistakes == 20)
         {
+            ResetButtonColors(0);
+
             levelsHandler.level_1 = false;
             levelsHandler.level_2 = false;
             levelsHandler.level_3 = true;
@@ -97,5 +122,25 @@ public class TrailLevel2 : MonoBehaviour
             int buttonIndex = i; // Capture the current index to avoid closure issues
             trail22Buttons[i].onClick.AddListener(() => TaskOnClick(buttonIndex));
         }
+    }
+
+    public void ResetButtonColors(int startIndex)
+    {
+        Color normalColor = new Color(0.98f, 0.98f, 0.7f);
+        for (int i = startIndex; i < trail21Buttons.Length; i++)
+        {
+            trail21Buttons[i].GetComponent<Image>().color = normalColor;
+        }
+        for (int i = startIndex; i < trail22Buttons.Length; i++)
+        {
+            trail22Buttons[i].GetComponent<Image>().color = normalColor;
+        }
+    }
+    IEnumerator ResetTextAfterDelay()
+    {
+        yield return new WaitForSeconds(2.0f);
+
+        // After waiting for the specified duration, reset the text to nothing
+        ReinforcementManagement.reinforcementText = "";
     }
 }
