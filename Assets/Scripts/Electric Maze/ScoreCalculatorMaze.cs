@@ -65,4 +65,11 @@ public class ScoreCalculatorMaze : MonoBehaviour
         return negativeDecrease[randomIndex];
     }
 
+    IEnumerator ResetTextAfterDelay()
+    {
+        yield return new WaitForSeconds(2.0f);
+
+        // After waiting for the specified duration, reset the text to nothing
+     reinforcementText = "";
+    }
 }
