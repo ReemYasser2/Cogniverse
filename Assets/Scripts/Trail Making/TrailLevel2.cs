@@ -52,8 +52,8 @@ public class TrailLevel2 : MonoBehaviour
             clickedButton.GetComponent<Image>().color = Color.green;
             ReinforcementManagement.PositiveReinforcementIncrement();
             levelTwoScore++;
-            Debug.Log("Score up");
-            Debug.Log(levelTwoScore);
+            //Debug.Log("Score up");
+            //Debug.Log(levelTwoScore);
             buttonNum = buttonNo;
         }
         else if (buttonNo == 0)
@@ -62,8 +62,8 @@ public class TrailLevel2 : MonoBehaviour
                 clickedButton.GetComponent<Image>().color = Color.green;
                 ReinforcementManagement.PositiveReinforcementIncrement();
                 levelTwoScore++;
-                Debug.Log("Score up");
-                Debug.Log(levelTwoScore);
+                //Debug.Log("Score up");
+                //Debug.Log(levelTwoScore);
                 buttonNum = buttonNo;
             }
             else
@@ -72,8 +72,8 @@ public class TrailLevel2 : MonoBehaviour
                 mistakes++;
                 clickedButton.GetComponent<Image>().color = Color.red;
                 ReinforcementManagement.PositiveReinforcementDecrement();
-                Debug.Log("Score --");
-                Debug.Log(levelTwoScore);
+                //Debug.Log("Score --");
+                //Debug.Log(levelTwoScore);
             }
             }
         else
@@ -83,8 +83,8 @@ public class TrailLevel2 : MonoBehaviour
 
             levelTwoScore--;
             mistakes++;
-            Debug.Log("Score --");
-            Debug.Log(levelTwoScore);
+            //Debug.Log("Score --");
+            //Debug.Log(levelTwoScore);
         }
 
         StartCoroutine(ResetTextAfterDelay());
@@ -98,6 +98,7 @@ public class TrailLevel2 : MonoBehaviour
             levelsHandler.level_3 = true;
             instructionsLevel3Canvas.SetActive(true);
             Debug.Log("Level Passed");
+            CountUpTimer.elapsedTime = 0f;
         }
     }
     void InitializeButtons()

@@ -6,7 +6,7 @@ using UnityEngine;
 public class CountUpTimer : MonoBehaviour
 {
     private string timerText;
-    float elapsedTime;
+    public static float elapsedTime;
     private bool isPlayPressed = false;
     public static bool isPaused = false;
 

@@ -43,7 +43,7 @@ public class TrailLevel1 : MonoBehaviour
     {
         // Output this to the console when any button is clicked
 
-        Debug.Log("Button clicked = " + (buttonNo + 1)); // Adjusted index for human-friendly numbering
+        ///Debug.Log("Button clicked = " + (buttonNo + 1)); // Adjusted index for human-friendly numbering
 
         Button clickedButton;
         if (trail11.activeSelf)
@@ -61,8 +61,8 @@ public class TrailLevel1 : MonoBehaviour
             ResetButtonColors(buttonNo);
             clickedButton.GetComponent<Image>().color = Color.green;
             levelOneScore++;
-            Debug.Log("Score up");
-            Debug.Log(levelOneScore);
+            //Debug.Log("Score up");
+            //Debug.Log(levelOneScore);
             buttonNum = buttonNo;
             ReinforcementManagement.PositiveReinforcementIncrement();
 
@@ -73,8 +73,8 @@ public class TrailLevel1 : MonoBehaviour
             {
                 clickedButton.GetComponent<Image>().color = Color.green;
                 levelOneScore++;
-                Debug.Log("Score up");
-                Debug.Log(levelOneScore);
+                //Debug.Log("Score up");
+                //Debug.Log(levelOneScore);
                 buttonNum = buttonNo;
 
                 ReinforcementManagement.PositiveReinforcementIncrement();
@@ -85,7 +85,7 @@ public class TrailLevel1 : MonoBehaviour
                 mistakes++;
                 clickedButton.GetComponent<Image>().color = Color.red;
                 ReinforcementManagement.PositiveReinforcementDecrement();
-                Debug.Log(levelOneScore);
+                //Debug.Log(levelOneScore);
                 } 
         }
         else
@@ -96,8 +96,8 @@ public class TrailLevel1 : MonoBehaviour
 
             levelOneScore--;
             mistakes++;
-            Debug.Log("Score --");
-            Debug.Log(levelOneScore);
+            //Debug.Log("Score --");
+            //Debug.Log(levelOneScore);
 
         }
         StartCoroutine(ResetTextAfterDelay());
@@ -110,6 +110,7 @@ public class TrailLevel1 : MonoBehaviour
             levelsHandler.level_3 = false;
             instructionsLevel2Canvas.SetActive(true);
             Debug.Log("Level Passed");
+            CountUpTimer.elapsedTime = 0f;
         }
     }
     

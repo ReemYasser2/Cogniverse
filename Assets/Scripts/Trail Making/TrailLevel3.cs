@@ -38,7 +38,7 @@ public class TrailLevel3 : MonoBehaviour
     void TaskOnClick(int buttonNo)
     {
         // Output this to the console when any button is clicked
-        Debug.Log("Button clicked = " + (buttonNo + 1)); // Adjusted index for human-friendly numbering
+        //Debug.Log("Button clicked = " + (buttonNo + 1)); // Adjusted index for human-friendly numbering
 
         Button clickedButton;
         if (trail31.activeSelf)
@@ -57,8 +57,8 @@ public class TrailLevel3 : MonoBehaviour
             clickedButton.GetComponent<Image>().color = Color.green;
             ReinforcementManagement.PositiveReinforcementIncrement();
             levelThreeScore++;
-            Debug.Log("Score up");
-            Debug.Log(levelThreeScore);
+            //Debug.Log("Score up");
+            //Debug.Log(levelThreeScore);
             buttonNum = buttonNo;
         }
         else if (buttonNo == 0)
@@ -67,8 +67,8 @@ public class TrailLevel3 : MonoBehaviour
                 clickedButton.GetComponent<Image>().color = Color.green;
                 ReinforcementManagement.PositiveReinforcementIncrement();
                 levelThreeScore++;
-                Debug.Log("Score up");
-                Debug.Log(levelThreeScore);
+                //Debug.Log("Score up");
+                //Debug.Log(levelThreeScore);
                 buttonNum = buttonNo;
             }
             else
@@ -77,7 +77,7 @@ public class TrailLevel3 : MonoBehaviour
                 mistakes++;
                 clickedButton.GetComponent<Image>().color = Color.red;
                 ReinforcementManagement.PositiveReinforcementDecrement();
-                Debug.Log("Score --");
+                //Debug.Log("Score --");
             } 
         }
         else
@@ -87,7 +87,7 @@ public class TrailLevel3 : MonoBehaviour
 
             levelThreeScore--;
             mistakes++;
-            Debug.Log("Score --");
+            //Debug.Log("Score --");
         }
         StartCoroutine(ResetTextAfterDelay());
 
@@ -95,6 +95,7 @@ public class TrailLevel3 : MonoBehaviour
         if (levelThreeScore == 30 || levelThreeScore + mistakes == 30)
         {
             Debug.Log("Heighest Score");
+            CountUpTimer.elapsedTime = 0f;
             gameOverCanvas.SetActive(true);
             isGameOver = true;
         }
