@@ -64,7 +64,6 @@ public class TrailLevel1 : MonoBehaviour
             Debug.Log("Score up");
             Debug.Log(levelOneScore);
             buttonNum = buttonNo;
-
             ReinforcementManagement.PositiveReinforcementIncrement();
 
         }

@@ -7,7 +7,7 @@ public static class ReinforcementManagement
 {
     public static TextMeshProUGUI reinforcement;
     public static string reinforcementText;
-
+    public static int incrementCounter = 0;
     static List<string> positiveIncrease = new List<string>
             { " Good Job", "Keep it up", "You're on a roll", "Excellent work", "Amazing!!", "Awesome!!", "Well done!!"};
     static List<string> positiveDecrease = new List<string>
@@ -17,11 +17,15 @@ public static class ReinforcementManagement
     static List<string> negativeDecrease = new List<string>
             { "You failed", "You missed it", "Not even close"};
 
-    public static string PositiveReinforcementIncrement()
+    public static void PositiveReinforcementIncrement()
     {
+        incrementCounter++;
         int randomIndex = Random.Range(0, positiveIncrease.Count);
-        reinforcementText = positiveIncrease[randomIndex];
-        return positiveIncrease[randomIndex];
+        if (incrementCounter % 5 == 0)
+        {
+            reinforcementText = positiveIncrease[randomIndex];
+        }
+
     }
     public static string PositiveReinforcementDecrement()
     {
@@ -32,6 +36,7 @@ public static class ReinforcementManagement
     }
     public static string NegativeReinforcementIncrement()
     {
+        incrementCounter++;
         int randomIndex = Random.Range(0, negativeIncrease.Count); 
         reinforcementText = negativeIncrease[randomIndex];
 
