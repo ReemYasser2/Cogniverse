@@ -15,6 +15,8 @@ public class LevelsTransition : MonoBehaviour
     public static bool isLevel2;
     public static bool isGameOver;
 
+    public MazeSpawner mazeSpawner;
+
     //public CountDownTimer time;
     // Start is called before the first frame update
     void Start()
@@ -41,10 +43,12 @@ public class LevelsTransition : MonoBehaviour
         if (ScoreCalculator.score <= 2 && CountDownTimer.isTimeOver)
         {
             levelTwoInstructionsCanvas.SetActive(true);
+            mazeSpawner.HideMaze();
         }
         else if (ScoreCalculator.score > 2 && CountDownTimer.isTimeOver)
         {
             levelOneInstructionsCanvas.SetActive(true);
+            mazeSpawner.HideMaze();
         }
     }
 
@@ -53,11 +57,13 @@ public class LevelsTransition : MonoBehaviour
         if (ScoreCalculator.score <= 4 && CountDownTimer.isTimeOver)
         {
             gameOverCanvas.SetActive(true);
+            mazeSpawner.HideMaze();
             isGameOver = true;
         }
         else if (ScoreCalculator.score > 4 && CountDownTimer.isTimeOver)
         {
             levelTwoInstructionsCanvas.SetActive(true);
+            mazeSpawner.HideMaze();
         }
     }
 

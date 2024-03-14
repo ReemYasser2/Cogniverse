@@ -2111,6 +2111,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1734165875}
+        m_TargetAssemblyTypeName: MazeSpawner, Assembly-CSharp
+        m_MethodName: ShowMaze
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &201202743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2695,6 +2707,7 @@ MonoBehaviour:
   instructionsLevel1MenuCanvas: {fileID: 1794015614}
   instructionsLevel2MenuCanvas: {fileID: 547357845}
   menuCanvas: {fileID: 262755380}
+  mazeSpawner: {fileID: 1734165875}
 --- !u!1 &289608270
 GameObject:
   m_ObjectHideFlags: 0
@@ -6733,6 +6746,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1734165875}
+        m_TargetAssemblyTypeName: MazeSpawner, Assembly-CSharp
+        m_MethodName: ShowMaze
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &737350868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7803,6 +7828,7 @@ MonoBehaviour:
   levelTwoInstructionsCanvas: {fileID: 11708742}
   levelOneInstructionsCanvas: {fileID: 1232004990}
   gameOverCanvas: {fileID: 337746772}
+  mazeSpawner: {fileID: 1734165875}
 --- !u!1 &897356711
 GameObject:
   m_ObjectHideFlags: 0
@@ -10422,6 +10448,18 @@ MonoBehaviour:
       - m_Target: {fileID: 176656228}
         m_TargetAssemblyTypeName: CountDownTimer, Assembly-CSharp
         m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1734165875}
+        m_TargetAssemblyTypeName: MazeSpawner, Assembly-CSharp
+        m_MethodName: ShowMaze
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15487,6 +15525,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1734165875}
+        m_TargetAssemblyTypeName: MazeSpawner, Assembly-CSharp
+        m_MethodName: ShowMaze
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1702547432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15766,6 +15816,7 @@ MonoBehaviour:
   maze1Canvas: {fileID: 2133696100}
   maze2Canvas: {fileID: 889094460}
   mazeIndex: 0
+  timerCanvas: {fileID: 117193472}
 --- !u!1 &1739643030
 GameObject:
   m_ObjectHideFlags: 0

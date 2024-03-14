@@ -12,6 +12,8 @@ public class MazeSpawner : MonoBehaviour
     public GameObject maze2Canvas;
     public int mazeIndex;
 
+    public GameObject timerCanvas;
+
     // This function chooses one maze randomly 
     public void SelectMazeRandomly()
     {
@@ -37,5 +39,33 @@ public class MazeSpawner : MonoBehaviour
         maze2Canvas.SetActive(false);
         SelectMazeRandomly();
         LevelsTransition.level1();
+    }
+
+    public void HideMaze()
+    {
+        mazePrefabs[mazeIndex].SetActive(false);
+        timerCanvas.SetActive(false);
+        if (mazeIndex == 0)
+        {
+            maze1Canvas.SetActive(false);
+        }
+        else if (mazeIndex == 1)
+        {
+            maze2Canvas.SetActive(false);
+        }
+    }
+
+    public void ShowMaze()
+    {
+        mazePrefabs[mazeIndex].SetActive(true);
+        timerCanvas.SetActive(true);
+        if (mazeIndex == 0)
+        {
+            maze1Canvas.SetActive(true);
+        }
+        else if (mazeIndex == 1)
+        {
+            maze2Canvas.SetActive(true);
+        }
     }
 }
