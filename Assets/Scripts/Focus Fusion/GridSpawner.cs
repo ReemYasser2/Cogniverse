@@ -6,6 +6,7 @@ public class GridSpawner : MonoBehaviour
 {
     public GameObject[] gridsPrefabs;
     public Transform spawnPosition; 
+    public Transform[] levelTwoSpawnPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,21 +18,34 @@ public class GridSpawner : MonoBehaviour
     {
         
     }
-     IEnumerator RandomSpawner()
+    IEnumerator RandomSpawner(int level)
     {
-        while (!FocusTimer.isTimeOver)
+        if (level == 1)
         {
-            int randomIndex = Random.Range(0, gridsPrefabs.Length);
-            
-            GameObject newObject = Instantiate(gridsPrefabs[randomIndex], spawnPosition.position, Quaternion.identity);
-            yield return new WaitForSeconds(0.8f);
-            Destroy( newObject );
+            while (!FocusTimer.isTimeOver)
+            {
+                int randomIndex = Random.Range(0, gridsPrefabs.Length);
+
+                GameObject newObject = Instantiate(gridsPrefabs[randomIndex], spawnPosition.position, Quaternion.identity);
+                yield return new WaitForSeconds(0.8f);
+                Destroy(newObject);
+            }
         }
-        
+        else if (level == 2)
+        {
+            while (!FocusTimer.isTimeOver)
+            {
+                int randomIndex = Random.Range(0, gridsPrefabs.Length);
+                int randomPosIndex = Random.Range(0, levelTwoSpawnPos.Length);
+                GameObject newObject = Instantiate(gridsPrefabs[randomIndex], levelTwoSpawnPos[randomPosIndex].position, Quaternion.identity);
+                yield return new WaitForSeconds(0.8f);
+                Destroy(newObject);
+            }
+        }
     } 
-    public void StartSpawning()
+    public void StartSpawning(int level)
     {
-        StartCoroutine(RandomSpawner());
+        StartCoroutine(RandomSpawner(level));
     }
 
 }
