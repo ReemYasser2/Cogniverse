@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.109058775, g: 0.099776424, b: 0.09507435, a: 1}
+  m_IndirectSpecularColor: {r: 0.10870849, g: 0.099930815, b: 0.09477871, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -131,13 +131,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1162991830}
     m_Modifications:
+    - target: {fileID: 882549604595022944, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Constraints
+      value: 122
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Radius
+      value: 1.2564225
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Center.x
+      value: 0.03857956
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Center.y
+      value: 3.6826534
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Center.z
+      value: 7.2740836e-10
+      objectReference: {fileID: 0}
     - target: {fileID: 6064476555349323561, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
       propertyPath: m_Name
       value: Front Right Alien 1
       objectReference: {fileID: 0}
     - target: {fileID: 6064476555349323561, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6064476555349323563, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
       propertyPath: m_LocalScale.x
@@ -1627,13 +1647,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1162991830}
     m_Modifications:
+    - target: {fileID: 882549604595022944, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Constraints
+      value: 122
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Radius
+      value: 1.2257385
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Center.x
+      value: 0.0007301571
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Center.y
+      value: 3.7195172
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Center.z
+      value: 1.5402877e-11
+      objectReference: {fileID: 0}
     - target: {fileID: 6064476555349323561, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
       propertyPath: m_Name
       value: Back Right Alien 1
       objectReference: {fileID: 0}
     - target: {fileID: 6064476555349323561, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6064476555349323563, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
       propertyPath: m_LocalScale.x
@@ -2954,6 +2994,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1162991830}
     m_Modifications:
+    - target: {fileID: 882549604595022944, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Constraints
+      value: 122
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Radius
+      value: 1.366113
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Center.x
+      value: 0.05828798
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Center.y
+      value: 3.5713084
+      objectReference: {fileID: 0}
     - target: {fileID: 6064476555349323561, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
       propertyPath: m_Name
       value: Front Mid Alien 2
@@ -5917,6 +5973,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1162991830}
     m_Modifications:
+    - target: {fileID: 882549604595022944, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Constraints
+      value: 122
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Radius
+      value: 1.2668014
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Center.x
+      value: -0.041614782
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Center.y
+      value: 3.7032819
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Center.z
+      value: -0.0000000014678927
+      objectReference: {fileID: 0}
     - target: {fileID: 6064476555349323561, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
       propertyPath: m_Name
       value: Back Right Alien 2
@@ -6464,7 +6540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1182156665}
-  remainingTime: 8
+  remainingTime: 60
   gameOverCanvas: {fileID: 1345405968}
   criticalColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &857832720
@@ -6690,6 +6766,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1162991830}
     m_Modifications:
+    - target: {fileID: 882549604595022944, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Constraints
+      value: 122
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Radius
+      value: 1.2405053
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Center.x
+      value: 0.035011478
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Center.y
+      value: 3.6906886
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Center.z
+      value: -0.0000000011842948
+      objectReference: {fileID: 0}
     - target: {fileID: 6064476555349323561, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
       propertyPath: m_Name
       value: Front Left Alien 2
@@ -9152,13 +9248,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1162991830}
     m_Modifications:
+    - target: {fileID: 882549604595022944, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Constraints
+      value: 122
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Radius
+      value: 1.3076106
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Center.x
+      value: -0.0039215423
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Center.y
+      value: 3.6395493
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Center.z
+      value: 0.091016166
+      objectReference: {fileID: 0}
     - target: {fileID: 6064476555349323561, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
       propertyPath: m_Name
       value: Front Left Alien 1
       objectReference: {fileID: 0}
     - target: {fileID: 6064476555349323561, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6064476555349323563, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
       propertyPath: m_LocalScale.x
@@ -10495,13 +10611,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1162991830}
     m_Modifications:
+    - target: {fileID: 882549604595022944, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Constraints
+      value: 122
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Radius
+      value: 1.2903376
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Center.x
+      value: -0.008215459
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Center.y
+      value: 3.6735148
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Center.z
+      value: 1.6231297e-10
+      objectReference: {fileID: 0}
     - target: {fileID: 6064476555349323561, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
       propertyPath: m_Name
       value: Back Left Alien 1
       objectReference: {fileID: 0}
     - target: {fileID: 6064476555349323561, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6064476555349323563, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
       propertyPath: m_LocalScale.x
@@ -10595,13 +10731,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1162991830}
     m_Modifications:
+    - target: {fileID: 882549604595022944, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Constraints
+      value: 122
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Radius
+      value: 1.2388308
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Center.y
+      value: 3.7164814
+      objectReference: {fileID: 0}
     - target: {fileID: 6064476555349323561, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
       propertyPath: m_Name
       value: Front Mid Alien 1
       objectReference: {fileID: 0}
     - target: {fileID: 6064476555349323561, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6064476555349323563, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
       propertyPath: m_LocalScale.x
@@ -10830,6 +10978,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1162991830}
     m_Modifications:
+    - target: {fileID: 882549604595022944, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Constraints
+      value: 122
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Radius
+      value: 1.2455407
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Center.x
+      value: -0.041614782
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Center.y
+      value: 3.7329888
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Center.z
+      value: 0.0000000014678927
+      objectReference: {fileID: 0}
     - target: {fileID: 6064476554158831963, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -13539,6 +13707,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1162991830}
     m_Modifications:
+    - target: {fileID: 882549604595022944, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Constraints
+      value: 122
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Radius
+      value: 1.250805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Center.x
+      value: -0.041614782
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Center.y
+      value: 3.6989713
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004974270077759693, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Center.z
+      value: -0.0000000014678927
+      objectReference: {fileID: 0}
     - target: {fileID: 6064476554158831963, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
