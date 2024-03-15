@@ -9,6 +9,7 @@ TagManager:
   - Undefined
   - MazeObstacle
   - MazePowerUp
+  - Bat
   layers:
   - Default
   - TransparentFX
