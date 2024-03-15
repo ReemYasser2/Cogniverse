@@ -54,7 +54,7 @@ public class HapticFeedback : MonoBehaviour
             StartCoroutine(ResetTextAfterDelay());
 
             Debug.Log("Collision with an obstacle!");
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
         }
         else if (collision.gameObject.CompareTag("MazePowerUp"))
         {
