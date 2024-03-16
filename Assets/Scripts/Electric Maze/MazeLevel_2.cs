@@ -72,31 +72,29 @@ public class MazeLevel_2 : MonoBehaviour
         }
     
    }
-    public void HideMushrooms()
+    public void ShowHideMushrooms(bool isVisible)
     {
         if (mazeSpawner.mazeSelection == 2)
         {
             for (int i = 0; i < powerUpsMazeTwo.Length; i++)
             {
-                powerUpsMazeTwo[i].SetActive(false);
+                powerUpsMazeTwo[i].SetActive(isVisible);
             }
             for (int i = 0; i < obstaclesMazeTwo.Length; i++)
             {
-                obstaclesMazeTwo[i].SetActive(false);
+                obstaclesMazeTwo[i].SetActive(isVisible);
             }
         }
         else if(mazeSpawner.mazeSelection == 1)
         {
             for (int i = 0; i < obstaclesMazeOne.Length; i++)
             {
-                obstaclesMazeOne[i].SetActive(false);
+                obstaclesMazeOne[i].SetActive(isVisible);
             }
             for (int i = 0; i < powerUpsMazeOne.Length; i++)
             {
-                powerUpsMazeOne[i].SetActive(false);
+                powerUpsMazeOne[i].SetActive(isVisible);
             }
         }
-        
-
     }
 }
