@@ -26,7 +26,7 @@ public class GridSpawner : MonoBehaviour
     {
         if (level == 1)
         {
-          //  while (!FocusTimer.isTimeOver)
+            while (!FocusTimer.isTimeOver)
             {
                 
                 int randomIndex = Random.Range(0, gridsPrefabs.Length);
@@ -36,7 +36,7 @@ public class GridSpawner : MonoBehaviour
                 if (newObject != null)
                 {
                     newObject.SetActive(false);
-                   // Destroy(newObject);
+                    Destroy(newObject);
                 }
             }
         }
@@ -63,14 +63,10 @@ public class GridSpawner : MonoBehaviour
     public void GetUserResponse()
     {
         Destroy(newObject);
-        Debug.Log("AAAAAAAAAAAAA");
-    }
-    public void UserReleased()
-    {
         int randomIndex = Random.Range(0, gridsPrefabs.Length);
-        newObject = Instantiate(gridsPrefabs[randomIndex], spawnPosition.position, Quaternion.identity); newObject.SetActive(true);
+        newObject = Instantiate(gridsPrefabs[randomIndex], spawnPosition.position, Quaternion.identity);
         new WaitForSeconds(0.75f);
-        Debug.Log("Hii");
+        //Debug.Log("Hii");
         newObject.SetActive(false);
         Destroy(newObject);
     }
