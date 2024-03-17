@@ -62,7 +62,7 @@ public class HapticFeedback : MonoBehaviour
             StartCoroutine(ResetTextAfterDelay());
 
             Debug.Log("Collision with a power-up!");
-            Destroy(collision.gameObject);
+            Destroy(collision.gameObject); // Change to inActive
         }
     }
 

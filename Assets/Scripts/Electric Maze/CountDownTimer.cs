@@ -12,7 +12,7 @@ public class CountDownTimer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        remainingTime = GeneralCountDownTimer.TimerInitialization(timerText, LevelsTransition.isLevel1, LevelsTransition.isLevel2, 7, 60);
+        remainingTime = GeneralCountDownTimer.TimerInitialization(timerText, LevelsTransition.isLevel1, LevelsTransition.isLevel2, 30, 60);
     }
 
     // Update is called once per frame
@@ -29,6 +29,6 @@ public class CountDownTimer : MonoBehaviour
     {
         isPlayPressed = true;
         isTimeOver = false;
-        remainingTime = GeneralCountDownTimer.TimerInitialization(timerText, LevelsTransition.isLevel1, LevelsTransition.isLevel2, 7, 60);
+        remainingTime = GeneralCountDownTimer.TimerInitialization(timerText, LevelsTransition.isLevel1, LevelsTransition.isLevel2, 30, 60);
     }
 }
