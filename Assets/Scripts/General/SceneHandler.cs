@@ -15,37 +15,9 @@ public class SceneHandler : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    // function that opens the dual n-back game
-    public void OpenDualNback()
-    {
-        SceneManager.LoadScene(2);
-    }
-
     // function that opens the electrical maze game
     public void OpenElectricalMaze()
     {
         SceneManager.LoadScene(3);
     }
-
-    // function that opens the trail making game
-    public void OpenTrailMaking()
-    {
-        SceneManager.LoadScene(4);
-    }
-
-  
-    // function that opens the focus fusion game
-    public void OpenFocusFusion()
-    {
-        SceneManager.LoadScene(5);
-    }
-
-    // function that opens the whack-a-mole game
-    public void OpenWhackAmole()
-    {
-        SceneManager.LoadScene(6);
-    }
-
-    
-
 }

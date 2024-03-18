@@ -27,10 +27,6 @@ public class GeneralMenuHandler : MonoBehaviour
         {
             PauseGame.Pause();
         }
-        else if (timer == 2)
-        {
-            CountUpTimer.PauseTimer();
-        }
     }
 
     public static void ShowMenuHandler(bool level1, bool level2, bool level3, bool gameOver, GameObject menuCanvas, GameObject instructionsLevel1Canvas, GameObject instructionsLevel2Canvas, GameObject instructionsLevel3Canvas, GameObject instructionsLevel1MenuCanvas, GameObject instructionsLevel2MenuCanvas, GameObject instructionsLevel3MenuCanvas, int timer, int levels)
