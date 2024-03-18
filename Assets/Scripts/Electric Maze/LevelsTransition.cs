@@ -40,12 +40,12 @@ public class LevelsTransition : MonoBehaviour
 
     private void checkLevelOne()
     {
-        if (ScoreCalculator.score <= 2 && CountDownTimer.isTimeOver)
+        if (ScoreCalculatorMaze.score <= 2 && CountDownTimer.isTimeOver)
         {
             levelTwoInstructionsCanvas.SetActive(true);
             mazeSpawner.HideMaze();
         }
-        else if (ScoreCalculator.score > 2 && CountDownTimer.isTimeOver)
+        else if (ScoreCalculatorMaze.score > 2 && CountDownTimer.isTimeOver)
         {
             levelOneInstructionsCanvas.SetActive(true);
             mazeSpawner.HideMaze();
@@ -54,13 +54,13 @@ public class LevelsTransition : MonoBehaviour
 
     private void CheckLevelTwo()
     {
-        if (ScoreCalculator.score <= 4 && CountDownTimer.isTimeOver)
+        if (ScoreCalculatorMaze.score <= 4 && CountDownTimer.isTimeOver)
         {
             gameOverCanvas.SetActive(true);
             mazeSpawner.HideMaze();
             isGameOver = true;
         }
-        else if (ScoreCalculator.score > 4 && CountDownTimer.isTimeOver)
+        else if (ScoreCalculatorMaze.score > 4 && CountDownTimer.isTimeOver)
         {
             levelTwoInstructionsCanvas.SetActive(true);
             mazeSpawner.HideMaze();
@@ -71,14 +71,14 @@ public class LevelsTransition : MonoBehaviour
     {
         isLevel1 = true;
         isLevel2 = false;
-        ScoreCalculator.score = 0;
+        ScoreCalculatorMaze.score = 0;
     }
 
     public void level2() 
     { 
         isLevel2 = true;
         isLevel1 = false;
-        ScoreCalculator.score = 0;
+        ScoreCalculatorMaze.score = 0;
     }
 
 }
