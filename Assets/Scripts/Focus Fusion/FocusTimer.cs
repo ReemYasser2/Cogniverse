@@ -10,6 +10,7 @@ public class FocusTimer : MonoBehaviour
     private bool isPlayPressed = false;
     public static bool isTimeOver = false;
     public GameObject gameOverCanvas;
+    public GameObject InstructionsLevelTwoCanvas;
 
     public Color criticalColor = Color.red;
 
@@ -42,7 +43,15 @@ public class FocusTimer : MonoBehaviour
                 remainingTime = 0;
                 // Timer is over
                 isTimeOver = true;
-                gameOverCanvas.SetActive(true);
+                if (ScoreCalculationFocus.score >= 5)
+                {
+                    InstructionsLevelTwoCanvas.SetActive(true);
+                }
+                else
+                {
+                    gameOverCanvas.SetActive(true);
+
+                }
             }
             int minutes = Mathf.FloorToInt(remainingTime / 60);
             int seconds = Mathf.FloorToInt(remainingTime % 60);
@@ -51,12 +60,13 @@ public class FocusTimer : MonoBehaviour
     }
 
     // This function is called when the game starts to start the timer
-    public void StartGame()
+    public void StartGame(bool isLevel2 = false)
     {
         isPlayPressed = true;
         isTimeOver = false;
         timerText.color = Color.white;
-
+        InstructionsLevelTwoCanvas.SetActive(false);
+        if (isLevel2) { remainingTime = 10; }
         //remainingTime = GeneralCountDownTimer.TimerInitialization(timerText, isLevel1, isLevel2, 5, 10);
     }
 }
