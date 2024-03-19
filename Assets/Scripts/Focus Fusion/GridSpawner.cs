@@ -39,25 +39,36 @@ public class GridSpawner : MonoBehaviour
                 if (newObject.layer == 10)
                 {
                     ScoreCalculationFocus.Increment();
+                    StartCoroutine(ResetTextAfterDelay());
+
                 }
                 else if (newObject.layer != 10 || newObject.layer == 9)
                 {
                     ScoreCalculationFocus.Decrement();
+                    StartCoroutine(ResetTextAfterDelay());
+
                 }
+
             }
             else if (obj.action.name == "PrimaryLeft")
             {
                 if (newObject.layer == 8)
                 {
                     ScoreCalculationFocus.Increment();
+                    StartCoroutine(ResetTextAfterDelay());
+
                 }
                 else if (newObject.layer != 8 || newObject.layer == 9)
                 {
                     ScoreCalculationFocus.Decrement();
+                    StartCoroutine(ResetTextAfterDelay());
+
                 }
+
             }
+
         }
-        GetUserResponse();
+        //GetUserResponse();
     }
 
     IEnumerator RandomSpawner(int level)
@@ -130,6 +141,7 @@ public class GridSpawner : MonoBehaviour
         {
             ScoreCalculationFocus.Increment(); // Increment score if no click and layer is 9
         }
+        StartCoroutine(ResetTextAfterDelay());
 
     }
 
@@ -142,6 +154,13 @@ public class GridSpawner : MonoBehaviour
         if (!FocusTimer.isTimeOver) {
             StartCoroutine(WhenClicked());      
         }
+    }
+    IEnumerator ResetTextAfterDelay()
+    {
+        yield return new WaitForSeconds(2.0f);
+
+        // After waiting for the specified duration, reset the text to nothing
+        ScoreCalculationFocus.reinforcementText = "";
     }
 
 }
