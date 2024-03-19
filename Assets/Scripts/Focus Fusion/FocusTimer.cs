@@ -43,6 +43,8 @@ public class FocusTimer : MonoBehaviour
                 remainingTime = 0;
                 // Timer is over
                 isTimeOver = true;
+                ScoreCalculationFocus.reinforcementText = "";
+
                 if (ScoreCalculationFocus.score >= 5)
                 {
                     InstructionsLevelTwoCanvas.SetActive(true);

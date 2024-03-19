@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class ScoreCalculationFocus 
 {
-    public static int score = 0;
+    public static int score = 10;
 
     public static string reinforcementText;
 
