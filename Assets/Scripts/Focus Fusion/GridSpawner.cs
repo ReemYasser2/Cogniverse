@@ -157,7 +157,7 @@ public class GridSpawner : MonoBehaviour
     }
     IEnumerator ResetTextAfterDelay()
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.0f);
 
         // After waiting for the specified duration, reset the text to nothing
         ScoreCalculationFocus.reinforcementText = "";
