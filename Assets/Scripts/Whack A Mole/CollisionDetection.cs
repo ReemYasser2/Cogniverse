@@ -14,12 +14,16 @@ public class CollisionDetection : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Bat"))
         {
-            // Move the mole downwards temporarily
-            transform.Translate(Vector3.down *hitDownwardSpeed * Time.deltaTime);
-
-            // Destroy the mole after a short delay
-            Destroy(gameObject, delay);
+            while (gameObject.transform.position.y > 3.7f)
+            {
+                float step = hitDownwardSpeed * Time.deltaTime;
+                gameObject.transform.Translate(Vector3.down * step);
+            }
         }
+    }
+    void DeactivateObject()
+    {
+        gameObject.SetActive(false);
     }
 }
 
