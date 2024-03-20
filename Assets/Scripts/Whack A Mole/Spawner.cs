@@ -9,7 +9,7 @@ public class Spawner : MonoBehaviour
     public float targetYPositionUp = 4.2f;
     public float targetYPositionDown = 3.7f;
     public float movementSpeed = 0.1f;
-    public bool[] isUp;
+    //public bool[] isUp;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,15 +37,15 @@ public class Spawner : MonoBehaviour
                 GameObject secondObject = alienOne[randomIndex2];
                 MoveObjectUp(firstObject, targetYPositionUp);
                 MoveObjectUp(secondObject, targetYPositionUp);
-                isUp[randomIndex] = true;
-                isUp[randomIndex2] = true;
+                //isUp[randomIndex] = true;
+                //isUp[randomIndex2] = true;
 
                 yield return new WaitForSeconds(0.75f);      
                 MoveObjectDown(firstObject, targetYPositionDown);
-                isUp[randomIndex] = false;
+                //isUp[randomIndex] = false;
                 yield return new WaitForSeconds(0.2f);            
                 MoveObjectDown(secondObject, targetYPositionDown);
-                isUp[randomIndex2] = false;
+                //isUp[randomIndex2] = false;
             }
         }
     else if (level == 2)
@@ -69,14 +69,14 @@ public class Spawner : MonoBehaviour
                 GameObject secondObject = alienTwo[randomIndex2];
                 MoveObjectUp(firstObject, targetYPositionUp);
                 MoveObjectUp(secondObject, targetYPositionUp);
-                isUp[randomIndex] = true;
-                isUp[randomIndex2] = true;
+                //isUp[randomIndex] = true;
+                //isUp[randomIndex2] = true;
                 yield return new WaitForSeconds(0.75f);
                 MoveObjectDown(firstObject, targetYPositionDown);
-                isUp[randomIndex] = false;
+                //isUp[randomIndex] = false;
                 yield return new WaitForSeconds(0.2f);
                 MoveObjectDown(secondObject, targetYPositionDown);
-                isUp[randomIndex2] = false;
+                //isUp[randomIndex2] = false;
             }
         }
     }

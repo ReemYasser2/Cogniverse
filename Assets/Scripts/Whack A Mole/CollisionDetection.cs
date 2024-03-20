@@ -6,12 +6,12 @@ public class CollisionDetection : MonoBehaviour
 {
     public float hitDownwardSpeed = 0.5f;
     public float delay = 2.5f;
-
+    public Spawner spawner;
 
     void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Entered collision with " + collision.gameObject.name);
-
+        spawner = GetComponent<Spawner>();
         if (collision.gameObject.CompareTag("Bat"))
         {
             while (gameObject.transform.position.y > 3.7f)
