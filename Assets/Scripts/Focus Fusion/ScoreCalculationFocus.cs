@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class ScoreCalculationFocus 
 {
-    public static int score = 10;
+    public static int score = 0;
 
     public static string reinforcementText;
 
@@ -22,14 +22,14 @@ public static class ScoreCalculationFocus
     {
         score++;
         Debug.Log(score);
-        reinforcementText = PositiveReinforcementDecrement();
+        reinforcementText = PositiveReinforcementIncrement();
 
 
     }
     public static void Decrement()
     {
         score--;
-        reinforcementText = PositiveReinforcementIncrement();
+        reinforcementText = PositiveReinforcementDecrement();
         Debug.Log(score);
 
 

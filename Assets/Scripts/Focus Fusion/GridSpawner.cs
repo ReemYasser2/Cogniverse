@@ -107,6 +107,7 @@ public class GridSpawner : MonoBehaviour
                 isClicked = false;
                 if (newObject != null)
                 {
+                    newObject.SetActive(false);
                     Destroy(newObject);
                 }
                 yield return new WaitForSeconds(0.25f);
@@ -119,9 +120,10 @@ public class GridSpawner : MonoBehaviour
 
                 if (newObject != null)
                 {
+                    newObject.SetActive(false);
                     Destroy(newObject);
                 }
-                yield return new WaitForSeconds(0.85f);
+                yield return new WaitForSeconds(1);
 
             }
         }
