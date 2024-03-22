@@ -30,7 +30,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Shuffled.unity
     guid: 5e9275bdd5a88634d813ac9e43ddd145
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/External Assets/Cartoon low poly tree/Scenes/Demo_01.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 8035c538f3c64794eb30220426c17d9b, type: 2}
