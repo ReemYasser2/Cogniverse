@@ -18,7 +18,8 @@ public class FocusTimer : MonoBehaviour
     void Start()
     {
         // remainingTime = GeneralCountDownTimer.TimerInitialization(timerText, isLevel1, isLevel2, 5, 10);
-
+        if (GridSpawner.isLevel1) { remainingTime = 10; }
+        else if (GridSpawner.isLevel2) { remainingTime = 10; }
         timerText.color = Color.white;
     }
 
@@ -44,7 +45,7 @@ public class FocusTimer : MonoBehaviour
                 // Timer is over
                 isTimeOver = true;
                 ScoreCalculationFocus.reinforcementText = "";
-
+                /*
                 if (ScoreCalculationFocus.score >= 5)
                 {
                     InstructionsLevelTwoCanvas.SetActive(true);
@@ -54,6 +55,7 @@ public class FocusTimer : MonoBehaviour
                     gameOverCanvas.SetActive(true);
 
                 }
+                */
             }
             int minutes = Mathf.FloorToInt(remainingTime / 60);
             int seconds = Mathf.FloorToInt(remainingTime % 60);
@@ -62,13 +64,14 @@ public class FocusTimer : MonoBehaviour
     }
 
     // This function is called when the game starts to start the timer
-    public void StartGame(bool isLevel2 = false)
+    public void StartGame()
     {
         isPlayPressed = true;
         isTimeOver = false;
         timerText.color = Color.white;
         InstructionsLevelTwoCanvas.SetActive(false);
-        if (isLevel2) { remainingTime = 10; }
+        if (GridSpawner.isLevel1) { remainingTime = 10; }
+        else if (GridSpawner.isLevel2) { remainingTime = 10; }
         //remainingTime = GeneralCountDownTimer.TimerInitialization(timerText, isLevel1, isLevel2, 5, 10);
     }
 }

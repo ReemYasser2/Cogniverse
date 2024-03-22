@@ -15,6 +15,11 @@ public class GridSpawner : MonoBehaviour
     private bool isClicked = false;
     [SerializeField] private InputActionReference leftActionReference;
     [SerializeField] private InputActionReference rightActionReference;
+
+    public static bool isLevel1;
+    public static bool isLevel2;
+    public static bool isGameOver;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -75,6 +80,10 @@ public class GridSpawner : MonoBehaviour
     {
         if (level == 1)
         {
+            isLevel1 = true;
+            isLevel2 = false;
+            isGameOver = false;
+
             while (!FocusTimer.isTimeOver)
             {
                 isClicked = false;
@@ -100,6 +109,10 @@ public class GridSpawner : MonoBehaviour
         }
         else if (level == 2)
         {
+            isLevel1 = false;
+            isLevel2 = true;
+            isGameOver = false;
+
             Debug.Log("Level 2 starts");
             while (!FocusTimer.isTimeOver)
             {
@@ -169,4 +182,11 @@ public class GridSpawner : MonoBehaviour
         ScoreCalculationFocus.reinforcementText = "";
     }
 
+    public void ShowHideGrid(bool isVisible)
+    {
+        if (newObject != null)
+        {
+            newObject.SetActive(isVisible);
+        }
+    }
 }
