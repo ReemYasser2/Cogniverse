@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.109058775, g: 0.099776424, b: 0.09507435, a: 1}
+  m_IndirectSpecularColor: {r: 0.10924468, g: 0.102202766, b: 0.09711708, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -243,6 +243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitDownwardSpeed: 3.65
   delay: 2.5
+  spawner: {fileID: 0}
 --- !u!1 &74450192
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,6 +1760,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitDownwardSpeed: 3.65
   delay: 2.5
+  spawner: {fileID: 0}
 --- !u!1 &251038868
 GameObject:
   m_ObjectHideFlags: 0
@@ -3102,6 +3104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitDownwardSpeed: 3.65
   delay: 2.5
+  spawner: {fileID: 0}
 --- !u!1001 &357222094
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6085,6 +6088,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitDownwardSpeed: 3.65
   delay: 2.5
+  spawner: {fileID: 0}
 --- !u!1001 &791360034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6816,6 +6820,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitDownwardSpeed: 3.65
   delay: 2.5
+  spawner: {fileID: 0}
 --- !u!1 &921231713
 GameObject:
   m_ObjectHideFlags: 0
@@ -7578,7 +7583,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Whack a Mole
+  m_text: Cosmic Whack
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 311ce87ed4927c3409ad457c9fb5d22e, type: 2}
   m_sharedMaterial: {fileID: -6974317303455402996, guid: 311ce87ed4927c3409ad457c9fb5d22e, type: 2}
@@ -9363,6 +9368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitDownwardSpeed: 3.65
   delay: 2.5
+  spawner: {fileID: 0}
 --- !u!1 &1384415303
 GameObject:
   m_ObjectHideFlags: 0
@@ -10726,6 +10732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitDownwardSpeed: 3.65
   delay: 2.5
+  spawner: {fileID: 0}
 --- !u!1001 &1592759415
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10838,6 +10845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitDownwardSpeed: 3.65
   delay: 2.5
+  spawner: {fileID: 0}
 --- !u!1 &1602279607
 GameObject:
   m_ObjectHideFlags: 0
@@ -11121,6 +11129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitDownwardSpeed: 3.65
   delay: 2.5
+  spawner: {fileID: 0}
 --- !u!1 &1686778520
 GameObject:
   m_ObjectHideFlags: 0
@@ -13850,6 +13859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitDownwardSpeed: 3.65
   delay: 2.5
+  spawner: {fileID: 0}
 --- !u!1 &1969534707
 GameObject:
   m_ObjectHideFlags: 0

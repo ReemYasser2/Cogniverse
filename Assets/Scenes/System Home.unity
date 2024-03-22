@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.10870849, g: 0.099930815, b: 0.09477871, a: 1}
+  m_IndirectSpecularColor: {r: 0.10924468, g: 0.102202766, b: 0.09711708, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1629,7 +1629,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Electrical Maze
+  m_text: Electrical Forest
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1bfdfd6d756ca3941a2f70a77f8de9f2, type: 2}
   m_sharedMaterial: {fileID: 8259751742977615116, guid: 1bfdfd6d756ca3941a2f70a77f8de9f2, type: 2}
@@ -10958,7 +10958,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Whack-a-mole '
+  m_text: Cosmic Whack
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1bfdfd6d756ca3941a2f70a77f8de9f2, type: 2}
   m_sharedMaterial: {fileID: 8259751742977615116, guid: 1bfdfd6d756ca3941a2f70a77f8de9f2, type: 2}
