@@ -69,7 +69,7 @@ public class LevelsHandler : MonoBehaviour
         return selectedTrail;
     }
 
-    public void RestartGame()
+    public void ReplayLevel1()
     {
         level_1 = true;
         level1_menu = true;
@@ -79,24 +79,56 @@ public class LevelsHandler : MonoBehaviour
         // reset score and number of mistakes
         trailLevel1.levelOneScore = 0;
         trailLevel1.mistakes = 0;
+
+        // hide trails 
+        levelOneTrails[0].SetActive(false);
+        levelOneTrails[1].SetActive(false);
+
+        // reset color of all buttons 
+        trailLevel1.ResetButtonColors(0);
+
+        TrailSelection(1);
+    }
+    
+    public void ReplayLevel2()
+    {
+        level_1 = false;
+        level1_menu = false;
+        level_2 = true;
+        level_3 = false;
+
+        // reset score and number of mistakes
         trailLevel2.levelTwoScore = 0;
         trailLevel2.mistakes = 0;
+
+        // hide trails
+        levelTwoTrails[0].SetActive(false);
+        levelTwoTrails[1].SetActive(false);
+
+        // reset color of all buttons
+        trailLevel2.ResetButtonColors(0);
+
+        TrailSelection(2);
+    }
+    
+    public void ReplayLevel3()
+    {
+        level_1 = false;
+        level1_menu = false;
+        level_2 = false;
+        level_3 = true;
+
+        // reset score and number of mistakes
         trailLevel3.levelThreeScore = 0;
         trailLevel3.mistakes = 0;
 
-        // hide trail level three
-        levelThreeTrails[trailIndex_copy].SetActive(false);
+        // hide trails
+        levelThreeTrails[0].SetActive(false);
+        levelThreeTrails[1].SetActive(false);
 
-        // reset color of all buttons of level 1
-        trailLevel1.ResetButtonColors(0);
-
-        // reset color of all buttons of level 2
-        trailLevel2.ResetButtonColors(0);
-
-
-        // reset color of all buttons of level 3
-
+        // reset color of all buttons 
         trailLevel3.ResetButtonColors(0);
 
+        TrailSelection(3);
     }
 }

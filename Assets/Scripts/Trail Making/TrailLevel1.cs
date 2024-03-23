@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,13 +11,15 @@ public class TrailLevel1 : MonoBehaviour
 
     public Button[] trail11Buttons = new Button[15];
     public Button[] trail12Buttons = new Button[15];
-    public GameObject instructionsLevel2Canvas;
+    public GameObject completeLevel1Canvas;
     public GameObject trail11;
     public GameObject trail12;
     int trailSelection;
     public int levelOneScore = 0;
     public int mistakes = 0;
     private int buttonNum = 0;
+    public TextMeshProUGUI scorelvl1Text;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -110,7 +113,8 @@ public class TrailLevel1 : MonoBehaviour
             levelsHandler.level_1 = false;
             levelsHandler.level_2 = true;
             levelsHandler.level_3 = false;
-            instructionsLevel2Canvas.SetActive(true);
+            completeLevel1Canvas.SetActive(true);
+            scorelvl1Text.text = $"Your Score: {levelOneScore}";
             Debug.Log("Level Passed");
             CountUpTimer.elapsedTime = 0f;
         }

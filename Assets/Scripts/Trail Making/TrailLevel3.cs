@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,9 +17,10 @@ public class TrailLevel3 : MonoBehaviour
 
     public LevelsHandler levelsHandler;
 
-    public GameObject gameOverCanvas;
+    public GameObject completeLevel3Canvas;
 
     public static bool isGameOver;
+    public TextMeshProUGUI scorelvl3Text;
 
     // Start is called before the first frame update
     void Start()
@@ -96,7 +98,8 @@ public class TrailLevel3 : MonoBehaviour
         {
             Debug.Log("Heighest Score");
             CountUpTimer.elapsedTime = 0f;
-            gameOverCanvas.SetActive(true);
+            completeLevel3Canvas.SetActive(true);
+            scorelvl3Text.text = $"Your Score: {levelThreeScore}";
             isGameOver = true;
         }
     }
