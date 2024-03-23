@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.007762702, g: 0.02504691, b: 0.0019513344, a: 1}
+  m_IndirectSpecularColor: {r: 0.007786432, g: 0.025009945, b: 0.0019574722, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8214,9 +8214,10 @@ MonoBehaviour:
   m_text: 'Congratulations on reaching Level 2!
 
     In this level, your goal is
-    to navigate through the maze, avoiding both mushroom obstacles and touching the
-    borders. Take mushroom power-ups that increase your attempts. You have up to
-    4 attempts to successfully complete this level before the timer runs out'
+    to navigate through the maze, avoiding the mushroom obstacles and avoid touching
+    the borders, too. You can eat up the mushroom power-ups that will increase your
+    trials. You have up to 4 trials to successfully complete this level before the
+    timer runs out.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 53e8db34fe4d13d498b9cea5912940f2, type: 2}
   m_sharedMaterial: {fileID: -7010786405154171048, guid: 53e8db34fe4d13d498b9cea5912940f2, type: 2}
@@ -10820,9 +10821,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: In this game, you have to go through the maze without touching the borders.
-    Be cautious of both the timer and the number of times you contact the borders,
-    you have up to 2 trials to successfully complete this level.
+  m_text: Welcome to Electrical Maze, in this game, you have to go through the maze
+    without touching the borders. Be cautious of both the timer and the number of
+    times you contact the borders, you have up to 2 trials to successfully complete
+    this level. And don't forget, it's an ELECTRICAL maze!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 53e8db34fe4d13d498b9cea5912940f2, type: 2}
   m_sharedMaterial: {fileID: -7010786405154171048, guid: 53e8db34fe4d13d498b9cea5912940f2, type: 2}
@@ -20935,9 +20937,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: In this game, you have to go through the maze without touching the borders.
-    Be cautious of both the timer and the number of times you contact the borders,
-    you have up to 2 trials to successfully complete this level.
+  m_text: Welcome to Electrical Forest, in this game, you have to go through the
+    maze without touching the borders. Be cautious of both the timer and the number
+    of times you contact the borders, you have up to 2 trials to successfully complete
+    this level. And don't forget, it's an ELECTRICAL maze!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 53e8db34fe4d13d498b9cea5912940f2, type: 2}
   m_sharedMaterial: {fileID: -7010786405154171048, guid: 53e8db34fe4d13d498b9cea5912940f2, type: 2}
