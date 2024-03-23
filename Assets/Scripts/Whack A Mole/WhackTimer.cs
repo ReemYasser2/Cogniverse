@@ -39,6 +39,8 @@ public class WhackTimer : MonoBehaviour
             }
             else if (remainingTime <= 0)
             {
+                ScoreCalculationWhack.reinforcementText = "";
+
                 remainingTime = 0;
                 // Timer is over
                 isTimeOver = true;

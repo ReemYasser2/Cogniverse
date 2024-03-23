@@ -29,11 +29,21 @@ public class CollisionDetection : MonoBehaviour
             else if (Spawner.isLevel2) {
                 ScoreCalculationWhack.Decrement();
             }
+            StartCoroutine(ResetTextAfterDelay());
+
         }
     }
     void DeactivateObject()
     {
         gameObject.SetActive(false);
+    }
+
+    IEnumerator ResetTextAfterDelay()
+    {
+        yield return new WaitForSeconds(1.0f);
+
+        // After waiting for the specified duration, reset the text to nothing
+        ScoreCalculationFocus.reinforcementText = "";
     }
 }
 
