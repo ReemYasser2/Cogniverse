@@ -9,6 +9,10 @@ public class Spawner : MonoBehaviour
     public float targetYPositionUp = 4.2f;
     public float targetYPositionDown = 3.7f;
     public float movementSpeed = 0.1f;
+    public static bool isLevel1;
+    public static bool isLevel2;
+    public static bool isGameOver;
+
     //public bool[] isUp;
     // Start is called before the first frame update
     void Start()
@@ -24,6 +28,9 @@ public class Spawner : MonoBehaviour
     IEnumerator AliensSpawner(int level)
     { if (level == 1 )
         {
+            isLevel1 = true;
+            isLevel2 = false;
+            isGameOver = false;
             //activate all objects for level 1
             foreach (GameObject obj in alienOne)
             {
@@ -50,6 +57,9 @@ public class Spawner : MonoBehaviour
         }
     else if (level == 2)
         {
+            isLevel1 = false;
+            isLevel2 = true;
+            isGameOver = false;
             //deactivate all objects for level 1
             foreach (GameObject obj in alienOne)
             {
@@ -82,6 +92,10 @@ public class Spawner : MonoBehaviour
     }
     public void StartAliensSpawning(int level)
     {
+     
+            WhackTimer.remainingTime = 60;
+        
+
         StartCoroutine(AliensSpawner(level));
     }
 
