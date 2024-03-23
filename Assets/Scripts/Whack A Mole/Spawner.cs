@@ -110,6 +110,10 @@ public class Spawner : MonoBehaviour
             obj.transform.Translate(Vector3.up * step);
         }
     }
+
+
+
+
     void MoveObjectDown(GameObject obj, float targetYPosition)
     {
         // Move the object upward if it's below the target Y-position
