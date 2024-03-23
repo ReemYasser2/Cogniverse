@@ -69,7 +69,6 @@ public class FocusTimer : MonoBehaviour
         isPlayPressed = true;
         isTimeOver = false;
         timerText.color = Color.white;
-        InstructionsLevelTwoCanvas.SetActive(false);
         if (GridSpawner.isLevel1) { remainingTime = 10; }
         else if (GridSpawner.isLevel2) { remainingTime = 10; }
         //remainingTime = GeneralCountDownTimer.TimerInitialization(timerText, isLevel1, isLevel2, 5, 10);
