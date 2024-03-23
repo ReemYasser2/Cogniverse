@@ -13,6 +13,9 @@ public class SpawnManager : MonoBehaviour
     public GameObject level1GamePanel;
     public GameObject level2GamePanel;
     public GameObject level3GamePanel;
+    public GameObject completeLevel1Canvas;
+    public GameObject completeLevel2Canvas;
+    public GameObject completeLevel3Canvas;
     //public GameObject menuePanel;
     public Transform[] spawnPositions;
     public Material[] materials;
@@ -21,11 +24,15 @@ public class SpawnManager : MonoBehaviour
     public float intervalBetweenSpawns;
     public bool isAPressed = false;
 
-    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI scorelvl1Text;
+    public TextMeshProUGUI scorelvl2Text;
+    public TextMeshProUGUI scorelvl3Text;
     public Button startButton;
     public int score1;
     public int score2;
     public int score3;
+    private int score2Only;
+    private int score3Only;
     
     public GameObject colourButton;
     // Start is called before the first frame update
@@ -116,20 +123,26 @@ public class SpawnManager : MonoBehaviour
 
         if (ScoreCalculator.score >= 5 && ScoreCalculator.isLevel1)
         {
-            ShowLevelTwoInstructions();
+            // pass lvl 1
+            //ShowLevelTwoInstructions();
+            ShowCompleteLevel1Canvas();
             ScoreCalculator.isLevel1 = false;
             ScoreCalculator.isLevel2 = true;
             ScoreCalculator.isStartLevel2 = true;
         }
         else if (ScoreCalculator.score <= 5 && ScoreCalculator.isLevel1)
         {
+            // retry lvl1
             ShowLevelOneInstructions();
             ScoreCalculator.score = 0;
             ScoreCalculator.isStartLevel1 = true;
         }
         else if (ScoreCalculator.score >= 10 && ScoreCalculator.isLevel2)
         {
-            ShowLevelThreeInstructions();
+            // pass lvl2
+            //ShowLevelThreeInstructions();
+            score2Only = score2 - score1;
+            ShowCompleteLevel2Canvas();
             ScoreCalculator.isLevel3 = true;
             ScoreCalculator.isLevel1 = false;
             ScoreCalculator.isLevel2 = false;
@@ -137,6 +150,7 @@ public class SpawnManager : MonoBehaviour
         }
         else if (ScoreCalculator.score <= 10 && ScoreCalculator.isLevel2)
         {
+            // retry lvl 2
             ShowLevelTwoInstructions();
             ScoreCalculator.isLevel2 = true;
             ScoreCalculator.isLevel3 = false;
@@ -146,7 +160,10 @@ public class SpawnManager : MonoBehaviour
         }
         else if (ScoreCalculator.score >= 15 && ScoreCalculator.isLevel3)
         {
-            ShowEndGamePanel();
+            // pass lvl3
+            //ShowEndGamePanel();
+            score3Only = score3 - (score1 + score2);
+            ShowCompleteLevel3Canvas();
             ScoreCalculator.isLevel1 = true;
             ScoreCalculator.isLevel2 = false;
             ScoreCalculator.isLevel3 = false;
@@ -156,6 +173,7 @@ public class SpawnManager : MonoBehaviour
         }
         else if (ScoreCalculator.score <= 15 && ScoreCalculator.isLevel3)
         {
+            // retry lvl3
             ShowLevelThreeInstructions();
             ScoreCalculator.isLevel3 = true;
             ScoreCalculator.isLevel1 = false;
@@ -165,6 +183,7 @@ public class SpawnManager : MonoBehaviour
         }
         else
         {
+            // ??
             ShowEndGamePanel();
             ScoreCalculator.isLevel2 = false;
             ScoreCalculator.isLevel3 = false;
@@ -217,7 +236,7 @@ public class SpawnManager : MonoBehaviour
     {
         endGamePanel.SetActive(true);
         //menuePanel.SetActive(false);
-        scoreText.text = $"Score: {ScoreCalculator.score}";
+        //scoreText.text = $"Score: {ScoreCalculator.score}";
     }
 
     public void PlayAgainButtonClick()
@@ -226,5 +245,26 @@ public class SpawnManager : MonoBehaviour
         AudioSpawnSharedVariables.maxTrials = 5;
         ScoreCalculator.isGameStart = false;
         StartCoroutine(SpawnObjectsRandomly());
+    }
+
+    private void ShowCompleteLevel1Canvas()
+    {
+        completeLevel1Canvas.SetActive(true);
+        Debug.Log(score1);
+        scorelvl1Text.text = $"Your Score: {score1}";
+    }
+
+    private void ShowCompleteLevel2Canvas()
+    {
+        completeLevel2Canvas.SetActive(true);
+        Debug.Log(score2Only);
+        scorelvl2Text.text = $"Your Score: {score2Only}";
+    }
+
+    private void ShowCompleteLevel3Canvas()
+    {
+        completeLevel3Canvas.SetActive(true);
+        Debug.Log(score3Only);
+        scorelvl3Text.text = $"Your Score: {score3Only}";
     }
 }
