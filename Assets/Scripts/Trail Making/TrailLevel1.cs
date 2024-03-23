@@ -59,6 +59,8 @@ public class TrailLevel1 : MonoBehaviour
         if (buttonNo == buttonNum + 1)
         {
             ResetButtonColors(buttonNo);
+            ColorCorrectorDoubleClick(buttonNo);
+
             clickedButton.GetComponent<Image>().color = Color.green;
             levelOneScore++;
             //Debug.Log("Score up");
@@ -150,6 +152,20 @@ public class TrailLevel1 : MonoBehaviour
             trail12Buttons[i].GetComponent<Image>().color = normalColor; 
         }
     }
+
+
+    public void ColorCorrectorDoubleClick(int endIndex)
+    {
+        for (int i = 0; i < endIndex; i++)
+        {
+            trail11Buttons[i].GetComponent<Image>().color = Color.green;
+        }
+        for (int i = 0; i < endIndex; i++)
+        {
+            trail12Buttons[i].GetComponent<Image>().color = Color.green;
+        }
+    }
+
     IEnumerator ResetTextAfterDelay()
     {
         yield return new WaitForSeconds(2.0f);
