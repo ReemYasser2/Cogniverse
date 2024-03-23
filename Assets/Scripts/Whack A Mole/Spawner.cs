@@ -12,6 +12,7 @@ public class Spawner : MonoBehaviour
     public static bool isLevel1;
     public static bool isLevel2;
     public static bool isGameOver;
+    float[] waitingPeriods = new float[] { 0.1f, 0.15f, 0.2f , 0.25f ,0.3f , 0.35f };
 
     //public bool[] isUp;
     // Start is called before the first frame update
@@ -38,19 +39,25 @@ public class Spawner : MonoBehaviour
             }
                 while (!WhackTimer.isTimeOver)
             {
+                int selectedPeriodIndex = Random.Range(0, waitingPeriods.Length);
+                float randomWaitTime = waitingPeriods[selectedPeriodIndex];
+
                 int randomIndex = Random.Range(0, alienOne.Length);
                 GameObject firstObject = alienOne[randomIndex];
                 int randomIndex2 = Random.Range(0, alienOne.Length);
                 GameObject secondObject = alienOne[randomIndex2];
-                MoveObjectUp(firstObject, targetYPositionUp);
+                MoveObjectUp(firstObject, targetYPositionUp); yield return new WaitForSeconds(randomWaitTime);
                 MoveObjectUp(secondObject, targetYPositionUp);
+
                 //isUp[randomIndex] = true;
                 //isUp[randomIndex2] = true;
+                selectedPeriodIndex = Random.Range(0, waitingPeriods.Length);
+                randomWaitTime = waitingPeriods[selectedPeriodIndex];
 
-                yield return new WaitForSeconds(0.75f);      
+                yield return new WaitForSeconds(0.8f);      
                 MoveObjectDown(firstObject, targetYPositionDown);
                 //isUp[randomIndex] = false;
-                yield return new WaitForSeconds(0.2f);            
+                yield return new WaitForSeconds(randomWaitTime);
                 MoveObjectDown(secondObject, targetYPositionDown);
                 //isUp[randomIndex2] = false;
             }
@@ -65,27 +72,29 @@ public class Spawner : MonoBehaviour
             {
                 obj.SetActive(false);
             }
-            //activate all objects for level 2
-            foreach (GameObject obj in alienTwo)
-            {
-                obj.SetActive(true);
-            }
-          
+           
             while (!WhackTimer.isTimeOver)
             {
+                int selectedPeriodIndex = Random.Range(0, waitingPeriods.Length);
+                float randomWaitTime = waitingPeriods[selectedPeriodIndex];
+
                 int randomIndex = Random.Range(0, alienTwo.Length);
-                GameObject firstObject = alienTwo[randomIndex];
+                GameObject firstObject = alienTwo[randomIndex]; firstObject.SetActive(true);
                 int randomIndex2 = Random.Range(0, alienTwo.Length);
-                GameObject secondObject = alienTwo[randomIndex2];
-                MoveObjectUp(firstObject, targetYPositionUp);
+                GameObject secondObject = alienTwo[randomIndex2]; secondObject.SetActive(true);
+                yield return new WaitForSeconds(0.15f);
+                MoveObjectUp(firstObject, targetYPositionUp); yield return new WaitForSeconds(randomWaitTime);
                 MoveObjectUp(secondObject, targetYPositionUp);
                 //isUp[randomIndex] = true;
                 //isUp[randomIndex2] = true;
-                yield return new WaitForSeconds(0.75f);
-                MoveObjectDown(firstObject, targetYPositionDown);
+
+                selectedPeriodIndex = Random.Range(0, waitingPeriods.Length);
+                randomWaitTime = waitingPeriods[selectedPeriodIndex];
+                yield return new WaitForSeconds(0.8f);
+                MoveObjectDown(firstObject, targetYPositionDown); firstObject.SetActive(false);
                 //isUp[randomIndex] = false;
-                yield return new WaitForSeconds(0.2f);
-                MoveObjectDown(secondObject, targetYPositionDown);
+                yield return new WaitForSeconds(randomWaitTime);
+                MoveObjectDown(secondObject, targetYPositionDown); secondObject.SetActive(false);
                 //isUp[randomIndex2] = false;
             }
         }
