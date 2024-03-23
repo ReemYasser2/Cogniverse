@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.019260699, g: 0.024357194, b: 0.030610144, a: 1}
+  m_IndirectSpecularColor: {r: 0.019321268, g: 0.024318034, b: 0.03070477, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5551,7 +5551,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Congratulations on reaching Level 2!  \n\nIn this level, we're adding
-    a new twist, you need to pay attention to the objects' colours too."
+    a new twist, you need to pay attention to the potions'  colours too."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -8027,7 +8027,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "You will also hear the sound of a letter of the alphabet. \n\nIf you hear
     the same letter twice in a row, press the audio button in front of you.\n\nThe
-    objects appear fairly quickly, so pay attention!"
+    potions appear fairly quickly, so pay attention!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -11255,9 +11255,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "In this game, you will observe the 9 cards on the table. \n\nAn object
-    will appear on top of any one of the 9 cards. \n\nIf the object appears at the
-    same position twice in a row, press the position button in front of you."
+  m_text: "In this game, you will observe  9 cards on the table. \n\nA  potion will
+    appear on top of any one of the 9 cards. \n\nIf the potion appears at the same
+    position twice in a row, press the position button in front of you."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -11973,7 +11973,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Congratulations on reaching \nLevel 3!  "
+  m_text: "Congratulations on reaching \nthe last level of this game!  "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -17089,8 +17089,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "If an object appears with the same colour, reach out and touch the colour
-    button. \n\nGet ready!"
+  m_text: "If a potion appears with the same colour twice in a row, reach out and
+    touch the colour button. \n\nGet ready!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
