@@ -7,7 +7,7 @@ public class CountUpTimer : MonoBehaviour
 {
     private string timerText;
     public static float elapsedTime;
-    private bool isPlayPressed = false;
+    public static bool isPlayPressed = false;
     public static bool isPaused = false;
 
     // Update is called once per frame

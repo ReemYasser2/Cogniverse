@@ -97,7 +97,9 @@ public class TrailLevel3 : MonoBehaviour
         if (levelThreeScore == 30 || levelThreeScore + mistakes == 30)
         {
             Debug.Log("Heighest Score");
+            // timer end
             CountUpTimer.elapsedTime = 0f;
+            CountUpTimer.isPlayPressed = false;
             completeLevel3Canvas.SetActive(true);
             scorelvl3Text.text = $"Your Score: {levelThreeScore}";
             isGameOver = true;

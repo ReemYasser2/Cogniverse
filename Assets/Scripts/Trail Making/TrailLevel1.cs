@@ -113,10 +113,12 @@ public class TrailLevel1 : MonoBehaviour
             levelsHandler.level_1 = false;
             levelsHandler.level_2 = true;
             levelsHandler.level_3 = false;
+            // timer end
+            CountUpTimer.elapsedTime = 0f;
+            CountUpTimer.isPlayPressed = false;
             completeLevel1Canvas.SetActive(true);
             scorelvl1Text.text = $"Your Score: {levelOneScore}";
             Debug.Log("Level Passed");
-            CountUpTimer.elapsedTime = 0f;
         }
     }
     

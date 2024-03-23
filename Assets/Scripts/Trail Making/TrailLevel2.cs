@@ -99,10 +99,12 @@ public class TrailLevel2 : MonoBehaviour
             levelsHandler.level_1 = false;
             levelsHandler.level_2 = false;
             levelsHandler.level_3 = true;
+            // timer end
+            CountUpTimer.elapsedTime = 0f;
+            CountUpTimer.isPlayPressed = false;
             completeLevel2Canvas.SetActive(true);
             scorelvl2Text.text = $"Your Score: {levelTwoScore}";
             Debug.Log("Level Passed");
-            CountUpTimer.elapsedTime = 0f;
         }
     }
     void InitializeButtons()
