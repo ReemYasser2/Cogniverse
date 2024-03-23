@@ -6,7 +6,7 @@ using TMPro;
 public class WhackTimer : MonoBehaviour
 {
     [SerializeField] TMP_Text timerText;
-    public float remainingTime;
+    public static float remainingTime;
     private bool isPlayPressed = false;
     public static bool isTimeOver = false;
     public GameObject gameOverCanvas;
@@ -42,7 +42,7 @@ public class WhackTimer : MonoBehaviour
                 remainingTime = 0;
                 // Timer is over
                 isTimeOver = true;
-                gameOverCanvas.SetActive(true);
+               // gameOverCanvas.SetActive(true);
             }
             int minutes = Mathf.FloorToInt(remainingTime / 60);
             int seconds = Mathf.FloorToInt(remainingTime % 60);
@@ -56,7 +56,7 @@ public class WhackTimer : MonoBehaviour
         isPlayPressed = true;
         isTimeOver = false;
         timerText.color = Color.white;
-
+     
         //remainingTime = GeneralCountDownTimer.TimerInitialization(timerText, isLevel1, isLevel2, 5, 10);
     }
 }
