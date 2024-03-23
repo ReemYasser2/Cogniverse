@@ -7,6 +7,7 @@ public class FocusLevelTransition : MonoBehaviour
     public GameObject levelTwoInstructionsCanvas;
     public GameObject levelOneInstructionsCanvas;
     public GameObject gameOverCanvas;
+    public GameObject timerCanvas;
 
     // Update is called once per frame
     void Update()
@@ -25,11 +26,13 @@ public class FocusLevelTransition : MonoBehaviour
     {
         if (ScoreCalculationFocus.score >= 5 && FocusTimer.isTimeOver)
         {
+            timerCanvas.SetActive(false);
             levelTwoInstructionsCanvas.SetActive(true);
             ScoreCalculationFocus.score = 0;
         }
         else if (ScoreCalculationFocus.score < 5 && FocusTimer.isTimeOver)
         {
+            timerCanvas.SetActive(false);
             levelOneInstructionsCanvas.SetActive(true);
             ScoreCalculationFocus.score = 0;
         }
@@ -39,12 +42,14 @@ public class FocusLevelTransition : MonoBehaviour
     {
         if (ScoreCalculationFocus.score >= 5 && FocusTimer.isTimeOver)
         {
+            timerCanvas.SetActive(false);
             gameOverCanvas.SetActive(true);
             GridSpawner.isGameOver = true;
             ScoreCalculationFocus.score = 0;
         }
         else if (ScoreCalculationFocus.score < 5 && FocusTimer.isTimeOver)
         {
+            timerCanvas.SetActive(false);
             levelTwoInstructionsCanvas.SetActive(true);
             ScoreCalculationFocus.score = 0;
         }
