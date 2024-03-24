@@ -33,19 +33,19 @@ public class Spawner : MonoBehaviour
             isLevel2 = false;
             isGameOver = false;
             //activate all objects for level 1
-            foreach (GameObject obj in alienOne)
+           /* foreach (GameObject obj in alienOne)
             {
                 obj.SetActive(true);
-            }
+            } */
                 while (!WhackTimer.isTimeOver)
             {
                 int selectedPeriodIndex = Random.Range(0, waitingPeriods.Length);
                 float randomWaitTime = waitingPeriods[selectedPeriodIndex];
 
                 int randomIndex = Random.Range(0, alienOne.Length);
-                GameObject firstObject = alienOne[randomIndex];
+                GameObject firstObject = alienOne[randomIndex]; firstObject.SetActive(true);
                 int randomIndex2 = Random.Range(0, alienOne.Length);
-                GameObject secondObject = alienOne[randomIndex2];
+                GameObject secondObject = alienOne[randomIndex2]; secondObject.SetActive(true);
                 MoveObjectUp(firstObject, targetYPositionUp); yield return new WaitForSeconds(randomWaitTime);
                 MoveObjectUp(secondObject, targetYPositionUp);
 
@@ -55,10 +55,10 @@ public class Spawner : MonoBehaviour
                 randomWaitTime = waitingPeriods[selectedPeriodIndex];
 
                 yield return new WaitForSeconds(0.8f);      
-                MoveObjectDown(firstObject, targetYPositionDown);
+                MoveObjectDown(firstObject, targetYPositionDown); firstObject.SetActive(false);
                 //isUp[randomIndex] = false;
-                yield return new WaitForSeconds(randomWaitTime);
-                MoveObjectDown(secondObject, targetYPositionDown);
+                yield return new WaitForSeconds(randomWaitTime); 
+                MoveObjectDown(secondObject, targetYPositionDown); secondObject.SetActive(false);
                 //isUp[randomIndex2] = false;
             }
         }

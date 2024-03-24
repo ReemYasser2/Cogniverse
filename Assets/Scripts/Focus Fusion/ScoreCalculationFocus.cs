@@ -7,6 +7,7 @@ public static class ScoreCalculationFocus
     public static int score = 0;
 
     public static string reinforcementText;
+    public static int incrementCounter = 0;
 
     static List<string> positiveIncrease = new List<string>
             { " Good Job", "Keep it up", "You're on a roll", "Excellent work", "Amazing!!", "Awesome!!", "Well done!!"};
@@ -20,10 +21,14 @@ public static class ScoreCalculationFocus
 
     public static void Increment()
     {
+        incrementCounter++;
+
         score++;
         Debug.Log(score);
-        reinforcementText = PositiveReinforcementIncrement();
-
+        if (incrementCounter % 5 == 0)
+        {
+            reinforcementText = PositiveReinforcementIncrement();
+        }
 
     }
     public static void Decrement()

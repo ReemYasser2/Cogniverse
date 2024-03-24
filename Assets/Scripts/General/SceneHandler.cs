@@ -8,7 +8,10 @@ public class SceneHandler : MonoBehaviour
     // A script that handles moving between scenes to open games from the home screen
     // & exit games returning to the home screen
 
-
+    public void OpenSignup()
+    {
+        SceneManager.LoadScene(0);
+    }
     // function that redirects to the home system
     public void BackToHome()
     {
