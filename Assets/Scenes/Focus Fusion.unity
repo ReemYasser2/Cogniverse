@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.10870849, g: 0.099930815, b: 0.09477871, a: 1}
+  m_IndirectSpecularColor: {r: 0.1090621, g: 0.09977998, b: 0.095079064, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13916,14 +13916,26 @@ MonoBehaviour:
   - {fileID: 2110288315584918549, guid: 958102b3923d28f439ed0ba5ec78ff1d, type: 3}
   - {fileID: 1472611851720188674, guid: 0e8b6cc5bf37e0949a1762b6db0f2ada, type: 3}
   - {fileID: 2682482901579643573, guid: 3e9d472a49ebfab4588eba3fc14c3892, type: 3}
+  - {fileID: 1872000188165482176, guid: 5e98361fe8e482b489067e39a99d6bde, type: 3}
+  - {fileID: 8719735411059435596, guid: b097d98a1b76a9947887a6df8ef349f7, type: 3}
+  - {fileID: 8572996126615840456, guid: 292cd13889cf6d445847efaeb9f7ba90, type: 3}
+  - {fileID: 8025146503157016363, guid: 6c9d6f800ca1ecf45a1def00f4332a9f, type: 3}
+  - {fileID: 9145069379345583454, guid: 9ef375b1b60b38a438765b15fe1e266b, type: 3}
   - {fileID: 4256294753899651004, guid: cf1b54803d3467b4cbf58f7389bb14d9, type: 3}
   - {fileID: 7107238254886921925, guid: cbe90f46b9281834b81f5e50d769d1bc, type: 3}
   - {fileID: 5196293984313435408, guid: b8e480865e8151d41829c86716f3717e, type: 3}
+  - {fileID: 7506494774415010247, guid: be2d59fc70a493f4babecfb74655911b, type: 3}
+  - {fileID: 5378606045233204509, guid: 688649361d00d6c4a9ca5241b15b2b26, type: 3}
   - {fileID: 590499805726940346, guid: 5158646909bb80542af07d2198520f8d, type: 3}
   - {fileID: 6920931053218630761, guid: db004efc2963d064096aa729a75404ef, type: 3}
   - {fileID: 1293299932879539338, guid: 16f119718b81f234dba9879061f4ecbc, type: 3}
   - {fileID: 2586600045292794162, guid: 67e41ba6a3127f748aeb5ddf2bf54417, type: 3}
   - {fileID: 8568104911526858116, guid: cd720d7976e67cd489ba3f65b6024fe5, type: 3}
+  - {fileID: 7645825249147162808, guid: d5fd7342d2cb7d04d95f9ec51d0bd88f, type: 3}
+  - {fileID: 2078651838016924355, guid: 800c7e2ed0b4a9240870a01d308874a6, type: 3}
+  - {fileID: 1784257925107737804, guid: a27f4e4787cdb90408d694c3c706d233, type: 3}
+  - {fileID: 6893119729266135863, guid: 649ceb3c4a1b762409460a0c84ea0cbc, type: 3}
+  - {fileID: 12962487835007723, guid: d4c1462438868144fa0ad489820a479d, type: 3}
   spawnPosition: {fileID: 679633340}
   levelTwoSpawnPos:
   - {fileID: 679633340}
@@ -15612,7 +15624,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 800822250}
-  remainingTime: 60
   gameOverCanvas: {fileID: 1686822365}
   InstructionsLevelTwoCanvas: {fileID: 1825808569}
   criticalColor: {r: 1, g: 0, b: 0, a: 1}
