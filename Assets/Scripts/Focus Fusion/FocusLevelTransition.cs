@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class FocusLevelTransition : MonoBehaviour
 {
-    public GameObject levelTwoInstructionsCanvas;
-    public GameObject levelOneInstructionsCanvas;
-    public GameObject gameOverCanvas;
+    public GameObject levelOneInstructionsRetryCanvas;
+    public GameObject levelTwoInstructionsRetryCanvas;
+
+    public GameObject levelOneCompleteCanvas;
+    public GameObject levelTwoCompleteCanvas;
+
     public GameObject timerCanvas;
 
     // Update is called once per frame
@@ -24,33 +27,33 @@ public class FocusLevelTransition : MonoBehaviour
 
     private void CheckLevel1()
     {
-        if (ScoreCalculationFocus.score >= 5 && FocusTimer.isTimeOver)
+        if (ScoreCalculationFocus.score >= 5 && FocusTimer.isTimeOver) // complete lvl1
         {
             timerCanvas.SetActive(false);
-            levelTwoInstructionsCanvas.SetActive(true);
+            levelOneCompleteCanvas.SetActive(true);
             ScoreCalculationFocus.score = 0;
         }
-        else if (ScoreCalculationFocus.score < 5 && FocusTimer.isTimeOver)
+        else if (ScoreCalculationFocus.score < 5 && FocusTimer.isTimeOver) // retry lvl1
         {
             timerCanvas.SetActive(false);
-            levelOneInstructionsCanvas.SetActive(true);
+            levelOneInstructionsRetryCanvas.SetActive(true);
             ScoreCalculationFocus.score = 0;
         }
     }
 
     private void CheckLevel2()
     {
-        if (ScoreCalculationFocus.score >= 5 && FocusTimer.isTimeOver)
+        if (ScoreCalculationFocus.score >= 5 && FocusTimer.isTimeOver) // complete lvl2
         {
             timerCanvas.SetActive(false);
-            gameOverCanvas.SetActive(true);
+            levelTwoCompleteCanvas.SetActive(true);
             GridSpawner.isGameOver = true;
             ScoreCalculationFocus.score = 0;
         }
-        else if (ScoreCalculationFocus.score < 5 && FocusTimer.isTimeOver)
+        else if (ScoreCalculationFocus.score < 5 && FocusTimer.isTimeOver) // retry lvl2
         {
             timerCanvas.SetActive(false);
-            levelTwoInstructionsCanvas.SetActive(true);
+            levelTwoInstructionsRetryCanvas.SetActive(true);
             ScoreCalculationFocus.score = 0;
         }
     }

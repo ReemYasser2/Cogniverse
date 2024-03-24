@@ -4,13 +4,32 @@ using UnityEngine;
 
 public class FocusMenuHandler : MonoBehaviour
 {
-    public GameObject instructionsLevel1Canvas;
-    public GameObject instructionsLevel2Canvas;
+    public GridSpawner gridSpawner;
+
+    // menu without instructions
+    public GameObject instructionsLevel1RetryCanvas;
+    public GameObject instructionsLevel2RetryCanvas;
+
+    // menu without instructions
+    public GameObject instructionsLevel2NextCanvas;
+
+    // menu without instructions
+    public GameObject instructionsLevel1SelectlvlCanvas;
+    public GameObject instructionsLevel2SelectlvlCanvas;
+
+    // menu with instrucrions 
     public GameObject instructionsLevel1MenuCanvas;
     public GameObject instructionsLevel2MenuCanvas;
-    public GameObject menuCanvas;
 
-    public GridSpawner gridSpawner;
+    // menu without instructions
+    public GameObject completeLevel1Canvas;
+    public GameObject completeLevel2Canvas;
+
+
+    public GameObject menuCanvas;
+    public GameObject menuWithoutInstructionsCanvas;
+    public GameObject mainMenuCanvas;
+    public GameObject selectLevelCanvas;
 
     public void InstructionsHandler()
     {
@@ -21,13 +40,17 @@ public class FocusMenuHandler : MonoBehaviour
     {
         //GeneralMenuHandler.ShowMenuHandler(GridSpawner.isLevel1, GridSpawner.isLevel2, false, GridSpawner.isGameOver, menuCanvas, instructionsLevel1Canvas, instructionsLevel2Canvas, instructionsLevel2Canvas, instructionsLevel1MenuCanvas, instructionsLevel2MenuCanvas, instructionsLevel2MenuCanvas, 1, 2);
 
-        if (menuCanvas.activeSelf == false && instructionsLevel1Canvas.activeSelf == false && instructionsLevel2Canvas.activeSelf == false && instructionsLevel1MenuCanvas.activeSelf == false && instructionsLevel2MenuCanvas.activeSelf == false)
+        if (menuCanvas.activeSelf == false && instructionsLevel1MenuCanvas.activeSelf == false && instructionsLevel2MenuCanvas.activeSelf == false && completeLevel1Canvas.activeSelf == false && completeLevel2Canvas.activeSelf == false && instructionsLevel2NextCanvas.activeSelf == false)
         {
             if ((GridSpawner.isLevel1 || GridSpawner.isLevel2) && !GridSpawner.isGameOver)
             {
                 GeneralMenuHandler.MenuHelperFuncrion(menuCanvas, 1);
                 gridSpawner.ShowHideGrid(false);
             }
+        }
+        if ((instructionsLevel1RetryCanvas.activeSelf == true || instructionsLevel2RetryCanvas.activeSelf == true || instructionsLevel2NextCanvas.activeSelf == true || instructionsLevel1SelectlvlCanvas.activeSelf == true || instructionsLevel2SelectlvlCanvas.activeSelf == true || completeLevel1Canvas.activeSelf == true || completeLevel2Canvas.activeSelf == true) && mainMenuCanvas.activeSelf == false && selectLevelCanvas.activeSelf == false)
+        {
+            menuWithoutInstructionsCanvas.SetActive(true);
         }
     }
 }

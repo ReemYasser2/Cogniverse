@@ -83,6 +83,7 @@ public class GridSpawner : MonoBehaviour
             isLevel1 = true;
             isLevel2 = false;
             isGameOver = false;
+            FocusTimer.remainingTime = 10;
 
             while (!FocusTimer.isTimeOver)
             {
@@ -112,6 +113,7 @@ public class GridSpawner : MonoBehaviour
             isLevel1 = false;
             isLevel2 = true;
             isGameOver = false;
+            FocusTimer.remainingTime = 15;
 
             Debug.Log("Level 2 starts");
             while (!FocusTimer.isTimeOver)

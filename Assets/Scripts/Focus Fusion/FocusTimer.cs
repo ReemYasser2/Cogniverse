@@ -6,11 +6,9 @@ using UnityEngine;
 public class FocusTimer : MonoBehaviour
 {
     [SerializeField] TMP_Text timerText;
-    private float remainingTime;
+    public static float remainingTime;
     private bool isPlayPressed = false;
     public static bool isTimeOver = false;
-    public GameObject gameOverCanvas;
-    public GameObject InstructionsLevelTwoCanvas;
 
     public Color criticalColor = Color.red;
 
@@ -18,7 +16,7 @@ public class FocusTimer : MonoBehaviour
     void Start()
     {
         // remainingTime = GeneralCountDownTimer.TimerInitialization(timerText, isLevel1, isLevel2, 5, 10);
-         remainingTime = 180; 
+        //remainingTime = 180;
         timerText.color = Color.white;
     }
 
@@ -68,8 +66,6 @@ public class FocusTimer : MonoBehaviour
         isPlayPressed = true;
         isTimeOver = false;
         timerText.color = Color.white;
-        if (GridSpawner.isLevel1) { remainingTime = 180; }
-        else if (GridSpawner.isLevel2) { remainingTime = 180; }
         //remainingTime = GeneralCountDownTimer.TimerInitialization(timerText, isLevel1, isLevel2, 5, 10);
     }
 }
