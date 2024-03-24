@@ -16,6 +16,7 @@ public class TrailLevel2 : MonoBehaviour
     public GameObject completeLevel2Canvas;
     public LevelsHandler levelsHandler;
     public TextMeshProUGUI scorelvl2Text;
+    public GameObject instructionsLevel2RetryCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -110,7 +111,9 @@ public class TrailLevel2 : MonoBehaviour
         }
         else if (mistakes >= 3 || CountUpTimer.elapsedTime > 60f) // didn't pass the level, replay 
         {
-            //// 
+            instructionsLevel2RetryCanvas.SetActive(true);
+            CountUpTimer.elapsedTime = 0f;
+            CountUpTimer.isPlayPressed = false;
         }
     }
     void InitializeButtons()

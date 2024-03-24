@@ -6,18 +6,31 @@ public class TrailMenuHandler : MonoBehaviour
 {
     public LevelsHandler levelsHandler;
 
-    public GameObject instructionsLevel1Canvas;
-    public GameObject instructionsLevel2Canvas;
-    public GameObject instructionsLevel3Canvas;
-    public GameObject completeLevel1Canvas;
-    public GameObject completeLevel2Canvas;
-    public GameObject completeLevel3Canvas;
-    public GameObject instructionsLevel1AudioCanvas;
-    public GameObject instructionsLevel2AudioCanvas;
-    public GameObject instructionsLevel3AudioCanvas;
+    // menu without instructions
+    public GameObject instructionsLevel1RetryCanvas;
+    public GameObject instructionsLevel2RetryCanvas;
+    public GameObject instructionsLevel3RetryCanvas;
+
+    // menu without instructions
+    public GameObject instructionsLevel2NextCanvas;
+    public GameObject instructionsLevel3NextCanvas;
+
+    // menu without instructions
+    public GameObject instructionsLevel1SelectlvlCanvas;
+    public GameObject instructionsLevel2SelectlvlCanvas;
+    public GameObject instructionsLevel3SelectlvlCanvas;
+
+    // menu with instrucrions 
     public GameObject instructionsLevel1MenuCanvas;
     public GameObject instructionsLevel2MenuCanvas;
     public GameObject instructionsLevel3MenuCanvas;
+
+    // menu without instructions
+    public GameObject completeLevel1Canvas;
+    public GameObject completeLevel2Canvas;
+    public GameObject completeLevel3Canvas;
+
+
     public GameObject menuCanvas;
     public GameObject menuWithoutInstructionsCanvas;
     public GameObject mainMenuCanvas;
@@ -33,9 +46,9 @@ public class TrailMenuHandler : MonoBehaviour
 
     public void ShowMenuHandlerTrail()
     {
-        //GeneralMenuHandler.ShowMenuHandler(levelsHandler.level1_menu, levelsHandler.level_2, levelsHandler.level_3, TrailLevel3.isGameOver, menuCanvas, instructionsLevel1Canvas, instructionsLevel2Canvas, instructionsLevel3Canvas, instructionsLevel1MenuCanvas, instructionsLevel2MenuCanvas, instructionsLevel3MenuCanvas, 2, 3);
+        //GeneralMenuHandler.ShowMenuHandler(levelsHandler.level1_menu, levelsHandler.level_2, levelsHandler.level_3, TrailLevel3.isGameOver, menuCanvas, instructionsLevel1RetryCanvas, instructionsLevel2NextCanvas, instructionsLevel3NextCanvas, instructionsLevel1MenuCanvas, instructionsLevel2MenuCanvas, instructionsLevel3MenuCanvas, 2, 3);
 
-        if (menuCanvas.activeSelf == false && instructionsLevel1Canvas.activeSelf == false && instructionsLevel2Canvas.activeSelf == false && instructionsLevel3Canvas.activeSelf == false && instructionsLevel1MenuCanvas.activeSelf == false && instructionsLevel2MenuCanvas.activeSelf == false && instructionsLevel3MenuCanvas.activeSelf == false && completeLevel1Canvas.activeSelf == false && completeLevel2Canvas.activeSelf == false && completeLevel3Canvas.activeSelf == false)
+        if (menuCanvas.activeSelf == false && instructionsLevel1MenuCanvas.activeSelf == false && instructionsLevel2MenuCanvas.activeSelf == false && instructionsLevel3MenuCanvas.activeSelf == false && completeLevel1Canvas.activeSelf == false && completeLevel2Canvas.activeSelf == false && completeLevel3Canvas.activeSelf == false && instructionsLevel2NextCanvas.activeSelf == false && instructionsLevel3NextCanvas.activeSelf == false)
         {
             if ((levelsHandler.level1_menu || levelsHandler.level_2 || levelsHandler.level_3) && !TrailLevel3.isGameOver)
             {
@@ -43,7 +56,7 @@ public class TrailMenuHandler : MonoBehaviour
                 CountUpTimer.PauseTimer();
             }
         }
-        if ((instructionsLevel1Canvas.activeSelf == true || instructionsLevel2Canvas.activeSelf == true || instructionsLevel3Canvas.activeSelf == true || instructionsLevel1AudioCanvas.activeSelf == true || instructionsLevel2AudioCanvas.activeSelf == true || instructionsLevel3AudioCanvas.activeSelf == true || selectLevelCanvas.activeSelf == true) && mainMenuCanvas.activeSelf == false)
+        if ((instructionsLevel1RetryCanvas.activeSelf == true || instructionsLevel2RetryCanvas.activeSelf == true || instructionsLevel3RetryCanvas.activeSelf == true || instructionsLevel2NextCanvas.activeSelf == true || instructionsLevel3NextCanvas.activeSelf == true || instructionsLevel1SelectlvlCanvas.activeSelf == true || instructionsLevel2SelectlvlCanvas.activeSelf == true || instructionsLevel3SelectlvlCanvas.activeSelf == true || completeLevel1Canvas.activeSelf == true || completeLevel2Canvas.activeSelf == true || completeLevel3Canvas.activeSelf == true) && mainMenuCanvas.activeSelf == false && selectLevelCanvas.activeSelf == false)
         {
             menuWithoutInstructionsCanvas.SetActive(true);
             PauseResumeInstructionsAudio();
@@ -52,7 +65,7 @@ public class TrailMenuHandler : MonoBehaviour
 
     public void PauseResumeInstructionsAudio()
     {
-        if (instructionsLevel1AudioCanvas.activeSelf == true || instructionsLevel2AudioCanvas.activeSelf == true || instructionsLevel3AudioCanvas.activeSelf == true)
+        if (instructionsLevel1SelectlvlCanvas.activeSelf == true || instructionsLevel2SelectlvlCanvas.activeSelf == true || instructionsLevel3SelectlvlCanvas.activeSelf == true || instructionsLevel2NextCanvas.activeSelf == true || instructionsLevel3NextCanvas.activeSelf == true)
         {
             TogglePauseResume();
         }

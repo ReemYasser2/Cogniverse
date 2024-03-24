@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CountUpTimer : MonoBehaviour
 {
-    private string timerText;
+    [SerializeField] TMP_Text timerText;
     public static float elapsedTime;
     public static bool isPlayPressed = false;
     public static bool isPaused = false;
@@ -18,7 +18,7 @@ public class CountUpTimer : MonoBehaviour
             elapsedTime += Time.deltaTime;
             int minutes = Mathf.FloorToInt(elapsedTime / 60);
             int seconds = Mathf.FloorToInt(elapsedTime % 60);
-            timerText = string.Format("{0:00}:{1:00}", minutes, seconds);
+            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
             Debug.Log(timerText);
         }
             

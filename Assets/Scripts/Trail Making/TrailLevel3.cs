@@ -21,6 +21,7 @@ public class TrailLevel3 : MonoBehaviour
 
     public static bool isGameOver;
     public TextMeshProUGUI scorelvl3Text;
+    public GameObject instructionsLevel3RetryCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -108,7 +109,9 @@ public class TrailLevel3 : MonoBehaviour
         } 
         else if(mistakes >= 3 || CountUpTimer.elapsedTime > 90f) // didn't pass the level, replay
         {
-            ///// 
+            instructionsLevel3RetryCanvas.SetActive(true); 
+            CountUpTimer.elapsedTime = 0f;
+            CountUpTimer.isPlayPressed = false;
         }
     }
     void InitializeButtons()

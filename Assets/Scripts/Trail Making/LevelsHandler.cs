@@ -131,4 +131,25 @@ public class LevelsHandler : MonoBehaviour
 
         TrailSelection(3);
     }
+
+    public void HomeButton()
+    {
+        trailLevel1.levelOneScore = 0;
+        trailLevel1.mistakes = 0;
+        trailLevel2.levelTwoScore = 0;
+        trailLevel2.mistakes = 0;
+        trailLevel3.levelThreeScore = 0;
+        trailLevel3.mistakes = 0;
+
+        levelOneTrails[0].SetActive(false);
+        levelOneTrails[1].SetActive(false);
+        levelTwoTrails[0].SetActive(false);
+        levelTwoTrails[1].SetActive(false);
+        levelThreeTrails[0].SetActive(false);
+        levelThreeTrails[1].SetActive(false);
+
+        trailLevel1.ResetButtonColors(0);
+        trailLevel2.ResetButtonColors(0);
+        trailLevel3.ResetButtonColors(0);
+    }
 }
