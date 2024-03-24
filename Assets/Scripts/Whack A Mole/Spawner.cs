@@ -46,6 +46,7 @@ public class Spawner : MonoBehaviour
                 GameObject firstObject = alienOne[randomIndex]; firstObject.SetActive(true);
                 int randomIndex2 = Random.Range(0, alienOne.Length);
                 GameObject secondObject = alienOne[randomIndex2]; secondObject.SetActive(true);
+                yield return new WaitForSeconds(0.15f);
                 MoveObjectUp(firstObject, targetYPositionUp); yield return new WaitForSeconds(randomWaitTime);
                 MoveObjectUp(secondObject, targetYPositionUp);
 
