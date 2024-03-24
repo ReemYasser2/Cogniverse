@@ -120,7 +120,7 @@ public class TrailLevel1 : MonoBehaviour
             scorelvl1Text.text = $"Your Score: {levelOneScore}";
             Debug.Log("Level Passed");
         }
-        else if (mistakes >= 3 || CountUpTimer.elapsedTime > 60f)  // didn't pass the level, replay
+        else if (mistakes >= 3 || CountUpTimer.elapsedTime > 30f)  // didn't pass the level, replay
         {
             ////// 
         }
