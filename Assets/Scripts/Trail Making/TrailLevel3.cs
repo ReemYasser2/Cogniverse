@@ -96,7 +96,7 @@ public class TrailLevel3 : MonoBehaviour
         StartCoroutine(ResetTextAfterDelay());
 
 
-        if (levelThreeScore == 30 || levelThreeScore + mistakes == 30)
+        if ((levelThreeScore == 30 || levelThreeScore + mistakes == 30) && (CountUpTimer.elapsedTime < 90f) && mistakes < 3)
         {
             Debug.Log("Heighest Score");
             // timer end
@@ -105,6 +105,10 @@ public class TrailLevel3 : MonoBehaviour
             completeLevel3Canvas.SetActive(true);
             scorelvl3Text.text = $"Your Score: {levelThreeScore}";
             isGameOver = true;
+        } 
+        else if(mistakes >= 3 || CountUpTimer.elapsedTime > 90f) // didn't pass the level, replay
+        {
+            ///// 
         }
     }
     void InitializeButtons()

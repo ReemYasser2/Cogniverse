@@ -94,7 +94,7 @@ public class TrailLevel2 : MonoBehaviour
 
         StartCoroutine(ResetTextAfterDelay());
 
-        if (levelTwoScore == 20 || levelTwoScore+mistakes == 20)
+        if ((levelTwoScore == 20 || levelTwoScore+mistakes == 20) && (CountUpTimer.elapsedTime < 60f) && mistakes < 3)
         {
             ResetButtonColors(0);
 
@@ -107,6 +107,10 @@ public class TrailLevel2 : MonoBehaviour
             completeLevel2Canvas.SetActive(true);
             scorelvl2Text.text = $"Your Score: {levelTwoScore}";
             Debug.Log("Level Passed");
+        }
+        else if (mistakes >= 3 || CountUpTimer.elapsedTime > 60f) // didn't pass the level, replay 
+        {
+            //// 
         }
     }
     void InitializeButtons()

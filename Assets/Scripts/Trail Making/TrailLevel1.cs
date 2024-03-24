@@ -107,7 +107,7 @@ public class TrailLevel1 : MonoBehaviour
         }
         StartCoroutine(ResetTextAfterDelay());
 
-        if (levelOneScore == 15 || levelOneScore + mistakes == 15)
+        if ((levelOneScore == 15 || levelOneScore + mistakes == 15) && (CountUpTimer.elapsedTime < 30f ) && mistakes < 3)
         {
             ResetButtonColors(0);
             levelsHandler.level_1 = false;
@@ -119,6 +119,10 @@ public class TrailLevel1 : MonoBehaviour
             completeLevel1Canvas.SetActive(true);
             scorelvl1Text.text = $"Your Score: {levelOneScore}";
             Debug.Log("Level Passed");
+        }
+        else if (mistakes >= 3 || CountUpTimer.elapsedTime > 60f)  // didn't pass the level, replay
+        {
+            ////// 
         }
     }
     
