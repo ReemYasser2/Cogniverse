@@ -10052,6 +10052,9 @@ MonoBehaviour:
   level1GamePanel: {fileID: 2014882385}
   level2GamePanel: {fileID: 1572914946}
   level3GamePanel: {fileID: 1169833476}
+  completeLevel1Canvas: {fileID: 1568142731}
+  completeLevel2Canvas: {fileID: 720104574}
+  completeLevel3Canvas: {fileID: 1419258663}
   spawnPositions:
   - {fileID: 302328811}
   - {fileID: 743855705}
@@ -10071,7 +10074,9 @@ MonoBehaviour:
   currentPosition: {x: 0, y: 0, z: 0}
   intervalBetweenSpawns: 2
   isAPressed: 0
-  scoreText: {fileID: 0}
+  scorelvl1Text: {fileID: 1031827686}
+  scorelvl2Text: {fileID: 1304496693}
+  scorelvl3Text: {fileID: 1409348488}
   startButton: {fileID: 783574835}
   score1: 0
   score2: 0
@@ -11775,7 +11780,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2e7ea84f3e3730744991da335bd80ff9, type: 3}
   keyPressedDuringAudioPlayback: 0
   startButton: {fileID: 783574835}
-  spawnManagerVariable: {fileID: 0}
+  spawnManagerVariable: {fileID: 907824500}
 --- !u!82 &1006412542
 AudioSource:
   m_ObjectHideFlags: 0
