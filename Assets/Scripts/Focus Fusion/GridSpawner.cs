@@ -107,13 +107,14 @@ public class GridSpawner : MonoBehaviour
                 yield return new WaitForSeconds(0.85f);
 
             }
+            yield return new WaitForSeconds(2);
         }
         else if (level == 2)
         {
             isLevel1 = false;
             isLevel2 = true;
             isGameOver = false;
-            FocusTimer.remainingTime = 15;
+            FocusTimer.remainingTime = 10;
 
             Debug.Log("Level 2 starts");
             while (!FocusTimer.isTimeOver)
@@ -141,6 +142,7 @@ public class GridSpawner : MonoBehaviour
                 yield return new WaitForSeconds(1);
 
             }
+            yield return new WaitForSeconds(2);
         }
     }
     IEnumerator WhenClicked()
@@ -161,7 +163,12 @@ public class GridSpawner : MonoBehaviour
         if (newObject && newObject.layer == 9 && !isClicked)
         {
             ScoreCalculationFocus.Increment(); // Increment score if no click and layer is 9
+        } 
+        else if (!isClicked) 
+        {
+            ScoreCalculationFocus.Decrement();
         }
+
         StartCoroutine(ResetTextAfterDelay());
 
     }

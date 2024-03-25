@@ -6,9 +6,9 @@ public class Spawner : MonoBehaviour
 {
     public GameObject[] alienOne;
     public GameObject[] alienTwo;
-    public float targetYPositionUp = 4.2f;
+    public float targetYPositionUp = 6.2f;
     public float targetYPositionDown = 3.7f;
-    public float movementSpeed = 0.1f;
+    public float movementSpeed = 1.5f;
     public static bool isLevel1;
     public static bool isLevel2;
     public static bool isGameOver;

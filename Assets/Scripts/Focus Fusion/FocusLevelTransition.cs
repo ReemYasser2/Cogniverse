@@ -31,13 +31,15 @@ public class FocusLevelTransition : MonoBehaviour
         {
             timerCanvas.SetActive(false);
             levelOneCompleteCanvas.SetActive(true);
-            ScoreCalculationFocus.score = 0;
+            levelOneInstructionsRetryCanvas.SetActive(false);
+            //ScoreCalculationFocus.score = 0;
         }
         else if (ScoreCalculationFocus.score < 5 && FocusTimer.isTimeOver) // retry lvl1
         {
             timerCanvas.SetActive(false);
             levelOneInstructionsRetryCanvas.SetActive(true);
-            ScoreCalculationFocus.score = 0;
+            levelOneCompleteCanvas.SetActive(false);
+            //ScoreCalculationFocus.score = 0;
         }
     }
 
@@ -48,13 +50,13 @@ public class FocusLevelTransition : MonoBehaviour
             timerCanvas.SetActive(false);
             levelTwoCompleteCanvas.SetActive(true);
             GridSpawner.isGameOver = true;
-            ScoreCalculationFocus.score = 0;
+            //ScoreCalculationFocus.score = 0;
         }
         else if (ScoreCalculationFocus.score < 5 && FocusTimer.isTimeOver) // retry lvl2
         {
             timerCanvas.SetActive(false);
             levelTwoInstructionsRetryCanvas.SetActive(true);
-            ScoreCalculationFocus.score = 0;
+            //ScoreCalculationFocus.score = 0;
         }
     }
 }
