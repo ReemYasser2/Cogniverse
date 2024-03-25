@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.10870849, g: 0.099930815, b: 0.09477871, a: 1}
+  m_IndirectSpecularColor: {r: 0.109058775, g: 0.099776424, b: 0.09507435, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7162,6 +7162,10 @@ MonoBehaviour:
   - {fileID: 1876612159}
   - {fileID: 1922643135}
   - {fileID: 593604234}
+  mistakesIndicator:
+  - {fileID: 1382679717}
+  - {fileID: 944077863}
+  - {fileID: 395418944}
   completeLevel1Canvas: {fileID: 2042453753}
   trail11: {fileID: 48753774}
   trail12: {fileID: 1547824681}
@@ -50686,6 +50690,10 @@ MonoBehaviour:
   - {fileID: 901711347}
   - {fileID: 1262519015}
   - {fileID: 516717546}
+  mistakesIndicator_2:
+  - {fileID: 1382679717}
+  - {fileID: 944077863}
+  - {fileID: 395418944}
   levelTwoScore: 0
   trail21: {fileID: 1606481551}
   trail22: {fileID: 1336103503}
@@ -62073,6 +62081,10 @@ MonoBehaviour:
   - {fileID: 1644905737}
   - {fileID: 1399308714}
   - {fileID: 1374840390}
+  mistakesIndicator_3:
+  - {fileID: 1382679717}
+  - {fileID: 944077863}
+  - {fileID: 395418944}
   trail31: {fileID: 1539496959}
   trail32: {fileID: 859655411}
   levelThreeScore: 0

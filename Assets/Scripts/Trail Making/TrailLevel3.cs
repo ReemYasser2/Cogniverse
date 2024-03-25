@@ -9,6 +9,8 @@ public class TrailLevel3 : MonoBehaviour
     // Start is called before the first frame update
     public Button[] trail31Buttons = new Button[30];
     public Button[] trail32Buttons = new Button[30];
+    public Button[] mistakesIndicator_3 = new Button[3];
+
     public GameObject trail31;
     public GameObject trail32;
     public int levelThreeScore = 0;
@@ -82,6 +84,25 @@ public class TrailLevel3 : MonoBehaviour
                 mistakes++;
                 clickedButton.GetComponent<Image>().color = Color.red;
                 ReinforcementManagement.PositiveReinforcementDecrement();
+                if (mistakes == 1)
+                {
+                    mistakesIndicator_3[0].GetComponent<Image>().color = Color.red;
+                }
+                else if (mistakes == 2)
+                {
+                    mistakesIndicator_3[1].GetComponent<Image>().color = Color.red;
+                }
+                else if (mistakes == 3)
+                {
+                    mistakesIndicator_3[2].GetComponent<Image>().color = Color.red;
+                }
+                else
+                {
+                    for (int i = 0; i < mistakesIndicator_3.Length; i++)
+                    {
+                        mistakesIndicator_3[i].GetComponent<Image>().color = Color.green;
+                    }
+                }
                 //Debug.Log("Score --");
             } 
         }
@@ -92,12 +113,31 @@ public class TrailLevel3 : MonoBehaviour
 
             levelThreeScore--;
             mistakes++;
+            if (mistakes == 1)
+            {
+                mistakesIndicator_3[0].GetComponent<Image>().color = Color.red;
+            }
+            else if (mistakes == 2)
+            {
+                mistakesIndicator_3[1].GetComponent<Image>().color = Color.red;
+            }
+            else if (mistakes == 3)
+            {
+                mistakesIndicator_3[2].GetComponent<Image>().color = Color.red;
+            }
+            else
+            {
+                for (int i = 0; i < mistakesIndicator_3.Length; i++)
+                {
+                    mistakesIndicator_3[i].GetComponent<Image>().color = Color.green;
+                }
+            }
             //Debug.Log("Score --");
         }
         StartCoroutine(ResetTextAfterDelay());
 
 
-        if ((levelThreeScore == 30 || levelThreeScore + mistakes == 30) && (CountUpTimer.elapsedTime < 90f) && mistakes < 3)
+        if ((levelThreeScore == 30 || levelThreeScore + mistakes == 30) && (CountUpTimer.elapsedTime < 120f) && mistakes < 3)
         {
             Debug.Log("Heighest Score");
             // timer end
@@ -106,12 +146,20 @@ public class TrailLevel3 : MonoBehaviour
             completeLevel3Canvas.SetActive(true);
             scorelvl3Text.text = $"Your Score: {levelThreeScore}";
             isGameOver = true;
+            for (int i = 0; i < mistakesIndicator_3.Length; i++)
+            {
+                mistakesIndicator_3[i].GetComponent<Image>().color = Color.green;
+            }
         } 
-        else if(mistakes >= 3 || CountUpTimer.elapsedTime > 90f) // didn't pass the level, replay
+        else if(mistakes >= 3 || CountUpTimer.elapsedTime > 120f) // didn't pass the level, replay
         {
             instructionsLevel3RetryCanvas.SetActive(true); 
             CountUpTimer.elapsedTime = 0f;
             CountUpTimer.isPlayPressed = false;
+            for (int i = 0; i < mistakesIndicator_3.Length; i++)
+            {
+                mistakesIndicator_3[i].GetComponent<Image>().color = Color.green;
+            }
         }
     }
     void InitializeButtons()

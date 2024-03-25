@@ -11,6 +11,7 @@ public class TrailLevel1 : MonoBehaviour
 
     public Button[] trail11Buttons = new Button[15];
     public Button[] trail12Buttons = new Button[15];
+    public Button[] mistakesIndicator = new Button[3];
     public GameObject completeLevel1Canvas;
     public GameObject trail11;
     public GameObject trail12;
@@ -89,6 +90,26 @@ public class TrailLevel1 : MonoBehaviour
             else {
                 levelOneScore--;
                 mistakes++;
+                if (mistakes == 1 )
+                {
+                    mistakesIndicator[0].GetComponent<Image>().color = Color.red;
+                }
+                else if (mistakes == 2 )
+                {
+                     mistakesIndicator[1].GetComponent<Image>().color = Color.red;
+                }
+                else if (mistakes == 3 )
+                {
+                    
+                    mistakesIndicator[2].GetComponent<Image>().color = Color.red;
+                }
+                else
+                {
+                    for (int i = 0; i < mistakesIndicator.Length; i++)
+                    {
+                        mistakesIndicator[i].GetComponent<Image>().color = Color.green;
+                    }
+                }
                 clickedButton.GetComponent<Image>().color = Color.red;
                 ReinforcementManagement.PositiveReinforcementDecrement();
                 //Debug.Log(levelOneScore);
@@ -102,6 +123,26 @@ public class TrailLevel1 : MonoBehaviour
 
             levelOneScore--;
             mistakes++;
+            if (mistakes == 1)
+            {
+                mistakesIndicator[0].GetComponent<Image>().color = Color.red;
+            }
+            else if (mistakes == 2)
+            {
+                 mistakesIndicator[1].GetComponent<Image>().color = Color.red;
+            }
+            else if (mistakes == 3)
+            {
+                
+                mistakesIndicator[2].GetComponent<Image>().color = Color.red;
+            }
+            else
+            {
+                for (int i = 0; i < mistakesIndicator.Length; i++)
+                {
+                    mistakesIndicator[i].GetComponent<Image>().color = Color.green;
+                }
+            }
             //Debug.Log("Score --");
             //Debug.Log(levelOneScore);
 
@@ -120,12 +161,20 @@ public class TrailLevel1 : MonoBehaviour
             completeLevel1Canvas.SetActive(true);
             scorelvl1Text.text = $"Your Score: {levelOneScore}";
             Debug.Log("Level Passed");
+            for (int i = 0; i < mistakesIndicator.Length; i++)
+            {
+                mistakesIndicator[i].GetComponent<Image>().color = Color.green;
+            }
         }
         else if (mistakes >= 3 || CountUpTimer.elapsedTime > 30f)  // didn't pass the level, replay
         {
             instructionsLevel1RetryCanvas.SetActive(true);
             CountUpTimer.elapsedTime = 0f;
             CountUpTimer.isPlayPressed = false;
+            for (int i = 0; i < mistakesIndicator.Length; i++)
+            {
+                mistakesIndicator[i].GetComponent<Image>().color = Color.green;
+            }
         }
     }
     
