@@ -58,19 +58,46 @@ public class TrailLevel3 : MonoBehaviour
         // Check if the button is pressed in the correct order relative to the previous button
         if (buttonNo == buttonNum + 1)
         {
-            ResetButtonColors(buttonNo);
-            ColorCorrectorDoubleClick(buttonNo);
+            if (buttonNo == 1 && buttonNum == 0)
+            {
+                if (levelThreeScore <= 0 && mistakes == 0)
+                {
+                    levelThreeScore--;
+                    mistakes++;
+                    clickedButton.GetComponent<Image>().color = Color.red;
+                    ReinforcementManagement.PositiveReinforcementDecrement();
+                    MistakesIndicator();
+                    buttonNum = buttonNo;
+                }
+                else
+                {
+                    ResetButtonColors(buttonNo);
+                    ColorCorrectorDoubleClick(buttonNo);
 
-            clickedButton.GetComponent<Image>().color = Color.green;
-            ReinforcementManagement.PositiveReinforcementIncrement();
-            levelThreeScore++;
-            //Debug.Log("Score up");
-            //Debug.Log(levelThreeScore);
-            buttonNum = buttonNo;
+                    clickedButton.GetComponent<Image>().color = Color.green;
+                    ReinforcementManagement.PositiveReinforcementIncrement();
+                    levelThreeScore++;
+                    buttonNum = buttonNo;
+                }
+            }
+            else
+            {
+                ResetButtonColors(buttonNo);
+                ColorCorrectorDoubleClick(buttonNo);
+
+                clickedButton.GetComponent<Image>().color = Color.green;
+                ReinforcementManagement.PositiveReinforcementIncrement();
+                levelThreeScore++;
+                buttonNum = buttonNo;
+            }
+            
         }
         else if (buttonNo == 0)
         {
             if (levelThreeScore <= 0) {
+                ResetButtonColors(buttonNo);
+                ColorCorrectorDoubleClick(buttonNo);
+
                 clickedButton.GetComponent<Image>().color = Color.green;
                 ReinforcementManagement.PositiveReinforcementIncrement();
                 levelThreeScore++;
@@ -84,25 +111,7 @@ public class TrailLevel3 : MonoBehaviour
                 mistakes++;
                 clickedButton.GetComponent<Image>().color = Color.red;
                 ReinforcementManagement.PositiveReinforcementDecrement();
-                if (mistakes == 1)
-                {
-                    mistakesIndicator_3[0].GetComponent<Image>().color = Color.red;
-                }
-                else if (mistakes == 2)
-                {
-                    mistakesIndicator_3[1].GetComponent<Image>().color = Color.red;
-                }
-                else if (mistakes == 3)
-                {
-                    mistakesIndicator_3[2].GetComponent<Image>().color = Color.red;
-                }
-                else
-                {
-                    for (int i = 0; i < mistakesIndicator_3.Length; i++)
-                    {
-                        mistakesIndicator_3[i].GetComponent<Image>().color = Color.green;
-                    }
-                }
+                MistakesIndicator();
                 //Debug.Log("Score --");
             } 
         }
@@ -113,25 +122,7 @@ public class TrailLevel3 : MonoBehaviour
 
             levelThreeScore--;
             mistakes++;
-            if (mistakes == 1)
-            {
-                mistakesIndicator_3[0].GetComponent<Image>().color = Color.red;
-            }
-            else if (mistakes == 2)
-            {
-                mistakesIndicator_3[1].GetComponent<Image>().color = Color.red;
-            }
-            else if (mistakes == 3)
-            {
-                mistakesIndicator_3[2].GetComponent<Image>().color = Color.red;
-            }
-            else
-            {
-                for (int i = 0; i < mistakesIndicator_3.Length; i++)
-                {
-                    mistakesIndicator_3[i].GetComponent<Image>().color = Color.green;
-                }
-            }
+            MistakesIndicator();
             //Debug.Log("Score --");
         }
         StartCoroutine(ResetTextAfterDelay());
@@ -146,20 +137,14 @@ public class TrailLevel3 : MonoBehaviour
             completeLevel3Canvas.SetActive(true);
             scorelvl3Text.text = $"Your Score: {levelThreeScore}";
             isGameOver = true;
-            for (int i = 0; i < mistakesIndicator_3.Length; i++)
-            {
-                mistakesIndicator_3[i].GetComponent<Image>().color = Color.green;
-            }
+            ResetIndicator();
         } 
         else if(mistakes >= 3 || CountUpTimer.elapsedTime > 120f) // didn't pass the level, replay
         {
             instructionsLevel3RetryCanvas.SetActive(true); 
             CountUpTimer.elapsedTime = 0f;
             CountUpTimer.isPlayPressed = false;
-            for (int i = 0; i < mistakesIndicator_3.Length; i++)
-            {
-                mistakesIndicator_3[i].GetComponent<Image>().color = Color.green;
-            }
+            ResetIndicator();
         }
     }
     void InitializeButtons()
@@ -221,5 +206,34 @@ public class TrailLevel3 : MonoBehaviour
 
         // After waiting for the specified duration, reset the text to nothing
         ReinforcementManagement.reinforcementText = "";
+    }
+    void MistakesIndicator()
+    {
+        if (mistakes == 1)
+        {
+            mistakesIndicator_3[0].GetComponent<Image>().color = Color.red;
+        }
+        else if (mistakes == 2)
+        {
+            mistakesIndicator_3[1].GetComponent<Image>().color = Color.red;
+        }
+        else if (mistakes == 3)
+        {
+            mistakesIndicator_3[2].GetComponent<Image>().color = Color.red;
+        }
+        else
+        {
+            for (int i = 0; i < mistakesIndicator_3.Length; i++)
+            {
+                mistakesIndicator_3[i].GetComponent<Image>().color = Color.green;
+            }
+        }
+    }
+    void ResetIndicator()
+    {
+        for (int i = 0; i < mistakesIndicator_3.Length; i++)
+        {
+            mistakesIndicator_3[i].GetComponent<Image>().color = Color.green;
+        }
     }
 }
