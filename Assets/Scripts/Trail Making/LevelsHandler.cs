@@ -150,5 +150,8 @@ public class LevelsHandler : MonoBehaviour
         trailLevel1.ResetButtonColors(0);
         trailLevel2.ResetButtonColors(0);
         trailLevel3.ResetButtonColors(0);
+
+        CountUpTimer.elapsedTime = 0f;
+        CountUpTimer.isPlayPressed = false;
     }
 }

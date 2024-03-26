@@ -20,6 +20,14 @@ public class GridSpawner : MonoBehaviour
     public static bool isLevel2;
     public static bool isGameOver;
 
+    public GameObject levelOneInstructionsRetryCanvas;
+    public GameObject levelTwoInstructionsRetryCanvas;
+
+    public GameObject levelOneCompleteCanvas;
+    public GameObject levelTwoCompleteCanvas;
+
+    public GameObject timerCanvas;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -80,12 +88,10 @@ public class GridSpawner : MonoBehaviour
     {
         if (level == 1)
         {
-            isLevel1 = true;
-            isLevel2 = false;
-            isGameOver = false;
-            FocusTimer.remainingTime = 10;
+            
+            //FocusTimer.remainingTime = 15;
 
-            while (!FocusTimer.isTimeOver)
+            while (!FocusTimer.isTimeOver && !FocusLevelTransition.isHomeClicked)
             {
                 isClicked = false;
                 if (newObject != null)
@@ -107,17 +113,17 @@ public class GridSpawner : MonoBehaviour
                 yield return new WaitForSeconds(0.85f);
 
             }
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(0.7f);
+            isLevel1 = false;
+            if (!FocusLevelTransition.isHomeClicked) { CheckLevel1(); }
         }
         else if (level == 2)
         {
-            isLevel1 = false;
-            isLevel2 = true;
-            isGameOver = false;
-            FocusTimer.remainingTime = 10;
+            
+            //FocusTimer.remainingTime = 6;
 
             Debug.Log("Level 2 starts");
-            while (!FocusTimer.isTimeOver)
+            while (!FocusTimer.isTimeOver && !FocusLevelTransition.isHomeClicked)
             {
 
                 isClicked = false;
@@ -142,7 +148,9 @@ public class GridSpawner : MonoBehaviour
                 yield return new WaitForSeconds(1);
 
             }
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(0.7f);
+            isLevel2 = false;
+            if (!FocusLevelTransition.isHomeClicked) { CheckLevel2(); }
         }
     }
     IEnumerator WhenClicked()
@@ -191,11 +199,63 @@ public class GridSpawner : MonoBehaviour
         ScoreCalculationFocus.reinforcementText = "";
     }
 
+    public void ResetText() { ScoreCalculationFocus.reinforcementText = "";  }
     public void ShowHideGrid(bool isVisible)
     {
         if (newObject != null)
         {
             newObject.SetActive(isVisible);
         }
+    }
+
+    private void CheckLevel1()
+    {
+        if (ScoreCalculationFocus.score >= 5 && FocusTimer.isTimeOver) // complete lvl1
+        {
+            timerCanvas.SetActive(false);
+            ResetText();
+            levelOneCompleteCanvas.SetActive(true);
+            ScoreCalculationFocus.score = 0;
+        }
+        else if (ScoreCalculationFocus.score < 5 && FocusTimer.isTimeOver) // retry lvl1
+        {
+            timerCanvas.SetActive(false);
+            ResetText();
+            levelOneInstructionsRetryCanvas.SetActive(true);
+            ScoreCalculationFocus.score = 0;
+        }
+    }
+
+    private void CheckLevel2()
+    {
+        if (ScoreCalculationFocus.score >= 5 && FocusTimer.isTimeOver) // complete lvl2
+        {
+            timerCanvas.SetActive(false);
+            ResetText();
+            levelTwoCompleteCanvas.SetActive(true);
+            isGameOver = true;
+            ScoreCalculationFocus.score = 0;
+        }
+        else if (ScoreCalculationFocus.score < 5 && FocusTimer.isTimeOver) // retry lvl2
+        {
+            timerCanvas.SetActive(false);
+            ResetText();
+            levelTwoInstructionsRetryCanvas.SetActive(true);
+            ScoreCalculationFocus.score = 0;
+        }
+    }
+
+    public void level1()
+    {
+        isLevel1 = true;
+        isLevel2 = false;
+        isGameOver = false;
+    }
+
+    public void level2()
+    {
+        isLevel1 = false;
+        isLevel2 = true;
+        isGameOver = false;
     }
 }
