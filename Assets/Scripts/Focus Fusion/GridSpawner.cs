@@ -45,7 +45,7 @@ public class GridSpawner : MonoBehaviour
     private void OnClickCustom( InputAction.CallbackContext obj)
     {
         isClicked = true;
-        if (newObject)
+        if (newObject && !FocusLevelTransition.isHomeClicked)
         {
             if (obj.action.name == "PrimaryRight")
             {
@@ -103,7 +103,11 @@ public class GridSpawner : MonoBehaviour
 
                 newObject = Instantiate(gridsPrefabs[randomIndex], spawnPosition.position, Quaternion.identity);
                 yield return new WaitForSeconds(1f);
-                HandleNoClickOnLayerNine();
+                if (!FocusLevelTransition.isHomeClicked)
+                {
+                    HandleNoClickOnLayerNine();
+                }
+                
 
                 if (newObject != null)
                 {
@@ -138,7 +142,10 @@ public class GridSpawner : MonoBehaviour
 
                 newObject = Instantiate(gridsPrefabs[randomIndex], levelTwoSpawnPos[randomPosIndex].position, Quaternion.identity);
                 yield return new WaitForSeconds(1.25f);
-                HandleNoClickOnLayerNine();
+                if (!FocusLevelTransition.isHomeClicked)
+                {
+                    HandleNoClickOnLayerNine();
+                }
 
                 if (newObject != null)
                 {
