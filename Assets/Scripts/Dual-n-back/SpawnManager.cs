@@ -41,41 +41,87 @@ public class SpawnManager : MonoBehaviour
     //StartCoroutine(SpawnObjectsRandomly());
     //}
 
-    IEnumerator SpawnObjectsRandomly()
+    IEnumerator SpawnObjectsRandomly(int level)
     {
-        while (AudioSpawnSharedVariables.trialsCount < AudioSpawnSharedVariables.maxTrials)
+        if (level == 1)
         {
-            ScoreCalculator.isGameStart = true;
-            ScoreCalculator.isGameOver = false;
-            ScoreCalculator.isStartLevel1 = false;
-            ScoreCalculator.isStartLevel2 = false;
-            ScoreCalculator.isStartLevel3 = false;
-            colourButton.SetActive(false);
-            if (ScoreCalculator.isLevel3 == true || ScoreCalculator.isLevel2 == true)
-            {               
-                colourButton.SetActive(true);
-            }
-            if (ScoreCalculator.isLevel3 == true)
+            AudioSpawnSharedVariables.trialsCount = 0;
+            AudioSpawnSharedVariables.maxTrials = 5;
+            while (AudioSpawnSharedVariables.trialsCount < AudioSpawnSharedVariables.maxTrials)
             {
-                intervalBetweenSpawns = 0.5f;
-            }
-            else
-            {
+                ScoreCalculator.isGameStart = true;
+                ScoreCalculator.isGameOver = false;
+                ScoreCalculator.isStartLevel1 = false;
+                ScoreCalculator.isStartLevel2 = false;
+                ScoreCalculator.isStartLevel3 = false;
+                colourButton.SetActive(false);
                 intervalBetweenSpawns = 2.0f;
+                yield return new WaitForSeconds(intervalBetweenSpawns);
+                ScoreCalculator.reinforcementText = "";
+
+                // Randomly selecting one of the positions
+                int randomIndex = Random.Range(0, spawnPositions.Length);
+                Vector3 spawnPos = spawnPositions[randomIndex].position;
+
+                // Instantiate the cube at the chosen position
+                GameObject newObject = Instantiate(objectPrefab, spawnPos, Quaternion.identity);// Get or add a Renderer component
+                ScoreCalculator.isCalculated = false;
+                SetCurrentPosition(newObject);
+
+                isAPressed = false;
+                // cube visibility time before destroying it
+                yield return new WaitForSeconds(0.76f);
+
+                if (!isAPressed && AudioSpawnSharedVariables.trialsCount != 0)
+                {
+                    ScoreCalculator.CalculateScoreWithoutPressing(oldPosition, currentPosition);
+                }
+
+                yield return new WaitForSeconds(1.0f);
+                Destroy(newObject);
+                SetOldPosition(spawnPos);
+                AudioSpawnSharedVariables.trialsCount++;
+                score1 = ScoreCalculator.score;
+                if (ScoreCalculator.score >= 5 && ScoreCalculator.isLevel1)
+                {
+                    // pass lvl 1
+                    //ShowLevelTwoInstructions();
+                    ShowCompleteLevel1Canvas();
+                    ScoreCalculator.isLevel1 = false;
+                    ScoreCalculator.isLevel2 = true;
+                    ScoreCalculator.isStartLevel2 = true;
+                }
+                else if (ScoreCalculator.score <= 5 && ScoreCalculator.isLevel1)
+                {
+                    // retry lvl1
+                    ShowLevelOneInstructions();
+                    ScoreCalculator.score = 0;
+                    ScoreCalculator.isStartLevel1 = true;
+                }
             }
-            
-            yield return new WaitForSeconds(intervalBetweenSpawns);
-            ScoreCalculator.reinforcementText = "";
+        }
+        else if (level == 2)
+        {
+            AudioSpawnSharedVariables.trialsCount = 0;
+            AudioSpawnSharedVariables.maxTrials = 5;
+            while (AudioSpawnSharedVariables.trialsCount < AudioSpawnSharedVariables.maxTrials)
+            {
+                ScoreCalculator.isGameStart = true;
+                ScoreCalculator.isGameOver = false;
+                ScoreCalculator.isStartLevel1 = false;
+                ScoreCalculator.isStartLevel2 = true;
+                ScoreCalculator.isStartLevel3 = false;
+                colourButton.SetActive(true);
+                intervalBetweenSpawns = 2.0f;
+                yield return new WaitForSeconds(intervalBetweenSpawns);
+                ScoreCalculator.reinforcementText = "";
 
-            // Randomly selecting one of the positions
-            int randomIndex = Random.Range(0, spawnPositions.Length);
-            Vector3 spawnPos = spawnPositions[randomIndex].position;
+                // Randomly selecting one of the positions
+                int randomIndex = Random.Range(0, spawnPositions.Length);
+                Vector3 spawnPos = spawnPositions[randomIndex].position;
 
-            // Instantiate the cube at the chosen position
-            GameObject newObject = Instantiate(objectPrefab, spawnPos, Quaternion.identity);// Get or add a Renderer component
-
-            if(ScoreCalculator.isLevel2 == true || ScoreCalculator.isLevel3 == true)
-            {             
+                // Instantiate the cube at the chosen position
+                GameObject newObject = Instantiate(objectPrefab, spawnPos, Quaternion.identity);// Get or add a Renderer component
                 // Randomly select a material from the materials array
                 int randomMaterialIndex = Random.Range(0, materials.Length);
                 Material randomMaterial = materials[randomMaterialIndex];
@@ -86,112 +132,122 @@ public class SpawnManager : MonoBehaviour
                 {
                     childRenderer.material = randomMaterial;
                 }
+                ScoreCalculator.isCalculated = false;
+                SetCurrentPosition(newObject);
+
+                isAPressed = false;
+                // cube visibility time before destroying it
+                yield return new WaitForSeconds(0.76f);
+
+                if (!isAPressed && AudioSpawnSharedVariables.trialsCount != 0)
+                {
+                    ScoreCalculator.CalculateScoreWithoutPressing(oldPosition, currentPosition);
+                }
+
+                yield return new WaitForSeconds(1.0f);
+                Destroy(newObject);
+                SetOldPosition(spawnPos);
+                AudioSpawnSharedVariables.trialsCount++;
+                score2 = ScoreCalculator.score;
+                if (ScoreCalculator.score >= 10 && ScoreCalculator.isLevel2)
+                {
+                    // pass lvl2
+                    //ShowLevelThreeInstructions();
+                    score2Only = score2 - score1;
+                    ShowCompleteLevel2Canvas();
+                    ScoreCalculator.isLevel3 = true;
+                    ScoreCalculator.isLevel1 = false;
+                    ScoreCalculator.isLevel2 = false;
+                    ScoreCalculator.isStartLevel3 = true;
+                }
+                else if (ScoreCalculator.score <= 10 && ScoreCalculator.isLevel2)
+                {
+                    // retry lvl 2
+                    ShowLevelTwoInstructions();
+                    ScoreCalculator.isLevel2 = true;
+                    ScoreCalculator.isLevel3 = false;
+                    ScoreCalculator.isLevel1 = false;
+                    ScoreCalculator.score = score1;
+                    ScoreCalculator.isStartLevel2 = true;
+                }
             }
-
-            ScoreCalculator.isCalculated = false;
-            SetCurrentPosition(newObject);
-
-            isAPressed = false;
-            // cube visibility time before destroying it
-            yield return new WaitForSeconds(0.76f);
-
-            if (!isAPressed && AudioSpawnSharedVariables.trialsCount != 0)
+        }
+        else if (level == 3)
+        {
+            AudioSpawnSharedVariables.trialsCount = 0;
+            AudioSpawnSharedVariables.maxTrials = 5;
+            while (AudioSpawnSharedVariables.trialsCount < AudioSpawnSharedVariables.maxTrials)
             {
-                ScoreCalculator.CalculateScoreWithoutPressing(oldPosition, currentPosition);
+                ScoreCalculator.isGameStart = true;
+                ScoreCalculator.isGameOver = false;
+                ScoreCalculator.isStartLevel1 = false;
+                ScoreCalculator.isStartLevel2 = false;
+                ScoreCalculator.isStartLevel3 = true;
+                colourButton.SetActive(true);
+                intervalBetweenSpawns = 0.5f;
+                yield return new WaitForSeconds(intervalBetweenSpawns);
+                ScoreCalculator.reinforcementText = "";
+
+                // Randomly selecting one of the positions
+                int randomIndex = Random.Range(0, spawnPositions.Length);
+                Vector3 spawnPos = spawnPositions[randomIndex].position;
+
+                // Instantiate the cube at the chosen position
+                GameObject newObject = Instantiate(objectPrefab, spawnPos, Quaternion.identity);// Get or add a Renderer component
+                // Randomly select a material from the materials array
+                int randomMaterialIndex = Random.Range(0, materials.Length);
+                Material randomMaterial = materials[randomMaterialIndex];
+
+                // Apply the material to the child object
+                Renderer childRenderer = newObject.transform.GetChild(0).GetComponent<Renderer>();
+                if (childRenderer != null)
+                {
+                    childRenderer.material = randomMaterial;
+                }
+                ScoreCalculator.isCalculated = false;
+                SetCurrentPosition(newObject);
+
+                isAPressed = false;
+                // cube visibility time before destroying it
+                yield return new WaitForSeconds(0.76f);
+
+                if (!isAPressed && AudioSpawnSharedVariables.trialsCount != 0)
+                {
+                    ScoreCalculator.CalculateScoreWithoutPressing(oldPosition, currentPosition);
+                }
+
+                yield return new WaitForSeconds(1.0f);
+                Destroy(newObject);
+                SetOldPosition(spawnPos);
+                AudioSpawnSharedVariables.trialsCount++;
+                score2 = ScoreCalculator.score;
+                if (ScoreCalculator.score >= 15 && ScoreCalculator.isLevel3)
+                {
+                    // pass lvl3
+                    //ShowEndGamePanel();
+                    score3Only = score3 - (score1 + score2);
+                    ShowCompleteLevel3Canvas();
+                    ScoreCalculator.isLevel1 = true;
+                    ScoreCalculator.isLevel2 = false;
+                    ScoreCalculator.isLevel3 = false;
+                    ScoreCalculator.score = 0;
+                    ScoreCalculator.isGameOver = true;
+                    Debug.Log("game over test");
+                }
+                else if (ScoreCalculator.score <= 15 && ScoreCalculator.isLevel3)
+                {
+                    // retry lvl3
+                    ShowLevelThreeInstructions();
+                    ScoreCalculator.isLevel3 = true;
+                    ScoreCalculator.isLevel1 = false;
+                    ScoreCalculator.isLevel2 = false;
+                    ScoreCalculator.score = score2;
+                    ScoreCalculator.isStartLevel3 = true;
+                }
             }
-
-            yield return new WaitForSeconds(1.0f);
-            Destroy(newObject);
-            SetOldPosition(spawnPos);
-            AudioSpawnSharedVariables.trialsCount++;
-
-            
         }
-        if (ScoreCalculator.isLevel1)
-        {
-            score1 = ScoreCalculator.score;
-        }
-        else if (ScoreCalculator.isLevel2)
-        {
-            score2 = ScoreCalculator.score;
-        }
-        else
-        {
-            score3 = ScoreCalculator.score;
-        }
-
-
-        if (ScoreCalculator.score >= 5 && ScoreCalculator.isLevel1)
-        {
-            // pass lvl 1
-            //ShowLevelTwoInstructions();
-            ShowCompleteLevel1Canvas();
-            ScoreCalculator.isLevel1 = false;
-            ScoreCalculator.isLevel2 = true;
-            ScoreCalculator.isStartLevel2 = true;
-        }
-        else if (ScoreCalculator.score <= 5 && ScoreCalculator.isLevel1)
-        {
-            // retry lvl1
-            ShowLevelOneInstructions();
-            ScoreCalculator.score = 0;
-            ScoreCalculator.isStartLevel1 = true;
-        }
-        else if (ScoreCalculator.score >= 10 && ScoreCalculator.isLevel2)
-        {
-            // pass lvl2
-            //ShowLevelThreeInstructions();
-            score2Only = score2 - score1;
-            ShowCompleteLevel2Canvas();
-            ScoreCalculator.isLevel3 = true;
-            ScoreCalculator.isLevel1 = false;
-            ScoreCalculator.isLevel2 = false;
-            ScoreCalculator.isStartLevel3 = true;
-        }
-        else if (ScoreCalculator.score <= 10 && ScoreCalculator.isLevel2)
-        {
-            // retry lvl 2
-            ShowLevelTwoInstructions();
-            ScoreCalculator.isLevel2 = true;
-            ScoreCalculator.isLevel3 = false;
-            ScoreCalculator.isLevel1 = false;
-            ScoreCalculator.score = score1;
-            ScoreCalculator.isStartLevel2 = true;
-        }
-        else if (ScoreCalculator.score >= 15 && ScoreCalculator.isLevel3)
-        {
-            // pass lvl3
-            //ShowEndGamePanel();
-            score3Only = score3 - (score1 + score2);
-            ShowCompleteLevel3Canvas();
-            ScoreCalculator.isLevel1 = true;
-            ScoreCalculator.isLevel2 = false;
-            ScoreCalculator.isLevel3 = false;
-            ScoreCalculator.score = 0;
-            ScoreCalculator.isGameOver = true;
-            Debug.Log("game over test");
-        }
-        else if (ScoreCalculator.score <= 15 && ScoreCalculator.isLevel3)
-        {
-            // retry lvl3
-            ShowLevelThreeInstructions();
-            ScoreCalculator.isLevel3 = true;
-            ScoreCalculator.isLevel1 = false;
-            ScoreCalculator.isLevel2 = false;
-            ScoreCalculator.score = score2;
-            ScoreCalculator.isStartLevel3 = true;
-        }
-        else
-        {
-            // ??
-            ShowEndGamePanel();
-            ScoreCalculator.isLevel2 = false;
-            ScoreCalculator.isLevel3 = false;
-            ScoreCalculator.isGameOver = true;
-            Debug.Log("game over test");
-        }
-        
-    }
+    }   
+    
     void SetCurrentPosition(GameObject gameObject)
     {
         currentPosition = gameObject.transform.position;
@@ -239,12 +295,12 @@ public class SpawnManager : MonoBehaviour
         //scoreText.text = $"Score: {ScoreCalculator.score}";
     }
 
-    public void PlayAgainButtonClick()
+    public void PlayAgainButtonClick(int level)
     {
         AudioSpawnSharedVariables.trialsCount = 0;
         AudioSpawnSharedVariables.maxTrials = 5;
         ScoreCalculator.isGameStart = false;
-        StartCoroutine(SpawnObjectsRandomly());
+        StartCoroutine(SpawnObjectsRandomly(level));
     }
 
     private void ShowCompleteLevel1Canvas()
