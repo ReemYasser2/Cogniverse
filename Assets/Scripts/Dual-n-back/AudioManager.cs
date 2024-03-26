@@ -109,7 +109,10 @@ public class AudioManager : MonoBehaviour
 
     public void StartButtonClicked()
     {
-        audioSource = GetComponent<AudioSource>();
-        StartCoroutine(PlayAudioRandomly());
+        if (!SpawnManager.isHomeClicked)
+        {
+            audioSource = GetComponent<AudioSource>();
+            StartCoroutine(PlayAudioRandomly());
+        }
     }
 }

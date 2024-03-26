@@ -11,7 +11,7 @@ public static class ScoreCalculator
     public static bool isLevel1 = true;
     public static bool isLevel2 = false;
     public static bool isLevel3 = false;
-    public static bool isGameOver = false;
+    public static bool isGameOver = true;
     public static bool isStartLevel1 = false;
     public static bool isStartLevel2 = false;
     public static bool isStartLevel3 = false;
@@ -52,13 +52,13 @@ public static class ScoreCalculator
             }
         }
         reinforcmentCondition();
-        //Debug.Log(score);
+        Debug.Log(score);
         return score;
     }
     public static  int CalculateScoreWithoutPressing(Vector3 oldPos, Vector3 currentPos)
     {
         oldScore = score;
-        //Debug.Log(score);
+        Debug.Log(score);
         if (oldPos == currentPos && score != 0)
         {
             incrementCounter--;
@@ -73,7 +73,7 @@ public static class ScoreCalculator
             
         }
         reinforcmentCondition();
-        //Debug.Log(score);
+        Debug.Log(score);
         return score;
     }
 
@@ -106,7 +106,7 @@ public static class ScoreCalculator
 
             }
         }
-        //Debug.Log(score);
+        Debug.Log(score);
         reinforcmentCondition();
         return score;
     }
@@ -136,7 +136,7 @@ public static class ScoreCalculator
                 score--;
             }
         }
-        //Debug.Log(score);
+        Debug.Log(score);
         reinforcmentCondition();
         return score;
     }

@@ -12,6 +12,7 @@ public class Reinforcement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (ScoreCalculator.isGameOver)
         {
             reinforcmentText.text = "";
@@ -30,8 +31,9 @@ public class Reinforcement : MonoBehaviour
         }
         else
         {
+        */
             //reinforcmentText.text = ScoreCalculator.reinforcementText;
             DynamicTextManager.CreateText(new Vector3 (0.2f, 0f, -7.2f), ScoreCalculator.reinforcementText, DynamicTextManager.defaultData);
-        }
+        //}
     }
 }
