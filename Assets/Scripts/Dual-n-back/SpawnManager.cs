@@ -34,12 +34,17 @@ public class SpawnManager : MonoBehaviour
     
     public GameObject colourButton;
     public static bool isHomeClicked = false;
+    public GameObject level2Button;
+    public GameObject level2LockButton;
+    public GameObject level3Button;
+    public GameObject level3LockButton;
     IEnumerator SpawnObjectsRandomly(int level)
     {
         if (level == 1)
         {
             AudioSpawnSharedVariables.trialsCount = 0;
             AudioSpawnSharedVariables.maxTrials = 5;
+            ScoreCalculator.score = 0;
             while (AudioSpawnSharedVariables.trialsCount < AudioSpawnSharedVariables.maxTrials && !isHomeClicked)
             {
                 //ScoreCalculator.isGameStart = true;
@@ -85,6 +90,7 @@ public class SpawnManager : MonoBehaviour
         {
             AudioSpawnSharedVariables.trialsCount = 0;
             AudioSpawnSharedVariables.maxTrials = 5;
+            ScoreCalculator.score = 0;
             while (AudioSpawnSharedVariables.trialsCount < AudioSpawnSharedVariables.maxTrials && !isHomeClicked)
             {
                 //ScoreCalculator.isGameStart = true;
@@ -139,6 +145,7 @@ public class SpawnManager : MonoBehaviour
         {
             AudioSpawnSharedVariables.trialsCount = 0;
             AudioSpawnSharedVariables.maxTrials = 5;
+            ScoreCalculator.score = 0;
             while (AudioSpawnSharedVariables.trialsCount < AudioSpawnSharedVariables.maxTrials && !isHomeClicked)
             {
                 //ScoreCalculator.isGameStart = true;
@@ -229,19 +236,19 @@ public class SpawnManager : MonoBehaviour
     private void ShowCompleteLevel1Canvas()
     {
         completeLevel1Canvas.SetActive(true);
-        scorelvl1Text.text = $"Your Score: {score1}";
+        scorelvl1Text.text = $"Your Score: {ScoreCalculator.score}";
     }
 
     private void ShowCompleteLevel2Canvas()
     {
         completeLevel2Canvas.SetActive(true);
-        scorelvl2Text.text = $"Your Score: {score2Only}";
+        scorelvl2Text.text = $"Your Score: {ScoreCalculator.score}";
     }
 
     private void ShowCompleteLevel3Canvas()
     {
         completeLevel3Canvas.SetActive(true);
-        scorelvl3Text.text = $"Your Score: {score3Only}";
+        scorelvl3Text.text = $"Your Score: {ScoreCalculator.score}";
     }
 
     private void CheckLevel1()
@@ -251,6 +258,7 @@ public class SpawnManager : MonoBehaviour
             // pass lvl 1
             ScoreCalculator.reinforcementText = "";
             ShowCompleteLevel1Canvas();
+            ScoreCalculator.score = 0;
             //ScoreCalculator.isLevel1 = false;
             //ScoreCalculator.isLevel2 = true;
             //ScoreCalculator.isStartLevel2 = true;
@@ -273,6 +281,9 @@ public class SpawnManager : MonoBehaviour
             score2Only = score2 - score1;
             ScoreCalculator.reinforcementText = "";
             ShowCompleteLevel2Canvas();
+            ScoreCalculator.score = 0;
+            level2Button.SetActive(true);
+            level2LockButton.SetActive(false);
             //ScoreCalculator.isLevel3 = true;
             //ScoreCalculator.isLevel1 = false;
             //ScoreCalculator.isLevel2 = false;
@@ -283,10 +294,11 @@ public class SpawnManager : MonoBehaviour
             // retry lvl 2
             ScoreCalculator.reinforcementText = "";
             ShowLevelTwoInstructions();
+            ScoreCalculator.score = 0;
             //ScoreCalculator.isLevel2 = true;
             //ScoreCalculator.isLevel3 = false;
-           //ScoreCalculator.isLevel1 = false;
-            ScoreCalculator.score = score1;
+            //ScoreCalculator.isLevel1 = false;
+            //ScoreCalculator.score = score1;
             //ScoreCalculator.isStartLevel2 = true;
         }
     }
@@ -299,6 +311,8 @@ public class SpawnManager : MonoBehaviour
             score3Only = score3 - (score1 + score2);
             ScoreCalculator.reinforcementText = "";
             ShowCompleteLevel3Canvas();
+            level3Button.SetActive(true);
+            level3LockButton.SetActive(false);
             //ScoreCalculator.isLevel1 = true;
             //ScoreCalculator.isLevel2 = false;
             //ScoreCalculator.isLevel3 = false;
@@ -311,10 +325,11 @@ public class SpawnManager : MonoBehaviour
             // retry lvl3
             ScoreCalculator.reinforcementText = "";
             ShowLevelThreeInstructions();
+            ScoreCalculator.score = 0;
             //ScoreCalculator.isLevel3 = true;
             //ScoreCalculator.isLevel1 = false;
             //ScoreCalculator.isLevel2 = false;
-            ScoreCalculator.score = score2;
+            //ScoreCalculator.score = score2;
             //ScoreCalculator.isStartLevel3 = true;
         }
     }

@@ -50701,6 +50701,8 @@ MonoBehaviour:
   levelsHandler: {fileID: 839657315}
   scorelvl2Text: {fileID: 1623577684}
   instructionsLevel2RetryCanvas: {fileID: 1444697966}
+  level2Button: {fileID: 955690122}
+  level2LockButton: {fileID: 936567823}
 --- !u!1 &1644905735
 GameObject:
   m_ObjectHideFlags: 0
@@ -62030,6 +62032,8 @@ MonoBehaviour:
   completeLevel3Canvas: {fileID: 1646078928}
   scorelvl3Text: {fileID: 1124204821}
   instructionsLevel3RetryCanvas: {fileID: 16838696}
+  level3Button: {fileID: 2067825909}
+  level3LockButton: {fileID: 1394427214}
 --- !u!1 &2028977058
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,6 +18,8 @@ public class TrailLevel2 : MonoBehaviour
     public LevelsHandler levelsHandler;
     public TextMeshProUGUI scorelvl2Text;
     public GameObject instructionsLevel2RetryCanvas;
+    public GameObject level2Button;
+    public GameObject level2LockButton;
 
     // Start is called before the first frame update
     void Start()
@@ -129,7 +131,7 @@ public class TrailLevel2 : MonoBehaviour
 
         StartCoroutine(ResetTextAfterDelay());
 
-        if ((levelTwoScore == 20 || levelTwoScore+mistakes == 20) && (CountUpTimer.elapsedTime < 60f) && mistakes < 3)
+        if ((levelTwoScore == 20 || levelTwoScore+mistakes == 20) && (CountUpTimer.elapsedTime < 60f) && mistakes < 3) // pass lvl 2
         {
             ResetButtonColors(0);
 
@@ -141,6 +143,8 @@ public class TrailLevel2 : MonoBehaviour
             CountUpTimer.isPlayPressed = false;
             completeLevel2Canvas.SetActive(true);
             scorelvl2Text.text = $"Your Score: {levelTwoScore}";
+            level2Button.SetActive(true);
+            level2LockButton.SetActive(false);
             Debug.Log("Level Passed");
             ResetIndicator();
         }

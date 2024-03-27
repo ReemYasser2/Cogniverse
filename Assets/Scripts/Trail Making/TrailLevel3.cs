@@ -25,6 +25,9 @@ public class TrailLevel3 : MonoBehaviour
     public TextMeshProUGUI scorelvl3Text;
     public GameObject instructionsLevel3RetryCanvas;
 
+    public GameObject level3Button;
+    public GameObject level3LockButton;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -128,7 +131,7 @@ public class TrailLevel3 : MonoBehaviour
         StartCoroutine(ResetTextAfterDelay());
 
 
-        if ((levelThreeScore == 30 || levelThreeScore + mistakes == 30) && (CountUpTimer.elapsedTime < 120f) && mistakes < 3)
+        if ((levelThreeScore == 30 || levelThreeScore + mistakes == 30) && (CountUpTimer.elapsedTime < 120f) && mistakes < 3) // pass lvl3
         {
             Debug.Log("Heighest Score");
             // timer end
@@ -136,6 +139,8 @@ public class TrailLevel3 : MonoBehaviour
             CountUpTimer.isPlayPressed = false;
             completeLevel3Canvas.SetActive(true);
             scorelvl3Text.text = $"Your Score: {levelThreeScore}";
+            level3Button.SetActive(true);
+            level3LockButton.SetActive(false);
             isGameOver = true;
             ResetIndicator();
         } 
