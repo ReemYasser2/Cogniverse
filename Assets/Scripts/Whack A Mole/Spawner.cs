@@ -14,30 +14,19 @@ public class Spawner : MonoBehaviour
     public static bool isGameOver;
     float[] waitingPeriods = new float[] { 0.1f, 0.15f, 0.2f , 0.25f ,0.3f , 0.35f };
 
+    public LevelTransitionWhack levelTransition;
     //public bool[] isUp;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     IEnumerator AliensSpawner(int level)
     { if (level == 1 )
         {
-            isLevel1 = true;
-            isLevel2 = false;
-            isGameOver = false;
+            
             //activate all objects for level 1
            /* foreach (GameObject obj in alienOne)
             {
                 obj.SetActive(true);
             } */
-                while (!WhackTimer.isTimeOver)
+            while (!WhackTimer.isTimeOver && !LevelTransitionWhack.isHomeButtonClicked)
             {
                 int selectedPeriodIndex = Random.Range(0, waitingPeriods.Length);
                 float randomWaitTime = waitingPeriods[selectedPeriodIndex];
@@ -62,19 +51,19 @@ public class Spawner : MonoBehaviour
                 MoveObjectDown(secondObject, targetYPositionDown); secondObject.SetActive(false);
                 //isUp[randomIndex2] = false;
             }
+            if (!LevelTransitionWhack.isHomeButtonClicked) { levelTransition.CheckLevel1(); }
+            isLevel1 = false;
         }
     else if (level == 2)
         {
-            isLevel1 = false;
-            isLevel2 = true;
-            isGameOver = false;
+            
             //deactivate all objects for level 1
             foreach (GameObject obj in alienOne)
             {
                 obj.SetActive(false);
             }
            
-            while (!WhackTimer.isTimeOver)
+            while (!WhackTimer.isTimeOver && !LevelTransitionWhack.isHomeButtonClicked)
             {
                 int selectedPeriodIndex = Random.Range(0, waitingPeriods.Length);
                 float randomWaitTime = waitingPeriods[selectedPeriodIndex];
@@ -98,14 +87,12 @@ public class Spawner : MonoBehaviour
                 MoveObjectDown(secondObject, targetYPositionDown); secondObject.SetActive(false);
                 //isUp[randomIndex2] = false;
             }
+            if (!LevelTransitionWhack.isHomeButtonClicked) { levelTransition.CheckLevel2(); } 
+            isLevel2 = false;
         }
     }
     public void StartAliensSpawning(int level)
     {
-     
-            WhackTimer.remainingTime = 60;
-        
-
         StartCoroutine(AliensSpawner(level));
     }
 
@@ -121,9 +108,6 @@ public class Spawner : MonoBehaviour
         }
     }
 
-
-
-
     void MoveObjectDown(GameObject obj, float targetYPosition)
     {
         // Move the object upward if it's below the target Y-position
@@ -135,4 +119,22 @@ public class Spawner : MonoBehaviour
             obj.transform.Translate(Vector3.down * step);
         }
     }
+
+    public void level1()
+    {
+        isLevel1 = true;
+        isLevel2 = false;
+        isGameOver = false;
+        LevelTransitionWhack.isHomeButtonClicked = false;
+    }
+
+    public void level2()
+    {
+        isLevel1 = false;
+        isLevel2 = true;
+        isGameOver = false;
+        LevelTransitionWhack.isHomeButtonClicked = false;
+    }
+
+
 }

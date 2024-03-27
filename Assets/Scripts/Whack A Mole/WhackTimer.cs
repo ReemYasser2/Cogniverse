@@ -7,9 +7,8 @@ public class WhackTimer : MonoBehaviour
 {
     [SerializeField] TMP_Text timerText;
     public static float remainingTime;
-    private bool isPlayPressed = false;
+    public static bool isPlayPressed = false;
     public static bool isTimeOver = false;
-    public GameObject gameOverCanvas;
 
     public Color criticalColor = Color.red;
 
@@ -44,7 +43,6 @@ public class WhackTimer : MonoBehaviour
                 remainingTime = 0;
                 // Timer is over
                 isTimeOver = true;
-               // gameOverCanvas.SetActive(true);
             }
             int minutes = Mathf.FloorToInt(remainingTime / 60);
             int seconds = Mathf.FloorToInt(remainingTime % 60);
@@ -58,6 +56,8 @@ public class WhackTimer : MonoBehaviour
         isPlayPressed = true;
         isTimeOver = false;
         timerText.color = Color.white;
+        if (Spawner.isLevel1) { remainingTime = 10; }
+        else if (Spawner.isLevel2) {  remainingTime = 12; }
      
         //remainingTime = GeneralCountDownTimer.TimerInitialization(timerText, isLevel1, isLevel2, 5, 10);
     }
