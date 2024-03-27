@@ -20,13 +20,7 @@ public class GridSpawner : MonoBehaviour
     public static bool isLevel2;
     public static bool isGameOver;
 
-    public GameObject levelOneInstructionsRetryCanvas;
-    public GameObject levelTwoInstructionsRetryCanvas;
-
-    public GameObject levelOneCompleteCanvas;
-    public GameObject levelTwoCompleteCanvas;
-
-    public GameObject timerCanvas;
+    public FocusLevelTransition levelTransition;
 
     // Start is called before the first frame update
     void Start()
@@ -35,12 +29,6 @@ public class GridSpawner : MonoBehaviour
         rightActionReference.action.performed += OnClickCustom;
 
     }
-
-    private void Update()
-    {
-
-    }
-
 
     private void OnClickCustom( InputAction.CallbackContext obj)
     {
@@ -117,9 +105,9 @@ public class GridSpawner : MonoBehaviour
                 yield return new WaitForSeconds(0.85f);
 
             }
-            yield return new WaitForSeconds(0.7f);
+            yield return new WaitForSeconds(0.5f);
             isLevel1 = false;
-            if (!FocusLevelTransition.isHomeClicked) { CheckLevel1(); }
+            if (!FocusLevelTransition.isHomeClicked) { levelTransition.CheckLevel1(); }
         }
         else if (level == 2)
         {
@@ -155,9 +143,9 @@ public class GridSpawner : MonoBehaviour
                 yield return new WaitForSeconds(1);
 
             }
-            yield return new WaitForSeconds(0.7f);
+            yield return new WaitForSeconds(0.5f);
             isLevel2 = false;
-            if (!FocusLevelTransition.isHomeClicked) { CheckLevel2(); }
+            if (!FocusLevelTransition.isHomeClicked) { levelTransition.CheckLevel2(); }
         }
     }
     IEnumerator WhenClicked()
@@ -206,7 +194,7 @@ public class GridSpawner : MonoBehaviour
         ScoreCalculationFocus.reinforcementText = "";
     }
 
-    public void ResetText() { ScoreCalculationFocus.reinforcementText = "";  }
+    public static void ResetText() { ScoreCalculationFocus.reinforcementText = "";  }
     public void ShowHideGrid(bool isVisible)
     {
         if (newObject != null)
@@ -215,48 +203,12 @@ public class GridSpawner : MonoBehaviour
         }
     }
 
-    private void CheckLevel1()
-    {
-        if (ScoreCalculationFocus.score >= 5 && FocusTimer.isTimeOver) // complete lvl1
-        {
-            timerCanvas.SetActive(false);
-            ResetText();
-            levelOneCompleteCanvas.SetActive(true);
-            ScoreCalculationFocus.score = 0;
-        }
-        else if (ScoreCalculationFocus.score < 5 && FocusTimer.isTimeOver) // retry lvl1
-        {
-            timerCanvas.SetActive(false);
-            ResetText();
-            levelOneInstructionsRetryCanvas.SetActive(true);
-            ScoreCalculationFocus.score = 0;
-        }
-    }
-
-    private void CheckLevel2()
-    {
-        if (ScoreCalculationFocus.score >= 5 && FocusTimer.isTimeOver) // complete lvl2
-        {
-            timerCanvas.SetActive(false);
-            ResetText();
-            levelTwoCompleteCanvas.SetActive(true);
-            isGameOver = true;
-            ScoreCalculationFocus.score = 0;
-        }
-        else if (ScoreCalculationFocus.score < 5 && FocusTimer.isTimeOver) // retry lvl2
-        {
-            timerCanvas.SetActive(false);
-            ResetText();
-            levelTwoInstructionsRetryCanvas.SetActive(true);
-            ScoreCalculationFocus.score = 0;
-        }
-    }
-
     public void level1()
     {
         isLevel1 = true;
         isLevel2 = false;
         isGameOver = false;
+        FocusLevelTransition.isHomeClicked = false;
     }
 
     public void level2()
@@ -264,5 +216,6 @@ public class GridSpawner : MonoBehaviour
         isLevel1 = false;
         isLevel2 = true;
         isGameOver = false;
+        FocusLevelTransition.isHomeClicked = false;
     }
 }

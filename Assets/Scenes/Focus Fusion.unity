@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.10870849, g: 0.099930815, b: 0.09477871, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8717,6 +8717,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff79fab75affc3c47a70e82ac920cd05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelOneInstructionsRetryCanvas: {fileID: 2104851369}
+  levelTwoInstructionsRetryCanvas: {fileID: 2068117166}
+  levelOneCompleteCanvas: {fileID: 2025780469}
+  levelTwoCompleteCanvas: {fileID: 378718533}
+  timerCanvas: {fileID: 901102744}
+  level2Button: {fileID: 1767115482}
+  level2LockButton: {fileID: 903668841}
+  scorelvl1Text: {fileID: 1068061190}
+  scorelvl2Text: {fileID: 747896822}
 --- !u!1 &868684718
 GameObject:
   m_ObjectHideFlags: 0
@@ -10210,11 +10219,7 @@ MonoBehaviour:
   levelTwoSpawnPos: []
   leftActionReference: {fileID: 7431108850620702684, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   rightActionReference: {fileID: 5615426505607579712, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  levelOneInstructionsRetryCanvas: {fileID: 0}
-  levelTwoInstructionsRetryCanvas: {fileID: 0}
-  levelOneCompleteCanvas: {fileID: 0}
-  levelTwoCompleteCanvas: {fileID: 0}
-  timerCanvas: {fileID: 0}
+  levelTransition: {fileID: 0}
 --- !u!1 &1062237120
 GameObject:
   m_ObjectHideFlags: 0
@@ -13219,11 +13224,7 @@ MonoBehaviour:
   - {fileID: 472562449}
   leftActionReference: {fileID: 7431108850620702684, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   rightActionReference: {fileID: 5615426505607579712, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  levelOneInstructionsRetryCanvas: {fileID: 2104851369}
-  levelTwoInstructionsRetryCanvas: {fileID: 2068117166}
-  levelOneCompleteCanvas: {fileID: 2025780469}
-  levelTwoCompleteCanvas: {fileID: 378718533}
-  timerCanvas: {fileID: 901102744}
+  levelTransition: {fileID: 849517186}
 --- !u!1 &1242411575
 GameObject:
   m_ObjectHideFlags: 0
