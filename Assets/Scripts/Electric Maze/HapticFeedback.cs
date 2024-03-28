@@ -52,7 +52,7 @@ public class HapticFeedback : MonoBehaviour
         {
             ScoreCalculatorMaze.Increment();
             StartCoroutine(ResetTextAfterDelay());
-            gameObject.SetActive(false);
+            collision.gameObject.SetActive(false);
             Debug.Log("Collision with an obstacle!");
             //Destroy(collision.gameObject);
         }
@@ -62,7 +62,7 @@ public class HapticFeedback : MonoBehaviour
             StartCoroutine(ResetTextAfterDelay());
 
             Debug.Log("Collision with a power-up!");
-            gameObject.SetActive(false);
+            collision.gameObject.SetActive(false);
            // Destroy(collision.gameObject); // Change to inActive
         }
     }

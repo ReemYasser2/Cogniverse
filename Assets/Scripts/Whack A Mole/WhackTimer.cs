@@ -56,8 +56,8 @@ public class WhackTimer : MonoBehaviour
         isPlayPressed = true;
         isTimeOver = false;
         timerText.color = Color.white;
-        if (Spawner.isLevel1) { remainingTime = 10; }
-        else if (Spawner.isLevel2) {  remainingTime = 12; }
+        if (Spawner.isLevel1) { remainingTime = 300; }
+        else if (Spawner.isLevel2) {  remainingTime = 300; }
      
         //remainingTime = GeneralCountDownTimer.TimerInitialization(timerText, isLevel1, isLevel2, 5, 10);
     }
