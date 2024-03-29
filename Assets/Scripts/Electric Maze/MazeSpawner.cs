@@ -34,15 +34,6 @@ public class MazeSpawner : MonoBehaviour
         }
     }
 
-    public void RestartGame()
-    {
-        mazePrefabs[mazeIndex].SetActive(false);
-        maze1Canvas.SetActive(false);
-        maze2Canvas.SetActive(false);
-        SelectMazeRandomly();
-        //LevelsTransition.level1();
-    }
-
     public void ShowHideMaze(bool isVisible)
     {
         mazePrefabs[mazeIndex].SetActive(isVisible);
@@ -61,13 +52,5 @@ public class MazeSpawner : MonoBehaviour
         {
             maze2Canvas.SetActive(isVisible);
         }
-    }
-
-    public void Repaly()
-    {
-        mazePrefabs[mazeIndex].SetActive(false);
-        maze1Canvas.SetActive(false);
-        maze2Canvas.SetActive(false);
-
     }
 }
