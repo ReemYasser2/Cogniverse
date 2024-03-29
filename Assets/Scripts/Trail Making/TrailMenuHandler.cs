@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class TrailMenuHandler : MonoBehaviour
 {
-    public LevelsHandler levelsHandler;
-
     // menu without instructions
     public GameObject instructionsLevel1RetryCanvas;
     public GameObject instructionsLevel2RetryCanvas;
@@ -36,12 +35,21 @@ public class TrailMenuHandler : MonoBehaviour
     public GameObject mainMenuCanvas;
     public GameObject selectLevelCanvas;
 
+    public TextMeshProUGUI scorelvl1Text;
+    public TextMeshProUGUI scorelvl2Text;
+    public TextMeshProUGUI scorelvl3Text;
+
+    public GameObject level2Button;
+    public GameObject level2LockButton;
+    public GameObject level3Button;
+    public GameObject level3LockButton;
+
     public AudioSource[] audioSources;
     private List<AudioSource> pausedAudioSources = new List<AudioSource>(); // Store paused audio sources
 
     public void TrailInstructionsHandler()
     {
-        GeneralMenuHandler.InstructionsHandler(levelsHandler.level1_menu, levelsHandler.level_2, levelsHandler.level_3, instructionsLevel1MenuCanvas, instructionsLevel2MenuCanvas, instructionsLevel3MenuCanvas);
+        GeneralMenuHandler.InstructionsHandler(ReinforcementManagement.level1_menu, ReinforcementManagement.level_2, ReinforcementManagement.level_3, instructionsLevel1MenuCanvas, instructionsLevel2MenuCanvas, instructionsLevel3MenuCanvas);
     }
 
     public void ShowMenuHandlerTrail()
@@ -50,7 +58,7 @@ public class TrailMenuHandler : MonoBehaviour
 
         if (menuCanvas.activeSelf == false && instructionsLevel1MenuCanvas.activeSelf == false && instructionsLevel2MenuCanvas.activeSelf == false && instructionsLevel3MenuCanvas.activeSelf == false && completeLevel1Canvas.activeSelf == false && completeLevel2Canvas.activeSelf == false && completeLevel3Canvas.activeSelf == false && instructionsLevel2NextCanvas.activeSelf == false && instructionsLevel3NextCanvas.activeSelf == false)
         {
-            if ((levelsHandler.level1_menu || levelsHandler.level_2 || levelsHandler.level_3) && !TrailLevel3.isGameOver)
+            if ((ReinforcementManagement.level1_menu || ReinforcementManagement.level_2 || ReinforcementManagement.level_3) && !ReinforcementManagement.isGameOver)
             {
                 menuCanvas.SetActive(true);
                 CountUpTimer.PauseTimer();

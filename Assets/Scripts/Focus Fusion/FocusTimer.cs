@@ -6,9 +6,7 @@ using UnityEngine;
 public class FocusTimer : MonoBehaviour
 {
     [SerializeField] TMP_Text timerText;
-    public static float remainingTime;
-    public static bool isPlayPressed = false;
-    public static bool isTimeOver = false;
+    
 
     public Color criticalColor = Color.red;
 
@@ -22,28 +20,28 @@ public class FocusTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPlayPressed)
+        if (ScoreCalculationFocus.isPlayPressed)
         {
             // GeneralCountDownTimer.TimerUpdate(timerText, ref isTimeOver, ref remainingTime);
 
-            if (remainingTime > 0)
+            if (ScoreCalculationFocus.remainingTime > 0)
             {
-                remainingTime -= Time.deltaTime;
+                ScoreCalculationFocus.remainingTime -= Time.deltaTime;
 
-                if (remainingTime <= 5)
+                if (ScoreCalculationFocus.remainingTime <= 5)
                 {
                     timerText.color = criticalColor;
                 }
             }
-            else if (remainingTime <= 0)
+            else if (ScoreCalculationFocus.remainingTime <= 0)
             {
-                remainingTime = 0;
+                ScoreCalculationFocus.remainingTime = 0;
                 // Timer is over
-                isTimeOver = true;
+                ScoreCalculationFocus.isTimeOver = true;
                 ScoreCalculationFocus.reinforcementText = "";
             }
-            int minutes = Mathf.FloorToInt(remainingTime / 60);
-            int seconds = Mathf.FloorToInt(remainingTime % 60);
+            int minutes = Mathf.FloorToInt(ScoreCalculationFocus.remainingTime / 60);
+            int seconds = Mathf.FloorToInt(ScoreCalculationFocus.remainingTime % 60);
             timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
     }
@@ -51,12 +49,12 @@ public class FocusTimer : MonoBehaviour
     // This function is called when the game starts to start the timer
     public void StartGame()
     {
-        FocusLevelTransition.isHomeClicked = false;
-        isPlayPressed = true;
-        isTimeOver = false;
+        ScoreCalculationFocus.isHomeClicked = false;
+        ScoreCalculationFocus.isPlayPressed = true;
+        ScoreCalculationFocus.isTimeOver = false;
         timerText.color = Color.white;
-        if (GridSpawner.isLevel1) { remainingTime = 180; }
-        else if (GridSpawner.isLevel2) { remainingTime = 180; }
+        if (ScoreCalculationFocus.isLevel1) { ScoreCalculationFocus.remainingTime = 180; }
+        else if (ScoreCalculationFocus.isLevel2) { ScoreCalculationFocus.remainingTime = 180; }
         //remainingTime = GeneralCountDownTimer.TimerInitialization(timerText, isLevel1, isLevel2, 5, 10);
     }
 

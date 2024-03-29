@@ -7537,7 +7537,7 @@ GameObject:
   - component: {fileID: 747896823}
   - component: {fileID: 747896822}
   m_Layer: 0
-  m_Name: Score1 Text
+  m_Name: Score2 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8948,15 +8948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff79fab75affc3c47a70e82ac920cd05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelOneInstructionsRetryCanvas: {fileID: 2104851369}
-  levelTwoInstructionsRetryCanvas: {fileID: 2068117166}
-  levelOneCompleteCanvas: {fileID: 2025780469}
-  levelTwoCompleteCanvas: {fileID: 378718533}
-  timerCanvas: {fileID: 901102744}
-  level2Button: {fileID: 1767115482}
-  level2LockButton: {fileID: 903668841}
-  scorelvl1Text: {fileID: 1068061190}
-  scorelvl2Text: {fileID: 747896822}
+  menuHandler: {fileID: 955267372}
 --- !u!1 &868684718
 GameObject:
   m_ObjectHideFlags: 0
@@ -10001,6 +9993,11 @@ MonoBehaviour:
   menuWithoutInstructionsCanvas: {fileID: 52851260}
   mainMenuCanvas: {fileID: 1011808040}
   selectLevelCanvas: {fileID: 1090846645}
+  level2Button: {fileID: 1767115482}
+  level2LockButton: {fileID: 903668841}
+  scorelvl1Text: {fileID: 1068061190}
+  scorelvl2Text: {fileID: 747896822}
+  timerCanvas: {fileID: 901102744}
 --- !u!1 &1011808040
 GameObject:
   m_ObjectHideFlags: 0

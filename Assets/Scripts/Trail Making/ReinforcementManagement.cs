@@ -8,6 +8,16 @@ public static class ReinforcementManagement
     public static TextMeshProUGUI reinforcement;
     public static string reinforcementText;
     public static int incrementCounter = 0;
+    public static float elapsedTime;
+
+    public static bool isPlayPressed = false;
+    public static bool isPaused = false;
+    public static bool level_1 = true;
+    public static bool level1_menu = false;
+    public static bool level_2 = false;
+    public static bool level_3 = false;
+    public static bool isGameOver;
+
     static List<string> positiveIncrease = new List<string>
             { " Good Job", "Keep it up", "You're on a roll", "Excellent work", "Amazing!!", "Awesome!!", "Well done!!"};
     static List<string> positiveDecrease = new List<string>

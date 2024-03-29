@@ -7170,15 +7170,11 @@ MonoBehaviour:
   - {fileID: 1382679717}
   - {fileID: 944077863}
   - {fileID: 395418944}
-  completeLevel1Canvas: {fileID: 2042453753}
   trail11: {fileID: 48753774}
   trail12: {fileID: 1547824681}
   levelOneScore: 0
   mistakes: 0
-  scorelvl1Text: {fileID: 124657276}
-  instructionsLevel1RetryCanvas: {fileID: 1180172177}
-  level2Button: {fileID: 955690122}
-  level2LockButton: {fileID: 936567823}
+  menuHandler: {fileID: 1633274981}
 --- !u!1 &221139400
 GameObject:
   m_ObjectHideFlags: 0
@@ -25799,10 +25795,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: befb95caa4030bd4ab4d188401b5b3ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level_1: 0
-  level1_menu: 0
-  level_2: 0
-  level_3: 0
   selectedTrail: 0
   levelOneTrails:
   - {fileID: 48753774}
@@ -50587,7 +50579,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19ff53292de45a4084ed4a60e1b2db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelsHandler: {fileID: 839657315}
   instructionsLevel1RetryCanvas: {fileID: 1180172177}
   instructionsLevel2RetryCanvas: {fileID: 1444697966}
   instructionsLevel3RetryCanvas: {fileID: 16838696}
@@ -50606,6 +50597,13 @@ MonoBehaviour:
   menuWithoutInstructionsCanvas: {fileID: 2054188399}
   mainMenuCanvas: {fileID: 947099966}
   selectLevelCanvas: {fileID: 1014925884}
+  scorelvl1Text: {fileID: 124657276}
+  scorelvl2Text: {fileID: 1623577684}
+  scorelvl3Text: {fileID: 1124204821}
+  level2Button: {fileID: 955690122}
+  level2LockButton: {fileID: 936567823}
+  level3Button: {fileID: 2067825909}
+  level3LockButton: {fileID: 1394427214}
   audioSources:
   - {fileID: 652913503}
   - {fileID: 1563743227}
@@ -50709,12 +50707,8 @@ MonoBehaviour:
   trail21: {fileID: 1606481551}
   trail22: {fileID: 1336103503}
   mistakes: 0
-  completeLevel2Canvas: {fileID: 178735992}
   levelsHandler: {fileID: 839657315}
-  scorelvl2Text: {fileID: 1623577684}
-  instructionsLevel2RetryCanvas: {fileID: 1444697966}
-  level3Button: {fileID: 2067825909}
-  level3LockButton: {fileID: 1394427214}
+  menuHandler: {fileID: 1633274981}
 --- !u!1 &1644905735
 GameObject:
   m_ObjectHideFlags: 0
@@ -62044,9 +62038,7 @@ MonoBehaviour:
   levelThreeScore: 0
   mistakes: 0
   levelsHandler: {fileID: 839657315}
-  completeLevel3Canvas: {fileID: 1646078928}
-  scorelvl3Text: {fileID: 1124204821}
-  instructionsLevel3RetryCanvas: {fileID: 16838696}
+  menuHandler: {fileID: 1633274981}
 --- !u!1 &2028977058
 GameObject:
   m_ObjectHideFlags: 0

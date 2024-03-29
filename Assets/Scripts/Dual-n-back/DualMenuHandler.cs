@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class DualMenuHandler : MonoBehaviour
@@ -34,6 +35,14 @@ public class DualMenuHandler : MonoBehaviour
     public GameObject mainMenuCanvas;
     public GameObject selectLevelCanvas;
 
+    public TextMeshProUGUI scorelvl1Text;
+    public TextMeshProUGUI scorelvl2Text;
+    public TextMeshProUGUI scorelvl3Text;
+
+    public GameObject level2Button;
+    public GameObject level2LockButton;
+    public GameObject level3Button;
+    public GameObject level3LockButton;
 
     public void InstructionsHandler()
     {

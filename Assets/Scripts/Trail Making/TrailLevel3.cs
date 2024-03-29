@@ -18,14 +18,7 @@ public class TrailLevel3 : MonoBehaviour
     private int buttonNum = 0;
 
     public LevelsHandler levelsHandler;
-
-    public GameObject completeLevel3Canvas;
-
-    public static bool isGameOver;
-    public TextMeshProUGUI scorelvl3Text;
-    public GameObject instructionsLevel3RetryCanvas;
-
-    
+    public TrailMenuHandler menuHandler;
 
     // Start is called before the first frame update
     void Start()
@@ -130,29 +123,29 @@ public class TrailLevel3 : MonoBehaviour
         StartCoroutine(ResetTextAfterDelay());
 
 
-        if ((levelThreeScore == 30 || levelThreeScore + mistakes == 30) && (CountUpTimer.elapsedTime < 120f) && mistakes < 3) // pass lvl3
+        if ((levelThreeScore == 30 || levelThreeScore + mistakes == 30) && (ReinforcementManagement.elapsedTime < 120f) && mistakes < 3) // pass lvl3
         {
             Debug.Log("Heighest Score");
             // timer end
-            CountUpTimer.elapsedTime = 0f;
-            CountUpTimer.isPlayPressed = false;
-            completeLevel3Canvas.SetActive(true);
-            scorelvl3Text.text = $"Your Score: {levelThreeScore}";
-            isGameOver = true;
+            ReinforcementManagement.elapsedTime = 0f;
+            ReinforcementManagement.isPlayPressed = false;
+            menuHandler.completeLevel3Canvas.SetActive(true);
+            menuHandler.scorelvl3Text.text = $"Your Score: {levelThreeScore}";
+            ReinforcementManagement.isGameOver = true;
             ResetIndicator();
         } 
-        else if(mistakes >= 3 || CountUpTimer.elapsedTime > 120f) // didn't pass the level, replay
+        else if(mistakes >= 3 || ReinforcementManagement.elapsedTime > 120f) // didn't pass the level, replay
         {
-            instructionsLevel3RetryCanvas.SetActive(true); 
-            CountUpTimer.elapsedTime = 0f;
-            CountUpTimer.isPlayPressed = false;
+            menuHandler.instructionsLevel3RetryCanvas.SetActive(true);
+            ReinforcementManagement.elapsedTime = 0f;
+            ReinforcementManagement.isPlayPressed = false;
             ResetIndicator();
         }
     }
     void InitializeButtons()
     {
         {
-            levelsHandler.level_3 = true;
+            ReinforcementManagement.level_3 = true;
 
                 for (int i = 0; i < trail31Buttons.Length; i++)
                 {

@@ -8,6 +8,15 @@ public static class ScoreCalculationWhack
 
     public static string reinforcementText;
 
+    public static bool isLevel1;
+    public static bool isLevel2;
+    public static bool isGameOver;
+    public static bool isPlayPressed = false;
+    public static bool isTimeOver = false;
+    public static bool isHomeButtonClicked;
+
+    public static float remainingTime;
+
     static List<string> positiveIncrease = new List<string>
             { " Good Job", "Keep it up", "You're on a roll", "Excellent work", "Amazing!!", "Awesome!!", "Well done!!"};
     static List<string> positiveDecrease = new List<string>

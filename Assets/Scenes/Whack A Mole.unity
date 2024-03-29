@@ -167,15 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c51a62043fb66f443b5fdded15006ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelOneInstructionsRetryCanvas: {fileID: 474227550}
-  levelTwoInstructionsRetryCanvas: {fileID: 1184121601}
-  levelOneCompleteCanvas: {fileID: 1112054579}
-  levelTwoCompleteCanvas: {fileID: 679812603}
-  timerCanvas: {fileID: 960528848}
-  scorelvl1Text: {fileID: 616663126}
-  scorelvl2Text: {fileID: 1091478544}
-  level2Button: {fileID: 1088970986}
-  level2LockButton: {fileID: 82240556}
+  WhackMenuHandler: {fileID: 1969534709}
 --- !u!1001 &20547274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22109,11 +22101,6 @@ MonoBehaviour:
   rightHand: {fileID: 2021474135}
   messageCanvas: {fileID: 1915387004}
   holdThreshold: 0.1
-  instructionsLevel1selectlvlCanvas: {fileID: 374946841}
-  instructionsLevel2selectlvlCanvas: {fileID: 552036749}
-  instructionsLevel1MenuCanvas: {fileID: 1710674536}
-  instructionsLevel2MenuCanvas: {fileID: 1817116181}
-  menuCanvas: {fileID: 1882794561}
 --- !u!1001 &1940659142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22711,6 +22698,11 @@ MonoBehaviour:
   menuWithoutInstructionsCanvas: {fileID: 1882794561}
   mainMenuCanvas: {fileID: 767949884}
   selectLevelCanvas: {fileID: 690168073}
+  timerCanvas: {fileID: 0}
+  scorelvl1Text: {fileID: 616663126}
+  scorelvl2Text: {fileID: 1091478544}
+  level2Button: {fileID: 1088970986}
+  level2LockButton: {fileID: 82240556}
 --- !u!1 &1976587901
 GameObject:
   m_ObjectHideFlags: 0

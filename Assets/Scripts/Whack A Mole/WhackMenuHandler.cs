@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class WhackMenuHandler : MonoBehaviour
@@ -29,9 +30,17 @@ public class WhackMenuHandler : MonoBehaviour
     public GameObject mainMenuCanvas;
     public GameObject selectLevelCanvas;
 
+    public GameObject timerCanvas;
+
+    public TextMeshProUGUI scorelvl1Text;
+    public TextMeshProUGUI scorelvl2Text;
+
+    public GameObject level2Button;
+    public GameObject level2LockButton;
+
     public void InstructionsHandler()
     {
-        GeneralMenuHandler.InstructionsHandler(Spawner.isLevel1, Spawner.isLevel2, false, instructionsLevel1MenuCanvas, instructionsLevel2MenuCanvas, instructionsLevel2MenuCanvas);
+        GeneralMenuHandler.InstructionsHandler(ScoreCalculationWhack.isLevel1, ScoreCalculationWhack.isLevel2, false, instructionsLevel1MenuCanvas, instructionsLevel2MenuCanvas, instructionsLevel2MenuCanvas);
     }
 
     public void ShowMenuHandler()
@@ -40,7 +49,7 @@ public class WhackMenuHandler : MonoBehaviour
 
         if (menuCanvas.activeSelf == false && instructionsLevel1MenuCanvas.activeSelf == false && instructionsLevel2MenuCanvas.activeSelf == false && completeLevel1Canvas.activeSelf == false && completeLevel2Canvas.activeSelf == false && instructionsLevel2NextCanvas.activeSelf == false)
         {
-            if ((Spawner.isLevel1 || Spawner.isLevel2) && !Spawner.isGameOver)
+            if ((ScoreCalculationWhack.isLevel1 || ScoreCalculationWhack.isLevel2) && !ScoreCalculationWhack.isGameOver)
             {
                 GeneralMenuHandler.MenuHelperFuncrion(menuCanvas, 1);
 

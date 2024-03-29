@@ -19,14 +19,14 @@ public class CollisionDetection : MonoBehaviour
                 float step = hitDownwardSpeed * Time.deltaTime;
                 gameObject.transform.Translate(Vector3.down * step);
             }
-            if (Spawner.isLevel1 ) {
+            if (ScoreCalculationWhack.isLevel1 ) {
             ScoreCalculationWhack.Increment();
             }
-            else if(Spawner.isLevel2 && gameObject.layer == 11)
+            else if(ScoreCalculationWhack.isLevel2 && gameObject.layer == 11)
             {
                 ScoreCalculationWhack.Increment();
             }
-            else if (Spawner.isLevel2) {
+            else if (ScoreCalculationWhack.isLevel2) {
                 ScoreCalculationWhack.Decrement();
             }
             StartCoroutine(ResetTextAfterDelay());
@@ -43,7 +43,7 @@ public class CollisionDetection : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
 
         // After waiting for the specified duration, reset the text to nothing
-        ScoreCalculationFocus.reinforcementText = "";
+        ScoreCalculationWhack.reinforcementText = "";
     }
 }
 

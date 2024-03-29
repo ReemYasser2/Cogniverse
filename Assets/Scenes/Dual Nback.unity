@@ -12523,19 +12523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c035e1b84ce2e642940de575b014791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instructionsLvl1RetryCanvas: {fileID: 737003364}
-  instructionsLvl2RetryCanvas: {fileID: 652621366}
-  instructionsLvl3RetryCanvas: {fileID: 1348539978}
-  completeLevel1Canvas: {fileID: 1568142731}
-  completeLevel2Canvas: {fileID: 720104574}
-  completeLevel3Canvas: {fileID: 1419258663}
-  scorelvl1Text: {fileID: 1031827686}
-  scorelvl2Text: {fileID: 1304496693}
-  scorelvl3Text: {fileID: 1409348488}
-  level2Button: {fileID: 947807551}
-  level2LockButton: {fileID: 1423852777}
-  level3Button: {fileID: 1975691053}
-  level3LockButton: {fileID: 998201005}
+  dualMenuHandler: {fileID: 1246498569}
 --- !u!1 &975506513
 GameObject:
   m_ObjectHideFlags: 0
@@ -16829,6 +16817,13 @@ MonoBehaviour:
   menuWithoutInstructionsCanvas: {fileID: 1470005043}
   mainMenuCanvas: {fileID: 974306013}
   selectLevelCanvas: {fileID: 121869558}
+  scorelvl1Text: {fileID: 1031827686}
+  scorelvl2Text: {fileID: 1304496693}
+  scorelvl3Text: {fileID: 1409348488}
+  level2Button: {fileID: 947807551}
+  level2LockButton: {fileID: 1423852777}
+  level3Button: {fileID: 1975691053}
+  level3LockButton: {fileID: 998201005}
 --- !u!1 &1255923461
 GameObject:
   m_ObjectHideFlags: 0

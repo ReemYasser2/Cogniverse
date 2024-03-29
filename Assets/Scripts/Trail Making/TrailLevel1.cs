@@ -12,17 +12,14 @@ public class TrailLevel1 : MonoBehaviour
     public Button[] trail11Buttons = new Button[15];
     public Button[] trail12Buttons = new Button[15];
     public Button[] mistakesIndicator = new Button[3];
-    public GameObject completeLevel1Canvas;
     public GameObject trail11;
     public GameObject trail12;
     int trailSelection;
     public int levelOneScore = 0;
     public int mistakes = 0;
     private int buttonNum = 0;
-    public TextMeshProUGUI scorelvl1Text;
-    public GameObject instructionsLevel1RetryCanvas;
-    public GameObject level2Button;
-    public GameObject level2LockButton;
+
+    public TrailMenuHandler menuHandler;
 
     // Start is called before the first frame update
     void Start()
@@ -31,11 +28,11 @@ public class TrailLevel1 : MonoBehaviour
         levelsHandler = gameObject.AddComponent<LevelsHandler>();
         trailSelection = levelsHandler.GetTrailIndex();
 
-        if (levelsHandler.level_1 == true && trailSelection==0)
+        if (ReinforcementManagement.level_1 == true && trailSelection==0)
         {
             InitializeButtons();
         }
-        else if (levelsHandler.level_1 == true && trailSelection == 1)
+        else if (ReinforcementManagement.level_1 == true && trailSelection == 1)
         {
             InitializeButtons2();
         }
@@ -145,27 +142,27 @@ public class TrailLevel1 : MonoBehaviour
         }
         StartCoroutine(ResetTextAfterDelay());
 
-        if ((levelOneScore == 15 || levelOneScore + mistakes == 15) && (CountUpTimer.elapsedTime < 30f ) && mistakes < 3) // pass lvl1
+        if ((levelOneScore == 15 || levelOneScore + mistakes == 15) && (ReinforcementManagement.elapsedTime < 30f ) && mistakes < 3) // pass lvl1
         {
             ResetButtonColors(0);
-            levelsHandler.level_1 = false;
-            levelsHandler.level_2 = true;
-            levelsHandler.level_3 = false;
+            ReinforcementManagement.level_1 = false;
+            ReinforcementManagement.level_2 = true;
+            ReinforcementManagement.level_3 = false;
             // timer end
-            CountUpTimer.elapsedTime = 0f;
-            CountUpTimer.isPlayPressed = false;
-            completeLevel1Canvas.SetActive(true);
-            level2Button.SetActive(true);
-            level2LockButton.SetActive(false);
-            scorelvl1Text.text = $"Your Score: {levelOneScore}";
+            ReinforcementManagement.elapsedTime = 0f;
+            ReinforcementManagement.isPlayPressed = false;
+            menuHandler.completeLevel1Canvas.SetActive(true);
+            menuHandler.level2Button.SetActive(true);
+            menuHandler.level2LockButton.SetActive(false);
+            menuHandler.scorelvl1Text.text = $"Your Score: {levelOneScore}";
             Debug.Log("Level Passed");
             ResetIndicator();
         }
-        else if (mistakes >= 3 || CountUpTimer.elapsedTime > 30f)  // didn't pass the level, replay
+        else if (mistakes >= 3 || ReinforcementManagement.elapsedTime > 30f)  // didn't pass the level, replay
         {
-            instructionsLevel1RetryCanvas.SetActive(true);
-            CountUpTimer.elapsedTime = 0f;
-            CountUpTimer.isPlayPressed = false;
+            menuHandler.instructionsLevel1RetryCanvas.SetActive(true);
+            ReinforcementManagement.elapsedTime = 0f;
+            ReinforcementManagement.isPlayPressed = false;
             ResetIndicator();
         }
     }

@@ -9,9 +9,7 @@ public class Spawner : MonoBehaviour
     public float targetYPositionUp = 6.2f;
     public float targetYPositionDown = 3.7f;
     public float movementSpeed = 1.5f;
-    public static bool isLevel1;
-    public static bool isLevel2;
-    public static bool isGameOver;
+    
     float[] waitingPeriods = new float[] { 0.1f, 0.15f, 0.2f , 0.25f ,0.3f , 0.35f };
 
     public LevelTransitionWhack levelTransition;
@@ -26,7 +24,7 @@ public class Spawner : MonoBehaviour
             {
                 obj.SetActive(true);
             } */
-            while (!WhackTimer.isTimeOver && !LevelTransitionWhack.isHomeButtonClicked)
+            while (!ScoreCalculationWhack.isTimeOver && !ScoreCalculationWhack.isHomeButtonClicked)
             {
                 int selectedPeriodIndex = Random.Range(0, waitingPeriods.Length);
                 float randomWaitTime = waitingPeriods[selectedPeriodIndex];
@@ -51,8 +49,8 @@ public class Spawner : MonoBehaviour
                 MoveObjectDown(secondObject, targetYPositionDown); secondObject.SetActive(false);
                 //isUp[randomIndex2] = false;
             }
-            if (!LevelTransitionWhack.isHomeButtonClicked) { levelTransition.CheckLevel1(); }
-            isLevel1 = false;
+            if (!ScoreCalculationWhack.isHomeButtonClicked) { levelTransition.CheckLevel1(); }
+            ScoreCalculationWhack.isLevel1 = false;
         }
     else if (level == 2)
         {
@@ -63,7 +61,7 @@ public class Spawner : MonoBehaviour
                 obj.SetActive(false);
             }
            
-            while (!WhackTimer.isTimeOver && !LevelTransitionWhack.isHomeButtonClicked)
+            while (!ScoreCalculationWhack.isTimeOver && !ScoreCalculationWhack.isHomeButtonClicked)
             {
                 int selectedPeriodIndex = Random.Range(0, waitingPeriods.Length);
                 float randomWaitTime = waitingPeriods[selectedPeriodIndex];
@@ -87,8 +85,8 @@ public class Spawner : MonoBehaviour
                 MoveObjectDown(secondObject, targetYPositionDown); secondObject.SetActive(false);
                 //isUp[randomIndex2] = false;
             }
-            if (!LevelTransitionWhack.isHomeButtonClicked) { levelTransition.CheckLevel2(); } 
-            isLevel2 = false;
+            if (!ScoreCalculationWhack.isHomeButtonClicked) { levelTransition.CheckLevel2(); }
+            ScoreCalculationWhack.isLevel2 = false;
         }
     }
     public void StartAliensSpawning(int level)
@@ -122,18 +120,18 @@ public class Spawner : MonoBehaviour
 
     public void level1()
     {
-        isLevel1 = true;
-        isLevel2 = false;
-        isGameOver = false;
-        LevelTransitionWhack.isHomeButtonClicked = false;
+        ScoreCalculationWhack.isLevel1 = true;
+        ScoreCalculationWhack.isLevel2 = false;
+        ScoreCalculationWhack.isGameOver = false;
+        ScoreCalculationWhack.isHomeButtonClicked = false;
     }
 
     public void level2()
     {
-        isLevel1 = false;
-        isLevel2 = true;
-        isGameOver = false;
-        LevelTransitionWhack.isHomeButtonClicked = false;
+        ScoreCalculationWhack.isLevel1 = false;
+        ScoreCalculationWhack.isLevel2 = true;
+        ScoreCalculationWhack.isGameOver = false;
+        ScoreCalculationWhack.isHomeButtonClicked = false;
     }
 
 

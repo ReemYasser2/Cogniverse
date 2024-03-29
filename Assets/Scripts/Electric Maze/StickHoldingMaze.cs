@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StickHolding : MonoBehaviour
+public class StickHoldingMaze : MonoBehaviour
 {
     public Transform leftHand;
     public Transform rightHand;
     public GameObject messageCanvas;
     public float holdThreshold = 0.1f;
-
-    private bool paused = false;
 
     // Update is called once per frame
     void Update()
@@ -23,7 +21,7 @@ public class StickHolding : MonoBehaviour
         {
             HideHoldMessage();
 
-            if ((ScoreCalculationWhack.isLevel1 || ScoreCalculationWhack.isLevel2) && !ScoreCalculationWhack.isGameOver)
+            if ((ScoreCalculatorMaze.isLevel1 || ScoreCalculatorMaze.isLevel2) && !ScoreCalculatorMaze.isGameOver)
             {
 
                 // Check if the timer is paused
@@ -42,7 +40,7 @@ public class StickHolding : MonoBehaviour
         {
 
             ShowHoldMessage();
-            if ((ScoreCalculationWhack.isLevel1 || ScoreCalculationWhack.isLevel2) && !ScoreCalculationWhack.isGameOver)
+            if ((ScoreCalculatorMaze.isLevel1 || ScoreCalculatorMaze.isLevel2) && !ScoreCalculatorMaze.isGameOver)
             {
                 // Check if the timer is paused
                 if (Mathf.Approximately(Time.timeScale, 0f))

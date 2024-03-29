@@ -5,70 +5,56 @@ using UnityEngine;
 
 public class LevelTransitionWhack : MonoBehaviour
 {
-    public GameObject levelOneInstructionsRetryCanvas;
-    public GameObject levelTwoInstructionsRetryCanvas;
-
-    public GameObject levelOneCompleteCanvas;
-    public GameObject levelTwoCompleteCanvas;
-
-    public GameObject timerCanvas;
-
-    public static bool isHomeButtonClicked;
-
-    public TextMeshProUGUI scorelvl1Text;
-    public TextMeshProUGUI scorelvl2Text;
-
-    public GameObject level2Button;
-    public GameObject level2LockButton;
+    public WhackMenuHandler WhackMenuHandler;
 
     public void CheckLevel1()
     {
-        if (ScoreCalculationWhack.score >= 10 && WhackTimer.isTimeOver) // pass lvl1
+        if (ScoreCalculationWhack.score >= 10 && ScoreCalculationWhack.isTimeOver) // pass lvl1
         {
-            timerCanvas.SetActive(false);
-            scorelvl1Text.text = $"Your Score: {ScoreCalculationWhack.score}";
-            levelOneCompleteCanvas.SetActive(true);
-            level2Button.SetActive(true);
-            level2LockButton.SetActive(false);
+            WhackMenuHandler.timerCanvas.SetActive(false);
+            WhackMenuHandler.scorelvl1Text.text = $"Your Score: {ScoreCalculationWhack.score}";
+            WhackMenuHandler.completeLevel1Canvas.SetActive(true);
+            WhackMenuHandler.level2Button.SetActive(true);
+            WhackMenuHandler.level2LockButton.SetActive(false);
             ScoreCalculationWhack.score = 0;
         }
-        else if (ScoreCalculationWhack.score < 10 && WhackTimer.isTimeOver) // retry lvl1
+        else if (ScoreCalculationWhack.score < 10 && ScoreCalculationWhack.isTimeOver) // retry lvl1
         {
-            timerCanvas.SetActive(false);
-            levelOneInstructionsRetryCanvas.SetActive(true);
+            WhackMenuHandler.timerCanvas.SetActive(false);
+            WhackMenuHandler.instructionsLevel1RetryCanvas.SetActive(true);
             ScoreCalculationWhack.score = 0;
         }
     }
 
     public void CheckLevel2()
     {
-        if (ScoreCalculationWhack.score >= 10 && WhackTimer.isTimeOver) // pass lvl2 
+        if (ScoreCalculationWhack.score >= 10 && ScoreCalculationWhack.isTimeOver) // pass lvl2 
         {
-            timerCanvas.SetActive(false);
-            scorelvl2Text.text = $"Your Score: {ScoreCalculationWhack.score}";
-            levelTwoCompleteCanvas.SetActive(true);
-            Spawner.isGameOver = true;
+            WhackMenuHandler.timerCanvas.SetActive(false);
+            WhackMenuHandler.scorelvl2Text.text = $"Your Score: {ScoreCalculationWhack.score}";
+            WhackMenuHandler.completeLevel2Canvas.SetActive(true);
+            ScoreCalculationWhack.isGameOver = true;
             ScoreCalculationWhack.score = 0;
         }
-        else if (ScoreCalculationWhack.score < 10 && WhackTimer.isTimeOver) // retry lvl3
+        else if (ScoreCalculationWhack.score < 10 && ScoreCalculationWhack.isTimeOver) // retry lvl3
         {
-            timerCanvas.SetActive(false);
-            levelTwoInstructionsRetryCanvas.SetActive(true);
+            WhackMenuHandler.timerCanvas.SetActive(false);
+            WhackMenuHandler.instructionsLevel2RetryCanvas.SetActive(true);
             ScoreCalculationWhack.score = 0;
         }
     }
 
     public void HomeButton()
     {
-        isHomeButtonClicked = true;
+        ScoreCalculationWhack.isHomeButtonClicked = true;
 
         ScoreCalculationWhack.score = 0;
-        WhackTimer.isTimeOver = true;
-        WhackTimer.isPlayPressed = false;
+        ScoreCalculationWhack.isTimeOver = true;
+        ScoreCalculationWhack.isPlayPressed = false;
 
-        Spawner.isLevel1 = false;
-        Spawner.isLevel2 = false;
-        Spawner.isGameOver = true;
+        ScoreCalculationWhack.isLevel1 = false;
+        ScoreCalculationWhack.isLevel2 = false;
+        ScoreCalculationWhack.isGameOver = true;
     }
 }
 

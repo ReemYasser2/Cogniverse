@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class FocusMenuHandler : MonoBehaviour
@@ -31,9 +32,17 @@ public class FocusMenuHandler : MonoBehaviour
     public GameObject mainMenuCanvas;
     public GameObject selectLevelCanvas;
 
+    public GameObject level2Button;
+    public GameObject level2LockButton;
+
+    public TextMeshProUGUI scorelvl1Text;
+    public TextMeshProUGUI scorelvl2Text;
+
+    public GameObject timerCanvas;
+
     public void InstructionsHandler()
     {
-        GeneralMenuHandler.InstructionsHandler(GridSpawner.isLevel1, GridSpawner.isLevel2, false, instructionsLevel1MenuCanvas, instructionsLevel2MenuCanvas, instructionsLevel2MenuCanvas);
+        GeneralMenuHandler.InstructionsHandler(ScoreCalculationFocus.isLevel1, ScoreCalculationFocus.isLevel2, false, instructionsLevel1MenuCanvas, instructionsLevel2MenuCanvas, instructionsLevel2MenuCanvas);
     }
 
     public void ShowMenuHandler()
@@ -42,7 +51,7 @@ public class FocusMenuHandler : MonoBehaviour
 
         if (menuCanvas.activeSelf == false && instructionsLevel1MenuCanvas.activeSelf == false && instructionsLevel2MenuCanvas.activeSelf == false && completeLevel1Canvas.activeSelf == false && completeLevel2Canvas.activeSelf == false && instructionsLevel2NextCanvas.activeSelf == false)
         {
-            if ((GridSpawner.isLevel1 || GridSpawner.isLevel2) && !GridSpawner.isGameOver)
+            if ((ScoreCalculationFocus.isLevel1 || ScoreCalculationFocus.isLevel2) && !ScoreCalculationFocus.isGameOver)
             {
                 GeneralMenuHandler.MenuHelperFuncrion(menuCanvas, 1);
                 gridSpawner.ShowHideGrid(false);

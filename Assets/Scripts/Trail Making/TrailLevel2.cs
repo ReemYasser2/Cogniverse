@@ -14,13 +14,8 @@ public class TrailLevel2 : MonoBehaviour
     public GameObject trail22;
     public int mistakes = 0;
     private int buttonNum = 0;
-    public GameObject completeLevel2Canvas;
     public LevelsHandler levelsHandler;
-    public TextMeshProUGUI scorelvl2Text;
-    public GameObject instructionsLevel2RetryCanvas;
-
-    public GameObject level3Button;
-    public GameObject level3LockButton;
+    public TrailMenuHandler menuHandler;
 
     // Start is called before the first frame update
     void Start()
@@ -132,45 +127,45 @@ public class TrailLevel2 : MonoBehaviour
 
         StartCoroutine(ResetTextAfterDelay());
 
-        if ((levelTwoScore == 20 || levelTwoScore+mistakes == 20) && (CountUpTimer.elapsedTime < 60f) && mistakes < 3) // pass lvl 2
+        if ((levelTwoScore == 20 || levelTwoScore+mistakes == 20) && (ReinforcementManagement.elapsedTime < 60f) && mistakes < 3) // pass lvl 2
         {
             ResetButtonColors(0);
 
-            levelsHandler.level_1 = false;
-            levelsHandler.level_2 = false;
-            levelsHandler.level_3 = true;
+            ReinforcementManagement.level_1 = false;
+            ReinforcementManagement.level_2 = false;
+            ReinforcementManagement.level_3 = true;
             // timer end
-            CountUpTimer.elapsedTime = 0f;
-            CountUpTimer.isPlayPressed = false;
-            completeLevel2Canvas.SetActive(true);
-            level3Button.SetActive(true);
-            level3LockButton.SetActive(false);
-            scorelvl2Text.text = $"Your Score: {levelTwoScore}";
+            ReinforcementManagement.elapsedTime = 0f;
+            ReinforcementManagement.isPlayPressed = false;
+            menuHandler.completeLevel2Canvas.SetActive(true);
+            menuHandler.level3Button.SetActive(true);
+            menuHandler.level3LockButton.SetActive(false);
+            menuHandler.scorelvl2Text.text = $"Your Score: {levelTwoScore}";
             Debug.Log("Level Passed");
             ResetIndicator();
         }
-        else if (mistakes >= 3 || CountUpTimer.elapsedTime > 60f) // didn't pass the level, replay 
+        else if (mistakes >= 3 || ReinforcementManagement.elapsedTime > 60f) // didn't pass the level, replay 
         {
-            instructionsLevel2RetryCanvas.SetActive(true);
-            CountUpTimer.elapsedTime = 0f;
-            CountUpTimer.isPlayPressed = false;
+            menuHandler.instructionsLevel2RetryCanvas.SetActive(true);
+            ReinforcementManagement.elapsedTime = 0f;
+            ReinforcementManagement.isPlayPressed = false;
             ResetIndicator();
         }
     }
     void InitializeButtons()
     {
-            levelsHandler.level_2 = true;
+        ReinforcementManagement.level_2 = true;
   
-                for (int i = 0; i < trail21Buttons.Length; i++)
-                {
-                    int buttonIndex = i; // Capture the current index to avoid closure issues
-                    trail21Buttons[i].onClick.AddListener(() => TaskOnClick(buttonIndex));
-                }
-            for (int i = 0; i < trail22Buttons.Length; i++)
-            {
-                int buttonIndex = i; // Capture the current index to avoid closure issues
-                trail22Buttons[i].onClick.AddListener(() => TaskOnClick(buttonIndex));
-            }
+        for (int i = 0; i < trail21Buttons.Length; i++)
+        {
+            int buttonIndex = i; // Capture the current index to avoid closure issues
+            trail21Buttons[i].onClick.AddListener(() => TaskOnClick(buttonIndex));
+        }
+        for (int i = 0; i < trail22Buttons.Length; i++)
+        {
+            int buttonIndex = i; // Capture the current index to avoid closure issues
+            trail22Buttons[i].onClick.AddListener(() => TaskOnClick(buttonIndex));
+        }
     }
     void InitializeButtons2()
     {

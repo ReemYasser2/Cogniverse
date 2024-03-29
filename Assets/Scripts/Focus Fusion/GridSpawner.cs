@@ -16,9 +16,7 @@ public class GridSpawner : MonoBehaviour
     [SerializeField] private InputActionReference leftActionReference;
     [SerializeField] private InputActionReference rightActionReference;
 
-    public static bool isLevel1;
-    public static bool isLevel2;
-    public static bool isGameOver;
+    
 
     public FocusLevelTransition levelTransition;
 
@@ -33,7 +31,7 @@ public class GridSpawner : MonoBehaviour
     private void OnClickCustom( InputAction.CallbackContext obj)
     {
         isClicked = true;
-        if (newObject && !FocusLevelTransition.isHomeClicked)
+        if (newObject && !ScoreCalculationFocus.isHomeClicked)
         {
             if (obj.action.name == "PrimaryRight")
             {
@@ -79,7 +77,7 @@ public class GridSpawner : MonoBehaviour
             
             //FocusTimer.remainingTime = 15;
 
-            while (!FocusTimer.isTimeOver && !FocusLevelTransition.isHomeClicked)
+            while (!ScoreCalculationFocus.isTimeOver && !ScoreCalculationFocus.isHomeClicked)
             {
                 isClicked = false;
                 if (newObject != null)
@@ -91,7 +89,7 @@ public class GridSpawner : MonoBehaviour
 
                 newObject = Instantiate(gridsPrefabs[randomIndex], spawnPosition.position, Quaternion.identity);
                 yield return new WaitForSeconds(1f);
-                if (!FocusLevelTransition.isHomeClicked)
+                if (!ScoreCalculationFocus.isHomeClicked)
                 {
                     HandleNoClickOnLayerNine();
                 }
@@ -106,8 +104,8 @@ public class GridSpawner : MonoBehaviour
 
             }
             yield return new WaitForSeconds(0.5f);
-            isLevel1 = false;
-            if (!FocusLevelTransition.isHomeClicked) { levelTransition.CheckLevel1(); }
+            ScoreCalculationFocus.isLevel1 = false;
+            if (!ScoreCalculationFocus.isHomeClicked) { levelTransition.CheckLevel1(); }
         }
         else if (level == 2)
         {
@@ -115,7 +113,7 @@ public class GridSpawner : MonoBehaviour
             //FocusTimer.remainingTime = 6;
 
             Debug.Log("Level 2 starts");
-            while (!FocusTimer.isTimeOver && !FocusLevelTransition.isHomeClicked)
+            while (!ScoreCalculationFocus.isTimeOver && !ScoreCalculationFocus.isHomeClicked)
             {
 
                 isClicked = false;
@@ -130,7 +128,7 @@ public class GridSpawner : MonoBehaviour
 
                 newObject = Instantiate(gridsPrefabs[randomIndex], levelTwoSpawnPos[randomPosIndex].position, Quaternion.identity);
                 yield return new WaitForSeconds(1.25f);
-                if (!FocusLevelTransition.isHomeClicked)
+                if (!ScoreCalculationFocus.isHomeClicked)
                 {
                     HandleNoClickOnLayerNine();
                 }
@@ -144,8 +142,8 @@ public class GridSpawner : MonoBehaviour
 
             }
             yield return new WaitForSeconds(0.5f);
-            isLevel2 = false;
-            if (!FocusLevelTransition.isHomeClicked) { levelTransition.CheckLevel2(); }
+            ScoreCalculationFocus.isLevel2 = false;
+            if (!ScoreCalculationFocus.isHomeClicked) { levelTransition.CheckLevel2(); }
         }
     }
     IEnumerator WhenClicked()
@@ -182,7 +180,7 @@ public class GridSpawner : MonoBehaviour
     }
     public void GetUserResponse()
     {
-        if (!FocusTimer.isTimeOver) {
+        if (!ScoreCalculationFocus.isTimeOver) {
             StartCoroutine(WhenClicked());      
         }
     }
@@ -205,17 +203,17 @@ public class GridSpawner : MonoBehaviour
 
     public void level1()
     {
-        isLevel1 = true;
-        isLevel2 = false;
-        isGameOver = false;
-        FocusLevelTransition.isHomeClicked = false;
+        ScoreCalculationFocus.isLevel1 = true;
+        ScoreCalculationFocus.isLevel2 = false;
+        ScoreCalculationFocus.isGameOver = false;
+        ScoreCalculationFocus.isHomeClicked = false;
     }
 
     public void level2()
     {
-        isLevel1 = false;
-        isLevel2 = true;
-        isGameOver = false;
-        FocusLevelTransition.isHomeClicked = false;
+        ScoreCalculationFocus.isLevel1 = false;
+        ScoreCalculationFocus.isLevel2 = true;
+        ScoreCalculationFocus.isGameOver = false;
+        ScoreCalculationFocus.isHomeClicked = false;
     }
 }

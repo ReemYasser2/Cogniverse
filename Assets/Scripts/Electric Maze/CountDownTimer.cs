@@ -39,7 +39,7 @@ public class CountDownTimer : MonoBehaviour
                 remainingTime = 0;
                 // Timer is over
                 isTimeOver = true;
-                ScoreCalculationFocus.reinforcementText = "";
+                ScoreCalculatorMaze.reinforcementText = "";
                 if (ScoreCalculatorMaze.isLevel1) 
                 { 
                     LevelsTransition.checkLevelOne();

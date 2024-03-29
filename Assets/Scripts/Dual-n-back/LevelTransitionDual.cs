@@ -5,21 +5,7 @@ using UnityEngine;
 
 public class LevelTransitionDual : MonoBehaviour
 {
-    public GameObject instructionsLvl1RetryCanvas;
-    public GameObject instructionsLvl2RetryCanvas;
-    public GameObject instructionsLvl3RetryCanvas;
-    public GameObject completeLevel1Canvas;
-    public GameObject completeLevel2Canvas;
-    public GameObject completeLevel3Canvas;
-
-    public TextMeshProUGUI scorelvl1Text;
-    public TextMeshProUGUI scorelvl2Text;
-    public TextMeshProUGUI scorelvl3Text;
-
-    public GameObject level2Button;
-    public GameObject level2LockButton;
-    public GameObject level3Button;
-    public GameObject level3LockButton;
+    public DualMenuHandler dualMenuHandler;
 
     public void CheckLevel1()
     {
@@ -29,8 +15,8 @@ public class LevelTransitionDual : MonoBehaviour
             ScoreCalculator.reinforcementText = "";
             ShowCompleteLevel1Canvas();
             ScoreCalculator.score = 0;
-            level2Button.SetActive(true);
-            level2LockButton.SetActive(false);
+            dualMenuHandler.level2Button.SetActive(true);
+            dualMenuHandler.level2LockButton.SetActive(false);
             ScoreCalculator.elapsedTime = 0f;
             ScoreCalculator.isPlayPressed = false;
         }
@@ -53,8 +39,8 @@ public class LevelTransitionDual : MonoBehaviour
             ScoreCalculator.reinforcementText = "";
             ShowCompleteLevel2Canvas();
             ScoreCalculator.score = 0;
-            level3Button.SetActive(true);
-            level3LockButton.SetActive(false);
+            dualMenuHandler.level3Button.SetActive(true);
+            dualMenuHandler.level3LockButton.SetActive(false);
             ScoreCalculator.elapsedTime = 0f;
             ScoreCalculator.isPlayPressed = false;
         }
@@ -92,26 +78,26 @@ public class LevelTransitionDual : MonoBehaviour
         }
     }
 
-    private void ShowLevelOneInstructions() { instructionsLvl1RetryCanvas.SetActive(true); }
-    private void ShowLevelTwoInstructions() { instructionsLvl2RetryCanvas.SetActive(true); }
-    private void ShowLevelThreeInstructions() { instructionsLvl3RetryCanvas.SetActive(true); }
+    private void ShowLevelOneInstructions() { dualMenuHandler.instructionsLevel1RetryCanvas.SetActive(true); }
+    private void ShowLevelTwoInstructions() { dualMenuHandler.instructionsLevel2RetryCanvas.SetActive(true); }
+    private void ShowLevelThreeInstructions() { dualMenuHandler.instructionsLevel3RetryCanvas.SetActive(true); }
 
     private void ShowCompleteLevel1Canvas()
     {
-        completeLevel1Canvas.SetActive(true);
-        scorelvl1Text.text = $"Your Score: {ScoreCalculator.score}";
+        dualMenuHandler.completeLevel1Canvas.SetActive(true);
+        dualMenuHandler.scorelvl1Text.text = $"Your Score: {ScoreCalculator.score}";
     }
 
     private void ShowCompleteLevel2Canvas()
     {
-        completeLevel2Canvas.SetActive(true);
-        scorelvl2Text.text = $"Your Score: {ScoreCalculator.score}";
+        dualMenuHandler.completeLevel2Canvas.SetActive(true);
+        dualMenuHandler.scorelvl2Text.text = $"Your Score: {ScoreCalculator.score}";
     }
 
     private void ShowCompleteLevel3Canvas()
     {
-        completeLevel3Canvas.SetActive(true);
-        scorelvl3Text.text = $"Your Score: {ScoreCalculator.score}";
+        dualMenuHandler.completeLevel3Canvas.SetActive(true);
+        dualMenuHandler.scorelvl3Text.text = $"Your Score: {ScoreCalculator.score}";
     }
 
     public void HomeButtonClicked()
