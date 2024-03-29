@@ -259,6 +259,8 @@ public class SpawnManager : MonoBehaviour
             ScoreCalculator.reinforcementText = "";
             ShowCompleteLevel1Canvas();
             ScoreCalculator.score = 0;
+            level2Button.SetActive(true);
+            level2LockButton.SetActive(false);
             //ScoreCalculator.isLevel1 = false;
             //ScoreCalculator.isLevel2 = true;
             //ScoreCalculator.isStartLevel2 = true;
@@ -282,8 +284,8 @@ public class SpawnManager : MonoBehaviour
             ScoreCalculator.reinforcementText = "";
             ShowCompleteLevel2Canvas();
             ScoreCalculator.score = 0;
-            level2Button.SetActive(true);
-            level2LockButton.SetActive(false);
+            level3Button.SetActive(true);
+            level3LockButton.SetActive(false);
             //ScoreCalculator.isLevel3 = true;
             //ScoreCalculator.isLevel1 = false;
             //ScoreCalculator.isLevel2 = false;
@@ -311,8 +313,6 @@ public class SpawnManager : MonoBehaviour
             score3Only = score3 - (score1 + score2);
             ScoreCalculator.reinforcementText = "";
             ShowCompleteLevel3Canvas();
-            level3Button.SetActive(true);
-            level3LockButton.SetActive(false);
             //ScoreCalculator.isLevel1 = true;
             //ScoreCalculator.isLevel2 = false;
             //ScoreCalculator.isLevel3 = false;

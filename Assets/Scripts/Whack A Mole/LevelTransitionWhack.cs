@@ -28,6 +28,8 @@ public class LevelTransitionWhack : MonoBehaviour
             timerCanvas.SetActive(false);
             scorelvl1Text.text = $"Your Score: {ScoreCalculationWhack.score}";
             levelOneCompleteCanvas.SetActive(true);
+            level2Button.SetActive(true);
+            level2LockButton.SetActive(false);
             ScoreCalculationWhack.score = 0;
         }
         else if (ScoreCalculationWhack.score < 10 && WhackTimer.isTimeOver) // retry lvl1
@@ -45,8 +47,6 @@ public class LevelTransitionWhack : MonoBehaviour
             timerCanvas.SetActive(false);
             scorelvl2Text.text = $"Your Score: {ScoreCalculationWhack.score}";
             levelTwoCompleteCanvas.SetActive(true);
-            level2Button.SetActive(true);
-            level2LockButton.SetActive(false);
             Spawner.isGameOver = true;
             ScoreCalculationWhack.score = 0;
         }

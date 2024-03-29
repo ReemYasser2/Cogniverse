@@ -29,6 +29,8 @@ public class FocusLevelTransition : MonoBehaviour
             GridSpawner.ResetText();
             scorelvl1Text.text = $"Your Score: {ScoreCalculationFocus.score}";
             levelOneCompleteCanvas.SetActive(true);
+            level2Button.SetActive(true);
+            level2LockButton.SetActive(false);
             ScoreCalculationFocus.score = 0;
         }
         else if (ScoreCalculationFocus.score < 5 && FocusTimer.isTimeOver) // retry lvl1
@@ -48,8 +50,6 @@ public class FocusLevelTransition : MonoBehaviour
             GridSpawner.ResetText();
             scorelvl2Text.text = $"Your Score: {ScoreCalculationFocus.score}";
             levelTwoCompleteCanvas.SetActive(true);
-            level2Button.SetActive(true);
-            level2LockButton.SetActive(false);
             GridSpawner.isGameOver = true;
             ScoreCalculationFocus.score = 0;
         }
