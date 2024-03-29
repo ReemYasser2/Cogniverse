@@ -30,7 +30,7 @@ public class StickHolding : MonoBehaviour
         {
             HideHoldMessage();
 
-            if ((LevelsTransition.isLevel1 || LevelsTransition.isLevel2) && !LevelsTransition.isGameOver)
+            if ((Spawner.isLevel1 || Spawner.isLevel2) && !Spawner.isGameOver)
             {
 
                 // Check if the timer is paused
@@ -49,7 +49,7 @@ public class StickHolding : MonoBehaviour
         {
 
             ShowHoldMessage();
-            if ((LevelsTransition.isLevel1 || LevelsTransition.isLevel2) && !LevelsTransition.isGameOver)
+            if ((Spawner.isLevel1 || Spawner.isLevel2) && !Spawner.isGameOver)
             {
                 // Check if the timer is paused
                 if (Mathf.Approximately(Time.timeScale, 0f))

@@ -4,30 +4,58 @@ using UnityEngine;
 
 public class MazeMenuHandler : MonoBehaviour
 {
-    public GameObject instructionsLevel1Canvas;
-    public GameObject instructionsLevel2Canvas;
+    public MazeSpawner mazeSpawner;
+
+    // menu without instructions
+    public GameObject instructionsLevel1RetryCanvas;
+    public GameObject instructionsLevel2RetryCanvas;
+
+    // menu without instructions
+    public GameObject instructionsLevel2NextCanvas;
+
+    // menu without instructions
+    public GameObject instructionsLevel1SelectlvlCanvas;
+    public GameObject instructionsLevel2SelectlvlCanvas;
+
+    // menu with instrucrions 
     public GameObject instructionsLevel1MenuCanvas;
     public GameObject instructionsLevel2MenuCanvas;
-    public GameObject menuCanvas;
 
-    public MazeSpawner mazeSpawner;
+    // menu without instructions
+    public GameObject completeLevel1Canvas;
+    public GameObject completeLevel2Canvas;
+
+
+    public GameObject menuCanvas;
+    public GameObject menuWithoutInstructionsCanvas;
+    public GameObject mainMenuCanvas;
+    public GameObject selectLevelCanvas;
+
+
+    public GameObject level2Button;
+    public GameObject level2LockButton;
 
     public void MazeInstructionsHandler()
     {
-        GeneralMenuHandler.InstructionsHandler(LevelsTransition.isLevel1, LevelsTransition.isLevel2, false, instructionsLevel1MenuCanvas, instructionsLevel2MenuCanvas, instructionsLevel2MenuCanvas);
+        GeneralMenuHandler.InstructionsHandler(ScoreCalculatorMaze.isLevel1, ScoreCalculatorMaze.isLevel2, false, instructionsLevel1MenuCanvas, instructionsLevel2MenuCanvas, instructionsLevel2MenuCanvas);
     }
 
     public void ShowMenuHandlerMaze()
     {
         //GeneralMenuHandler.ShowMenuHandler(LevelsTransition.isLevel1, LevelsTransition.isLevel2, false, LevelsTransition.isGameOver, menuCanvas, instructionsLevel1Canvas, instructionsLevel2Canvas, instructionsLevel2Canvas, instructionsLevel1MenuCanvas, instructionsLevel2MenuCanvas, instructionsLevel2MenuCanvas, 1, 2);
 
-        if (menuCanvas.activeSelf == false && instructionsLevel1Canvas.activeSelf == false && instructionsLevel2Canvas.activeSelf == false && instructionsLevel1MenuCanvas.activeSelf == false && instructionsLevel2MenuCanvas.activeSelf == false)
+        if (menuCanvas.activeSelf == false && instructionsLevel1MenuCanvas.activeSelf == false && instructionsLevel2MenuCanvas.activeSelf == false && completeLevel1Canvas.activeSelf == false && completeLevel2Canvas.activeSelf == false && instructionsLevel2NextCanvas.activeSelf == false)
         {
-            if ((LevelsTransition.isLevel1 || LevelsTransition.isLevel2) && !LevelsTransition.isGameOver)
+            if ((ScoreCalculatorMaze.isLevel1 || ScoreCalculatorMaze.isLevel2) && !ScoreCalculatorMaze.isGameOver)
             {
                 GeneralMenuHandler.MenuHelperFuncrion(menuCanvas, 1);
-                mazeSpawner.HideMaze();
+                //mazeSpawner.HideMaze();
+                mazeSpawner.ShowHideMaze(false);
             }
+        }
+        if ((instructionsLevel1RetryCanvas.activeSelf == true || instructionsLevel2RetryCanvas.activeSelf == true || instructionsLevel2NextCanvas.activeSelf == true || instructionsLevel1SelectlvlCanvas.activeSelf == true || instructionsLevel2SelectlvlCanvas.activeSelf == true || completeLevel1Canvas.activeSelf == true || completeLevel2Canvas.activeSelf == true) && mainMenuCanvas.activeSelf == false && selectLevelCanvas.activeSelf == false)
+        {
+            menuWithoutInstructionsCanvas.SetActive(true);
         }
     }
 }

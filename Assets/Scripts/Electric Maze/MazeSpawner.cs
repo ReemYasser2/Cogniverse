@@ -19,7 +19,7 @@ public class MazeSpawner : MonoBehaviour
     // This function chooses one maze randomly 
     public void SelectMazeRandomly()
     {
-        LevelsTransition.isGameOver = false;
+        ScoreCalculatorMaze.isGameOver = false;
         mazeIndex = Random.Range(0, mazePrefabs.Length);
         mazePrefabs[mazeIndex].SetActive(true);
         if (mazeIndex == 0)
@@ -40,46 +40,34 @@ public class MazeSpawner : MonoBehaviour
         maze1Canvas.SetActive(false);
         maze2Canvas.SetActive(false);
         SelectMazeRandomly();
-        LevelsTransition.level1();
+        //LevelsTransition.level1();
     }
 
-    public void HideMaze()
+    public void ShowHideMaze(bool isVisible)
+    {
+        mazePrefabs[mazeIndex].SetActive(isVisible);
+        timerCanvas.SetActive(isVisible);
+
+        if (ScoreCalculatorMaze.isLevel2)
+        {
+            level2.ShowHideMushrooms(isVisible);
+        }
+
+        if (mazeIndex == 0)
+        {
+            maze1Canvas.SetActive(isVisible);
+        }
+        else if (mazeIndex == 1)
+        {
+            maze2Canvas.SetActive(isVisible);
+        }
+    }
+
+    public void Repaly()
     {
         mazePrefabs[mazeIndex].SetActive(false);
-        timerCanvas.SetActive(false);
+        maze1Canvas.SetActive(false);
+        maze2Canvas.SetActive(false);
 
-        if (LevelsTransition.isLevel2)
-        {
-            level2.ShowHideMushrooms(false);
-        }
-
-        if (mazeIndex == 0)
-        {
-            maze1Canvas.SetActive(false);
-        }
-        else if (mazeIndex == 1)
-        {
-            maze2Canvas.SetActive(false);
-        }
-    }
-
-    public void ShowMaze()
-    {
-        mazePrefabs[mazeIndex].SetActive(true);
-        timerCanvas.SetActive(true);
-
-        if (LevelsTransition.isLevel2)
-        {
-            level2.ShowHideMushrooms(true);
-        }
-
-        if (mazeIndex == 0)
-        {
-            maze1Canvas.SetActive(true);
-        }
-        else if (mazeIndex == 1)
-        {
-            maze2Canvas.SetActive(true);
-        }
     }
 }
