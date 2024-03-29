@@ -45,4 +45,10 @@ public class UserInput : MonoBehaviour
         audioManager.TriggerAudioComparison();
         audioManager.keyPressedDuringAudioPlayback = true;
     }
+
+    public void whenColorButtonPressed() 
+    {
+        Debug.Log("color button pressed");
+        // 
+    }
 }
