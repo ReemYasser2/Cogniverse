@@ -48,6 +48,7 @@ public class DualMenuHandler : MonoBehaviour
             if ((ScoreCalculator.isLevel1 || ScoreCalculator.isLevel2 || ScoreCalculator.isLevel3) && !ScoreCalculator.isGameOver)
             {
                 menuCanvas.SetActive(true);
+                TimerDual.PauseTimer();
                 PauseGame.Pause();
             }
         }

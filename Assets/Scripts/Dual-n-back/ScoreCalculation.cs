@@ -5,24 +5,28 @@ using TMPro;
 
 public static class ScoreCalculator
 {
-    public static int score = 0;
+    public static int score = 20;
     public static TextMeshProUGUI reinforcement;
 
     public static bool isLevel1 = true;
     public static bool isLevel2 = false;
     public static bool isLevel3 = false;
     public static bool isGameOver = true;
-    public static bool isStartLevel1 = false;
-    public static bool isStartLevel2 = false;
-    public static bool isStartLevel3 = false;
-    public static bool isGameStart = false;
+    public static bool isCalculated = false;
+    public static bool isComparisonDone = false;
+    public static bool isPlayPressed = false;
+    public static bool isPaused = false;
+    public static bool isHomeClicked = false;
 
     static int oldScore; 
     static int incrementCounter=0;
+    public static int trialsCount = 0;
+    public static int maxTrials = 5;
 
-    public static bool isCalculated = false;
-    public static bool isComparisonDone = false;  
+    public static float elapsedTime;
+
     public static string reinforcementText;
+
 
     static List<string> positiveIncrease = new List<string>
             { " Good Job", "Keep it up", "You're on a roll", "Excellent work", "Amazing!!", "Awesome!!", "Well done!!"};
