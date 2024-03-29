@@ -5027,7 +5027,7 @@ GameObject:
   - component: {fileID: 381978198}
   - component: {fileID: 381978197}
   m_Layer: 0
-  m_Name: Instructions lvl2 select lvl Canvas
+  m_Name: Instructions lvl2 select lvl audio Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
