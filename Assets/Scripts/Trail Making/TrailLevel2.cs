@@ -62,6 +62,15 @@ public class TrailLevel2 : MonoBehaviour
                     MistakesIndicator();
                     buttonNum = buttonNo;
                 }
+                else if (levelTwoScore < -1 && mistakes > 0)
+                {
+                    levelTwoScore--;
+                    mistakes++;
+                    MistakesIndicator();
+                    clickedButton.GetComponent<Image>().color = Color.red;
+                    ReinforcementManagement.PositiveReinforcementDecrement();
+                    buttonNum = buttonNo;
+                }
                 else
                 {
                     ResetButtonColors(buttonNo);
