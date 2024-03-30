@@ -9,12 +9,22 @@ public static class ScoreCalculationFocus
     public static string reinforcementText;
     public static int incrementCounter = 0;
     public static float remainingTime;
+    public static float elapsedTimeStopWatch;
+
     public static bool isPlayPressed = false;
     public static bool isTimeOver = false;
     public static bool isLevel1;
     public static bool isLevel2;
     public static bool isGameOver;
     public static bool isHomeClicked;
+    public static bool isStopWatchStart = false;
+
+    public static int stopWatchtime;
+    public static int totalTrialsNoGo;
+    public static int totalTrialsGo;
+    public static int responseTimeGo;
+    public static int responseTimeNoGo;
+    
 
     static List<string> positiveIncrease = new List<string>
             { " Good Job", "Keep it up", "You're on a roll", "Excellent work", "Amazing!!", "Awesome!!", "Well done!!"};
