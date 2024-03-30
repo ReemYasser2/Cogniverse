@@ -31,6 +31,13 @@ public class GridSpawner : MonoBehaviour
     private void OnClickCustom( InputAction.CallbackContext obj)
     {
         isClicked = true;
+        ScoreCalculationFocus.isStopWatchStart = false;
+        ScoreCalculationFocus.elapsedTimeStopWatch = 0;
+        if (newObject && newObject.layer != 9)
+        {
+            ScoreCalculationFocus.responseTimeGo = ScoreCalculationFocus.responseTimeGo + ScoreCalculationFocus.stopWatchtime;
+        }
+
         if (newObject && !ScoreCalculationFocus.isHomeClicked)
         {
             if (obj.action.name == "PrimaryRight")
@@ -86,8 +93,18 @@ public class GridSpawner : MonoBehaviour
                 }
                 yield return new WaitForSeconds(0.25f);
                 int randomIndex = Random.Range(0, gridsPrefabs.Length);
+                
+                if (ScoreCalculationFocus.isStopWatchStart) 
+                { 
+                    ScoreCalculationFocus.isStopWatchStart = false;
+                    ScoreCalculationFocus.elapsedTimeStopWatch = 0;
+                    ScoreCalculationFocus.responseTimeGo = ScoreCalculationFocus.responseTimeGo + ScoreCalculationFocus.stopWatchtime;
+                }
 
                 newObject = Instantiate(gridsPrefabs[randomIndex], spawnPosition.position, Quaternion.identity);
+                ScoreCalculationFocus.totalTrialsGo++;
+                ScoreCalculationFocus.isStopWatchStart = true; 
+
                 yield return new WaitForSeconds(1f);
                 if (!ScoreCalculationFocus.isHomeClicked)
                 {
@@ -126,7 +143,16 @@ public class GridSpawner : MonoBehaviour
                 int randomIndex = Random.Range(0, gridsPrefabs.Length);
                 int randomPosIndex = Random.Range(0, levelTwoSpawnPos.Length);
 
+                if (ScoreCalculationFocus.isStopWatchStart)
+                {
+                    ScoreCalculationFocus.isStopWatchStart = false;
+                    ScoreCalculationFocus.elapsedTimeStopWatch = 0;
+                    ScoreCalculationFocus.responseTimeGo = ScoreCalculationFocus.responseTimeGo + ScoreCalculationFocus.stopWatchtime;
+                }
                 newObject = Instantiate(gridsPrefabs[randomIndex], levelTwoSpawnPos[randomPosIndex].position, Quaternion.identity);
+                ScoreCalculationFocus.totalTrialsGo++;
+                ScoreCalculationFocus.isStopWatchStart = true;
+
                 yield return new WaitForSeconds(1.25f);
                 if (!ScoreCalculationFocus.isHomeClicked)
                 {
@@ -161,9 +187,24 @@ public class GridSpawner : MonoBehaviour
 
     private void HandleNoClickOnLayerNine()
     {
+        if (newObject && newObject.layer == 9)
+        {
+            ScoreCalculationFocus.totalTrialsGo--;
+            ScoreCalculationFocus.totalTrialsNoGo++;
+        }
+        if (newObject && newObject.layer == 9 && isClicked)
+        {
+            ScoreCalculationFocus.isStopWatchStart = false;
+            ScoreCalculationFocus.elapsedTimeStopWatch = 0;
+            ScoreCalculationFocus.responseTimeNoGo = ScoreCalculationFocus.responseTimeNoGo + ScoreCalculationFocus.stopWatchtime;
+        }
+
         if (newObject && newObject.layer == 9 && !isClicked)
         {
             ScoreCalculationFocus.Increment(); // Increment score if no click and layer is 9
+            ScoreCalculationFocus.isStopWatchStart = false;
+            ScoreCalculationFocus.elapsedTimeStopWatch = 0;
+            ScoreCalculationFocus.responseTimeNoGo = ScoreCalculationFocus.responseTimeNoGo + 0;
         } 
         else if (!isClicked) 
         {

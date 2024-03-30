@@ -18,6 +18,8 @@ public class FocusLevelTransition : MonoBehaviour
             menuHandler.level2Button.SetActive(true);
             menuHandler.level2LockButton.SetActive(false);
             ScoreCalculationFocus.score = 0;
+            ScoreCalculationFocus.responseTimeGo = ScoreCalculationFocus.responseTimeGo / ScoreCalculationFocus.totalTrialsGo;
+            ScoreCalculationFocus.responseTimeNoGo = ScoreCalculationFocus.responseTimeNoGo / ScoreCalculationFocus.totalTrialsNoGo;
         }
         else if (ScoreCalculationFocus.score < 5 && ScoreCalculationFocus.isTimeOver) // retry lvl1
         {
@@ -38,6 +40,8 @@ public class FocusLevelTransition : MonoBehaviour
             menuHandler.completeLevel2Canvas.SetActive(true);
             ScoreCalculationFocus.isGameOver = true;
             ScoreCalculationFocus.score = 0;
+            ScoreCalculationFocus.responseTimeGo = ScoreCalculationFocus.responseTimeGo / ScoreCalculationFocus.totalTrialsGo;
+            ScoreCalculationFocus.responseTimeNoGo = ScoreCalculationFocus.responseTimeNoGo / ScoreCalculationFocus.totalTrialsNoGo;
         }
         else if (ScoreCalculationFocus.score < 5 && ScoreCalculationFocus.isTimeOver) // retry lvl2
         {
@@ -59,5 +63,12 @@ public class FocusLevelTransition : MonoBehaviour
         ScoreCalculationFocus.isLevel1 = false;
         ScoreCalculationFocus.isLevel2 = false;
         ScoreCalculationFocus.isGameOver = true;
+
+        ScoreCalculationFocus.totalTrialsNoGo = 0;
+        ScoreCalculationFocus.totalTrialsGo = 0;
+        ScoreCalculationFocus.responseTimeGo = 0;
+        ScoreCalculationFocus.responseTimeNoGo = 0;
+        ScoreCalculationFocus.isStopWatchStart = false;
+        ScoreCalculationFocus.elapsedTimeStopWatch = 0;
     }
 }
