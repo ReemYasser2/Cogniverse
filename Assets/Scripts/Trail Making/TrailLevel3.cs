@@ -18,19 +18,8 @@ public class TrailLevel3 : MonoBehaviour
     private int buttonNum = 0;
 
     public LevelsHandler levelsHandler;
-<<<<<<< Updated upstream
     public TrailMenuHandler menuHandler;
-=======
-
-    public GameObject completeLevel3Canvas;
-
-    public static bool isGameOver;
-    public TextMeshProUGUI scorelvl3Text;
-    public GameObject instructionsLevel3RetryCanvas;
     public float scorePercent = 0;
-
-    
->>>>>>> Stashed changes
 
     // Start is called before the first frame update
     void Start()

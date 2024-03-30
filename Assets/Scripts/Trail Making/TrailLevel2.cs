@@ -15,17 +15,9 @@ public class TrailLevel2 : MonoBehaviour
     public int mistakes = 0;
     private int buttonNum = 0;
     public LevelsHandler levelsHandler;
-<<<<<<< Updated upstream
     public TrailMenuHandler menuHandler;
-
-=======
-    public TextMeshProUGUI scorelvl2Text;
-    public GameObject instructionsLevel2RetryCanvas;
-
-    public GameObject level3Button;
-    public GameObject level3LockButton;
     public float scorePercent = 0;
->>>>>>> Stashed changes
+
     // Start is called before the first frame update
     void Start()
     {
