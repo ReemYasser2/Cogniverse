@@ -5,7 +5,7 @@ using TMPro;
 
 public static class ScoreCalculator
 {
-    public static int score = 20;
+    public static int score = 0;
     public static TextMeshProUGUI reinforcement;
 
     public static bool isLevel1 = true;
@@ -21,7 +21,11 @@ public static class ScoreCalculator
     static int oldScore; 
     static int incrementCounter=0;
     public static int trialsCount = 0;
-    public static int maxTrials = 5;
+    public static int maxTrials = 15;
+    public static float scoreOnePercent = 0;
+    public static float scoreTwoPercent = 0;
+    public static float scoreThreePercent = 0;
+
 
     public static float elapsedTime;
 

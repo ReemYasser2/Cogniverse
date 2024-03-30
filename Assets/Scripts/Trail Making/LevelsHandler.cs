@@ -30,6 +30,7 @@ public class LevelsHandler : MonoBehaviour
             Debug.Log(levelOneTrails[trailIndex]); 
             levelOneTrails[trailIndex].SetActive(true);
             selectedTrail = trailIndex;
+            trailLevel1.scorePercent = (trailLevel1.levelOneScore)/15;
         }
         if (level==2)
         {
@@ -42,6 +43,7 @@ public class LevelsHandler : MonoBehaviour
             levelOneTrails[0].SetActive(false);
             levelOneTrails[1].SetActive(false);
             selectedTrail = trailIndex;
+            trailLevel2.scorePercent = (trailLevel2.levelTwoScore) / 20;
         }
         if (level == 3)
         {
@@ -55,6 +57,7 @@ public class LevelsHandler : MonoBehaviour
             levelTwoTrails[0].SetActive(false);
             levelTwoTrails[1].SetActive(false);
             selectedTrail = trailIndex;
+            trailLevel3.scorePercent = (trailLevel3.levelThreeScore) / 30;
         }
         Debug.Log(selectedTrail);
     }
@@ -73,6 +76,7 @@ public class LevelsHandler : MonoBehaviour
         // reset score and number of mistakes
         trailLevel1.levelOneScore = 0;
         trailLevel1.mistakes = 0;
+        trailLevel1.scorePercent = 0;
 
         // hide trails 
         levelOneTrails[0].SetActive(false);
@@ -94,6 +98,7 @@ public class LevelsHandler : MonoBehaviour
         // reset score and number of mistakes
         trailLevel2.levelTwoScore = 0;
         trailLevel2.mistakes = 0;
+        trailLevel2.scorePercent = 0;
 
         // hide trails
         levelTwoTrails[0].SetActive(false);
@@ -115,6 +120,7 @@ public class LevelsHandler : MonoBehaviour
         // reset score and number of mistakes
         trailLevel3.levelThreeScore = 0;
         trailLevel3.mistakes = 0;
+        trailLevel3.scorePercent = 0;
 
         // hide trails
         levelThreeTrails[0].SetActive(false);
@@ -130,10 +136,15 @@ public class LevelsHandler : MonoBehaviour
     {
         trailLevel1.levelOneScore = 0;
         trailLevel1.mistakes = 0;
+        trailLevel1.scorePercent = 0;
+
         trailLevel2.levelTwoScore = 0;
         trailLevel2.mistakes = 0;
+        trailLevel2.scorePercent = 0;
+
         trailLevel3.levelThreeScore = 0;
         trailLevel3.mistakes = 0;
+        trailLevel3.scorePercent = 0;
 
         levelOneTrails[0].SetActive(false);
         levelOneTrails[1].SetActive(false);

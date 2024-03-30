@@ -9,10 +9,11 @@ public class LevelTransitionDual : MonoBehaviour
 
     public void CheckLevel1()
     {
-        if (ScoreCalculator.score >= 5)
+        if ((ScoreCalculator.score)/30 >= 0.7)
         {
             // pass lvl 1
             ScoreCalculator.reinforcementText = "";
+            ScoreCalculator.scoreOnePercent = ScoreCalculator.score / 30;
             ShowCompleteLevel1Canvas();
             ScoreCalculator.score = 0;
             dualMenuHandler.level2Button.SetActive(true);
@@ -20,7 +21,7 @@ public class LevelTransitionDual : MonoBehaviour
             ScoreCalculator.elapsedTime = 0f;
             ScoreCalculator.isPlayPressed = false;
         }
-        else if (ScoreCalculator.score <= 5)
+        else if ((ScoreCalculator.score) / 30 <= 0.7)
         {
             // retry lvl1
             ScoreCalculator.reinforcementText = "";
@@ -33,10 +34,11 @@ public class LevelTransitionDual : MonoBehaviour
 
     public void CheckLevel2()
     {
-        if (ScoreCalculator.score >= 10)
+        if ((ScoreCalculator.score) / 45 >= 0.7)
         {
             // pass lvl2
             ScoreCalculator.reinforcementText = "";
+            ScoreCalculator.scoreTwoPercent = ScoreCalculator.score / 45;
             ShowCompleteLevel2Canvas();
             ScoreCalculator.score = 0;
             dualMenuHandler.level3Button.SetActive(true);
@@ -44,7 +46,7 @@ public class LevelTransitionDual : MonoBehaviour
             ScoreCalculator.elapsedTime = 0f;
             ScoreCalculator.isPlayPressed = false;
         }
-        else if (ScoreCalculator.score <= 10)
+        else if ((ScoreCalculator.score) / 45 <= 0.7)
         {
             // retry lvl 2
             ScoreCalculator.reinforcementText = "";
@@ -57,17 +59,18 @@ public class LevelTransitionDual : MonoBehaviour
 
     public void CheckLevel3()
     {
-        if (ScoreCalculator.score >= 15)
+        if ((ScoreCalculator.score) / 45 >= 0.7)
         {
             // pass lvl3
             ScoreCalculator.reinforcementText = "";
+            ScoreCalculator.scoreThreePercent = ScoreCalculator.score / 45;
             ShowCompleteLevel3Canvas();
             ScoreCalculator.score = 0;
             ScoreCalculator.elapsedTime = 0f;
             ScoreCalculator.isPlayPressed = false;
             Debug.Log("game over test");
         }
-        else if (ScoreCalculator.score <= 15)
+        else if ((ScoreCalculator.score) / 45 <= 0.7)
         {
             // retry lvl3
             ScoreCalculator.reinforcementText = "";

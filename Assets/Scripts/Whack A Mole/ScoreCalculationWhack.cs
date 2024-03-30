@@ -5,6 +5,9 @@ using UnityEngine;
 public static class ScoreCalculationWhack
 {
     public static int score = 0;
+    public static int spawnsCounter = 0;
+    public static float scoreOnePercent = 0;
+    public static float scoreTwoPercent = 0;
 
     public static string reinforcementText;
 
