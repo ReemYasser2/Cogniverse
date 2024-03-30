@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.007762702, g: 0.02504691, b: 0.0019513344, a: 1}
+  m_IndirectSpecularColor: {r: 0.0077867303, g: 0.025010766, b: 0.0019575458, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2853,6 +2853,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionSound: {fileID: 8300000, guid: fb5d278a4c473104ea604dd6b1db19ea, type: 3}
+  powerupSound: {fileID: 0}
+  obstacleSound: {fileID: 0}
   collisionCooldown: 1
 --- !u!114 &234981269
 MonoBehaviour:
@@ -7969,6 +7971,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionSound: {fileID: 8300000, guid: fb5d278a4c473104ea604dd6b1db19ea, type: 3}
+  powerupSound: {fileID: 8300000, guid: 860b7fea6b6945342ba169357faca429, type: 3}
+  obstacleSound: {fileID: 8300000, guid: 41b2e943456609d4aa80409897799a14, type: 3}
   collisionCooldown: 1
 --- !u!65 &485218378
 BoxCollider:

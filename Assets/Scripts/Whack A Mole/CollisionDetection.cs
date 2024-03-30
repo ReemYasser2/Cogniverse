@@ -7,7 +7,14 @@ public class CollisionDetection : MonoBehaviour
     public float hitDownwardSpeed = 0.5f;
     public float delay = 2.5f;
     public Spawner spawner;
+    public AudioClip collisionAudio;
+    private AudioSource audioSource;
 
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        audioSource = gameObject.AddComponent<AudioSource>();
+    }
     void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Entered collision with " + collision.gameObject.name);
@@ -21,13 +28,16 @@ public class CollisionDetection : MonoBehaviour
             }
             if (ScoreCalculationWhack.isLevel1 ) {
             ScoreCalculationWhack.Increment();
+            audioSource.PlayOneShot(collisionAudio);
             }
             else if(ScoreCalculationWhack.isLevel2 && gameObject.layer == 11)
             {
                 ScoreCalculationWhack.Increment();
+                audioSource.PlayOneShot(collisionAudio);
             }
             else if (ScoreCalculationWhack.isLevel2) {
                 ScoreCalculationWhack.Decrement();
+                audioSource.PlayOneShot(collisionAudio);
             }
             StartCoroutine(ResetTextAfterDelay());
 
