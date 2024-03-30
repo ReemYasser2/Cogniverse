@@ -15,9 +15,12 @@ public class TrailLevel1 : MonoBehaviour
     public GameObject trail11;
     public GameObject trail12;
     int trailSelection;
+    public static float levelOneAccuracy = 0f;
+    private int correctCounter = 0;
     public int levelOneScore = 0;
     public int mistakes = 0;
     private int buttonNum = 0;
+    
 
     public TrailMenuHandler menuHandler;
 
@@ -90,8 +93,7 @@ public class TrailLevel1 : MonoBehaviour
 
                     clickedButton.GetComponent<Image>().color = Color.green;
                     levelOneScore++;
-                    //Debug.Log("Score up");
-                    //Debug.Log(levelOneScore);
+                    correctCounter++;
                     buttonNum = buttonNo;
                     ReinforcementManagement.PositiveReinforcementIncrement();
                 }
@@ -103,8 +105,7 @@ public class TrailLevel1 : MonoBehaviour
 
                 clickedButton.GetComponent<Image>().color = Color.green;
                 levelOneScore++;
-                //Debug.Log("Score up");
-                //Debug.Log(levelOneScore);
+                correctCounter++;
                 buttonNum = buttonNo;
                 ReinforcementManagement.PositiveReinforcementIncrement();
             }
@@ -120,8 +121,7 @@ public class TrailLevel1 : MonoBehaviour
 
                 clickedButton.GetComponent<Image>().color = Color.green;
                 levelOneScore++;
-                //Debug.Log("Score up");
-                //Debug.Log(levelOneScore);
+                correctCounter++;
                 buttonNum = buttonNo;
 
                 ReinforcementManagement.PositiveReinforcementIncrement();
@@ -164,6 +164,7 @@ public class TrailLevel1 : MonoBehaviour
             menuHandler.level2Button.SetActive(true);
             menuHandler.level2LockButton.SetActive(false);
             menuHandler.scorelvl1Text.text = $"Your Score: {levelOneScore}";
+            levelOneAccuracy = CalculateAccuracy(correctCounter, 15);
             Debug.Log("Level Passed");
             ResetIndicator();
         }
@@ -173,6 +174,7 @@ public class TrailLevel1 : MonoBehaviour
             ReinforcementManagement.elapsedTime = 0f;
             ReinforcementManagement.isPlayPressed = false;
             ResetIndicator();
+            correctCounter = 0; 
         }
     }
     
@@ -261,6 +263,11 @@ public class TrailLevel1 : MonoBehaviour
         {
             mistakesIndicator[i].GetComponent<Image>().color = Color.green;
         }
+    }
+    float CalculateAccuracy(int correct, int total)
+    {
+        float acc = correct / total;
+        return acc;
     }
 }
 

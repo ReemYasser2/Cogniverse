@@ -16,7 +16,8 @@ public class TrailLevel3 : MonoBehaviour
     public int levelThreeScore = 0;
     public int mistakes = 0;
     private int buttonNum = 0;
-
+    public static float levelThreeAccuracy = 0;
+    private int correctCounter = 0;
     public LevelsHandler levelsHandler;
     public TrailMenuHandler menuHandler;
 
@@ -81,6 +82,7 @@ public class TrailLevel3 : MonoBehaviour
                     clickedButton.GetComponent<Image>().color = Color.green;
                     ReinforcementManagement.PositiveReinforcementIncrement();
                     levelThreeScore++;
+                    correctCounter++;
                     buttonNum = buttonNo;
                 }
             }
@@ -92,6 +94,7 @@ public class TrailLevel3 : MonoBehaviour
                 clickedButton.GetComponent<Image>().color = Color.green;
                 ReinforcementManagement.PositiveReinforcementIncrement();
                 levelThreeScore++;
+                correctCounter++;
                 buttonNum = buttonNo;
             }
             
@@ -105,8 +108,7 @@ public class TrailLevel3 : MonoBehaviour
                 clickedButton.GetComponent<Image>().color = Color.green;
                 ReinforcementManagement.PositiveReinforcementIncrement();
                 levelThreeScore++;
-                //Debug.Log("Score up");
-                //Debug.Log(levelThreeScore);
+                correctCounter++;
                 buttonNum = buttonNo;
             }
             else
@@ -140,6 +142,7 @@ public class TrailLevel3 : MonoBehaviour
             ReinforcementManagement.isPlayPressed = false;
             menuHandler.completeLevel3Canvas.SetActive(true);
             menuHandler.scorelvl3Text.text = $"Your Score: {levelThreeScore}";
+            levelThreeAccuracy = CalculateAccuracy(correctCounter, 30);
             ReinforcementManagement.isGameOver = true;
             ResetIndicator();
         } 
@@ -149,6 +152,7 @@ public class TrailLevel3 : MonoBehaviour
             ReinforcementManagement.elapsedTime = 0f;
             ReinforcementManagement.isPlayPressed = false;
             ResetIndicator();
+            correctCounter = 0;
         }
     }
     void InitializeButtons()
@@ -239,5 +243,10 @@ public class TrailLevel3 : MonoBehaviour
         {
             mistakesIndicator_3[i].GetComponent<Image>().color = Color.green;
         }
+    }
+    float CalculateAccuracy(int correct, int total)
+    {
+        float acc = correct / total;
+        return acc;
     }
 }

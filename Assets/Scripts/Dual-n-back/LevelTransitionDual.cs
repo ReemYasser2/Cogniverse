@@ -6,7 +6,8 @@ using UnityEngine;
 public class LevelTransitionDual : MonoBehaviour
 {
     public DualMenuHandler dualMenuHandler;
-
+    int correctClicks = ScoreCalculator.correctCounter;
+    float levelsAccuracy = ScoreCalculator.accuracy;
     public void CheckLevel1()
     {
         if (ScoreCalculator.score >= 5)
@@ -19,6 +20,7 @@ public class LevelTransitionDual : MonoBehaviour
             dualMenuHandler.level2LockButton.SetActive(false);
             ScoreCalculator.elapsedTime = 0f;
             ScoreCalculator.isPlayPressed = false;
+            levelsAccuracy = ScoreCalculator.AccuracyCalculation(correctClicks, 30);
         }
         else if (ScoreCalculator.score <= 5)
         {
@@ -28,6 +30,7 @@ public class LevelTransitionDual : MonoBehaviour
             ScoreCalculator.score = 0;
             ScoreCalculator.elapsedTime = 0f;
             ScoreCalculator.isPlayPressed = false;
+            correctClicks = 0;
         }
     }
 
@@ -43,6 +46,7 @@ public class LevelTransitionDual : MonoBehaviour
             dualMenuHandler.level3LockButton.SetActive(false);
             ScoreCalculator.elapsedTime = 0f;
             ScoreCalculator.isPlayPressed = false;
+            levelsAccuracy = ScoreCalculator.AccuracyCalculation(correctClicks, 45);
         }
         else if (ScoreCalculator.score <= 10)
         {
@@ -52,6 +56,7 @@ public class LevelTransitionDual : MonoBehaviour
             ScoreCalculator.score = 0;
             ScoreCalculator.elapsedTime = 0f;
             ScoreCalculator.isPlayPressed = false;
+            correctClicks = 0;
         }
     }
 
@@ -65,6 +70,7 @@ public class LevelTransitionDual : MonoBehaviour
             ScoreCalculator.score = 0;
             ScoreCalculator.elapsedTime = 0f;
             ScoreCalculator.isPlayPressed = false;
+            levelsAccuracy = ScoreCalculator.AccuracyCalculation(correctClicks, 45);
             Debug.Log("game over test");
         }
         else if (ScoreCalculator.score <= 15)
@@ -74,7 +80,8 @@ public class LevelTransitionDual : MonoBehaviour
             ShowLevelThreeInstructions();
             ScoreCalculator.score = 0;
             ScoreCalculator.elapsedTime = 0f;
-            ScoreCalculator.isPlayPressed = false;;
+            ScoreCalculator.isPlayPressed = false;
+            correctClicks = 0;
         }
     }
 

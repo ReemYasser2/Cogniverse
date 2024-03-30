@@ -18,6 +18,8 @@ public static class ScoreCalculator
     public static bool isPaused = false;
     public static bool isHomeClicked = false;
 
+    public static int correctCounter = 0;
+    public static int accuracy = 0;
     static int oldScore; 
     static int incrementCounter=0;
     public static int trialsCount = 0;
@@ -46,6 +48,7 @@ public static class ScoreCalculator
             {
                 incrementCounter++;
                 score++;
+                correctCounter++;
                 Debug.Log("Increment score after pressing ");
             }
             else if (oldPos != currentPos && score != 0)
@@ -73,6 +76,7 @@ public static class ScoreCalculator
         {
             incrementCounter++;
             score++;
+            correctCounter++;
             Debug.Log("Increment Score without pressing ");
             
         }
@@ -97,6 +101,7 @@ public static class ScoreCalculator
                 // Adjust the score or perform actions accordingly
                 incrementCounter++;
                 score++;
+                correctCounter++;
 
             }
             else
@@ -129,7 +134,7 @@ public static class ScoreCalculator
                 // Audio clips arent the same and the button didnt get clicked
                 Debug.Log("Audio clips arent the same and the button didnt get clicked"); 
                 incrementCounter++;
-
+                correctCounter++;
                 score++;
             }
             else if (oldAudio == currentAudio && score != 0)
@@ -176,5 +181,10 @@ public static class ScoreCalculator
     {
         int randomIndex = Random.Range(0, negativeDecrease.Count);
         return negativeDecrease[randomIndex];
+    }
+    public static float AccuracyCalculation(int correct, int total)
+    {
+        accuracy = correct / total;
+        return accuracy;
     }
 }

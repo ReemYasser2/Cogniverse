@@ -15,6 +15,8 @@ public static class ScoreCalculationFocus
     public static bool isLevel2;
     public static bool isGameOver;
     public static bool isHomeClicked;
+    public static int correctCounter = 0;
+    public static int accuracy = 0;
 
     static List<string> positiveIncrease = new List<string>
             { " Good Job", "Keep it up", "You're on a roll", "Excellent work", "Amazing!!", "Awesome!!", "Well done!!"};
@@ -29,7 +31,7 @@ public static class ScoreCalculationFocus
     public static void Increment()
     {
         incrementCounter++;
-
+        correctCounter++;
         score++;
         Debug.Log(score);
         if (incrementCounter % 5 == 0)
@@ -74,5 +76,9 @@ public static class ScoreCalculationFocus
         int randomIndex = Random.Range(0, negativeDecrease.Count);
         return negativeDecrease[randomIndex];
     }
-
+    public static float AccuracyCalculation(int correct, int total)
+    {
+        accuracy = correct / total;
+        return accuracy;
+    }
 }
