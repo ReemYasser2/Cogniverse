@@ -30,10 +30,21 @@ public class Spawner : MonoBehaviour
                 float randomWaitTime = waitingPeriods[selectedPeriodIndex];
 
                 int randomIndex = Random.Range(0, alienOne.Length);
-                GameObject firstObject = alienOne[randomIndex]; firstObject.SetActive(true);
+                GameObject firstObject = alienOne[randomIndex];
+                firstObject.SetActive(true);
+                ScoreCalculationWhack.spawnsCounter++;
+
                 int randomIndex2 = Random.Range(0, alienOne.Length);
+<<<<<<< Updated upstream
                 GameObject secondObject = alienOne[randomIndex2]; secondObject.SetActive(true);
                 yield return new WaitForSeconds(0.35f);
+=======
+                GameObject secondObject = alienOne[randomIndex2];
+                secondObject.SetActive(true);
+                ScoreCalculationWhack.spawnsCounter++;
+
+                yield return new WaitForSeconds(0.15f);
+>>>>>>> Stashed changes
                 MoveObjectUp(firstObject, targetYPositionUp); yield return new WaitForSeconds(randomWaitTime);
                 MoveObjectUp(secondObject, targetYPositionUp);
 
@@ -49,8 +60,14 @@ public class Spawner : MonoBehaviour
                 MoveObjectDown(secondObject, targetYPositionDown); secondObject.SetActive(false);
                 //isUp[randomIndex2] = false;
             }
+<<<<<<< Updated upstream
             if (!ScoreCalculationWhack.isHomeButtonClicked) { levelTransition.CheckLevel1(); }
             ScoreCalculationWhack.isLevel1 = false;
+=======
+            if (!LevelTransitionWhack.isHomeButtonClicked) { levelTransition.CheckLevel1(); }
+            isLevel1 = false;
+            ScoreCalculationWhack.spawnsCounter = 0;
+>>>>>>> Stashed changes
         }
     else if (level == 2)
         {
@@ -67,10 +84,21 @@ public class Spawner : MonoBehaviour
                 float randomWaitTime = waitingPeriods[selectedPeriodIndex];
 
                 int randomIndex = Random.Range(0, alienTwo.Length);
-                GameObject firstObject = alienTwo[randomIndex]; firstObject.SetActive(true);
+                GameObject firstObject = alienTwo[randomIndex];
+                firstObject.SetActive(true);
+                ScoreCalculationWhack.spawnsCounter++;
+
                 int randomIndex2 = Random.Range(0, alienTwo.Length);
+<<<<<<< Updated upstream
                 GameObject secondObject = alienTwo[randomIndex2]; secondObject.SetActive(true);
                 yield return new WaitForSeconds(0.35f);
+=======
+                GameObject secondObject = alienTwo[randomIndex2];
+                secondObject.SetActive(true);
+                ScoreCalculationWhack.spawnsCounter++;
+
+                yield return new WaitForSeconds(0.15f);
+>>>>>>> Stashed changes
                 MoveObjectUp(firstObject, targetYPositionUp); yield return new WaitForSeconds(randomWaitTime);
                 MoveObjectUp(secondObject, targetYPositionUp);
                 //isUp[randomIndex] = true;
@@ -85,8 +113,14 @@ public class Spawner : MonoBehaviour
                 MoveObjectDown(secondObject, targetYPositionDown); secondObject.SetActive(false);
                 //isUp[randomIndex2] = false;
             }
+<<<<<<< Updated upstream
             if (!ScoreCalculationWhack.isHomeButtonClicked) { levelTransition.CheckLevel2(); }
             ScoreCalculationWhack.isLevel2 = false;
+=======
+            if (!LevelTransitionWhack.isHomeButtonClicked) { levelTransition.CheckLevel2(); } 
+            isLevel2 = false;
+            ScoreCalculationWhack.spawnsCounter = 0;
+>>>>>>> Stashed changes
         }
     }
     public void StartAliensSpawning(int level)

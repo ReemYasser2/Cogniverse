@@ -15,8 +15,17 @@ public class TrailLevel2 : MonoBehaviour
     public int mistakes = 0;
     private int buttonNum = 0;
     public LevelsHandler levelsHandler;
+<<<<<<< Updated upstream
     public TrailMenuHandler menuHandler;
 
+=======
+    public TextMeshProUGUI scorelvl2Text;
+    public GameObject instructionsLevel2RetryCanvas;
+
+    public GameObject level3Button;
+    public GameObject level3LockButton;
+    public float scorePercent = 0;
+>>>>>>> Stashed changes
     // Start is called before the first frame update
     void Start()
     {
@@ -61,6 +70,7 @@ public class TrailLevel2 : MonoBehaviour
                     ReinforcementManagement.PositiveReinforcementDecrement();
                     MistakesIndicator();
                     buttonNum = buttonNo;
+                    scorePercent = levelTwoScore / 20;
                 }
                 else if (levelTwoScore < -1 && mistakes > 0)
                 {
@@ -82,6 +92,7 @@ public class TrailLevel2 : MonoBehaviour
                     //Debug.Log("Score up");
                     //Debug.Log(levelTwoScore);
                     buttonNum = buttonNo;
+                    scorePercent = levelTwoScore / 20;
                 }
             }
             else
@@ -95,6 +106,7 @@ public class TrailLevel2 : MonoBehaviour
                 //Debug.Log("Score up");
                 //Debug.Log(levelTwoScore);
                 buttonNum = buttonNo;
+                scorePercent = levelTwoScore / 20;
             }
                 
         }
@@ -110,6 +122,7 @@ public class TrailLevel2 : MonoBehaviour
                 //Debug.Log("Score up");
                 //Debug.Log(levelTwoScore);
                 buttonNum = buttonNo;
+                scorePercent = levelTwoScore / 20;
             }
             else
             {
@@ -120,6 +133,7 @@ public class TrailLevel2 : MonoBehaviour
                 MistakesIndicator();
                 //Debug.Log("Score --");
                 //Debug.Log(levelTwoScore);
+                scorePercent = levelTwoScore / 20;
             }
          }
         else
@@ -132,6 +146,7 @@ public class TrailLevel2 : MonoBehaviour
             MistakesIndicator();
             //Debug.Log("Score --");
             //Debug.Log(levelTwoScore);
+            scorePercent = levelTwoScore / 20;
         }
 
         StartCoroutine(ResetTextAfterDelay());

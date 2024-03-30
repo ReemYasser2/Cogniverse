@@ -18,8 +18,17 @@ public class TrailLevel1 : MonoBehaviour
     public int levelOneScore = 0;
     public int mistakes = 0;
     private int buttonNum = 0;
+<<<<<<< Updated upstream
 
     public TrailMenuHandler menuHandler;
+=======
+    public TextMeshProUGUI scorelvl1Text;
+    public GameObject instructionsLevel1RetryCanvas;
+    public GameObject level2Button;
+    public GameObject level2LockButton;
+    public float scorePercent = 0;
+
+>>>>>>> Stashed changes
 
     // Start is called before the first frame update
     void Start()
@@ -73,6 +82,7 @@ public class TrailLevel1 : MonoBehaviour
                     clickedButton.GetComponent<Image>().color = Color.red;
                     ReinforcementManagement.PositiveReinforcementDecrement();
                     buttonNum = buttonNo;
+<<<<<<< Updated upstream
                 }
                 else if (levelOneScore < -1 && mistakes > 0)
                 {
@@ -83,6 +93,10 @@ public class TrailLevel1 : MonoBehaviour
                     ReinforcementManagement.PositiveReinforcementDecrement();
                     buttonNum = buttonNo;
                 }
+=======
+                    scorePercent = levelOneScore / 15;
+}
+>>>>>>> Stashed changes
                 else
                 {
                     ResetButtonColors(buttonNo);
@@ -94,6 +108,7 @@ public class TrailLevel1 : MonoBehaviour
                     //Debug.Log(levelOneScore);
                     buttonNum = buttonNo;
                     ReinforcementManagement.PositiveReinforcementIncrement();
+                    scorePercent = levelOneScore / 15;
                 }
 
             }
@@ -107,6 +122,7 @@ public class TrailLevel1 : MonoBehaviour
                 //Debug.Log(levelOneScore);
                 buttonNum = buttonNo;
                 ReinforcementManagement.PositiveReinforcementIncrement();
+                scorePercent = levelOneScore / 15;
             }
             
 
@@ -125,6 +141,7 @@ public class TrailLevel1 : MonoBehaviour
                 buttonNum = buttonNo;
 
                 ReinforcementManagement.PositiveReinforcementIncrement();
+                scorePercent = levelOneScore / 15;
 
             }
             else {
@@ -134,7 +151,8 @@ public class TrailLevel1 : MonoBehaviour
                 clickedButton.GetComponent<Image>().color = Color.red;
                 ReinforcementManagement.PositiveReinforcementDecrement();
                 //Debug.Log(levelOneScore);
-                } 
+                scorePercent = levelOneScore / 15;
+            } 
         }
         else
         {
@@ -145,6 +163,7 @@ public class TrailLevel1 : MonoBehaviour
             levelOneScore--;
             mistakes++;
             MistakesIndicator();
+            scorePercent = levelOneScore / 15;
             //Debug.Log("Score --");
             //Debug.Log(levelOneScore);
 

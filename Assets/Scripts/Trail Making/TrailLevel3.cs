@@ -18,7 +18,19 @@ public class TrailLevel3 : MonoBehaviour
     private int buttonNum = 0;
 
     public LevelsHandler levelsHandler;
+<<<<<<< Updated upstream
     public TrailMenuHandler menuHandler;
+=======
+
+    public GameObject completeLevel3Canvas;
+
+    public static bool isGameOver;
+    public TextMeshProUGUI scorelvl3Text;
+    public GameObject instructionsLevel3RetryCanvas;
+    public float scorePercent = 0;
+
+    
+>>>>>>> Stashed changes
 
     // Start is called before the first frame update
     void Start()
@@ -63,6 +75,7 @@ public class TrailLevel3 : MonoBehaviour
                     ReinforcementManagement.PositiveReinforcementDecrement();
                     MistakesIndicator();
                     buttonNum = buttonNo;
+                    scorePercent = levelThreeScore / 30;
                 }
                 else if (levelThreeScore < -1 && mistakes > 0)
                 {
@@ -82,6 +95,7 @@ public class TrailLevel3 : MonoBehaviour
                     ReinforcementManagement.PositiveReinforcementIncrement();
                     levelThreeScore++;
                     buttonNum = buttonNo;
+                    scorePercent = levelThreeScore / 30;
                 }
             }
             else
@@ -93,6 +107,7 @@ public class TrailLevel3 : MonoBehaviour
                 ReinforcementManagement.PositiveReinforcementIncrement();
                 levelThreeScore++;
                 buttonNum = buttonNo;
+                scorePercent = levelThreeScore / 30;
             }
             
         }
@@ -108,6 +123,7 @@ public class TrailLevel3 : MonoBehaviour
                 //Debug.Log("Score up");
                 //Debug.Log(levelThreeScore);
                 buttonNum = buttonNo;
+                scorePercent = levelThreeScore / 30;
             }
             else
             {
@@ -117,6 +133,7 @@ public class TrailLevel3 : MonoBehaviour
                 ReinforcementManagement.PositiveReinforcementDecrement();
                 MistakesIndicator();
                 //Debug.Log("Score --");
+                scorePercent = levelThreeScore / 30;
             } 
         }
         else
@@ -128,6 +145,7 @@ public class TrailLevel3 : MonoBehaviour
             mistakes++;
             MistakesIndicator();
             //Debug.Log("Score --");
+            scorePercent = levelThreeScore / 30;
         }
         StartCoroutine(ResetTextAfterDelay());
 
