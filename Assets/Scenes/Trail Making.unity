@@ -7175,6 +7175,7 @@ MonoBehaviour:
   levelOneScore: 0
   mistakes: 0
   menuHandler: {fileID: 1633274981}
+  scorePercent: 0
 --- !u!1 &221139400
 GameObject:
   m_ObjectHideFlags: 0
@@ -41111,7 +41112,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1360518414
 Transform:
   m_ObjectHideFlags: 0
@@ -50710,6 +50711,7 @@ MonoBehaviour:
   mistakes: 0
   levelsHandler: {fileID: 839657315}
   menuHandler: {fileID: 1633274981}
+  scorePercent: 0
 --- !u!1 &1644905735
 GameObject:
   m_ObjectHideFlags: 0
@@ -62217,6 +62219,7 @@ MonoBehaviour:
   mistakes: 0
   levelsHandler: {fileID: 839657315}
   menuHandler: {fileID: 1633274981}
+  scorePercent: 0
 --- !u!1 &2028977058
 GameObject:
   m_ObjectHideFlags: 0
@@ -65156,7 +65159,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2145694282
 Transform:
   m_ObjectHideFlags: 0
