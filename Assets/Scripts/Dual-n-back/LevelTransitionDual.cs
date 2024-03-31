@@ -115,8 +115,11 @@ public class LevelTransitionDual : MonoBehaviour
 
         ScoreCalculator.score = 0;
         ScoreCalculator.trialsCount = 0;
-        ScoreCalculator.maxTrials = 5;
+        ScoreCalculator.maxTrials = 15;
         ScoreCalculator.elapsedTime = 0f;
         ScoreCalculator.isPlayPressed = false;
+        ScoreCalculator.scoreOnePercent = 0;
+        ScoreCalculator.scoreTwoPercent = 0;
+        ScoreCalculator.scoreThreePercent = 0;
     }
 }

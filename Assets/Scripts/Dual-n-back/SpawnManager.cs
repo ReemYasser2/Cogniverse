@@ -31,7 +31,7 @@ public class SpawnManager : MonoBehaviour
         if (level == 1)
         {
             ScoreCalculator.trialsCount = 0;
-            ScoreCalculator.maxTrials = 5;
+            ScoreCalculator.maxTrials = 15;
             ScoreCalculator.score = 0;
             while (ScoreCalculator.trialsCount < ScoreCalculator.maxTrials && !ScoreCalculator.isHomeClicked)
             {
@@ -73,7 +73,7 @@ public class SpawnManager : MonoBehaviour
         else if (level == 2)
         {
             ScoreCalculator.trialsCount = 0;
-            ScoreCalculator.maxTrials = 5;
+            ScoreCalculator.maxTrials = 15;
             ScoreCalculator.score = 0;
             while (ScoreCalculator.trialsCount < ScoreCalculator.maxTrials && !ScoreCalculator.isHomeClicked)
             {
@@ -124,7 +124,7 @@ public class SpawnManager : MonoBehaviour
         else if (level == 3)
         {
             ScoreCalculator.trialsCount = 0;
-            ScoreCalculator.maxTrials = 5;
+            ScoreCalculator.maxTrials = 15;
             ScoreCalculator.score = 0;
             while (ScoreCalculator.trialsCount < ScoreCalculator.maxTrials && !ScoreCalculator.isHomeClicked)
             {
