@@ -10,6 +10,7 @@ public class StickHolding : MonoBehaviour
     public float holdThreshold = 0.1f;
 
     private bool paused = false;
+    public WhackMenuHandler whackMenuHandler;
 
     // Update is called once per frame
     void Update()
@@ -22,19 +23,21 @@ public class StickHolding : MonoBehaviour
         if (distanceToSocketLeftHand < holdThreshold || distanceToSocketRightHand < holdThreshold)
         {
             HideHoldMessage();
-
             if ((ScoreCalculationWhack.isLevel1 || ScoreCalculationWhack.isLevel2) && !ScoreCalculationWhack.isGameOver)
             {
+                if (!whackMenuHandler.menuCanvas.activeSelf)
+                {
 
-                // Check if the timer is paused
-                if (Mathf.Approximately(Time.timeScale, 0f))
-                {
-                    Debug.Log("Timer is paused");
-                    PauseGame.Pause();
-                }
-                else
-                {
-                    Debug.Log("Timer is running");
+                    // Check if the timer is paused
+                    if (Mathf.Approximately(Time.timeScale, 0f))
+                    {
+                        Debug.Log("Timer is paused");
+                        PauseGame.Pause();
+                    }
+                    else
+                    {
+                        Debug.Log("Timer is running");
+                    }
                 }
             }
         }
@@ -42,17 +45,20 @@ public class StickHolding : MonoBehaviour
         {
 
             ShowHoldMessage();
-            if ((ScoreCalculationWhack.isLevel1 || ScoreCalculationWhack.isLevel2) && !ScoreCalculationWhack.isGameOver)
+           if ((ScoreCalculationWhack.isLevel1 || ScoreCalculationWhack.isLevel2) && !ScoreCalculationWhack.isGameOver)
             {
-                // Check if the timer is paused
-                if (Mathf.Approximately(Time.timeScale, 0f))
+                if (!whackMenuHandler.menuCanvas.activeSelf)
                 {
-                    Debug.Log("Timer is paused");
-                }
-                else
-                {
-                    Debug.Log("Timer is running");
-                    PauseGame.Pause();
+                    // Check if the timer is paused
+                    if (Mathf.Approximately(Time.timeScale, 0f))
+                    {
+                        Debug.Log("Timer is paused");
+                    }
+                    else
+                    {
+                        Debug.Log("Timer is running");
+                        PauseGame.Pause();
+                    }
                 }
             }
         }
