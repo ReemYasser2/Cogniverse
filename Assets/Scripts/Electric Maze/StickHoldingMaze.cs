@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class StickHoldingMaze : MonoBehaviour
@@ -8,6 +9,7 @@ public class StickHoldingMaze : MonoBehaviour
     public Transform rightHand;
     public GameObject messageCanvas;
     public float holdThreshold = 0.1f;
+    public MazeMenuHandler menuHandler;
 
     // Update is called once per frame
     void Update()
@@ -23,16 +25,18 @@ public class StickHoldingMaze : MonoBehaviour
 
             if ((ScoreCalculatorMaze.isLevel1 || ScoreCalculatorMaze.isLevel2) && !ScoreCalculatorMaze.isGameOver)
             {
-
-                // Check if the timer is paused
-                if (Mathf.Approximately(Time.timeScale, 0f))
+                if (!menuHandler.menuCanvas.activeSelf)
                 {
-                    Debug.Log("Timer is paused");
-                    PauseGame.Pause();
-                }
-                else
-                {
-                    Debug.Log("Timer is running");
+                    // Check if the timer is paused
+                    if (Mathf.Approximately(Time.timeScale, 0f))
+                    {
+                        Debug.Log("Timer is paused");
+                        PauseGame.Pause();
+                    }
+                    else
+                    {
+                        Debug.Log("Timer is running");
+                    }
                 }
             }
         }
@@ -42,15 +46,18 @@ public class StickHoldingMaze : MonoBehaviour
             ShowHoldMessage();
             if ((ScoreCalculatorMaze.isLevel1 || ScoreCalculatorMaze.isLevel2) && !ScoreCalculatorMaze.isGameOver)
             {
-                // Check if the timer is paused
-                if (Mathf.Approximately(Time.timeScale, 0f))
+                if (!menuHandler.menuCanvas.activeSelf)
                 {
-                    Debug.Log("Timer is paused");
-                }
-                else
-                {
-                    Debug.Log("Timer is running");
-                    PauseGame.Pause();
+                    // Check if the timer is paused
+                    if (Mathf.Approximately(Time.timeScale, 0f))
+                    {
+                        Debug.Log("Timer is paused");
+                    }
+                    else
+                    {
+                        Debug.Log("Timer is running");
+                        PauseGame.Pause();
+                    }
                 }
             }
         }
