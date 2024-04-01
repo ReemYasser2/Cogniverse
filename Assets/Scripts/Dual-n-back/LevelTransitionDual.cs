@@ -6,7 +6,8 @@ using UnityEngine;
 public class LevelTransitionDual : MonoBehaviour
 {
     public DualMenuHandler dualMenuHandler;
-
+    public float levelsAccuracy = ScoreCalculator.accuracy;
+    int correctClicks = ScoreCalculator.correctCounter;
     public void CheckLevel1()
     {
         if ((ScoreCalculator.score)/30 >= 0.7)
@@ -22,6 +23,7 @@ public class LevelTransitionDual : MonoBehaviour
             dualMenuHandler.level2LockButton.SetActive(false);
             ScoreCalculator.elapsedTime = 0f;
             ScoreCalculator.isPlayPressed = false;
+            levelsAccuracy = ScoreCalculator.AccuracyCalculation(correctClicks, 30);
         }
         else if ((ScoreCalculator.score) / 30 <= 0.7)
         {
@@ -31,6 +33,8 @@ public class LevelTransitionDual : MonoBehaviour
             ScoreCalculator.score = 0;
             ScoreCalculator.elapsedTime = 0f;
             ScoreCalculator.isPlayPressed = false;
+            ScoreCalculator.accuracy = 0;
+            ScoreCalculator.correctCounter = 0;
         }
     }
 
@@ -49,6 +53,9 @@ public class LevelTransitionDual : MonoBehaviour
             dualMenuHandler.level3LockButton.SetActive(false);
             ScoreCalculator.elapsedTime = 0f;
             ScoreCalculator.isPlayPressed = false;
+            levelsAccuracy = ScoreCalculator.AccuracyCalculation(correctClicks, 45);
+            ScoreCalculator.accuracy = 0;
+            ScoreCalculator.correctCounter = 0;
         }
         else if ((ScoreCalculator.score) / 45 <= 0.7)
         {
@@ -58,6 +65,7 @@ public class LevelTransitionDual : MonoBehaviour
             ScoreCalculator.score = 0;
             ScoreCalculator.elapsedTime = 0f;
             ScoreCalculator.isPlayPressed = false;
+            ScoreCalculator.accuracy = 0;
         }
     }
 
@@ -74,6 +82,7 @@ public class LevelTransitionDual : MonoBehaviour
             Debug.Log("overall time: " + ScoreCalculator.overallTime);
             ScoreCalculator.elapsedTime = 0f;
             ScoreCalculator.isPlayPressed = false;
+            levelsAccuracy = ScoreCalculator.AccuracyCalculation(correctClicks, 45);
             Debug.Log("game over test");
         }
         else if ((ScoreCalculator.score) / 45 <= 0.7)
@@ -83,7 +92,9 @@ public class LevelTransitionDual : MonoBehaviour
             ShowLevelThreeInstructions();
             ScoreCalculator.score = 0;
             ScoreCalculator.elapsedTime = 0f;
-            ScoreCalculator.isPlayPressed = false;;
+            ScoreCalculator.isPlayPressed = false;
+            ScoreCalculator.accuracy = 0;
+            ScoreCalculator.correctCounter = 0;
         }
     }
 
@@ -119,6 +130,8 @@ public class LevelTransitionDual : MonoBehaviour
         ScoreCalculator.isLevel3 = false;
         ScoreCalculator.isGameOver = true;
 
+        ScoreCalculator.correctCounter = 0;
+        ScoreCalculator.accuracy = 0;
         ScoreCalculator.score = 0;
         ScoreCalculator.trialsCount = 0;
         ScoreCalculator.maxTrials = 15;

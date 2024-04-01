@@ -21,6 +21,8 @@ public class FocusLevelTransition : MonoBehaviour
             ScoreCalculationFocus.responseTimeGo = ScoreCalculationFocus.responseTimeGo / ScoreCalculationFocus.totalTrialsGo;
             ScoreCalculationFocus.responseTimeNoGo = ScoreCalculationFocus.responseTimeNoGo / ScoreCalculationFocus.totalTrialsNoGo;
 
+            ScoreCalculationFocus.AccuracyCalculation(ScoreCalculationFocus.correctCounter, (ScoreCalculationFocus.totalTrialsGo + ScoreCalculationFocus.totalTrialsNoGo));
+
             Debug.Log("Response time Go:" + ScoreCalculationFocus.responseTimeGo);
             Debug.Log("Response time No Go:" + ScoreCalculationFocus.responseTimeNoGo);
             Debug.Log("Conter go: " + ScoreCalculationFocus.totalTrialsGo);
@@ -34,6 +36,8 @@ public class FocusLevelTransition : MonoBehaviour
             GridSpawner.ResetText();
             menuHandler.instructionsLevel1RetryCanvas.SetActive(true);
             ScoreCalculationFocus.score = 0;
+            ScoreCalculationFocus.accuracy = 0;
+            ScoreCalculationFocus.correctCounter = 0;
             ResetResponseTimeTimer();
         }
     }
@@ -51,6 +55,8 @@ public class FocusLevelTransition : MonoBehaviour
             ScoreCalculationFocus.responseTimeGo = ScoreCalculationFocus.responseTimeGo / ScoreCalculationFocus.totalTrialsGo;
             ScoreCalculationFocus.responseTimeNoGo = ScoreCalculationFocus.responseTimeNoGo / ScoreCalculationFocus.totalTrialsNoGo;
 
+            ScoreCalculationFocus.AccuracyCalculation(ScoreCalculationFocus.correctCounter, (ScoreCalculationFocus.totalTrialsGo + ScoreCalculationFocus.totalTrialsNoGo));
+
             Debug.Log("Response time Go:" + ScoreCalculationFocus.responseTimeGo);
             Debug.Log("Response time No Go:" + ScoreCalculationFocus.responseTimeNoGo);
             Debug.Log("Conter go: " + ScoreCalculationFocus.totalTrialsGo);
@@ -64,6 +70,8 @@ public class FocusLevelTransition : MonoBehaviour
             GridSpawner.ResetText();
             menuHandler.instructionsLevel2RetryCanvas.SetActive(true);
             ScoreCalculationFocus.score = 0;
+            ScoreCalculationFocus.accuracy = 0;
+            ScoreCalculationFocus.correctCounter = 0;
             ResetResponseTimeTimer();
         }
     }
@@ -82,6 +90,8 @@ public class FocusLevelTransition : MonoBehaviour
 
         ScoreCalculationFocus.isPaused = false;
 
+        ScoreCalculationFocus.accuracy = 0;
+        ScoreCalculationFocus.correctCounter = 0;
         ResetResponseTimeTimer();
     }
 

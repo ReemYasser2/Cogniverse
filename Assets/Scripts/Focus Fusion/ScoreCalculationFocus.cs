@@ -14,6 +14,8 @@ public static class ScoreCalculationFocus
     public static float responseTimeGo;
     public static float responseTimeNoGo;
     public static float overallTime;
+    public static int correctCounter = 0;
+    public static float accuracy = 0;
 
     public static bool isPlayPressed = false;
     public static bool isTimeOver = false;
@@ -42,7 +44,7 @@ public static class ScoreCalculationFocus
     public static void Increment()
     {
         incrementCounter++;
-
+        correctCounter++;
         score++;
         Debug.Log(score);
         if (incrementCounter % 5 == 0)
@@ -87,5 +89,9 @@ public static class ScoreCalculationFocus
         int randomIndex = Random.Range(0, negativeDecrease.Count);
         return negativeDecrease[randomIndex];
     }
-
+    public static float AccuracyCalculation(int correct, int total)
+    {
+        accuracy = correct / total;
+        return accuracy;
+    }
 }

@@ -20,9 +20,10 @@ public class LevelTransitionWhack : MonoBehaviour
             WhackMenuHandler.level2LockButton.SetActive(false);
             ScoreCalculationWhack.score = 0;
             ScoreCalculationWhack.responseTimeGo = ScoreCalculationWhack.responseTimeGo / ScoreCalculationWhack.spawnsCounter;
-            
+            ScoreCalculationFocus.AccuracyCalculation(ScoreCalculationWhack.correctCounter, ScoreCalculationWhack.spawnsCounter);
+
             Debug.Log("Response time:" + ScoreCalculationWhack.responseTimeGo);
-            Debug.Log("Conter: " + ScoreCalculationWhack.spawnsCounter);
+            Debug.Log("Counter: " + ScoreCalculationWhack.spawnsCounter);
             ResetResponseTimeTimer();
 
         }
@@ -31,6 +32,8 @@ public class LevelTransitionWhack : MonoBehaviour
             WhackMenuHandler.timerCanvas.SetActive(false);
             WhackMenuHandler.instructionsLevel1RetryCanvas.SetActive(true);
             ScoreCalculationWhack.score = 0;
+            ScoreCalculationWhack.accuracy = 0;
+            ScoreCalculationWhack.correctCounter = 0;
             ResetResponseTimeTimer();
         }
     }
@@ -47,11 +50,12 @@ public class LevelTransitionWhack : MonoBehaviour
             ScoreCalculationWhack.score = 0;
             ScoreCalculationWhack.responseTimeGo = ScoreCalculationWhack.responseTimeGo / ScoreCalculationWhack.spawnerGoCounter;
             ScoreCalculationWhack.responseTimeNoGo = ScoreCalculationWhack.responseTimeNoGo / ScoreCalculationWhack.spawnerNoGoCounter;
-            
+            ScoreCalculationFocus.AccuracyCalculation(ScoreCalculationWhack.correctCounter, ScoreCalculationWhack.spawnsCounter);
+
             Debug.Log("Response time Go:" + ScoreCalculationWhack.responseTimeGo);
             Debug.Log("Response time No Go:" + ScoreCalculationWhack.responseTimeNoGo);
-            Debug.Log("Conter go: " + ScoreCalculationWhack.spawnerGoCounter);
-            Debug.Log("Conter no go: " + ScoreCalculationWhack.spawnerNoGoCounter);
+            Debug.Log("Counter go: " + ScoreCalculationWhack.spawnerGoCounter);
+            Debug.Log("Counter no go: " + ScoreCalculationWhack.spawnerNoGoCounter);
             ResetResponseTimeTimer();
         }
         else if (((ScoreCalculationWhack.score) / ScoreCalculationWhack.spawnsCounter) < 0.7 && ScoreCalculationWhack.isTimeOver) // retry lvl3
@@ -59,6 +63,8 @@ public class LevelTransitionWhack : MonoBehaviour
             WhackMenuHandler.timerCanvas.SetActive(false);
             WhackMenuHandler.instructionsLevel2RetryCanvas.SetActive(true);
             ScoreCalculationWhack.score = 0;
+            ScoreCalculationWhack.accuracy = 0;
+            ScoreCalculationWhack.correctCounter = 0;
             ResetResponseTimeTimer();
         }
     }
@@ -68,6 +74,8 @@ public class LevelTransitionWhack : MonoBehaviour
         ScoreCalculationWhack.isHomeButtonClicked = true;
 
         ScoreCalculationWhack.score = 0;
+        ScoreCalculationWhack.accuracy = 0;
+        ScoreCalculationWhack.correctCounter = 0;
         ScoreCalculationWhack.isTimeOver = true;
         ScoreCalculationWhack.isPlayPressed = false;
 
