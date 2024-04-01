@@ -20,6 +20,13 @@ public class FocusLevelTransition : MonoBehaviour
             ScoreCalculationFocus.score = 0;
             ScoreCalculationFocus.responseTimeGo = ScoreCalculationFocus.responseTimeGo / ScoreCalculationFocus.totalTrialsGo;
             ScoreCalculationFocus.responseTimeNoGo = ScoreCalculationFocus.responseTimeNoGo / ScoreCalculationFocus.totalTrialsNoGo;
+
+            Debug.Log("Response time Go:" + ScoreCalculationFocus.responseTimeGo);
+            Debug.Log("Response time No Go:" + ScoreCalculationFocus.responseTimeNoGo);
+            Debug.Log("Conter go: " + ScoreCalculationFocus.totalTrialsGo);
+            Debug.Log("Conter no go: " + ScoreCalculationFocus.totalTrialsNoGo);
+
+            ResetResponseTimeTimer();
         }
         else if (ScoreCalculationFocus.score < 5 && ScoreCalculationFocus.isTimeOver) // retry lvl1
         {
@@ -27,6 +34,7 @@ public class FocusLevelTransition : MonoBehaviour
             GridSpawner.ResetText();
             menuHandler.instructionsLevel1RetryCanvas.SetActive(true);
             ScoreCalculationFocus.score = 0;
+            ResetResponseTimeTimer();
         }
     }
 
@@ -42,6 +50,13 @@ public class FocusLevelTransition : MonoBehaviour
             ScoreCalculationFocus.score = 0;
             ScoreCalculationFocus.responseTimeGo = ScoreCalculationFocus.responseTimeGo / ScoreCalculationFocus.totalTrialsGo;
             ScoreCalculationFocus.responseTimeNoGo = ScoreCalculationFocus.responseTimeNoGo / ScoreCalculationFocus.totalTrialsNoGo;
+
+            Debug.Log("Response time Go:" + ScoreCalculationFocus.responseTimeGo);
+            Debug.Log("Response time No Go:" + ScoreCalculationFocus.responseTimeNoGo);
+            Debug.Log("Conter go: " + ScoreCalculationFocus.totalTrialsGo);
+            Debug.Log("Conter no go: " + ScoreCalculationFocus.totalTrialsNoGo);
+
+            ResetResponseTimeTimer();
         }
         else if (ScoreCalculationFocus.score < 5 && ScoreCalculationFocus.isTimeOver) // retry lvl2
         {
@@ -49,6 +64,7 @@ public class FocusLevelTransition : MonoBehaviour
             GridSpawner.ResetText();
             menuHandler.instructionsLevel2RetryCanvas.SetActive(true);
             ScoreCalculationFocus.score = 0;
+            ResetResponseTimeTimer();
         }
     }
 
@@ -64,12 +80,18 @@ public class FocusLevelTransition : MonoBehaviour
         ScoreCalculationFocus.isLevel2 = false;
         ScoreCalculationFocus.isGameOver = true;
 
+        ScoreCalculationFocus.isPaused = false;
+
+        ResetResponseTimeTimer();
+    }
+
+    private void ResetResponseTimeTimer()
+    {
         ScoreCalculationFocus.totalTrialsNoGo = 0;
         ScoreCalculationFocus.totalTrialsGo = 0;
         ScoreCalculationFocus.responseTimeGo = 0;
         ScoreCalculationFocus.responseTimeNoGo = 0;
         ScoreCalculationFocus.isStopWatchStart = false;
-        ScoreCalculationFocus.isPaused = false;
         ScoreCalculationFocus.elapsedTimeStopWatch = 0;
     }
 }

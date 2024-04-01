@@ -31,9 +31,6 @@ public class LevelTransitionWhack : MonoBehaviour
             WhackMenuHandler.timerCanvas.SetActive(false);
             WhackMenuHandler.instructionsLevel1RetryCanvas.SetActive(true);
             ScoreCalculationWhack.score = 0;
-            
-            Debug.Log("Response time:" + ScoreCalculationWhack.responseTimeGo);
-            Debug.Log("Conter: " + ScoreCalculationWhack.spawnsCounter);
             ResetResponseTimeTimer();
         }
     }
@@ -48,11 +45,13 @@ public class LevelTransitionWhack : MonoBehaviour
             WhackMenuHandler.completeLevel2Canvas.SetActive(true);
             ScoreCalculationWhack.isGameOver = true;
             ScoreCalculationWhack.score = 0;
-            ScoreCalculationWhack.responseTimeGo = ScoreCalculationWhack.responseTimeGo / ScoreCalculationWhack.spawnsCounter;
-            ScoreCalculationWhack.responseTimeNoGo = ScoreCalculationWhack.responseTimeNoGo / ScoreCalculationWhack.spawnsCounter;
+            ScoreCalculationWhack.responseTimeGo = ScoreCalculationWhack.responseTimeGo / ScoreCalculationWhack.spawnerGoCounter;
+            ScoreCalculationWhack.responseTimeNoGo = ScoreCalculationWhack.responseTimeNoGo / ScoreCalculationWhack.spawnerNoGoCounter;
             
-            Debug.Log("Response time:" + ScoreCalculationWhack.responseTimeGo);
-            Debug.Log("Conter: " + ScoreCalculationWhack.spawnsCounter);
+            Debug.Log("Response time Go:" + ScoreCalculationWhack.responseTimeGo);
+            Debug.Log("Response time No Go:" + ScoreCalculationWhack.responseTimeNoGo);
+            Debug.Log("Conter go: " + ScoreCalculationWhack.spawnerGoCounter);
+            Debug.Log("Conter no go: " + ScoreCalculationWhack.spawnerNoGoCounter);
             ResetResponseTimeTimer();
         }
         else if (((ScoreCalculationWhack.score) / ScoreCalculationWhack.spawnsCounter) < 0.7 && ScoreCalculationWhack.isTimeOver) // retry lvl3
@@ -60,9 +59,6 @@ public class LevelTransitionWhack : MonoBehaviour
             WhackMenuHandler.timerCanvas.SetActive(false);
             WhackMenuHandler.instructionsLevel2RetryCanvas.SetActive(true);
             ScoreCalculationWhack.score = 0;
-            
-            Debug.Log("Response time:" + ScoreCalculationWhack.responseTimeGo);
-            Debug.Log("Conter: " + ScoreCalculationWhack.spawnsCounter);
             ResetResponseTimeTimer();
         }
     }
