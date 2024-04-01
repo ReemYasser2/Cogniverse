@@ -114,9 +114,12 @@ public class Spawner : MonoBehaviour
                 if (firstObject.layer == 11) { ScoreCalculationWhack.spawnerNoGoCounter++; }
                 else { ScoreCalculationWhack.spawnerGoCounter++; }
 
-                int randomIndex2 = Random.Range(0, alienTwo.Length);
-
-                GameObject secondObject = alienTwo[randomIndex2]; 
+                int randomIndex2 = Random.Range(0, alienOne.Length);
+                if (randomIndex2 == randomIndex)
+                {
+                    randomIndex2 = Random.Range(0, alienOne.Length);
+                }
+                GameObject secondObject = alienOne[randomIndex2]; 
                 secondObject.SetActive(true);
                 ScoreCalculationWhack.spawnsCounter++;
 
