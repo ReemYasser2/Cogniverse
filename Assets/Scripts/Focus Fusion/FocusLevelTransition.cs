@@ -69,6 +69,7 @@ public class FocusLevelTransition : MonoBehaviour
         ScoreCalculationFocus.responseTimeGo = 0;
         ScoreCalculationFocus.responseTimeNoGo = 0;
         ScoreCalculationFocus.isStopWatchStart = false;
+        ScoreCalculationFocus.isPaused = false;
         ScoreCalculationFocus.elapsedTimeStopWatch = 0;
     }
 }

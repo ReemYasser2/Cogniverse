@@ -10,6 +10,9 @@ public static class ScoreCalculationFocus
     public static int incrementCounter = 0;
     public static float remainingTime;
     public static float elapsedTimeStopWatch;
+    public static float stopWatchtime;
+    public static float responseTimeGo;
+    public static float responseTimeNoGo;
 
     public static bool isPlayPressed = false;
     public static bool isTimeOver = false;
@@ -18,12 +21,11 @@ public static class ScoreCalculationFocus
     public static bool isGameOver;
     public static bool isHomeClicked;
     public static bool isStopWatchStart = false;
+    public static bool isPaused = false;
 
-    public static int stopWatchtime;
     public static int totalTrialsNoGo;
     public static int totalTrialsGo;
-    public static int responseTimeGo;
-    public static int responseTimeNoGo;
+    
     
 
     static List<string> positiveIncrease = new List<string>

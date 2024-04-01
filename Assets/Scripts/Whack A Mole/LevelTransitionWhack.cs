@@ -19,12 +19,22 @@ public class LevelTransitionWhack : MonoBehaviour
             WhackMenuHandler.level2Button.SetActive(true);
             WhackMenuHandler.level2LockButton.SetActive(false);
             ScoreCalculationWhack.score = 0;
+            ScoreCalculationWhack.responseTimeGo = ScoreCalculationWhack.responseTimeGo / ScoreCalculationWhack.spawnsCounter;
+            
+            Debug.Log("Response time:" + ScoreCalculationWhack.responseTimeGo);
+            Debug.Log("Conter: " + ScoreCalculationWhack.spawnsCounter);
+            ResetResponseTimeTimer();
+
         }
         else if (((ScoreCalculationWhack.score) / ScoreCalculationWhack.spawnsCounter) < 0.7 && ScoreCalculationWhack.isTimeOver) // retry lvl1
         {
             WhackMenuHandler.timerCanvas.SetActive(false);
             WhackMenuHandler.instructionsLevel1RetryCanvas.SetActive(true);
             ScoreCalculationWhack.score = 0;
+            
+            Debug.Log("Response time:" + ScoreCalculationWhack.responseTimeGo);
+            Debug.Log("Conter: " + ScoreCalculationWhack.spawnsCounter);
+            ResetResponseTimeTimer();
         }
     }
 
@@ -38,12 +48,22 @@ public class LevelTransitionWhack : MonoBehaviour
             WhackMenuHandler.completeLevel2Canvas.SetActive(true);
             ScoreCalculationWhack.isGameOver = true;
             ScoreCalculationWhack.score = 0;
+            ScoreCalculationWhack.responseTimeGo = ScoreCalculationWhack.responseTimeGo / ScoreCalculationWhack.spawnsCounter;
+            ScoreCalculationWhack.responseTimeNoGo = ScoreCalculationWhack.responseTimeNoGo / ScoreCalculationWhack.spawnsCounter;
+            
+            Debug.Log("Response time:" + ScoreCalculationWhack.responseTimeGo);
+            Debug.Log("Conter: " + ScoreCalculationWhack.spawnsCounter);
+            ResetResponseTimeTimer();
         }
         else if (((ScoreCalculationWhack.score) / ScoreCalculationWhack.spawnsCounter) < 0.7 && ScoreCalculationWhack.isTimeOver) // retry lvl3
         {
             WhackMenuHandler.timerCanvas.SetActive(false);
             WhackMenuHandler.instructionsLevel2RetryCanvas.SetActive(true);
             ScoreCalculationWhack.score = 0;
+            
+            Debug.Log("Response time:" + ScoreCalculationWhack.responseTimeGo);
+            Debug.Log("Conter: " + ScoreCalculationWhack.spawnsCounter);
+            ResetResponseTimeTimer();
         }
     }
 
@@ -58,6 +78,27 @@ public class LevelTransitionWhack : MonoBehaviour
         ScoreCalculationWhack.isLevel1 = false;
         ScoreCalculationWhack.isLevel2 = false;
         ScoreCalculationWhack.isGameOver = true;
+
+        ScoreCalculationWhack.isPaused1 = false;
+        ScoreCalculationWhack.isPaused2 = false;
+        ScoreCalculationWhack.isStopWatch1Start = false;
+        ScoreCalculationWhack.isStopWatch2Start = false;
+        ScoreCalculationWhack.isFirstObjectCollide = false;
+        ScoreCalculationWhack.isSecondObjectCollide = false;
+        ResetResponseTimeTimer();
+
+    }
+
+    private void ResetResponseTimeTimer()
+    {
+        ScoreCalculationWhack.elapsedTimeStopWatch1 = 0;
+        ScoreCalculationWhack.elapsedTimeStopWatch2 = 0;
+        ScoreCalculationWhack.responseTimeGo = 0;
+        ScoreCalculationWhack.responseTimeNoGo = 0;
+        ScoreCalculationWhack.stopWatchtime1 = 0;
+        ScoreCalculationWhack.stopWatchtime2 = 0;
+        ScoreCalculationWhack.spawnerGoCounter = 0;
+        ScoreCalculationWhack.spawnerNoGoCounter = 0;
     }
 }
 

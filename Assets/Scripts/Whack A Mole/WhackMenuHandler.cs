@@ -52,7 +52,8 @@ public class WhackMenuHandler : MonoBehaviour
             if ((ScoreCalculationWhack.isLevel1 || ScoreCalculationWhack.isLevel2) && !ScoreCalculationWhack.isGameOver)
             {
                 GeneralMenuHandler.MenuHelperFuncrion(menuCanvas, 1);
-
+                StopWatch1Whack.PauseTimer();
+                StopWatch2Whack.PauseTimer();
             }
         }
         if ((instructionsLevel1RetryCanvas.activeSelf == true || instructionsLevel2RetryCanvas.activeSelf == true || instructionsLevel2NextCanvas.activeSelf == true || instructionsLevel1SelectlvlCanvas.activeSelf == true || instructionsLevel2SelectlvlCanvas.activeSelf == true || completeLevel1Canvas.activeSelf == true || completeLevel2Canvas.activeSelf == true) && mainMenuCanvas.activeSelf == false && selectLevelCanvas.activeSelf == false)

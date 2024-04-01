@@ -26,6 +26,9 @@ public class Spawner : MonoBehaviour
             } */
             while (!ScoreCalculationWhack.isTimeOver && !ScoreCalculationWhack.isHomeButtonClicked)
             {
+                ScoreCalculationWhack.isFirstObjectCollide = false;
+                ScoreCalculationWhack.isSecondObjectCollide = false;
+
                 int selectedPeriodIndex = Random.Range(0, waitingPeriods.Length);
                 float randomWaitTime = waitingPeriods[selectedPeriodIndex];
 
@@ -38,9 +41,18 @@ public class Spawner : MonoBehaviour
 
                 GameObject secondObject = alienOne[randomIndex2]; secondObject.SetActive(true);
                 ScoreCalculationWhack.spawnsCounter++;
+                
                 yield return new WaitForSeconds(0.35f);
+                
+                // start response time
+                ScoreCalculationWhack.tag1 = firstObject.tag;
+                ScoreCalculationWhack.isStopWatch1Start = true;
 
-                MoveObjectUp(firstObject, targetYPositionUp); yield return new WaitForSeconds(randomWaitTime);
+                ScoreCalculationWhack.tag2 = secondObject.tag;
+                ScoreCalculationWhack.isStopWatch2Start = true;
+
+                MoveObjectUp(firstObject, targetYPositionUp);
+                yield return new WaitForSeconds(randomWaitTime);
                 MoveObjectUp(secondObject, targetYPositionUp);
 
                 //isUp[randomIndex] = true;
@@ -49,15 +61,35 @@ public class Spawner : MonoBehaviour
                 randomWaitTime = waitingPeriods[selectedPeriodIndex];
 
                 yield return new WaitForSeconds(0.8f);      
-                MoveObjectDown(firstObject, targetYPositionDown); firstObject.SetActive(false);
+                MoveObjectDown(firstObject, targetYPositionDown);
+
+                if (!ScoreCalculationWhack.isFirstObjectCollide)
+                {
+                    ScoreCalculationWhack.isStopWatch1Start = false;
+                    ScoreCalculationWhack.elapsedTimeStopWatch1 = 0;
+                    ScoreCalculationWhack.responseTimeGo = ScoreCalculationWhack.responseTimeGo + ScoreCalculationWhack.stopWatchtime1;
+                }
+
+                firstObject.SetActive(false);
                 //isUp[randomIndex] = false;
                 yield return new WaitForSeconds(randomWaitTime); 
-                MoveObjectDown(secondObject, targetYPositionDown); secondObject.SetActive(false);
+                MoveObjectDown(secondObject, targetYPositionDown);
+
+                if (!ScoreCalculationWhack.isSecondObjectCollide)
+                {
+                    ScoreCalculationWhack.isStopWatch2Start = false;
+                    ScoreCalculationWhack.elapsedTimeStopWatch2 = 0;
+                    ScoreCalculationWhack.responseTimeGo = ScoreCalculationWhack.responseTimeGo + ScoreCalculationWhack.stopWatchtime2;
+                }
+
+                secondObject.SetActive(false);
                 //isUp[randomIndex2] = false;
             }
             if (!ScoreCalculationWhack.isHomeButtonClicked) { levelTransition.CheckLevel1(); }
             ScoreCalculationWhack.isLevel1 = false;
             ScoreCalculationWhack.spawnsCounter = 0;
+            ScoreCalculationWhack.spawnerGoCounter = 0;
+            ScoreCalculationWhack.spawnerNoGoCounter = 0;
 
         }
     else if (level == 2)
@@ -79,13 +111,29 @@ public class Spawner : MonoBehaviour
                 firstObject.SetActive(true);
                 ScoreCalculationWhack.spawnsCounter++;
 
+                if (firstObject.layer == 11) { ScoreCalculationWhack.spawnerNoGoCounter++; }
+                else { ScoreCalculationWhack.spawnerGoCounter++; }
+
                 int randomIndex2 = Random.Range(0, alienTwo.Length);
 
-                GameObject secondObject = alienTwo[randomIndex2]; secondObject.SetActive(true);
+                GameObject secondObject = alienTwo[randomIndex2]; 
+                secondObject.SetActive(true);
                 ScoreCalculationWhack.spawnsCounter++;
+
+                if (secondObject.layer == 11) { ScoreCalculationWhack.spawnerNoGoCounter++; }
+                else { ScoreCalculationWhack.spawnerGoCounter++; }
+
                 yield return new WaitForSeconds(0.35f);
 
-                MoveObjectUp(firstObject, targetYPositionUp); yield return new WaitForSeconds(randomWaitTime);
+                // start response time
+                ScoreCalculationWhack.tag1 = firstObject.tag;
+                ScoreCalculationWhack.isStopWatch1Start = true;
+
+                ScoreCalculationWhack.tag2 = secondObject.tag;
+                ScoreCalculationWhack.isStopWatch2Start = true;
+
+                MoveObjectUp(firstObject, targetYPositionUp); 
+                yield return new WaitForSeconds(randomWaitTime);
                 MoveObjectUp(secondObject, targetYPositionUp);
                 //isUp[randomIndex] = true;
                 //isUp[randomIndex2] = true;
@@ -93,15 +141,38 @@ public class Spawner : MonoBehaviour
                 selectedPeriodIndex = Random.Range(0, waitingPeriods.Length);
                 randomWaitTime = waitingPeriods[selectedPeriodIndex];
                 yield return new WaitForSeconds(0.8f);
-                MoveObjectDown(firstObject, targetYPositionDown); firstObject.SetActive(false);
+
+                MoveObjectDown(firstObject, targetYPositionDown);
+
+                if (!ScoreCalculationWhack.isFirstObjectCollide)
+                {
+                    ScoreCalculationWhack.isStopWatch1Start = false;
+                    ScoreCalculationWhack.elapsedTimeStopWatch1 = 0;
+                    if (firstObject.layer == 11) { ScoreCalculationWhack.responseTimeNoGo = ScoreCalculationWhack.responseTimeNoGo + ScoreCalculationWhack.stopWatchtime1; }
+                    else { ScoreCalculationWhack.responseTimeGo = ScoreCalculationWhack.responseTimeGo + ScoreCalculationWhack.stopWatchtime1; }
+                }
+
+                firstObject.SetActive(false);
                 //isUp[randomIndex] = false;
                 yield return new WaitForSeconds(randomWaitTime);
-                MoveObjectDown(secondObject, targetYPositionDown); secondObject.SetActive(false);
+                MoveObjectDown(secondObject, targetYPositionDown);
+
+                if (!ScoreCalculationWhack.isSecondObjectCollide)
+                {
+                    ScoreCalculationWhack.isStopWatch2Start = false;
+                    ScoreCalculationWhack.elapsedTimeStopWatch2 = 0;
+                    if (secondObject.layer == 11) { ScoreCalculationWhack.responseTimeNoGo = ScoreCalculationWhack.responseTimeNoGo + ScoreCalculationWhack.stopWatchtime2; }
+                    else { ScoreCalculationWhack.responseTimeGo = ScoreCalculationWhack.responseTimeGo + ScoreCalculationWhack.stopWatchtime2; }
+                }
+
+                secondObject.SetActive(false);
                 //isUp[randomIndex2] = false;
             }
             if (!ScoreCalculationWhack.isHomeButtonClicked) { levelTransition.CheckLevel2(); }
             ScoreCalculationWhack.isLevel2 = false;;
             ScoreCalculationWhack.spawnsCounter = 0;
+            ScoreCalculationWhack.spawnerGoCounter = 0;
+            ScoreCalculationWhack.spawnerNoGoCounter = 0;
 
         }
     }

@@ -54,6 +54,7 @@ public class FocusMenuHandler : MonoBehaviour
             if ((ScoreCalculationFocus.isLevel1 || ScoreCalculationFocus.isLevel2) && !ScoreCalculationFocus.isGameOver)
             {
                 GeneralMenuHandler.MenuHelperFuncrion(menuCanvas, 1);
+                StopWatchFocus.PauseTimer();
                 gridSpawner.ShowHideGrid(false);
             }
         }

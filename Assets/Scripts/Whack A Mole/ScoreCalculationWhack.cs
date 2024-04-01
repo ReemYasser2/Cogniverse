@@ -8,8 +8,12 @@ public static class ScoreCalculationWhack
     public static int spawnsCounter = 0;
     public static float scoreOnePercent = 0;
     public static float scoreTwoPercent = 0;
+    public static float spawnerNoGoCounter = 0;
+    public static float spawnerGoCounter = 0;
 
     public static string reinforcementText;
+    public static string tag1;
+    public static string tag2;
 
     public static bool isLevel1;
     public static bool isLevel2;
@@ -17,8 +21,20 @@ public static class ScoreCalculationWhack
     public static bool isPlayPressed = false;
     public static bool isTimeOver = false;
     public static bool isHomeButtonClicked;
+    public static bool isStopWatch1Start = false;
+    public static bool isStopWatch2Start = false;
+    public static bool isFirstObjectCollide = false;
+    public static bool isSecondObjectCollide = false;
+    public static bool isPaused1 = false;
+    public static bool isPaused2 = false;
 
     public static float remainingTime;
+    public static float elapsedTimeStopWatch1;
+    public static float elapsedTimeStopWatch2;
+    public static float responseTimeGo;
+    public static float responseTimeNoGo;
+    public static float stopWatchtime1;
+    public static float stopWatchtime2;
 
     static List<string> positiveIncrease = new List<string>
             { " Good Job", "Keep it up", "You're on a roll", "Excellent work", "Amazing!!", "Awesome!!", "Well done!!"};

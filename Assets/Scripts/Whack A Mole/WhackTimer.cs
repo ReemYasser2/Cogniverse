@@ -54,8 +54,8 @@ public class WhackTimer : MonoBehaviour
         ScoreCalculationWhack.isPlayPressed = true;
         ScoreCalculationWhack.isTimeOver = false;
         timerText.color = Color.white;
-        if (ScoreCalculationWhack.isLevel1) { ScoreCalculationWhack.remainingTime = 300; }
-        else if (ScoreCalculationWhack.isLevel2) {  ScoreCalculationWhack.remainingTime = 300; }
+        if (ScoreCalculationWhack.isLevel1) { ScoreCalculationWhack.remainingTime = 150; }
+        else if (ScoreCalculationWhack.isLevel2) {  ScoreCalculationWhack.remainingTime = 150; }
      
         //remainingTime = GeneralCountDownTimer.TimerInitialization(timerText, isLevel1, isLevel2, 5, 10);
     }

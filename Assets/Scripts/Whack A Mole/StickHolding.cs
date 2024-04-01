@@ -33,10 +33,12 @@ public class StickHolding : MonoBehaviour
                     {
                         Debug.Log("Timer is paused");
                         PauseGame.Pause();
+                        StopWatch1Whack.PauseTimer();
+                        StopWatch2Whack.PauseTimer();
                     }
                     else
                     {
-                        Debug.Log("Timer is running");
+                        //Debug.Log("Timer is running");
                     }
                 }
             }
@@ -56,8 +58,10 @@ public class StickHolding : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("Timer is running");
+                        //Debug.Log("Timer is running");
                         PauseGame.Pause();
+                        StopWatch1Whack.ResumeTimer();
+                        StopWatch2Whack.ResumeTimer();
                     }
                 }
             }
