@@ -68,7 +68,8 @@ public class SpawnManager : MonoBehaviour
             score1 = ScoreCalculator.score;
             if (!ScoreCalculator.isHomeClicked) { levelTransition.CheckLevel1(); }
             ScoreCalculator.isLevel1 = false;
-            
+            ScoreCalculator.overallTime = 0f;
+
         }
         else if (level == 2)
         {
@@ -120,6 +121,7 @@ public class SpawnManager : MonoBehaviour
             score2 = ScoreCalculator.score;
             ScoreCalculator.isLevel2 = false;
             if (!ScoreCalculator.isHomeClicked) { levelTransition.CheckLevel2(); }
+            ScoreCalculator.overallTime = 0f;
         }
         else if (level == 3)
         {
@@ -172,6 +174,7 @@ public class SpawnManager : MonoBehaviour
             score3 = ScoreCalculator.score;
             ScoreCalculator.isLevel3 = false;
             if (!ScoreCalculator.isHomeClicked) { levelTransition.CheckLevel3(); }
+            ScoreCalculator.overallTime = 0f;
         }
     }   
     

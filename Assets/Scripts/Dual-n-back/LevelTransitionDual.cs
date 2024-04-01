@@ -12,6 +12,8 @@ public class LevelTransitionDual : MonoBehaviour
         if ((ScoreCalculator.score)/30 >= 0.7)
         {
             // pass lvl 1
+            TimerDual.OverallTime();
+            Debug.Log("overall time: " + ScoreCalculator.overallTime);
             ScoreCalculator.reinforcementText = "";
             ScoreCalculator.scoreOnePercent = ScoreCalculator.score / 30;
             ShowCompleteLevel1Canvas();
@@ -37,6 +39,8 @@ public class LevelTransitionDual : MonoBehaviour
         if ((ScoreCalculator.score) / 45 >= 0.7)
         {
             // pass lvl2
+            TimerDual.OverallTime();
+            Debug.Log("overall time: " + ScoreCalculator.overallTime);
             ScoreCalculator.reinforcementText = "";
             ScoreCalculator.scoreTwoPercent = ScoreCalculator.score / 45;
             ShowCompleteLevel2Canvas();
@@ -66,6 +70,8 @@ public class LevelTransitionDual : MonoBehaviour
             ScoreCalculator.scoreThreePercent = ScoreCalculator.score / 45;
             ShowCompleteLevel3Canvas();
             ScoreCalculator.score = 0;
+            TimerDual.OverallTime();
+            Debug.Log("overall time: " + ScoreCalculator.overallTime);
             ScoreCalculator.elapsedTime = 0f;
             ScoreCalculator.isPlayPressed = false;
             Debug.Log("game over test");
@@ -121,5 +127,7 @@ public class LevelTransitionDual : MonoBehaviour
         ScoreCalculator.scoreOnePercent = 0;
         ScoreCalculator.scoreTwoPercent = 0;
         ScoreCalculator.scoreThreePercent = 0;
+
+        ScoreCalculator.overallTime = 0f;
     }
 }

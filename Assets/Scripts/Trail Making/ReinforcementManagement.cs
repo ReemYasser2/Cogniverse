@@ -9,6 +9,7 @@ public static class ReinforcementManagement
     public static string reinforcementText;
     public static int incrementCounter = 0;
     public static float elapsedTime;
+    public static float overallTime;
 
     public static bool isPlayPressed = false;
     public static bool isPaused = false;

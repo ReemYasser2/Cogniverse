@@ -41,4 +41,9 @@ public class CountUpTimer : MonoBehaviour
     {
         ReinforcementManagement.isPaused = false;
     }
+
+    public static void OverallTime()
+    {
+        ReinforcementManagement.overallTime = Mathf.Round(ReinforcementManagement.elapsedTime * 100f) / 100f;
+    }
 }

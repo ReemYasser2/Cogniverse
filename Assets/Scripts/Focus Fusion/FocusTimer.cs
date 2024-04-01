@@ -35,6 +35,8 @@ public class FocusTimer : MonoBehaviour
             }
             else if (ScoreCalculationFocus.remainingTime <= 0)
             {
+                OverallTime();
+                Debug.Log("overall time: " + ScoreCalculationFocus.overallTime);
                 ScoreCalculationFocus.remainingTime = 0;
                 // Timer is over
                 ScoreCalculationFocus.isTimeOver = true;
@@ -58,5 +60,8 @@ public class FocusTimer : MonoBehaviour
         //remainingTime = GeneralCountDownTimer.TimerInitialization(timerText, isLevel1, isLevel2, 5, 10);
     }
 
-
+    private void OverallTime()
+    {
+        ScoreCalculationFocus.overallTime = 180 - ScoreCalculationFocus.remainingTime;
+    }
 }

@@ -5,7 +5,6 @@ using TMPro;
 
 public class TimerDual : MonoBehaviour
 {
-    private string timerText;
 
     // Update is called once per frame
     void Update()
@@ -13,10 +12,6 @@ public class TimerDual : MonoBehaviour
         if (ScoreCalculator.isPlayPressed && !ScoreCalculator.isPaused)
         {
             ScoreCalculator.elapsedTime += Time.deltaTime;
-            int minutes = Mathf.FloorToInt(ScoreCalculator.elapsedTime / 60);
-            int seconds = Mathf.FloorToInt(ScoreCalculator.elapsedTime % 60);
-            timerText = string.Format("{0:00}:{1:00}", minutes, seconds);
-            Debug.Log(timerText);
         }
 
     }
@@ -27,6 +22,7 @@ public class TimerDual : MonoBehaviour
         ScoreCalculator.isPlayPressed = true;
         // Reset the timer to zero
         ScoreCalculator.elapsedTime = 0f;
+        ScoreCalculator.overallTime = 0f;
         ScoreCalculator.isPaused = false;
     }
 
@@ -40,5 +36,10 @@ public class TimerDual : MonoBehaviour
     public void ResumeTimer()
     {
         ScoreCalculator.isPaused = false;
+    }
+
+    public static void OverallTime()
+    {
+        ScoreCalculator.overallTime = Mathf.Round(ScoreCalculator.elapsedTime * 100f) / 100f;
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Rendering.Universal;
 
 public class ScoreCalculatorMaze : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class ScoreCalculatorMaze : MonoBehaviour
     public static bool isLevel2;
     public static bool isGameOver;
     public static bool isHomeButtonClicked;
+
+    public static float overallTime;
 
 
     static List<string> positiveIncrease = new List<string>

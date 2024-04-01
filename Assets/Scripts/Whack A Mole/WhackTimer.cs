@@ -36,6 +36,8 @@ public class WhackTimer : MonoBehaviour
             }
             else if (ScoreCalculationWhack.remainingTime <= 0)
             {
+                OverallTime();
+                Debug.Log("overall time: " + ScoreCalculationWhack.overallTime);
                 ScoreCalculationWhack.reinforcementText = "";
 
                 ScoreCalculationWhack.remainingTime = 0;
@@ -58,5 +60,10 @@ public class WhackTimer : MonoBehaviour
         else if (ScoreCalculationWhack.isLevel2) {  ScoreCalculationWhack.remainingTime = 150; }
      
         //remainingTime = GeneralCountDownTimer.TimerInitialization(timerText, isLevel1, isLevel2, 5, 10);
+    }
+
+    private void OverallTime()
+    {
+        ScoreCalculationWhack.overallTime = 150 - ScoreCalculationWhack.remainingTime;
     }
 }

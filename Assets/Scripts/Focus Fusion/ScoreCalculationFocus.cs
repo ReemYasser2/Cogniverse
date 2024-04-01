@@ -13,6 +13,7 @@ public static class ScoreCalculationFocus
     public static float stopWatchtime;
     public static float responseTimeGo;
     public static float responseTimeNoGo;
+    public static float overallTime;
 
     public static bool isPlayPressed = false;
     public static bool isTimeOver = false;

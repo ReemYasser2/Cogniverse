@@ -25,6 +25,7 @@ public static class ScoreCalculator
     public static float scoreOnePercent = 0;
     public static float scoreTwoPercent = 0;
     public static float scoreThreePercent = 0;
+    public static float overallTime;
 
 
     public static float elapsedTime;

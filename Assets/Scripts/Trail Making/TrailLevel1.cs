@@ -161,6 +161,8 @@ public class TrailLevel1 : MonoBehaviour
 
         if ((levelOneScore == 15 || levelOneScore + mistakes == 15) && (ReinforcementManagement.elapsedTime < 30f ) && mistakes < 3) // pass lvl1
         {
+            CountUpTimer.OverallTime();
+            Debug.Log("overall time: " + ReinforcementManagement.overallTime);
             ResetButtonColors(0);
             ReinforcementManagement.level_1 = false;
             ReinforcementManagement.level_2 = true;

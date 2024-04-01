@@ -35,6 +35,7 @@ public static class ScoreCalculationWhack
     public static float responseTimeNoGo;
     public static float stopWatchtime1;
     public static float stopWatchtime2;
+    public static float overallTime;
 
     static List<string> positiveIncrease = new List<string>
             { " Good Job", "Keep it up", "You're on a roll", "Excellent work", "Amazing!!", "Awesome!!", "Well done!!"};

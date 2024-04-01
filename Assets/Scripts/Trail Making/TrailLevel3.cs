@@ -141,6 +141,8 @@ public class TrailLevel3 : MonoBehaviour
 
         if ((levelThreeScore == 30 || levelThreeScore + mistakes == 30) && (ReinforcementManagement.elapsedTime < 120f) && mistakes < 3) // pass lvl3
         {
+            CountUpTimer.OverallTime();
+            Debug.Log("overall time: " + ReinforcementManagement.overallTime);
             Debug.Log("Heighest Score");
             // timer end
             ReinforcementManagement.elapsedTime = 0f;
