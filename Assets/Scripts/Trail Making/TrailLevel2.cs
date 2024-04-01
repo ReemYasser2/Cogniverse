@@ -147,6 +147,7 @@ public class TrailLevel2 : MonoBehaviour
         {
             CountUpTimer.OverallTime();
             Debug.Log("overall time: " + ReinforcementManagement.overallTime);
+            ReinforcementManagement.numberOfMistakeslvl2 = mistakes;
             ResetButtonColors(0);
 
             ReinforcementManagement.level_1 = false;

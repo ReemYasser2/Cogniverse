@@ -19,6 +19,10 @@ public static class ReinforcementManagement
     public static bool level_3 = false;
     public static bool isGameOver;
 
+    public static int numberOfMistakeslvl1;
+    public static int numberOfMistakeslvl2;
+    public static int numberOfMistakeslvl3;
+
     static List<string> positiveIncrease = new List<string>
             { " Good Job", "Keep it up", "You're on a roll", "Excellent work", "Amazing!!", "Awesome!!", "Well done!!"};
     static List<string> positiveDecrease = new List<string>

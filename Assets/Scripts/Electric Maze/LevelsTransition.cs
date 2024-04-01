@@ -10,6 +10,7 @@ public class LevelsTransition : MonoBehaviour
        if (ScoreCalculatorMaze.score <= 2)// && CountDownTimer.isTimeOver) 
         {
             // pass lvl1
+            ScoreCalculatorMaze.numberOfHits = ScoreCalculatorMaze.score;
             menuHandler.completeLevel1Canvas.SetActive(true);
             menuHandler.level2Button.SetActive(true);
             menuHandler.level2LockButton.SetActive(false);
@@ -32,6 +33,7 @@ public class LevelsTransition : MonoBehaviour
         if (ScoreCalculatorMaze.score <= 4)// && CountDownTimer.isTimeOver) 
         {
             // pass lvl2
+            ScoreCalculatorMaze.numberOfHits = ScoreCalculatorMaze.score;
             menuHandler.completeLevel2Canvas.SetActive(true);
             mazeSpawner.ShowHideMaze(false);
             ScoreCalculatorMaze.isGameOver = true;

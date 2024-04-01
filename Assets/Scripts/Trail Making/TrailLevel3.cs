@@ -143,6 +143,7 @@ public class TrailLevel3 : MonoBehaviour
         {
             CountUpTimer.OverallTime();
             Debug.Log("overall time: " + ReinforcementManagement.overallTime);
+            ReinforcementManagement.numberOfMistakeslvl3 = mistakes;
             Debug.Log("Heighest Score");
             // timer end
             ReinforcementManagement.elapsedTime = 0f;
