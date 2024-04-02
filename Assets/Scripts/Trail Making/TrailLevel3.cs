@@ -66,7 +66,7 @@ public class TrailLevel3 : MonoBehaviour
                     ReinforcementManagement.PositiveReinforcementDecrement();
                     MistakesIndicator();
                     buttonNum = buttonNo;
-                    scorePercent = levelThreeScore / 30;
+                    //scorePercent = levelThreeScore / 30;
                 }
                 else if (levelThreeScore < -1 && mistakes > 0)
                 {
@@ -87,7 +87,7 @@ public class TrailLevel3 : MonoBehaviour
                     levelThreeScore++;
                     correctCounter++;
                     buttonNum = buttonNo;
-                    scorePercent = levelThreeScore / 30;
+                    //scorePercent = levelThreeScore / 30;
                 }
             }
             else
@@ -100,7 +100,7 @@ public class TrailLevel3 : MonoBehaviour
                 levelThreeScore++;
                 correctCounter++;
                 buttonNum = buttonNo;
-                scorePercent = levelThreeScore / 30;
+                //scorePercent = levelThreeScore / 30;
             }
             
         }
@@ -115,7 +115,7 @@ public class TrailLevel3 : MonoBehaviour
                 levelThreeScore++;
                 correctCounter++;
                 buttonNum = buttonNo;
-                scorePercent = levelThreeScore / 30;
+               // scorePercent = levelThreeScore / 30;
             }
             else
             {
@@ -124,7 +124,7 @@ public class TrailLevel3 : MonoBehaviour
                 clickedButton.GetComponent<Image>().color = Color.red;
                 ReinforcementManagement.PositiveReinforcementDecrement();
                 MistakesIndicator();
-                scorePercent = levelThreeScore / 30;
+                //scorePercent = levelThreeScore / 30;
             } 
         }
         else
@@ -135,8 +135,9 @@ public class TrailLevel3 : MonoBehaviour
             levelThreeScore--;
             mistakes++;
             MistakesIndicator();
-            scorePercent = levelThreeScore / 30;
+            //scorePercent = levelThreeScore / 30;
         }
+        scorePercent = levelThreeScore / 30;
         StartCoroutine(ResetTextAfterDelay());
 
 

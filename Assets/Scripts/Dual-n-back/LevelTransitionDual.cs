@@ -10,13 +10,13 @@ public class LevelTransitionDual : MonoBehaviour
     int correctClicks = ScoreCalculator.correctCounter;
     public void CheckLevel1()
     {
-        if ((ScoreCalculator.score)/30 >= 0.7)
+        if ((ScoreCalculator.score)/30f >= 0.7f)
         {
             // pass lvl 1
             TimerDual.OverallTime();
             Debug.Log("overall time: " + ScoreCalculator.overallTime);
             ScoreCalculator.reinforcementText = "";
-            ScoreCalculator.scoreOnePercent = ScoreCalculator.score / 30;
+            ScoreCalculator.scoreOnePercent = ScoreCalculator.score / 30f;
             ShowCompleteLevel1Canvas();
             ScoreCalculator.score = 0;
             dualMenuHandler.level2Button.SetActive(true);
@@ -25,7 +25,7 @@ public class LevelTransitionDual : MonoBehaviour
             ScoreCalculator.isPlayPressed = false;
             levelsAccuracy = ScoreCalculator.AccuracyCalculation(correctClicks, 30);
         }
-        else if ((ScoreCalculator.score) / 30 <= 0.7)
+        else if ((ScoreCalculator.score) / 30f < 0.7f)
         {
             // retry lvl1
             ScoreCalculator.reinforcementText = "";
@@ -40,13 +40,13 @@ public class LevelTransitionDual : MonoBehaviour
 
     public void CheckLevel2()
     {
-        if ((ScoreCalculator.score) / 45 >= 0.7)
+        if ((ScoreCalculator.score) / 45f >= 0.7f)
         {
             // pass lvl2
             TimerDual.OverallTime();
             Debug.Log("overall time: " + ScoreCalculator.overallTime);
             ScoreCalculator.reinforcementText = "";
-            ScoreCalculator.scoreTwoPercent = ScoreCalculator.score / 45;
+            ScoreCalculator.scoreTwoPercent = ScoreCalculator.score / 45f;
             ShowCompleteLevel2Canvas();
             ScoreCalculator.score = 0;
             dualMenuHandler.level3Button.SetActive(true);
@@ -57,7 +57,7 @@ public class LevelTransitionDual : MonoBehaviour
             ScoreCalculator.accuracy = 0;
             ScoreCalculator.correctCounter = 0;
         }
-        else if ((ScoreCalculator.score) / 45 <= 0.7)
+        else if ((ScoreCalculator.score) / 45f < 0.7f)
         {
             // retry lvl 2
             ScoreCalculator.reinforcementText = "";
@@ -71,11 +71,11 @@ public class LevelTransitionDual : MonoBehaviour
 
     public void CheckLevel3()
     {
-        if ((ScoreCalculator.score) / 45 >= 0.7)
+        if ((ScoreCalculator.score) / 45f >= 0.7f)
         {
             // pass lvl3
             ScoreCalculator.reinforcementText = "";
-            ScoreCalculator.scoreThreePercent = ScoreCalculator.score / 45;
+            ScoreCalculator.scoreThreePercent = ScoreCalculator.score / 45f;
             ShowCompleteLevel3Canvas();
             ScoreCalculator.score = 0;
             TimerDual.OverallTime();
@@ -85,7 +85,7 @@ public class LevelTransitionDual : MonoBehaviour
             levelsAccuracy = ScoreCalculator.AccuracyCalculation(correctClicks, 45);
             Debug.Log("game over test");
         }
-        else if ((ScoreCalculator.score) / 45 <= 0.7)
+        else if ((ScoreCalculator.score) / 45f < 0.7f)
         {
             // retry lvl3
             ScoreCalculator.reinforcementText = "";

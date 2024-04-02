@@ -6869,7 +6869,7 @@ GameObject:
   - component: {fileID: 456729874}
   - component: {fileID: 456729875}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: Ambient Audio Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6902,7 +6902,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 745aa44e52893da48939c04b8c2c079c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -6910,8 +6910,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 0.5
-  MaxDistance: 15
+  MinDistance: 50
+  MaxDistance: 300
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -7043,10 +7043,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: in this level, you have to go through the maze without touching the borders.
+  m_text: In this level, you have to go through the maze without touching the borders.
     Be cautious of both the timer and the number of times you contact the borders,
-    you have up to 2 trials to successfully complete this level. And don't forget,
-    it's an ELECTRICAL maze!
+    you have up to 2 lives and 30 seconds to successfully complete this level. And
+    don't forget, it's an ELECTRICAL maze!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 53e8db34fe4d13d498b9cea5912940f2, type: 2}
   m_sharedMaterial: {fileID: -7010786405154171048, guid: 53e8db34fe4d13d498b9cea5912940f2, type: 2}
@@ -8224,8 +8224,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 50
+  MaxDistance: 300
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -8260,7 +8260,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -8739,8 +8739,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 510167606}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.00000020954}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 78.6}
+  m_LocalScale: {x: 1.8449999, y: 1.5570604, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1327164325}
@@ -8751,7 +8751,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000077009, y: -0.0006995201}
+  m_AnchoredPosition: {x: -1.4365, y: -10}
   m_SizeDelta: {x: 85.454, y: 113.72}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &510167608
@@ -12196,9 +12196,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: in this level, you have to go through the maze without touching the borders.
+  m_text: In this level, you have to go through the maze without hitting the borders.
     Be cautious of both the timer and the number of times you contact the borders,
-    you have up to 2 trials to successfully complete this level. And don't forget,
+    you have up to 2 lives to successfully complete this level. And don't forget,
     it's an ELECTRICAL maze!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 53e8db34fe4d13d498b9cea5912940f2, type: 2}
@@ -13998,11 +13998,6 @@ Transform:
   - {fileID: 1522332236}
   m_Father: {fileID: 439961919}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &817821026 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6598815579406187027, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
-  m_PrefabInstance: {fileID: 1858244242}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &828485649
 GameObject:
   m_ObjectHideFlags: 0
@@ -14060,10 +14055,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Welcome to Electrical Forest, in this game, you have to go through the
-    maze without touching the borders. Be cautious of both the timer and the number
-    of times you contact the borders, you have up to 2 trials to successfully complete
-    this level. And don't forget, it's an ELECTRICAL maze!
+  m_text: In this level, you have to go through the maze without touching the borders.
+    Be cautious of both the timer and the number of times you hit the borders, you
+    have 2 lives and 30 seconds to successfully complete this level. And don't forget,
+    it's an ELECTRICAL maze!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 53e8db34fe4d13d498b9cea5912940f2, type: 2}
   m_sharedMaterial: {fileID: -7010786405154171048, guid: 53e8db34fe4d13d498b9cea5912940f2, type: 2}
@@ -14865,8 +14860,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: In this level, your goal is to navigate through the maze, avoiding the
     mushroom obstacles   and avoid touching the borders, too. You can eat up the
-    mushroom power-ups that will increase your trials. You have up to 4 trials to
-    successfully complete this level before the timer runs out.
+    mushroom power-ups that will increase your lives. You have up to 4 lives and
+    60 seconds to successfully complete this level before the timer runs out.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 53e8db34fe4d13d498b9cea5912940f2, type: 2}
   m_sharedMaterial: {fileID: -7010786405154171048, guid: 53e8db34fe4d13d498b9cea5912940f2, type: 2}
@@ -17286,8 +17281,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: In this level, your goal is to navigate through the maze, avoiding the
     mushroom obstacles   and avoid touching the borders, too. You can eat up the
-    mushroom power-ups that will increase your trials. You have up to 4 trials to
-    successfully complete this level before the timer runs out.
+    mushroom power-ups that will increase your lives. You have up to 4 lives and
+    60 seconds to successfully complete this level before the timer runs out.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 53e8db34fe4d13d498b9cea5912940f2, type: 2}
   m_sharedMaterial: {fileID: -7010786405154171048, guid: 53e8db34fe4d13d498b9cea5912940f2, type: 2}
@@ -19456,8 +19451,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: In this level, your goal is to navigate through the maze, avoiding the
     mushroom obstacles   and avoid touching the borders, too. You can eat up the
-    mushroom power-ups that will increase your trials. You have up to 4 trials to
-    successfully complete this level before the timer runs out.
+    mushroom power-ups that will increase your lives. You have up to 4 lives and
+    60 seconds to successfully complete this level before the timer runs out.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 53e8db34fe4d13d498b9cea5912940f2, type: 2}
   m_sharedMaterial: {fileID: -7010786405154171048, guid: 53e8db34fe4d13d498b9cea5912940f2, type: 2}
@@ -21002,10 +20997,10 @@ MonoBehaviour:
   m_text: 'Congratulations on reaching Level 2!
 
     In this level, your goal is
-    to navigate through the maze, avoiding the mushroom obstacles   and avoid touching
+    to navigate through the maze, avoiding the mushroom obstacles   and avoid hitting
     the borders, too. You can eat up the mushroom power-ups  that will increase your
-    trials. You have up to 4 trials to successfully complete this level before the
-    timer runs out.'
+    lives. You have up to 4 lives and 60 seconds to successfully complete this level
+    before the timer runs out.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 53e8db34fe4d13d498b9cea5912940f2, type: 2}
   m_sharedMaterial: {fileID: -7010786405154171048, guid: 53e8db34fe4d13d498b9cea5912940f2, type: 2}
@@ -25923,7 +25918,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 817821026}
   - {fileID: 439961919}
   - {fileID: 1829338409}
   - {fileID: 617650943}
@@ -26896,63 +26890,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reinforcmentText: {fileID: 2140818068}
---- !u!1001 &1858244242
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1732306851}
-    m_Modifications:
-    - target: {fileID: 6598815579406187027, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6598815579406187027, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6598815579406187027, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6598815579406187027, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6598815579406187027, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6598815579406187027, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6598815579406187027, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6598815579406187027, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6598815579406187027, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6598815579406187027, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
-      propertyPath: m_Name
-      value: XR Device Simulator
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
 --- !u!1001 &1863952682
 PrefabInstance:
   m_ObjectHideFlags: 0

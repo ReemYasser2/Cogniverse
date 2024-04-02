@@ -20,7 +20,7 @@ public class LevelTransitionWhack : MonoBehaviour
             WhackMenuHandler.level2LockButton.SetActive(false);
             ScoreCalculationWhack.score = 0;
             ScoreCalculationWhack.responseTimeGo = ScoreCalculationWhack.responseTimeGo / ScoreCalculationWhack.spawnsCounter;
-            ScoreCalculationFocus.AccuracyCalculation(ScoreCalculationWhack.correctCounter, ScoreCalculationWhack.spawnsCounter);
+            ScoreCalculationFocus.accuracy = ScoreCalculationFocus.AccuracyCalculation(ScoreCalculationWhack.correctCounter, ScoreCalculationWhack.spawnsCounter);
 
             Debug.Log("Response time:" + ScoreCalculationWhack.responseTimeGo);
             Debug.Log("Counter: " + ScoreCalculationWhack.spawnsCounter);
@@ -40,17 +40,18 @@ public class LevelTransitionWhack : MonoBehaviour
 
     public void CheckLevel2()
     {
-        if (((ScoreCalculationWhack.score) / ScoreCalculationWhack.spawnsCounter) >= 0.7 && ScoreCalculationWhack.isTimeOver) // pass lvl2 
+        if (((ScoreCalculationWhack.score) /( ScoreCalculationWhack.spawnsCounter/2)) >= 0.7 && ScoreCalculationWhack.isTimeOver) // pass lvl2 
         {
             WhackMenuHandler.timerCanvas.SetActive(false);
             WhackMenuHandler.scorelvl2Text.text = $"Your Score: {ScoreCalculationWhack.score}";
             ScoreCalculationWhack.scoreTwoPercent = ScoreCalculationWhack.score / ScoreCalculationWhack.spawnsCounter;
             WhackMenuHandler.completeLevel2Canvas.SetActive(true);
+            Debug.Log("level 2 passed: " + ScoreCalculationWhack.score);
             ScoreCalculationWhack.isGameOver = true;
             ScoreCalculationWhack.score = 0;
             ScoreCalculationWhack.responseTimeGo = ScoreCalculationWhack.responseTimeGo / ScoreCalculationWhack.spawnerGoCounter;
             ScoreCalculationWhack.responseTimeNoGo = ScoreCalculationWhack.responseTimeNoGo / ScoreCalculationWhack.spawnerNoGoCounter;
-            ScoreCalculationFocus.AccuracyCalculation(ScoreCalculationWhack.correctCounter, ScoreCalculationWhack.spawnsCounter);
+            ScoreCalculationWhack.AccuracyCalculation(ScoreCalculationWhack.correctCounter, ScoreCalculationWhack.spawnsCounter);
 
             Debug.Log("Response time Go:" + ScoreCalculationWhack.responseTimeGo);
             Debug.Log("Response time No Go:" + ScoreCalculationWhack.responseTimeNoGo);
@@ -60,6 +61,7 @@ public class LevelTransitionWhack : MonoBehaviour
         }
         else if (((ScoreCalculationWhack.score) / ScoreCalculationWhack.spawnsCounter) < 0.7 && ScoreCalculationWhack.isTimeOver) // retry lvl3
         {
+            Debug.Log("score lvl2: " + ScoreCalculationWhack.score);
             WhackMenuHandler.timerCanvas.SetActive(false);
             WhackMenuHandler.instructionsLevel2RetryCanvas.SetActive(true);
             ScoreCalculationWhack.score = 0;

@@ -14,7 +14,7 @@ public static class ScoreCalculationFocus
     public static float responseTimeGo;
     public static float responseTimeNoGo;
     public static float overallTime;
-    public static int correctCounter = 0;
+    public static float correctCounter = 0;
     public static float accuracy = 0;
 
     public static bool isPlayPressed = false;
@@ -26,10 +26,12 @@ public static class ScoreCalculationFocus
     public static bool isStopWatchStart = false;
     public static bool isPaused = false;
 
-    public static int totalTrialsNoGo;
-    public static int totalTrialsGo;
-    
-    
+    public static float totalTrialsNoGo;
+    public static float totalTrialsGo;
+
+    public static float scorePercentOne = 0;
+    public static float scorePercentTwo = 0;
+
 
     static List<string> positiveIncrease = new List<string>
             { " Good Job", "Keep it up", "You're on a roll", "Excellent work", "Amazing!!", "Awesome!!", "Well done!!"};
@@ -89,7 +91,7 @@ public static class ScoreCalculationFocus
         int randomIndex = Random.Range(0, negativeDecrease.Count);
         return negativeDecrease[randomIndex];
     }
-    public static float AccuracyCalculation(int correct, int total)
+    public static float AccuracyCalculation(float correct, float total)
     {
         accuracy = correct / total;
         return accuracy;

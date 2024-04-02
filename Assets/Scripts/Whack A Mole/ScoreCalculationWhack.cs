@@ -5,8 +5,8 @@ using UnityEngine;
 public static class ScoreCalculationWhack
 {
     public static int score = 0;
-    public static int spawnsCounter = 0;
     public static int correctCounter = 0;
+    public static float spawnsCounter = 0;
     public static float accuracy = 0;
     public static float scoreOnePercent = 0;
     public static float scoreTwoPercent = 0;
@@ -91,7 +91,7 @@ public static class ScoreCalculationWhack
         int randomIndex = Random.Range(0, negativeDecrease.Count);
         return negativeDecrease[randomIndex];
     }
-    public static float AccuracyCalculation(int correct, int total)
+    public static float AccuracyCalculation(int correct, float total)
     {
         accuracy = correct / total;
         return accuracy;

@@ -36,7 +36,7 @@ public class FocusTimer : MonoBehaviour
             else if (ScoreCalculationFocus.remainingTime <= 0)
             {
                 OverallTime();
-                Debug.Log("overall time: " + ScoreCalculationFocus.overallTime);
+                //Debug.Log("overall time: " + ScoreCalculationFocus.overallTime);
                 ScoreCalculationFocus.remainingTime = 0;
                 // Timer is over
                 ScoreCalculationFocus.isTimeOver = true;

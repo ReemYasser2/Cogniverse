@@ -85,7 +85,7 @@ public class TrailLevel1 : MonoBehaviour
                     clickedButton.GetComponent<Image>().color = Color.red;
                     ReinforcementManagement.PositiveReinforcementDecrement();
                     buttonNum = buttonNo;
-                    scorePercent = levelOneScore / 15;  
+                   // scorePercent = levelOneScore / 15;  
                 }
                 else
                 {
@@ -97,7 +97,7 @@ public class TrailLevel1 : MonoBehaviour
                     correctCounter++;
                     buttonNum = buttonNo;
                     ReinforcementManagement.PositiveReinforcementIncrement();
-                    scorePercent = levelOneScore / 15;
+                   // scorePercent = levelOneScore / 15;
                 }
 
             }
@@ -111,7 +111,7 @@ public class TrailLevel1 : MonoBehaviour
                 correctCounter++;
                 buttonNum = buttonNo;
                 ReinforcementManagement.PositiveReinforcementIncrement();
-                scorePercent = levelOneScore / 15;
+                //scorePercent = levelOneScore / 15;
             }
             
 
@@ -129,7 +129,7 @@ public class TrailLevel1 : MonoBehaviour
                 buttonNum = buttonNo;
 
                 ReinforcementManagement.PositiveReinforcementIncrement();
-                scorePercent = levelOneScore / 15;
+                //scorePercent = levelOneScore / 15;
 
             }
             else {
@@ -139,7 +139,7 @@ public class TrailLevel1 : MonoBehaviour
                 clickedButton.GetComponent<Image>().color = Color.red;
                 ReinforcementManagement.PositiveReinforcementDecrement();
                 //Debug.Log(levelOneScore);
-                scorePercent = levelOneScore / 15;
+              //  scorePercent = levelOneScore / 15;
             } 
         }
         else
@@ -151,9 +151,10 @@ public class TrailLevel1 : MonoBehaviour
             levelOneScore--;
             mistakes++;
             MistakesIndicator();
-            scorePercent = levelOneScore / 15;
+            //scorePercent = levelOneScore / 15;
 
         }
+        scorePercent = levelOneScore / 15;
         StartCoroutine(ResetTextAfterDelay());
 
         if ((levelOneScore == 15 || levelOneScore + mistakes == 15) && (ReinforcementManagement.elapsedTime < 30f ) && mistakes < 3) // pass lvl1
@@ -183,6 +184,7 @@ public class TrailLevel1 : MonoBehaviour
             ReinforcementManagement.isPlayPressed = false;
             levelOneAccuracy = 0;
             correctCounter = 0;
+            scorePercent = 0;
             ResetIndicator();
         }
     }

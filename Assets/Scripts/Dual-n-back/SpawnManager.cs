@@ -66,6 +66,7 @@ public class SpawnManager : MonoBehaviour
             }
             yield return new WaitForSeconds(0.7f);
             score1 = ScoreCalculator.score;
+            Debug.Log("score 1:" + (ScoreCalculator.score) / 30f);
             if (!ScoreCalculator.isHomeClicked) { levelTransition.CheckLevel1(); }
             ScoreCalculator.isLevel1 = false;
             ScoreCalculator.overallTime = 0f;
@@ -220,7 +221,7 @@ public class SpawnManager : MonoBehaviour
     {
         ScoreCalculator.isLevel1 = false;
         ScoreCalculator.isLevel2 = true;
-        ScoreCalculator.isLevel3 = true;
+        ScoreCalculator.isLevel3 = false;
         ScoreCalculator.isGameOver = true;
         ScoreCalculator.isHomeClicked = false;
     }

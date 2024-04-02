@@ -63,7 +63,7 @@ public class TrailLevel2 : MonoBehaviour
                     ReinforcementManagement.PositiveReinforcementDecrement();
                     MistakesIndicator();
                     buttonNum = buttonNo;
-                    scorePercent = levelTwoScore / 20;
+                    //scorePercent = levelTwoScore / 20;
                 }
                 else if (levelTwoScore < -1 && mistakes > 0)
                 {
@@ -84,7 +84,7 @@ public class TrailLevel2 : MonoBehaviour
                     levelTwoScore++;
                     correctCounter++;
                     buttonNum = buttonNo;
-                    scorePercent = levelTwoScore / 20;
+                    //scorePercent = levelTwoScore / 20;
                 }
             }
             else
@@ -97,7 +97,7 @@ public class TrailLevel2 : MonoBehaviour
                 levelTwoScore++;
                 correctCounter++;
                 buttonNum = buttonNo;
-                scorePercent = levelTwoScore / 20;
+                //scorePercent = levelTwoScore / 20;
             }
                 
         }
@@ -112,7 +112,7 @@ public class TrailLevel2 : MonoBehaviour
                 levelTwoScore++;
                 correctCounter++;
                 buttonNum = buttonNo;
-                scorePercent = levelTwoScore / 20;
+                //scorePercent = levelTwoScore / 20;
             }
             else
             {
@@ -123,7 +123,7 @@ public class TrailLevel2 : MonoBehaviour
                 MistakesIndicator();
                 //Debug.Log("Score --");
                 //Debug.Log(levelTwoScore);
-                scorePercent = levelTwoScore / 20;
+                //scorePercent = levelTwoScore / 20;
             }
          }
         else
@@ -134,9 +134,9 @@ public class TrailLevel2 : MonoBehaviour
             levelTwoScore--;
             mistakes++;
             MistakesIndicator();
-            scorePercent = levelTwoScore / 20;
+            //scorePercent = levelTwoScore / 20;
         }
-
+        scorePercent = levelTwoScore / 20;
         StartCoroutine(ResetTextAfterDelay());
 
         if ((levelTwoScore == 20 || levelTwoScore+mistakes == 20) && (ReinforcementManagement.elapsedTime < 60f) && mistakes < 3) // pass lvl 2

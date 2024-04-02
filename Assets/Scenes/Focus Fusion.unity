@@ -1385,9 +1385,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "In this level, pay close attention to the central sign arrow direction.
-    Press the grab button on the controller that corresponds to the arrow direction,
-    or don't press if there is no arrow.\_"
+  m_text: In this level, pay close attention to the direction of the arrows. Press
+    the trigger button on the controller that corresponds to the direction of the
+    unique arrow amongst the road signs. Don't press any button if there is a traffic
+    sign.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
   m_sharedMaterial: {fileID: 1276598344800977072, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
@@ -3812,9 +3813,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "In this level, pay close attention to the central sign arrow direction.
-    Press the grab button on the controller that corresponds to the arrow direction,
-    or don't press if there is no arrow.\_"
+  m_text: "In this level, pay close attention to the direction of the arrows. Press
+    the trigger button on the controller that corresponds to the direction of the
+    unique arrow amongst the road signs. Don't press any button if there is a traffic
+    sign.\_"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
   m_sharedMaterial: {fileID: 1276598344800977072, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
@@ -8036,8 +8038,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 50
+  MaxDistance: 300
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -8072,7 +8074,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -9865,10 +9867,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: In this level, pay close attention to the central sign arrow directional.
-    Press the grab button on the controller that corresponds to the arrow direction,
-    or don't press if there is no arrow. Be careful that the grid placement will
-    change.
+  m_text: "In this level, pay close attention to the direction of the arrows. Press
+    the trigger button on the controller that corresponds to the direction of the
+    unique arrow amongst the road signs. Don't press any button if there is a traffic
+    sign.\_Be careful that the road signs placement will vary."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
   m_sharedMaterial: {fileID: 1276598344800977072, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
@@ -10131,8 +10133,8 @@ MonoBehaviour:
   instructionsLevel2SelectlvlCanvas: {fileID: 2058375640}
   instructionsLevel1MenuCanvas: {fileID: 276887466}
   instructionsLevel2MenuCanvas: {fileID: 1878330858}
-  completeLevel1Canvas: {fileID: 276887466}
-  completeLevel2Canvas: {fileID: 1878330858}
+  completeLevel1Canvas: {fileID: 2025780469}
+  completeLevel2Canvas: {fileID: 378718533}
   menuCanvas: {fileID: 1538636916}
   menuWithoutInstructionsCanvas: {fileID: 52851260}
   mainMenuCanvas: {fileID: 1011808040}
@@ -10505,7 +10507,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1235534623}
   - {fileID: 133264429}
   - {fileID: 1060898854}
   m_Father: {fileID: 0}
@@ -11639,12 +11640,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Congratulations on reaching the last level!
-
-    In this level, pay close
-    attention to the central sign arrow directional. Press the grab button on the
-    controller that corresponds to the arrow direction, or don''t press if there
-    is no arrow. Be careful that the grid placement will change.'
+  m_text: "Congratulations on reaching the last level!\nIn this level, pay close
+    attention to the direction of the arrows. Press the trigger button on the controller
+    that corresponds to the direction of the unique arrow amongst the road signs.
+    Don't press any button if there is a traffic sign.\_Be careful that the road
+    signs placement will vary."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
   m_sharedMaterial: {fileID: 1276598344800977072, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
@@ -13541,68 +13541,6 @@ MonoBehaviour:
   leftActionReference: {fileID: 7431108850620702684, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   rightActionReference: {fileID: 5615426505607579712, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   levelTransition: {fileID: 849517186}
---- !u!1001 &1235534622
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1058238205}
-    m_Modifications:
-    - target: {fileID: 6598815579406187027, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6598815579406187027, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6598815579406187027, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6598815579406187027, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6598815579406187027, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6598815579406187027, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6598815579406187027, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6598815579406187027, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6598815579406187027, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6598815579406187027, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
-      propertyPath: m_Name
-      value: XR Device Simulator
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
---- !u!4 &1235534623 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6598815579406187027, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
-  m_PrefabInstance: {fileID: 1235534622}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1242411575
 GameObject:
   m_ObjectHideFlags: 0
@@ -14415,12 +14353,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Congratulations on reaching the last level!
-
-    In this level, pay close
-    attention to the central sign arrow directional. Press the grab button on the
-    controller that corresponds to the arrow direction, or don''t press if there
-    is no arrow. Be careful that the grid placement will change.'
+  m_text: "Congratulations on reaching the last level!\nIn this level, pay close
+    attention to the direction of the arrows. Press the trigger button on the controller
+    that corresponds to the direction of the unique arrow amongst the road signs.
+    Don't press any button if there is a traffic sign.\_Be careful that the road
+    signs placement will vary."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
   m_sharedMaterial: {fileID: 1276598344800977072, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
@@ -15002,12 +14939,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Congratulations on reaching the last level!
-
-    In this level, pay close
-    attention to the central sign arrow directional. Press the grab button on the
-    controller that corresponds to the arrow direction, or don''t press if there
-    is no arrow. Be careful that the grid placement will change.'
+  m_text: "Congratulations on reaching the last level!\nIn this level, pay close
+    attention to the direction of the arrows. Press the trigger button on the controller
+    that corresponds to the direction of the unique arrow amongst the road signs.
+    Don't press any button if there is a traffic sign.\_Be careful that the road
+    signs placement will vary."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
   m_sharedMaterial: {fileID: 1276598344800977072, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
@@ -15686,7 +15622,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: dc41178eee6a29a4f9cc0142e934a739, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -15694,8 +15630,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 5
-  MaxDistance: 200
+  MinDistance: 50
+  MaxDistance: 300
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -18208,9 +18144,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "In this level, pay close attention to the central sign arrow direction.
-    Press the grab button on the controller that corresponds to the arrow direction,
-    or don't press if there is no arrow.\_"
+  m_text: "In this level, pay close attention to the direction of the arrows. Press
+    the trigger button on the controller that corresponds to the direction of the
+    unique arrow amongst the road signs. Don't press any button if there is a traffic
+    sign.\_"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
   m_sharedMaterial: {fileID: 1276598344800977072, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}

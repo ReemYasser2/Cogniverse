@@ -3565,9 +3565,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: In this level, you have to shoot the buttons with the numbers in ascending
-    order. knowing that you have only 3 trails and 30 seconds to successfully complete
-    this level.
+  m_text: In this level, you have to shoot the trail point with the numbers in ascending
+    order. You have only 3 lives and 30 seconds to successfully complete this level.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
   m_sharedMaterial: {fileID: 1276598344800977072, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
@@ -3820,9 +3819,9 @@ MonoBehaviour:
   m_text: 'You''ve reached the final level!
 
     In this level, you have to shoot
-    the button with a number, then a button with a letter, in ascending order and
-    alphabetical order, respectively. You have 3 tarils and 2 minutes to complete
-    this level successfully.'
+    the trail point with a number, then a trail point with a letter, in ascending
+    order and alphabetical order, respectively. You have 3 lives and 2 minutes to
+    complete this level successfully.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
   m_sharedMaterial: {fileID: 1276598344800977072, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
@@ -4617,7 +4616,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3740f91b07b87d547a10c6ac7206b7d6, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.811
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4625,7 +4624,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 5
+  MinDistance: 50
   MaxDistance: 300
   Pan2D: 0
   rolloffMode: 0
@@ -7176,6 +7175,8 @@ MonoBehaviour:
   mistakes: 0
   menuHandler: {fileID: 1633274981}
   scorePercent: 0
+  levelOneAccuracy: 0
+  correctCounter: 0
 --- !u!1 &221139400
 GameObject:
   m_ObjectHideFlags: 0
@@ -10408,8 +10409,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: In this level, you have to shoot  the button with a number, then a button
-    with the number spelled out in ascending order. knowing that you have 3 trails
+  m_text: In this level, you have to shoot the trail point with a number, then a
+    trail point with the number spelled out in ascending order. You have 3 lives
     and 60 seconds to complete this level successfully.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
@@ -10652,12 +10653,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Welcome to Carnival Shooter game!
+  m_text: 'Welcome to Carnival Shooter Game!
 
 
     In this level, you have to shoot
-    the buttons with the numbers in ascending order. knowing that you have only 3
-    trails and 30 seconds to successfully complete this level.'
+    the trail points with the numbers in ascending order. You have 3 lives and 30
+    seconds to successfully complete this level.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
   m_sharedMaterial: {fileID: 1276598344800977072, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
@@ -30805,8 +30806,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: In this level, you have to shoot  the button with a number, then a button
-    with the number spelled out in ascending order. knowing that you have 3 trails
+  m_text: In this level, you have to shoot the trail point with a number, then a
+    trail point with the number spelled out in ascending order. You have 3 trails
     and 60 seconds to complete this level successfully.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
@@ -33417,9 +33418,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Congratulations on reaching Level 2! \nIn this level, you have to shoot 
-    the button with a number, then a button with the number spelled out in ascending
-    order. knowing that you have 3 trails and 60 seconds to complete this level successfully."
+  m_text: "Congratulations on reaching Level 2! \nIn this level, you have to shoot
+    the trail point with a number, then a trail point with the number spelled out
+    in ascending order. You have 3 lives and 60 seconds to complete this level successfully."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
   m_sharedMaterial: {fileID: 1276598344800977072, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
@@ -46498,8 +46499,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: In this level, you have to shoot  the button with a number, then a button
-    with the number spelled out in ascending order. knowing that you have 3 trails
+  m_text: In this level, you have to shoot the trail points with a number, then a
+    trail point with the number spelled out in ascending order. You have 3 lives
     and 60 seconds to complete this level successfully.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
@@ -49986,9 +49987,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: In this level, you have to shoot the button with a number, then a button
-    with a letter, in ascending order and alphabetical order, respectively. You have
-    3 tarils and 2 minutes to complete this level successfully.
+  m_text: In this level, you have to shoot the trail point with a number, then a
+    trail point with a letter, in ascending order and alphabetical order, respectively.
+    You have 3 lives and 2 minutes to complete this level successfully.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
   m_sharedMaterial: {fileID: 1276598344800977072, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
@@ -50712,6 +50713,8 @@ MonoBehaviour:
   levelsHandler: {fileID: 839657315}
   menuHandler: {fileID: 1633274981}
   scorePercent: 0
+  levelTwoAccuracy: 0
+  correctCounter: 0
 --- !u!1 &1644905735
 GameObject:
   m_ObjectHideFlags: 0
@@ -51683,9 +51686,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: In this level, you have to shoot the button with a number, then a button
-    with a letter, in ascending order and alphabetical order, respectively. You have
-    3 tarils and 2 minutes to complete this level successfully.
+  m_text: In this level, you have to shoot the trail point with a number, then a
+    trail point with a letter, in ascending order and alphabetical order, respectively.
+    You have 3 lives and 2 minutes to complete this level successfully.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
   m_sharedMaterial: {fileID: 1276598344800977072, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
@@ -58385,9 +58388,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: In this level, you have to shoot the button with a number, then a button
-    with a letter, in ascending order and alphabetical order, respectively. You have
-    3 tarils and 2 minutes to complete this level successfully.
+  m_text: In this level, you have to shoot the trail point with a number, then a
+    trail point with a letter, in ascending order and alphabetical order, respectively.
+    You have 3 lives and 2 minutes to complete this level successfully.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
   m_sharedMaterial: {fileID: 1276598344800977072, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
@@ -61497,9 +61500,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: In this level, you have to shoot the buttons with the numbers in ascending
-    order. knowing that you have only 3 trails and 30 seconds to successfully complete
-    this level.
+  m_text: In this level, you have to shoot the trail points with the numbers in ascending
+    order. You have only 3 lives and 30 seconds to successfully complete this level.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
   m_sharedMaterial: {fileID: 1276598344800977072, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
@@ -62217,6 +62219,8 @@ MonoBehaviour:
   trail32: {fileID: 859655411}
   levelThreeScore: 0
   mistakes: 0
+  levelThreeAccuracy: 0
+  correctCounter: 0
   levelsHandler: {fileID: 839657315}
   menuHandler: {fileID: 1633274981}
   scorePercent: 0

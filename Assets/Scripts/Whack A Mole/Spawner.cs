@@ -18,12 +18,6 @@ public class Spawner : MonoBehaviour
     IEnumerator AliensSpawner(int level)
     { if (level == 1 )
         {
-            
-            //activate all objects for level 1
-           /* foreach (GameObject obj in alienOne)
-            {
-                obj.SetActive(true);
-            } */
             while (!ScoreCalculationWhack.isTimeOver && !ScoreCalculationWhack.isHomeButtonClicked)
             {
                 ScoreCalculationWhack.isFirstObjectCollide = false;
