@@ -40,6 +40,9 @@ public class FocusMenuHandler : MonoBehaviour
 
     public GameObject timerCanvas;
 
+    public TextMeshProUGUI scorelvl1retryText;
+    public TextMeshProUGUI scorelvl2retryText;
+
     public void InstructionsHandler()
     {
         GeneralMenuHandler.InstructionsHandler(ScoreCalculationFocus.isLevel1, ScoreCalculationFocus.isLevel2, false, instructionsLevel1MenuCanvas, instructionsLevel2MenuCanvas, instructionsLevel2MenuCanvas);

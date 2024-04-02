@@ -38,6 +38,7 @@ public class FocusLevelTransition : MonoBehaviour
             menuHandler.timerCanvas.SetActive(false);
             GridSpawner.ResetText();
             menuHandler.instructionsLevel1RetryCanvas.SetActive(true);
+            menuHandler.scorelvl1retryText.text = $"Your Score: {ScoreCalculationFocus.score}";
             ScoreCalculationFocus.score = 0;
             ScoreCalculationFocus.accuracy = 0;
             ScoreCalculationFocus.correctCounter = 0;
@@ -75,6 +76,7 @@ public class FocusLevelTransition : MonoBehaviour
             menuHandler.timerCanvas.SetActive(false);
             GridSpawner.ResetText();
             menuHandler.instructionsLevel2RetryCanvas.SetActive(true);
+            menuHandler.scorelvl2retryText.text = $"Your Score: {ScoreCalculationFocus.score}";
             ScoreCalculationFocus.score = 0;
             ScoreCalculationFocus.accuracy = 0;
             ScoreCalculationFocus.correctCounter = 0;
