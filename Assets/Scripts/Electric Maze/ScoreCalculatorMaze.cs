@@ -2,12 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Rendering.Universal;
 
 public class ScoreCalculatorMaze : MonoBehaviour
 {
     public static int score = 0;
     public static TextMeshProUGUI reinforcement;
     public static string reinforcementText;
+
+    public static bool isLevel1;
+    public static bool isLevel2;
+    public static bool isGameOver;
+    public static bool isHomeButtonClicked;
+
+    public static float overallTime;
+    public static int numberOfHits;
+
     static List<string> positiveIncrease = new List<string>
             { " Good Job", "Keep it up", "You're on a roll", "Excellent work", "Amazing!!", "Awesome!!", "Well done!!"};
     static List<string> positiveDecrease = new List<string>

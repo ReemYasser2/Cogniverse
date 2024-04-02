@@ -1,17 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class DualMenuHandler : MonoBehaviour
 {
-    public GameObject instructionsLevel1Canvas;
-    public GameObject instructionsLevel2Canvas;
-    public GameObject instructionsLevel3Canvas;
+    // menu without instructions
+    public GameObject instructionsLevel1RetryCanvas;
+    public GameObject instructionsLevel2RetryCanvas;
+    public GameObject instructionsLevel3RetryCanvas;
+
+    // menu without instructions
+    public GameObject instructionsLevel2NextCanvas;
+    public GameObject instructionsLevel3NextCanvas;
+
+    // menu without instructions
+    public GameObject instructionsLevel1SelectlvlCanvas;
+    public GameObject instructionsLevel2SelectlvlCanvas;
+    public GameObject instructionsLevel3SelectlvlCanvas;
+
+    // menu with instrucrions 
     public GameObject instructionsLevel1MenuCanvas;
     public GameObject instructionsLevel2MenuCanvas;
     public GameObject instructionsLevel3MenuCanvas;
-    public GameObject menuCanvas;
 
+    // menu without instructions
+    public GameObject completeLevel1Canvas;
+    public GameObject completeLevel2Canvas;
+    public GameObject completeLevel3Canvas;
+
+
+    public GameObject menuCanvas;
+    public GameObject menuWithoutInstructionsCanvas;
+    public GameObject mainMenuCanvas;
+    public GameObject selectLevelCanvas;
+
+    public TextMeshProUGUI scorelvl1Text;
+    public TextMeshProUGUI scorelvl2Text;
+    public TextMeshProUGUI scorelvl3Text;
+
+    public GameObject level2Button;
+    public GameObject level2LockButton;
+    public GameObject level3Button;
+    public GameObject level3LockButton;
 
     public void InstructionsHandler()
     {
@@ -20,6 +51,19 @@ public class DualMenuHandler : MonoBehaviour
 
     public void ShowMenuHandler()
     {
-        GeneralMenuHandler.ShowMenuHandler(ScoreCalculator.isGameStart, ScoreCalculator.isLevel2, ScoreCalculator.isLevel3, ScoreCalculator.isGameOver, menuCanvas, instructionsLevel1Canvas, instructionsLevel2Canvas, instructionsLevel3Canvas, instructionsLevel1MenuCanvas, instructionsLevel2MenuCanvas, instructionsLevel3MenuCanvas, 1, 3);
+        //GeneralMenuHandler.ShowMenuHandler(ScoreCalculator.isGameStart, ScoreCalculator.isLevel2, ScoreCalculator.isLevel3, ScoreCalculator.isGameOver, menuCanvas, instructionsLevel1Canvas, instructionsLevel2Canvas, instructionsLevel3Canvas, instructionsLevel1MenuCanvas, instructionsLevel2MenuCanvas, instructionsLevel3MenuCanvas, 1, 3);
+        if (menuCanvas.activeSelf == false && instructionsLevel1MenuCanvas.activeSelf == false && instructionsLevel2MenuCanvas.activeSelf == false && instructionsLevel3MenuCanvas.activeSelf == false && completeLevel1Canvas.activeSelf == false && completeLevel2Canvas.activeSelf == false && completeLevel3Canvas.activeSelf == false && instructionsLevel2NextCanvas.activeSelf == false && instructionsLevel3NextCanvas.activeSelf == false)
+        {
+            if ((ScoreCalculator.isLevel1 || ScoreCalculator.isLevel2 || ScoreCalculator.isLevel3) && !ScoreCalculator.isGameOver)
+            {
+                menuCanvas.SetActive(true);
+                TimerDual.PauseTimer();
+                PauseGame.Pause();
+            }
+        }
+        if ((instructionsLevel1RetryCanvas.activeSelf == true || instructionsLevel2RetryCanvas.activeSelf == true || instructionsLevel3RetryCanvas.activeSelf == true || instructionsLevel2NextCanvas.activeSelf == true || instructionsLevel3NextCanvas.activeSelf == true || instructionsLevel1SelectlvlCanvas.activeSelf == true || instructionsLevel2SelectlvlCanvas.activeSelf == true || instructionsLevel3SelectlvlCanvas.activeSelf == true || completeLevel1Canvas.activeSelf == true || completeLevel2Canvas.activeSelf == true || completeLevel3Canvas.activeSelf == true) && mainMenuCanvas.activeSelf == false && selectLevelCanvas.activeSelf == false)
+        {
+            menuWithoutInstructionsCanvas.SetActive(true);
+        }
     }
 }

@@ -10,6 +10,16 @@ TagManager:
   - MazeObstacle
   - MazePowerUp
   - Bat
+  - FrontMidAlien1
+  - FrontLeftAlien1
+  - BackRightAlien1
+  - BackLeftAlien1
+  - FrontRightAlien2
+  - FrontMidAlien2
+  - FrontLeftAlien2
+  - BackRightAlien2
+  - FrontRightAlien1
+  - BackLeftAlien2
   layers:
   - Default
   - TransparentFX

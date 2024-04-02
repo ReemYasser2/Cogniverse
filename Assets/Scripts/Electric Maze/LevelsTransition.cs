@@ -1,76 +1,59 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class LevelsTransition : MonoBehaviour
 {
-    //int score1;
-    public GameObject levelTwoInstructionsCanvas;
-    public GameObject levelOneInstructionsCanvas;
-    public GameObject gameOverCanvas;
-
-    public static bool isLevel1;
-    public static bool isLevel2;
-    public static bool isGameOver;
-
+    public MazeMenuHandler menuHandler;
     public MazeSpawner mazeSpawner;
 
-    //public CountDownTimer time;
-    // Start is called before the first frame update
-    void Start()
+    public void checkLevelOne()
     {
-        //time = GetComponent<CountDownTimer>();
-        //time = gameObject.AddComponent<CountDownTimer>(); 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (isLevel1)
+       if (ScoreCalculatorMaze.score <= 2)// && CountDownTimer.isTimeOver) 
         {
-            checkLevelOne();
+            // pass lvl1
+            ScoreCalculatorMaze.numberOfHits = ScoreCalculatorMaze.score;
+            menuHandler.completeLevel1Canvas.SetActive(true);
+            menuHandler.level2Button.SetActive(true);
+            menuHandler.level2LockButton.SetActive(false);
+            mazeSpawner.ShowHideMaze(false);
+            ScoreCalculatorMaze.isGameOver = true;
+            ScoreCalculatorMaze.score = 0;
         }
-        else if (isLevel2)
+        else if (ScoreCalculatorMaze.score > 2)// && CountDownTimer.isTimeOver) 
         {
-            CheckLevelTwo();
-        }
-    }
-
-    private void checkLevelOne()
-    {
-        if (ScoreCalculatorMaze.score <= 2 && CountDownTimer.isTimeOver && HapticFeedback.checkpointCounter>=13)
-        {
-            levelTwoInstructionsCanvas.SetActive(true);
-            mazeSpawner.HideMaze();
-        }
-        else if (ScoreCalculatorMaze.score > 2 && CountDownTimer.isTimeOver)
-        {
-            levelOneInstructionsCanvas.SetActive(true);
-            mazeSpawner.HideMaze();
+            // retry lvl1
+            menuHandler.instructionsLevel1RetryCanvas.SetActive(true);
+            mazeSpawner.ShowHideMaze(false);
+            ScoreCalculatorMaze.isGameOver = true;
+            ScoreCalculatorMaze.score = 0;
         }
     }
 
-    private void CheckLevelTwo()
+    public void CheckLevelTwo()
     {
-        if (ScoreCalculatorMaze.score <= 4 && CountDownTimer.isTimeOver )
+        if (ScoreCalculatorMaze.score <= 4)// && CountDownTimer.isTimeOver) 
         {
-            gameOverCanvas.SetActive(true);
-            mazeSpawner.HideMaze();
-            isGameOver = true;
+            // pass lvl2
+            ScoreCalculatorMaze.numberOfHits = ScoreCalculatorMaze.score;
+            menuHandler.completeLevel2Canvas.SetActive(true);
+            mazeSpawner.ShowHideMaze(false);
+            ScoreCalculatorMaze.isGameOver = true;
+            ScoreCalculatorMaze.score = 0;
         }
-        else if (ScoreCalculatorMaze.score > 4 && CountDownTimer.isTimeOver && HapticFeedback.checkpointCounter >= 13)
+        else if (ScoreCalculatorMaze.score > 4)// && CountDownTimer.isTimeOver) 
         {
-            levelTwoInstructionsCanvas.SetActive(true);
-            mazeSpawner.HideMaze();
+            // retry lvl2
+            menuHandler.instructionsLevel2RetryCanvas.SetActive(true);
+            mazeSpawner.ShowHideMaze(false);
+            ScoreCalculatorMaze.isGameOver = true;
+            ScoreCalculatorMaze.score = 0;
         }
     }
 
-    public static void level1()
+    public void level1()
     {
-        isLevel1 = true;
-        isLevel2 = false;
+        ScoreCalculatorMaze.isLevel1 = true;
+        ScoreCalculatorMaze.isLevel2 = false;
+        ScoreCalculatorMaze.isGameOver = false;
         ScoreCalculatorMaze.score = 0;
         HapticFeedback.checkpointCounter = 0;
 
@@ -78,11 +61,29 @@ public class LevelsTransition : MonoBehaviour
     }
 
     public void level2() 
-    { 
-        isLevel2 = true;
-        isLevel1 = false;
+    {
+        ScoreCalculatorMaze.isLevel2 = true;
+        ScoreCalculatorMaze.isLevel1 = false;
+        ScoreCalculatorMaze.isGameOver = false;
         ScoreCalculatorMaze.score = 0;
         HapticFeedback.checkpointCounter = 0;
     }
 
+    public void HomeButtonClicked()
+    {
+        mazeSpawner.mazePrefabs[mazeSpawner.mazeIndex].SetActive(false);
+        mazeSpawner.maze1Canvas.SetActive(false);
+        mazeSpawner.maze2Canvas.SetActive(false);
+        mazeSpawner.timerCanvas.SetActive(false);
+        
+        ScoreCalculatorMaze.score = 0;
+        ScoreCalculatorMaze.isLevel2 = false;
+        ScoreCalculatorMaze.isLevel1 = false;
+        ScoreCalculatorMaze.isGameOver = true;
+
+        if (ScoreCalculatorMaze.isLevel2)
+        {
+            mazeSpawner.level2.ShowHideMushrooms(false);
+        }
+    }
 }

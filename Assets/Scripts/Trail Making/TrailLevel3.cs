@@ -15,15 +15,13 @@ public class TrailLevel3 : MonoBehaviour
     public GameObject trail32;
     public int levelThreeScore = 0;
     public int mistakes = 0;
+    public float levelThreeAccuracy = 0;
+    public  int correctCounter = 0;
     private int buttonNum = 0;
 
     public LevelsHandler levelsHandler;
-
-    public GameObject completeLevel3Canvas;
-
-    public static bool isGameOver;
-    public TextMeshProUGUI scorelvl3Text;
-    public GameObject instructionsLevel3RetryCanvas;
+    public TrailMenuHandler menuHandler;
+    public float scorePercent = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -68,6 +66,16 @@ public class TrailLevel3 : MonoBehaviour
                     ReinforcementManagement.PositiveReinforcementDecrement();
                     MistakesIndicator();
                     buttonNum = buttonNo;
+                    //scorePercent = levelThreeScore / 30;
+                }
+                else if (levelThreeScore < -1 && mistakes > 0)
+                {
+                    levelThreeScore--;
+                    mistakes++;
+                    MistakesIndicator();
+                    clickedButton.GetComponent<Image>().color = Color.red;
+                    ReinforcementManagement.PositiveReinforcementDecrement();
+                    buttonNum = buttonNo;
                 }
                 else
                 {
@@ -77,7 +85,9 @@ public class TrailLevel3 : MonoBehaviour
                     clickedButton.GetComponent<Image>().color = Color.green;
                     ReinforcementManagement.PositiveReinforcementIncrement();
                     levelThreeScore++;
+                    correctCounter++;
                     buttonNum = buttonNo;
+                    //scorePercent = levelThreeScore / 30;
                 }
             }
             else
@@ -88,7 +98,9 @@ public class TrailLevel3 : MonoBehaviour
                 clickedButton.GetComponent<Image>().color = Color.green;
                 ReinforcementManagement.PositiveReinforcementIncrement();
                 levelThreeScore++;
+                correctCounter++;
                 buttonNum = buttonNo;
+                //scorePercent = levelThreeScore / 30;
             }
             
         }
@@ -101,9 +113,9 @@ public class TrailLevel3 : MonoBehaviour
                 clickedButton.GetComponent<Image>().color = Color.green;
                 ReinforcementManagement.PositiveReinforcementIncrement();
                 levelThreeScore++;
-                //Debug.Log("Score up");
-                //Debug.Log(levelThreeScore);
+                correctCounter++;
                 buttonNum = buttonNo;
+               // scorePercent = levelThreeScore / 30;
             }
             else
             {
@@ -112,7 +124,7 @@ public class TrailLevel3 : MonoBehaviour
                 clickedButton.GetComponent<Image>().color = Color.red;
                 ReinforcementManagement.PositiveReinforcementDecrement();
                 MistakesIndicator();
-                //Debug.Log("Score --");
+                //scorePercent = levelThreeScore / 30;
             } 
         }
         else
@@ -123,34 +135,41 @@ public class TrailLevel3 : MonoBehaviour
             levelThreeScore--;
             mistakes++;
             MistakesIndicator();
-            //Debug.Log("Score --");
+            //scorePercent = levelThreeScore / 30;
         }
+        scorePercent = levelThreeScore / 30;
         StartCoroutine(ResetTextAfterDelay());
 
 
-        if ((levelThreeScore == 30 || levelThreeScore + mistakes == 30) && (CountUpTimer.elapsedTime < 120f) && mistakes < 3)
+        if ((levelThreeScore == 30 || levelThreeScore + mistakes == 30) && (ReinforcementManagement.elapsedTime < 120f) && mistakes < 3) // pass lvl3
         {
+            CountUpTimer.OverallTime();
+            Debug.Log("overall time: " + ReinforcementManagement.overallTime);
+            ReinforcementManagement.numberOfMistakeslvl3 = mistakes;
             Debug.Log("Heighest Score");
             // timer end
-            CountUpTimer.elapsedTime = 0f;
-            CountUpTimer.isPlayPressed = false;
-            completeLevel3Canvas.SetActive(true);
-            scorelvl3Text.text = $"Your Score: {levelThreeScore}";
-            isGameOver = true;
+            ReinforcementManagement.elapsedTime = 0f;
+            ReinforcementManagement.isPlayPressed = false;
+            menuHandler.completeLevel3Canvas.SetActive(true);
+            menuHandler.scorelvl3Text.text = $"Your Score: {levelThreeScore}";
+            ReinforcementManagement.isGameOver = true;
+            levelThreeAccuracy = CalculateAccuracy(correctCounter, 30);
             ResetIndicator();
         } 
-        else if(mistakes >= 3 || CountUpTimer.elapsedTime > 120f) // didn't pass the level, replay
+        else if(mistakes >= 3 || ReinforcementManagement.elapsedTime > 120f) // didn't pass the level, replay
         {
-            instructionsLevel3RetryCanvas.SetActive(true); 
-            CountUpTimer.elapsedTime = 0f;
-            CountUpTimer.isPlayPressed = false;
+            menuHandler.instructionsLevel3RetryCanvas.SetActive(true);
+            ReinforcementManagement.elapsedTime = 0f;
+            ReinforcementManagement.isPlayPressed = false;
+            levelThreeAccuracy = 0;
+            correctCounter = 0;
             ResetIndicator();
         }
     }
     void InitializeButtons()
     {
         {
-            levelsHandler.level_3 = true;
+            ReinforcementManagement.level_3 = true;
 
                 for (int i = 0; i < trail31Buttons.Length; i++)
                 {
@@ -235,5 +254,10 @@ public class TrailLevel3 : MonoBehaviour
         {
             mistakesIndicator_3[i].GetComponent<Image>().color = Color.green;
         }
+    }
+    float CalculateAccuracy(int correct, int total)
+    {
+        float acc = correct / total;
+        return acc;
     }
 }

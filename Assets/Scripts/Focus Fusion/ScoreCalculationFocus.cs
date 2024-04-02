@@ -4,10 +4,34 @@ using UnityEngine;
 
 public static class ScoreCalculationFocus 
 {
-    public static int score = 10;
+    public static int score = 0;
 
     public static string reinforcementText;
     public static int incrementCounter = 0;
+    public static float remainingTime;
+    public static float elapsedTimeStopWatch;
+    public static float stopWatchtime;
+    public static float responseTimeGo;
+    public static float responseTimeNoGo;
+    public static float overallTime;
+    public static float correctCounter = 0;
+    public static float accuracy = 0;
+
+    public static bool isPlayPressed = false;
+    public static bool isTimeOver = false;
+    public static bool isLevel1;
+    public static bool isLevel2;
+    public static bool isGameOver;
+    public static bool isHomeClicked;
+    public static bool isStopWatchStart = false;
+    public static bool isPaused = false;
+
+    public static float totalTrialsNoGo;
+    public static float totalTrialsGo;
+
+    public static float scorePercentOne = 0;
+    public static float scorePercentTwo = 0;
+
 
     static List<string> positiveIncrease = new List<string>
             { " Good Job", "Keep it up", "You're on a roll", "Excellent work", "Amazing!!", "Awesome!!", "Well done!!"};
@@ -22,7 +46,7 @@ public static class ScoreCalculationFocus
     public static void Increment()
     {
         incrementCounter++;
-
+        correctCounter++;
         score++;
         Debug.Log(score);
         if (incrementCounter % 5 == 0)
@@ -67,5 +91,9 @@ public static class ScoreCalculationFocus
         int randomIndex = Random.Range(0, negativeDecrease.Count);
         return negativeDecrease[randomIndex];
     }
-
+    public static float AccuracyCalculation(float correct, float total)
+    {
+        accuracy = correct / total;
+        return accuracy;
+    }
 }

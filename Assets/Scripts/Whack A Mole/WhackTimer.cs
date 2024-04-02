@@ -6,10 +6,7 @@ using TMPro;
 public class WhackTimer : MonoBehaviour
 {
     [SerializeField] TMP_Text timerText;
-    public static float remainingTime;
-    private bool isPlayPressed = false;
-    public static bool isTimeOver = false;
-    public GameObject gameOverCanvas;
+    
 
     public Color criticalColor = Color.red;
 
@@ -24,30 +21,31 @@ public class WhackTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPlayPressed)
+        if (ScoreCalculationWhack.isPlayPressed)
         {
             // GeneralCountDownTimer.TimerUpdate(timerText, ref isTimeOver, ref remainingTime);
 
-            if (remainingTime > 0)
+            if (ScoreCalculationWhack.remainingTime > 0)
             {
-                remainingTime -= Time.deltaTime;
+                ScoreCalculationWhack.remainingTime -= Time.deltaTime;
 
-                if (remainingTime <= 5)
+                if (ScoreCalculationWhack.remainingTime <= 5)
                 {
                     timerText.color = criticalColor;
                 }
             }
-            else if (remainingTime <= 0)
+            else if (ScoreCalculationWhack.remainingTime <= 0)
             {
+                OverallTime();
+                Debug.Log("overall time: " + ScoreCalculationWhack.overallTime);
                 ScoreCalculationWhack.reinforcementText = "";
 
-                remainingTime = 0;
+                ScoreCalculationWhack.remainingTime = 0;
                 // Timer is over
-                isTimeOver = true;
-               // gameOverCanvas.SetActive(true);
+                ScoreCalculationWhack.isTimeOver = true;
             }
-            int minutes = Mathf.FloorToInt(remainingTime / 60);
-            int seconds = Mathf.FloorToInt(remainingTime % 60);
+            int minutes = Mathf.FloorToInt(ScoreCalculationWhack.remainingTime / 60);
+            int seconds = Mathf.FloorToInt(ScoreCalculationWhack.remainingTime % 60);
             timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
     }
@@ -55,10 +53,17 @@ public class WhackTimer : MonoBehaviour
     // This function is called when the game starts to start the timer
     public void StartGame()
     {
-        isPlayPressed = true;
-        isTimeOver = false;
+        ScoreCalculationWhack.isPlayPressed = true;
+        ScoreCalculationWhack.isTimeOver = false;
         timerText.color = Color.white;
+        if (ScoreCalculationWhack.isLevel1) { ScoreCalculationWhack.remainingTime = 150; }
+        else if (ScoreCalculationWhack.isLevel2) {  ScoreCalculationWhack.remainingTime = 150; }
      
         //remainingTime = GeneralCountDownTimer.TimerInitialization(timerText, isLevel1, isLevel2, 5, 10);
+    }
+
+    private void OverallTime()
+    {
+        ScoreCalculationWhack.overallTime = 150 - ScoreCalculationWhack.remainingTime;
     }
 }

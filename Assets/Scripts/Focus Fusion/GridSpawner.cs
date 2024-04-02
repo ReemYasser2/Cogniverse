@@ -16,9 +16,9 @@ public class GridSpawner : MonoBehaviour
     [SerializeField] private InputActionReference leftActionReference;
     [SerializeField] private InputActionReference rightActionReference;
 
-    public static bool isLevel1;
-    public static bool isLevel2;
-    public static bool isGameOver;
+    
+
+    public FocusLevelTransition levelTransition;
 
     // Start is called before the first frame update
     void Start()
@@ -28,16 +28,17 @@ public class GridSpawner : MonoBehaviour
 
     }
 
-    private void Update()
-    {
-
-    }
-
-
     private void OnClickCustom( InputAction.CallbackContext obj)
     {
         isClicked = true;
-        if (newObject)
+        ScoreCalculationFocus.isStopWatchStart = false;
+        ScoreCalculationFocus.elapsedTimeStopWatch = 0;
+        if (newObject && newObject.layer != 9)
+        {
+            ScoreCalculationFocus.responseTimeGo = ScoreCalculationFocus.responseTimeGo + ScoreCalculationFocus.stopWatchtime;
+        }
+
+        if (newObject && !ScoreCalculationFocus.isHomeClicked)
         {
             if (obj.action.name == "PrimaryRight")
             {
@@ -80,12 +81,10 @@ public class GridSpawner : MonoBehaviour
     {
         if (level == 1)
         {
-            isLevel1 = true;
-            isLevel2 = false;
-            isGameOver = false;
-            FocusTimer.remainingTime = 10;
+            
+            //FocusTimer.remainingTime = 15;
 
-            while (!FocusTimer.isTimeOver)
+            while (!ScoreCalculationFocus.isTimeOver && !ScoreCalculationFocus.isHomeClicked)
             {
                 isClicked = false;
                 if (newObject != null)
@@ -94,10 +93,24 @@ public class GridSpawner : MonoBehaviour
                 }
                 yield return new WaitForSeconds(0.25f);
                 int randomIndex = Random.Range(0, gridsPrefabs.Length);
+                
+                if (ScoreCalculationFocus.isStopWatchStart) 
+                { 
+                    ScoreCalculationFocus.isStopWatchStart = false;
+                    ScoreCalculationFocus.elapsedTimeStopWatch = 0;
+                    ScoreCalculationFocus.responseTimeGo = ScoreCalculationFocus.responseTimeGo + ScoreCalculationFocus.stopWatchtime;
+                }
 
                 newObject = Instantiate(gridsPrefabs[randomIndex], spawnPosition.position, Quaternion.identity);
+                ScoreCalculationFocus.totalTrialsGo++;
+                ScoreCalculationFocus.isStopWatchStart = true; 
+
                 yield return new WaitForSeconds(1f);
-                HandleNoClickOnLayerNine();
+                if (!ScoreCalculationFocus.isHomeClicked)
+                {
+                    HandleNoClickOnLayerNine();
+                }
+                
 
                 if (newObject != null)
                 {
@@ -107,17 +120,17 @@ public class GridSpawner : MonoBehaviour
                 yield return new WaitForSeconds(0.85f);
 
             }
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(0.5f);
+            ScoreCalculationFocus.isLevel1 = false;
+            if (!ScoreCalculationFocus.isHomeClicked) { levelTransition.CheckLevel1(); }
         }
         else if (level == 2)
         {
-            isLevel1 = false;
-            isLevel2 = true;
-            isGameOver = false;
-            FocusTimer.remainingTime = 10;
+            
+            //FocusTimer.remainingTime = 6;
 
             Debug.Log("Level 2 starts");
-            while (!FocusTimer.isTimeOver)
+            while (!ScoreCalculationFocus.isTimeOver && !ScoreCalculationFocus.isHomeClicked)
             {
 
                 isClicked = false;
@@ -130,9 +143,21 @@ public class GridSpawner : MonoBehaviour
                 int randomIndex = Random.Range(0, gridsPrefabs.Length);
                 int randomPosIndex = Random.Range(0, levelTwoSpawnPos.Length);
 
+                if (ScoreCalculationFocus.isStopWatchStart)
+                {
+                    ScoreCalculationFocus.isStopWatchStart = false;
+                    ScoreCalculationFocus.elapsedTimeStopWatch = 0;
+                    ScoreCalculationFocus.responseTimeGo = ScoreCalculationFocus.responseTimeGo + ScoreCalculationFocus.stopWatchtime;
+                }
                 newObject = Instantiate(gridsPrefabs[randomIndex], levelTwoSpawnPos[randomPosIndex].position, Quaternion.identity);
+                ScoreCalculationFocus.totalTrialsGo++;
+                ScoreCalculationFocus.isStopWatchStart = true;
+
                 yield return new WaitForSeconds(1.25f);
-                HandleNoClickOnLayerNine();
+                if (!ScoreCalculationFocus.isHomeClicked)
+                {
+                    HandleNoClickOnLayerNine();
+                }
 
                 if (newObject != null)
                 {
@@ -142,7 +167,9 @@ public class GridSpawner : MonoBehaviour
                 yield return new WaitForSeconds(1);
 
             }
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(0.5f);
+            ScoreCalculationFocus.isLevel2 = false;
+            if (!ScoreCalculationFocus.isHomeClicked) { levelTransition.CheckLevel2(); }
         }
     }
     IEnumerator WhenClicked()
@@ -160,9 +187,24 @@ public class GridSpawner : MonoBehaviour
 
     private void HandleNoClickOnLayerNine()
     {
+        if (newObject && newObject.layer == 9)
+        {
+            ScoreCalculationFocus.totalTrialsGo--;
+            ScoreCalculationFocus.totalTrialsNoGo++;
+        }
+        if (newObject && newObject.layer == 9 && isClicked)
+        {
+            ScoreCalculationFocus.isStopWatchStart = false;
+            ScoreCalculationFocus.elapsedTimeStopWatch = 0;
+            ScoreCalculationFocus.responseTimeNoGo = ScoreCalculationFocus.responseTimeNoGo + ScoreCalculationFocus.stopWatchtime;
+        }
+
         if (newObject && newObject.layer == 9 && !isClicked)
         {
             ScoreCalculationFocus.Increment(); // Increment score if no click and layer is 9
+            ScoreCalculationFocus.isStopWatchStart = false;
+            ScoreCalculationFocus.elapsedTimeStopWatch = 0;
+            ScoreCalculationFocus.responseTimeNoGo = ScoreCalculationFocus.responseTimeNoGo + 0;
         } 
         else if (!isClicked) 
         {
@@ -179,7 +221,7 @@ public class GridSpawner : MonoBehaviour
     }
     public void GetUserResponse()
     {
-        if (!FocusTimer.isTimeOver) {
+        if (!ScoreCalculationFocus.isTimeOver) {
             StartCoroutine(WhenClicked());      
         }
     }
@@ -191,11 +233,28 @@ public class GridSpawner : MonoBehaviour
         ScoreCalculationFocus.reinforcementText = "";
     }
 
+    public static void ResetText() { ScoreCalculationFocus.reinforcementText = "";  }
     public void ShowHideGrid(bool isVisible)
     {
         if (newObject != null)
         {
             newObject.SetActive(isVisible);
         }
+    }
+
+    public void level1()
+    {
+        ScoreCalculationFocus.isLevel1 = true;
+        ScoreCalculationFocus.isLevel2 = false;
+        ScoreCalculationFocus.isGameOver = false;
+        ScoreCalculationFocus.isHomeClicked = false;
+    }
+
+    public void level2()
+    {
+        ScoreCalculationFocus.isLevel1 = false;
+        ScoreCalculationFocus.isLevel2 = true;
+        ScoreCalculationFocus.isGameOver = false;
+        ScoreCalculationFocus.isHomeClicked = false;
     }
 }

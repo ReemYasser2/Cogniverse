@@ -11,18 +11,29 @@ public static class ScoreCalculator
     public static bool isLevel1 = true;
     public static bool isLevel2 = false;
     public static bool isLevel3 = false;
-    public static bool isGameOver = false;
-    public static bool isStartLevel1 = false;
-    public static bool isStartLevel2 = false;
-    public static bool isStartLevel3 = false;
-    public static bool isGameStart = false;
+    public static bool isGameOver = true;
+    public static bool isCalculated = false;
+    public static bool isComparisonDone = false;
+    public static bool isPlayPressed = false;
+    public static bool isPaused = false;
+    public static bool isHomeClicked = false;
 
     static int oldScore; 
     static int incrementCounter=0;
+    public static int trialsCount = 0;
+    public static int maxTrials = 15;
+    public static int accuracy = 0;
+    public static int correctCounter = 0;
+    public static float scoreOnePercent = 0;
+    public static float scoreTwoPercent = 0;
+    public static float scoreThreePercent = 0;
+    public static float overallTime;
 
-    public static bool isCalculated = false;
-    public static bool isComparisonDone = false;  
+
+    public static float elapsedTime;
+
     public static string reinforcementText;
+
 
     static List<string> positiveIncrease = new List<string>
             { " Good Job", "Keep it up", "You're on a roll", "Excellent work", "Amazing!!", "Awesome!!", "Well done!!"};
@@ -42,6 +53,7 @@ public static class ScoreCalculator
             {
                 incrementCounter++;
                 score++;
+                correctCounter++;
                 Debug.Log("Increment score after pressing ");
             }
             else if (oldPos != currentPos && score != 0)
@@ -52,13 +64,13 @@ public static class ScoreCalculator
             }
         }
         reinforcmentCondition();
-        //Debug.Log(score);
+        Debug.Log(score);
         return score;
     }
     public static  int CalculateScoreWithoutPressing(Vector3 oldPos, Vector3 currentPos)
     {
         oldScore = score;
-        //Debug.Log(score);
+        Debug.Log(score);
         if (oldPos == currentPos && score != 0)
         {
             incrementCounter--;
@@ -69,11 +81,12 @@ public static class ScoreCalculator
         {
             incrementCounter++;
             score++;
+            correctCounter++;
             Debug.Log("Increment Score without pressing ");
             
         }
         reinforcmentCondition();
-        //Debug.Log(score);
+        Debug.Log(score);
         return score;
     }
 
@@ -93,7 +106,7 @@ public static class ScoreCalculator
                 // Adjust the score or perform actions accordingly
                 incrementCounter++;
                 score++;
-
+                correctCounter++;
             }
             else
             {
@@ -106,7 +119,7 @@ public static class ScoreCalculator
 
             }
         }
-        //Debug.Log(score);
+        Debug.Log(score);
         reinforcmentCondition();
         return score;
     }
@@ -125,7 +138,7 @@ public static class ScoreCalculator
                 // Audio clips arent the same and the button didnt get clicked
                 Debug.Log("Audio clips arent the same and the button didnt get clicked"); 
                 incrementCounter++;
-
+                correctCounter++;
                 score++;
             }
             else if (oldAudio == currentAudio && score != 0)
@@ -136,7 +149,7 @@ public static class ScoreCalculator
                 score--;
             }
         }
-        //Debug.Log(score);
+        Debug.Log(score);
         reinforcmentCondition();
         return score;
     }
@@ -172,5 +185,10 @@ public static class ScoreCalculator
     {
         int randomIndex = Random.Range(0, negativeDecrease.Count);
         return negativeDecrease[randomIndex];
+    }
+    public static float AccuracyCalculation(int correct, int total)
+    {
+        accuracy = correct / total;
+        return accuracy;
     }
 }

@@ -10,8 +10,6 @@ public class AudioManager : MonoBehaviour
     private AudioClip oldAudioClip;
     private AudioClip currentAudioClip;
     public bool keyPressedDuringAudioPlayback = false;
-    public Button startButton;
-    public SpawnManager spawnManagerVariable;
 
     //void Start()
     //{
@@ -21,7 +19,7 @@ public class AudioManager : MonoBehaviour
 
     IEnumerator PlayAudioRandomly()
     {
-        while (AudioSpawnSharedVariables.trialsCount < AudioSpawnSharedVariables.maxTrials)
+        while (ScoreCalculator.trialsCount < ScoreCalculator.maxTrials && !ScoreCalculator.isHomeClicked)
         {
             if (!isPlaying)
             {
@@ -109,7 +107,10 @@ public class AudioManager : MonoBehaviour
 
     public void StartButtonClicked()
     {
-        audioSource = GetComponent<AudioSource>();
-        StartCoroutine(PlayAudioRandomly());
+        if (!ScoreCalculator.isHomeClicked)
+        {
+            audioSource = GetComponent<AudioSource>();
+            StartCoroutine(PlayAudioRandomly());
+        }
     }
 }

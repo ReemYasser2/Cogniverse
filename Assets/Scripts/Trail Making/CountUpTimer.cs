@@ -6,18 +6,15 @@ using UnityEngine;
 public class CountUpTimer : MonoBehaviour
 {
     [SerializeField] TMP_Text timerText;
-    public static float elapsedTime;
-    public static bool isPlayPressed = false;
-    public static bool isPaused = false;
 
     // Update is called once per frame
     void Update()
     {
-        if (isPlayPressed && !isPaused)
+        if (ReinforcementManagement.isPlayPressed && !ReinforcementManagement.isPaused)
         {
-            elapsedTime += Time.deltaTime;
-            int minutes = Mathf.FloorToInt(elapsedTime / 60);
-            int seconds = Mathf.FloorToInt(elapsedTime % 60);
+            ReinforcementManagement.elapsedTime += Time.deltaTime;
+            int minutes = Mathf.FloorToInt(ReinforcementManagement.elapsedTime / 60);
+            int seconds = Mathf.FloorToInt(ReinforcementManagement.elapsedTime % 60);
             timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
             Debug.Log(timerText);
         }
@@ -27,21 +24,26 @@ public class CountUpTimer : MonoBehaviour
     // This function is called when the game starts to start the timer
     public void StartGame()
     {
-        isPlayPressed = true;
+        ReinforcementManagement.isPlayPressed = true;
         // Reset the timer to zero
-        elapsedTime = 0f;
-        isPaused = false;   
+        ReinforcementManagement.elapsedTime = 0f;
+        ReinforcementManagement.isPaused = false;   
     }
 
     // Function to pause the timer
     public static void PauseTimer()
     {
-        isPaused = true;
+        ReinforcementManagement.isPaused = true;
     }
 
     // Function to resume the timer
     public void ResumeTimer()
     {
-        isPaused = false;
+        ReinforcementManagement.isPaused = false;
+    }
+
+    public static void OverallTime()
+    {
+        ReinforcementManagement.overallTime = Mathf.Round(ReinforcementManagement.elapsedTime * 100f) / 100f;
     }
 }

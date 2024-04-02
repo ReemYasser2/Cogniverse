@@ -14,11 +14,11 @@ public class TrailLevel2 : MonoBehaviour
     public GameObject trail22;
     public int mistakes = 0;
     private int buttonNum = 0;
-    public GameObject completeLevel2Canvas;
     public LevelsHandler levelsHandler;
-    public TextMeshProUGUI scorelvl2Text;
-    public GameObject instructionsLevel2RetryCanvas;
-
+    public TrailMenuHandler menuHandler;
+    public float scorePercent = 0;
+    public float levelTwoAccuracy = 0;
+    public int correctCounter = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +63,16 @@ public class TrailLevel2 : MonoBehaviour
                     ReinforcementManagement.PositiveReinforcementDecrement();
                     MistakesIndicator();
                     buttonNum = buttonNo;
+                    //scorePercent = levelTwoScore / 20;
+                }
+                else if (levelTwoScore < -1 && mistakes > 0)
+                {
+                    levelTwoScore--;
+                    mistakes++;
+                    MistakesIndicator();
+                    clickedButton.GetComponent<Image>().color = Color.red;
+                    ReinforcementManagement.PositiveReinforcementDecrement();
+                    buttonNum = buttonNo;
                 }
                 else
                 {
@@ -72,9 +82,9 @@ public class TrailLevel2 : MonoBehaviour
                     clickedButton.GetComponent<Image>().color = Color.green;
                     ReinforcementManagement.PositiveReinforcementIncrement();
                     levelTwoScore++;
-                    //Debug.Log("Score up");
-                    //Debug.Log(levelTwoScore);
+                    correctCounter++;
                     buttonNum = buttonNo;
+                    //scorePercent = levelTwoScore / 20;
                 }
             }
             else
@@ -85,9 +95,9 @@ public class TrailLevel2 : MonoBehaviour
                 clickedButton.GetComponent<Image>().color = Color.green;
                 ReinforcementManagement.PositiveReinforcementIncrement();
                 levelTwoScore++;
-                //Debug.Log("Score up");
-                //Debug.Log(levelTwoScore);
+                correctCounter++;
                 buttonNum = buttonNo;
+                //scorePercent = levelTwoScore / 20;
             }
                 
         }
@@ -100,9 +110,9 @@ public class TrailLevel2 : MonoBehaviour
                 clickedButton.GetComponent<Image>().color = Color.green;
                 ReinforcementManagement.PositiveReinforcementIncrement();
                 levelTwoScore++;
-                //Debug.Log("Score up");
-                //Debug.Log(levelTwoScore);
+                correctCounter++;
                 buttonNum = buttonNo;
+                //scorePercent = levelTwoScore / 20;
             }
             else
             {
@@ -113,6 +123,7 @@ public class TrailLevel2 : MonoBehaviour
                 MistakesIndicator();
                 //Debug.Log("Score --");
                 //Debug.Log(levelTwoScore);
+                //scorePercent = levelTwoScore / 20;
             }
          }
         else
@@ -123,49 +134,56 @@ public class TrailLevel2 : MonoBehaviour
             levelTwoScore--;
             mistakes++;
             MistakesIndicator();
-            //Debug.Log("Score --");
-            //Debug.Log(levelTwoScore);
+            //scorePercent = levelTwoScore / 20;
         }
-
+        scorePercent = levelTwoScore / 20;
         StartCoroutine(ResetTextAfterDelay());
 
-        if ((levelTwoScore == 20 || levelTwoScore+mistakes == 20) && (CountUpTimer.elapsedTime < 60f) && mistakes < 3)
+        if ((levelTwoScore == 20 || levelTwoScore+mistakes == 20) && (ReinforcementManagement.elapsedTime < 60f) && mistakes < 3) // pass lvl 2
         {
+            CountUpTimer.OverallTime();
+            Debug.Log("overall time: " + ReinforcementManagement.overallTime);
+            ReinforcementManagement.numberOfMistakeslvl2 = mistakes;
             ResetButtonColors(0);
 
-            levelsHandler.level_1 = false;
-            levelsHandler.level_2 = false;
-            levelsHandler.level_3 = true;
+            ReinforcementManagement.level_1 = false;
+            ReinforcementManagement.level_2 = false;
+            ReinforcementManagement.level_3 = true;
             // timer end
-            CountUpTimer.elapsedTime = 0f;
-            CountUpTimer.isPlayPressed = false;
-            completeLevel2Canvas.SetActive(true);
-            scorelvl2Text.text = $"Your Score: {levelTwoScore}";
+            ReinforcementManagement.elapsedTime = 0f;
+            ReinforcementManagement.isPlayPressed = false;
+            menuHandler.completeLevel2Canvas.SetActive(true);
+            menuHandler.level3Button.SetActive(true);
+            menuHandler.level3LockButton.SetActive(false);
+            levelTwoAccuracy = CalculateAccuracy(correctCounter, 20);
+            menuHandler.scorelvl2Text.text = $"Your Score: {levelTwoScore}";
             Debug.Log("Level Passed");
             ResetIndicator();
         }
-        else if (mistakes >= 3 || CountUpTimer.elapsedTime > 60f) // didn't pass the level, replay 
+        else if (mistakes >= 3 || ReinforcementManagement.elapsedTime > 60f) // didn't pass the level, replay 
         {
-            instructionsLevel2RetryCanvas.SetActive(true);
-            CountUpTimer.elapsedTime = 0f;
-            CountUpTimer.isPlayPressed = false;
+            menuHandler.instructionsLevel2RetryCanvas.SetActive(true);
+            ReinforcementManagement.elapsedTime = 0f;
+            ReinforcementManagement.isPlayPressed = false;
+            levelTwoAccuracy = 0;
+            correctCounter = 0; 
             ResetIndicator();
         }
     }
     void InitializeButtons()
     {
-            levelsHandler.level_2 = true;
+        ReinforcementManagement.level_2 = true;
   
-                for (int i = 0; i < trail21Buttons.Length; i++)
-                {
-                    int buttonIndex = i; // Capture the current index to avoid closure issues
-                    trail21Buttons[i].onClick.AddListener(() => TaskOnClick(buttonIndex));
-                }
-            for (int i = 0; i < trail22Buttons.Length; i++)
-            {
-                int buttonIndex = i; // Capture the current index to avoid closure issues
-                trail22Buttons[i].onClick.AddListener(() => TaskOnClick(buttonIndex));
-            }
+        for (int i = 0; i < trail21Buttons.Length; i++)
+        {
+            int buttonIndex = i; // Capture the current index to avoid closure issues
+            trail21Buttons[i].onClick.AddListener(() => TaskOnClick(buttonIndex));
+        }
+        for (int i = 0; i < trail22Buttons.Length; i++)
+        {
+            int buttonIndex = i; // Capture the current index to avoid closure issues
+            trail22Buttons[i].onClick.AddListener(() => TaskOnClick(buttonIndex));
+        }
     }
     void InitializeButtons2()
     {
@@ -236,5 +254,10 @@ public class TrailLevel2 : MonoBehaviour
             {
                 mistakesIndicator_2[i].GetComponent<Image>().color = Color.green;
             }
+    }
+    float CalculateAccuracy(int correct, int total)
+    {
+        float acc = correct / total;
+        return acc;
     }
 }

@@ -9,10 +9,13 @@ public class CountDownTimer : MonoBehaviour
     private bool isPlayPressed = false;
     public static bool isTimeOver = false;
 
+    public Color criticalColor = Color.red;
+
+    public LevelsTransition LevelsTransition;
     // Start is called before the first frame update
     void Start()
     {
-        remainingTime = GeneralCountDownTimer.TimerInitialization(timerText, LevelsTransition.isLevel1, LevelsTransition.isLevel2, 30, 60);
+        remainingTime = GeneralCountDownTimer.TimerInitialization(timerText, ScoreCalculatorMaze.isLevel1, ScoreCalculatorMaze.isLevel2, 30, 60);
     }
 
     // Update is called once per frame
@@ -20,7 +23,41 @@ public class CountDownTimer : MonoBehaviour
     {
         if (isPlayPressed)
         {
-            GeneralCountDownTimer.TimerUpdate(timerText, ref isTimeOver, ref remainingTime);
+            // GeneralCountDownTimer.TimerUpdate(timerText, ref isTimeOver, ref remainingTime);
+
+            if (remainingTime > 0)
+            {
+                remainingTime -= Time.deltaTime;
+
+                if (remainingTime <= 5)
+                {
+                    timerText.color = criticalColor;
+                }
+            }
+            else if (remainingTime <= 0)
+            {
+                // Timer is over
+                isTimeOver = true;
+                ScoreCalculatorMaze.reinforcementText = "";
+                if (ScoreCalculatorMaze.isLevel1) 
+                {
+                    OverallTime(1);
+                    Debug.Log("overall time: "+ ScoreCalculatorMaze.overallTime);
+                    LevelsTransition.checkLevelOne();
+                    ScoreCalculatorMaze.isLevel1 = false;
+                }
+                else if (ScoreCalculatorMaze.isLevel2) 
+                {
+                    OverallTime(2);
+                    Debug.Log("overall time: " + ScoreCalculatorMaze.overallTime);
+                    LevelsTransition.CheckLevelTwo(); 
+                    ScoreCalculatorMaze.isLevel2 = false;
+                }
+                remainingTime = 0;
+            }
+            int minutes = Mathf.FloorToInt(remainingTime / 60);
+            int seconds = Mathf.FloorToInt(remainingTime % 60);
+            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
     }
 
@@ -29,6 +66,12 @@ public class CountDownTimer : MonoBehaviour
     {
         isPlayPressed = true;
         isTimeOver = false;
-        remainingTime = GeneralCountDownTimer.TimerInitialization(timerText, LevelsTransition.isLevel1, LevelsTransition.isLevel2, 30, 60);
+        remainingTime = GeneralCountDownTimer.TimerInitialization(timerText, ScoreCalculatorMaze.isLevel1, ScoreCalculatorMaze.isLevel2, 30, 60);
+    }
+
+    private void OverallTime(int level)
+    {
+        if (level == 1) { ScoreCalculatorMaze.overallTime = 30 - remainingTime; }
+        else if (level == 2) { ScoreCalculatorMaze.overallTime = 60 - remainingTime; }
     }
 }

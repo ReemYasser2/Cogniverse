@@ -9,6 +9,8 @@ using UnityEngine.XR.OpenXR.Input;
 public class HapticFeedback : MonoBehaviour
 {
     public AudioClip collisionSound;
+    public AudioClip powerupSound;
+    public AudioClip obstacleSound;
     private XRController xrController;
     private AudioSource audioSource;
     public static int checkpointCounter =15 ;
@@ -52,7 +54,8 @@ public class HapticFeedback : MonoBehaviour
         {
             ScoreCalculatorMaze.Increment();
             StartCoroutine(ResetTextAfterDelay());
-
+            audioSource.PlayOneShot(obstacleSound);
+            collision.gameObject.SetActive(false);
             Debug.Log("Collision with an obstacle!");
             //Destroy(collision.gameObject);
         }
@@ -60,9 +63,10 @@ public class HapticFeedback : MonoBehaviour
         {
             ScoreCalculatorMaze.Decrement();
             StartCoroutine(ResetTextAfterDelay());
-
+            audioSource.PlayOneShot(powerupSound);
             Debug.Log("Collision with a power-up!");
-            Destroy(collision.gameObject); // Change to inActive
+            collision.gameObject.SetActive(false);
+           // Destroy(collision.gameObject); // Change to inActive
         }
     }
 

@@ -19,4 +19,11 @@ public class PauseGame : MonoBehaviour
         }
 
     }
+
+    // Reset the timer when unpausing the game
+    public void Unpause()
+    {
+        Time.timeScale = 1;
+        paused = false;
+    }
 }

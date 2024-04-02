@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.10870849, g: 0.099930815, b: 0.09477871, a: 1}
+  m_IndirectSpecularColor: {r: 0.10924468, g: 0.102202766, b: 0.09711708, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: c368e52febb7d5140bd54a1732a98dca, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: d209562264ebae74ba7dfc3d69db5a0f, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -230,7 +230,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -3542,7 +3542,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 65.1, y: 8.2}
+  m_AnchoredPosition: {x: 67.4, y: 2.9}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &64245674
@@ -3565,8 +3565,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: In this level, you have to click on the buttons with the numbers in ascending
-    order.
+  m_text: In this level, you have to shoot the trail point with the numbers in ascending
+    order. You have only 3 lives and 30 seconds to successfully complete this level.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
   m_sharedMaterial: {fileID: 1276598344800977072, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
@@ -3593,8 +3593,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 11
-  m_fontSizeBase: 11
+  m_fontSize: 8.8
+  m_fontSizeBase: 8.8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3793,7 +3793,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 61.8, y: 23.5}
+  m_AnchoredPosition: {x: 61.4, y: 25}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &77777077
@@ -3816,9 +3816,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "You've reached the final level!\nIn this level, you have to shoot the
-    button with a number, then a button with a letter, in ascending order and alphabetical
-    order, respectively.\_"
+  m_text: 'You''ve reached the final level!
+
+    In this level, you have to shoot
+    the trail point with a number, then a trail point with a letter, in ascending
+    order and alphabetical order, respectively. You have 3 lives and 2 minutes to
+    complete this level successfully.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
   m_sharedMaterial: {fileID: 1276598344800977072, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
@@ -3845,13 +3848,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 9
-  m_fontSizeBase: 9
+  m_fontSize: 8.5
+  m_fontSizeBase: 8.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -3881,7 +3884,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -10.338921, y: 15.392236, z: 111.30429, w: -47.247257}
+  m_margin: {x: -10.338921, y: 15.392236, z: 108.09388, w: -47.247257}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4063,7 +4066,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 62.3, y: 25}
+  m_AnchoredPosition: {x: 64.6, y: 29.564995}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &85853262
@@ -4113,8 +4116,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15.48
-  m_fontSizeBase: 15.48
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4613,7 +4616,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3740f91b07b87d547a10c6ac7206b7d6, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.811
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4621,7 +4624,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 5
+  MinDistance: 50
   MaxDistance: 300
   Pan2D: 0
   rolloffMode: 0
@@ -5535,7 +5538,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 64, y: 26.599998}
+  m_AnchoredPosition: {x: 66.9, y: 27.8}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &136514589
@@ -5585,8 +5588,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7166,13 +7169,14 @@ MonoBehaviour:
   - {fileID: 1382679717}
   - {fileID: 944077863}
   - {fileID: 395418944}
-  completeLevel1Canvas: {fileID: 2042453753}
   trail11: {fileID: 48753774}
   trail12: {fileID: 1547824681}
   levelOneScore: 0
   mistakes: 0
-  scorelvl1Text: {fileID: 124657276}
-  instructionsLevel1RetryCanvas: {fileID: 1180172177}
+  menuHandler: {fileID: 1633274981}
+  scorePercent: 0
+  levelOneAccuracy: 0
+  correctCounter: 0
 --- !u!1 &221139400
 GameObject:
   m_ObjectHideFlags: 0
@@ -10382,7 +10386,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 63.1, y: 26.6}
+  m_AnchoredPosition: {x: 62.9, y: 25}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &380272453
@@ -10405,8 +10409,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: In this level, you have to click on the button with a number, then a button
-    with the number spelled out in ascending order.
+  m_text: In this level, you have to shoot the trail point with a number, then a
+    trail point with the number spelled out in ascending order. You have 3 lives
+    and 60 seconds to complete this level successfully.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
   m_sharedMaterial: {fileID: 1276598344800977072, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
@@ -10433,13 +10438,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 9.5
-  m_fontSizeBase: 9.5
+  m_fontSize: 8.8
+  m_fontSizeBase: 8.8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -10625,7 +10630,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 66, y: 2.4}
+  m_AnchoredPosition: {x: 68.8, y: -11.2}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &385397870
@@ -10648,10 +10653,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Welcome to Carnival Shooter game!
+  m_text: 'Welcome to Carnival Shooter Game!
 
-    In this level, you have to shoot 
-    the buttons with the numbers in ascending order.'
+
+    In this level, you have to shoot
+    the trail points with the numbers in ascending order. You have 3 lives and 30
+    seconds to successfully complete this level.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
   m_sharedMaterial: {fileID: 1276598344800977072, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
@@ -10678,8 +10685,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 11
-  m_fontSizeBase: 11
+  m_fontSize: 8
+  m_fontSizeBase: 8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10714,7 +10721,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -11.366211, y: 0, z: 117.613, w: -21.057795}
+  m_margin: {x: -17.266785, y: -23.490536, z: 116.38803, w: -15.079905}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -18322,7 +18329,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 63.100002, y: 24.999994}
+  m_AnchoredPosition: {x: 64.3, y: 24.999994}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &615548027
@@ -18372,8 +18379,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -18939,7 +18946,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 839657315}
         m_TargetAssemblyTypeName: LevelsHandler, Assembly-CSharp
@@ -22116,7 +22123,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 65.6, y: 30.1}
+  m_AnchoredPosition: {x: 68.6, y: 29.775}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &712031204
@@ -22166,8 +22173,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -24045,7 +24052,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 60.5, y: 25}
+  m_AnchoredPosition: {x: 65.7, y: 27.8}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &801007534
@@ -24095,8 +24102,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -25790,10 +25797,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: befb95caa4030bd4ab4d188401b5b3ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level_1: 0
-  level1_menu: 0
-  level_2: 0
-  level_3: 0
   selectedTrail: 0
   levelOneTrails:
   - {fileID: 48753774}
@@ -27762,6 +27765,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1780341}
+  - {fileID: 1879171969}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &904885323
@@ -30779,7 +30783,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 61.5, y: 25}
+  m_AnchoredPosition: {x: 63.999996, y: 25}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &969165785
@@ -30802,8 +30806,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: In this level, you have to shoot  the button with a number, then a button
-    with the number spelled out in ascending order.
+  m_text: In this level, you have to shoot the trail point with a number, then a
+    trail point with the number spelled out in ascending order. You have 3 trails
+    and 60 seconds to complete this level successfully.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
   m_sharedMaterial: {fileID: 1276598344800977072, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
@@ -30830,13 +30835,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 9
-  m_fontSizeBase: 9
+  m_fontSize: 8.8
+  m_fontSizeBase: 8.8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -33301,8 +33306,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -33390,7 +33395,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 61.5, y: 25}
+  m_AnchoredPosition: {x: 62, y: 27.8}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1068344460
@@ -33413,9 +33418,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Congratulations on reaching Level 2! \nIn this level, you have to shoot 
-    the button with a number, then a button with the number spelled out in ascending
-    order."
+  m_text: "Congratulations on reaching Level 2! \nIn this level, you have to shoot
+    the trail point with a number, then a trail point with the number spelled out
+    in ascending order. You have 3 lives and 60 seconds to complete this level successfully."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
   m_sharedMaterial: {fileID: 1276598344800977072, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
@@ -33442,13 +33447,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 9
-  m_fontSizeBase: 9
+  m_fontSize: 8
+  m_fontSizeBase: 8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -33478,7 +33483,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -10.722458, y: 20.095942, z: 113.2382, w: -48.7207}
+  m_margin: {x: -10.722458, y: 20.095942, z: 110.56246, w: -48.7207}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -42242,7 +42247,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 65.6, y: 30.1}
+  m_AnchoredPosition: {x: 66.5, y: 31}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1371153652
@@ -42292,8 +42297,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -42511,8 +42516,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 48, y: -44.3}
-  m_SizeDelta: {x: 37.481, y: 18.2}
+  m_AnchoredPosition: {x: 49.1, y: -46.125}
+  m_SizeDelta: {x: 35.341, y: 16.85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1377431870
 MonoBehaviour:
@@ -43694,7 +43699,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &1398120556
 RectTransform:
@@ -45237,8 +45242,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 48, y: -44.3}
-  m_SizeDelta: {x: 37.481, y: 18.2}
+  m_AnchoredPosition: {x: 49.3, y: -46.838}
+  m_SizeDelta: {x: 33.557, y: 15.875}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1467197054
 MonoBehaviour:
@@ -45717,7 +45722,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 60.3, y: 29.565}
+  m_AnchoredPosition: {x: 65.1, y: 27.4}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1503403906
@@ -45767,8 +45772,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15.4
-  m_fontSizeBase: 15.4
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -46471,7 +46476,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 61.5, y: 25}
+  m_AnchoredPosition: {x: 62.4, y: 25}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1525692210
@@ -46494,8 +46499,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: In this level, you have to shoot  the button with a number, then a button
-    with the number spelled out in ascending order.
+  m_text: In this level, you have to shoot the trail points with a number, then a
+    trail point with the number spelled out in ascending order. You have 3 lives
+    and 60 seconds to complete this level successfully.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
   m_sharedMaterial: {fileID: 1276598344800977072, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
@@ -46522,13 +46528,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 9
-  m_fontSizeBase: 9
+  m_fontSize: 8.6
+  m_fontSizeBase: 8.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -49958,7 +49964,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 61.8, y: 23.5}
+  m_AnchoredPosition: {x: 64.1, y: 22.6}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1625033250
@@ -49981,8 +49987,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "In this level, you have to shoot the button with a number, then a button
-    with a letter, in ascending order and alphabetical order, respectively.\_"
+  m_text: In this level, you have to shoot the trail point with a number, then a
+    trail point with a letter, in ascending order and alphabetical order, respectively.
+    You have 3 lives and 2 minutes to complete this level successfully.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
   m_sharedMaterial: {fileID: 1276598344800977072, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
@@ -50009,13 +50016,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 9
-  m_fontSizeBase: 9
+  m_fontSize: 8.6
+  m_fontSizeBase: 8.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -50045,7 +50052,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -10.338921, y: 15.392236, z: 111.30429, w: -47.247257}
+  m_margin: {x: -10.338921, y: 15.392236, z: 113.08738, w: -47.247257}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -50575,7 +50582,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19ff53292de45a4084ed4a60e1b2db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelsHandler: {fileID: 839657315}
   instructionsLevel1RetryCanvas: {fileID: 1180172177}
   instructionsLevel2RetryCanvas: {fileID: 1444697966}
   instructionsLevel3RetryCanvas: {fileID: 16838696}
@@ -50594,6 +50600,13 @@ MonoBehaviour:
   menuWithoutInstructionsCanvas: {fileID: 2054188399}
   mainMenuCanvas: {fileID: 947099966}
   selectLevelCanvas: {fileID: 1014925884}
+  scorelvl1Text: {fileID: 124657276}
+  scorelvl2Text: {fileID: 1623577684}
+  scorelvl3Text: {fileID: 1124204821}
+  level2Button: {fileID: 955690122}
+  level2LockButton: {fileID: 936567823}
+  level3Button: {fileID: 2067825909}
+  level3LockButton: {fileID: 1394427214}
   audioSources:
   - {fileID: 652913503}
   - {fileID: 1563743227}
@@ -50697,10 +50710,11 @@ MonoBehaviour:
   trail21: {fileID: 1606481551}
   trail22: {fileID: 1336103503}
   mistakes: 0
-  completeLevel2Canvas: {fileID: 178735992}
   levelsHandler: {fileID: 839657315}
-  scorelvl2Text: {fileID: 1623577684}
-  instructionsLevel2RetryCanvas: {fileID: 1444697966}
+  menuHandler: {fileID: 1633274981}
+  scorePercent: 0
+  levelTwoAccuracy: 0
+  correctCounter: 0
 --- !u!1 &1644905735
 GameObject:
   m_ObjectHideFlags: 0
@@ -51672,8 +51686,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "In this level, you have to shoot the button with a number, then a button
-    with a letter, in ascending order and alphabetical order, respectively.\_"
+  m_text: In this level, you have to shoot the trail point with a number, then a
+    trail point with a letter, in ascending order and alphabetical order, respectively.
+    You have 3 lives and 2 minutes to complete this level successfully.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
   m_sharedMaterial: {fileID: 1276598344800977072, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
@@ -51700,13 +51715,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 9
-  m_fontSizeBase: 9
+  m_fontSize: 8.8
+  m_fontSizeBase: 8.8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -55577,7 +55592,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 62.5, y: 25}
+  m_AnchoredPosition: {x: 64.69999, y: 25}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1821290128
@@ -55627,8 +55642,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15.48
-  m_fontSizeBase: 15.48
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -57096,6 +57111,183 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1876612157}
   m_CullTransparentMesh: 1
+--- !u!1 &1879171968
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1879171969}
+  - component: {fileID: 1879171970}
+  m_Layer: 0
+  m_Name: Light Probe Group
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1879171969
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879171968}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.2, y: 2.53, z: -10.8}
+  m_LocalScale: {x: 1.2, y: 2, z: 4}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 903264350}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!220 &1879171970
+LightProbeGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879171968}
+  m_Enabled: 1
+  m_SourcePositions:
+  - {x: -3.3938532, y: 7.599812, z: 1}
+  - {x: -3.3938532, y: 3.123457, z: 1}
+  - {x: -5.393853, y: 7.599812, z: 1}
+  - {x: -5.393853, y: 3.123457, z: 1}
+  - {x: -3.3938532, y: 1, z: 1}
+  - {x: -3.3938532, y: -1, z: 1}
+  - {x: -5.393853, y: 1, z: 1}
+  - {x: -5.393853, y: -1, z: 1}
+  - {x: 1, y: 7.599812, z: 1}
+  - {x: 1, y: 3.123457, z: 1}
+  - {x: -1, y: 7.599812, z: 1}
+  - {x: -1, y: 3.123457, z: 1}
+  - {x: 1, y: 1, z: 1}
+  - {x: 1, y: -1, z: 1}
+  - {x: -1, y: 1, z: 1}
+  - {x: -1, y: -1, z: 1}
+  - {x: 4.499736, y: 7.599812, z: 1}
+  - {x: 4.499736, y: 3.123457, z: 1}
+  - {x: 2.4997358, y: 7.599812, z: 1}
+  - {x: 2.4997358, y: 3.123457, z: 1}
+  - {x: 4.499736, y: 1, z: 1}
+  - {x: 4.499736, y: -1, z: 1}
+  - {x: 2.4997358, y: 1, z: 1}
+  - {x: 2.4997358, y: -1, z: 1}
+  - {x: 8.546733, y: 7.599812, z: 1}
+  - {x: 8.546733, y: 3.123457, z: 1}
+  - {x: 6.546733, y: 7.599812, z: 1}
+  - {x: 6.546733, y: 3.123457, z: 1}
+  - {x: 8.546733, y: 1, z: 1}
+  - {x: 8.546733, y: -1, z: 1}
+  - {x: 6.546733, y: 1, z: 1}
+  - {x: 6.546733, y: -1, z: 1}
+  - {x: 8.546733, y: 7.599812, z: 1}
+  - {x: 8.546733, y: 3.123457, z: 1}
+  - {x: 8.546733, y: 1, z: 1}
+  - {x: 8.546733, y: -1, z: 1}
+  - {x: -3.3938532, y: 7.599812, z: -1}
+  - {x: -3.3938532, y: 3.123457, z: -1}
+  - {x: -5.393853, y: 7.599812, z: -1}
+  - {x: -5.393853, y: 3.123457, z: -1}
+  - {x: -3.3938532, y: 1, z: -1}
+  - {x: -3.3938532, y: -1, z: -1}
+  - {x: -5.393853, y: 1, z: -1}
+  - {x: -5.393853, y: -1, z: -1}
+  - {x: 1, y: 7.599812, z: -1}
+  - {x: 1, y: 3.123457, z: -1}
+  - {x: -1, y: 7.599812, z: -1}
+  - {x: -1, y: 3.123457, z: -1}
+  - {x: 1, y: 1, z: -1}
+  - {x: 1, y: -1, z: -1}
+  - {x: -1, y: 1, z: -1}
+  - {x: -1, y: -1, z: -1}
+  - {x: 4.499736, y: 7.599812, z: -1}
+  - {x: 4.499736, y: 3.123457, z: -1}
+  - {x: 2.4997358, y: 7.599812, z: -1}
+  - {x: 2.4997358, y: 3.123457, z: -1}
+  - {x: 4.499736, y: 1, z: -1}
+  - {x: 4.499736, y: -1, z: -1}
+  - {x: 2.4997358, y: 1, z: -1}
+  - {x: 2.4997358, y: -1, z: -1}
+  - {x: 8.546733, y: 7.599812, z: -1}
+  - {x: 8.546733, y: 3.123457, z: -1}
+  - {x: 6.546733, y: 7.599812, z: -1}
+  - {x: 6.546733, y: 3.123457, z: -1}
+  - {x: 8.546733, y: 1, z: -1}
+  - {x: 8.546733, y: -1, z: -1}
+  - {x: 6.546733, y: 1, z: -1}
+  - {x: 6.546733, y: -1, z: -1}
+  - {x: 8.546733, y: 7.599812, z: -1}
+  - {x: 8.546733, y: 3.123457, z: -1}
+  - {x: 8.546733, y: 1, z: -1}
+  - {x: 8.546733, y: -1, z: -1}
+  - {x: -3.3938532, y: 7.599812, z: -2.579856}
+  - {x: -3.3938532, y: 3.123457, z: -2.579856}
+  - {x: -5.393853, y: 7.599812, z: -2.579856}
+  - {x: -5.393853, y: 3.123457, z: -2.579856}
+  - {x: -3.3938532, y: 1, z: -2.579856}
+  - {x: -3.3938532, y: -1, z: -2.579856}
+  - {x: -5.393853, y: 1, z: -2.579856}
+  - {x: -5.393853, y: -1, z: -2.579856}
+  - {x: 1, y: 7.599812, z: -2.579856}
+  - {x: 1, y: 3.123457, z: -2.579856}
+  - {x: -1, y: 7.599812, z: -2.579856}
+  - {x: -1, y: 3.123457, z: -2.579856}
+  - {x: 1, y: 1, z: -2.579856}
+  - {x: 1, y: -1, z: -2.579856}
+  - {x: -1, y: 1, z: -2.579856}
+  - {x: -1, y: -1, z: -2.579856}
+  - {x: 4.499736, y: 7.599812, z: -2.579856}
+  - {x: 4.499736, y: 3.123457, z: -2.579856}
+  - {x: 2.4997358, y: 7.599812, z: -2.579856}
+  - {x: 2.4997358, y: 3.123457, z: -2.579856}
+  - {x: 4.499736, y: 1, z: -2.579856}
+  - {x: 4.499736, y: -1, z: -2.579856}
+  - {x: 2.4997358, y: 1, z: -2.579856}
+  - {x: 2.4997358, y: -1, z: -2.579856}
+  - {x: 8.546733, y: 7.599812, z: -2.579856}
+  - {x: 8.546733, y: 3.123457, z: -2.579856}
+  - {x: 6.546733, y: 7.599812, z: -2.579856}
+  - {x: 6.546733, y: 3.123457, z: -2.579856}
+  - {x: 8.546733, y: 1, z: -2.579856}
+  - {x: 8.546733, y: -1, z: -2.579856}
+  - {x: 6.546733, y: 1, z: -2.579856}
+  - {x: 6.546733, y: -1, z: -2.579856}
+  - {x: 8.546733, y: 7.599812, z: -2.579856}
+  - {x: 8.546733, y: 3.123457, z: -2.579856}
+  - {x: 8.546733, y: 1, z: -2.579856}
+  - {x: 8.546733, y: -1, z: -2.579856}
+  - {x: -3.3938532, y: 5.123457, z: 1}
+  - {x: -5.393853, y: 5.123457, z: 1}
+  - {x: 1, y: 5.123457, z: 1}
+  - {x: -1, y: 5.123457, z: 1}
+  - {x: 4.499736, y: 5.123457, z: 1}
+  - {x: 2.4997358, y: 5.123457, z: 1}
+  - {x: 8.546733, y: 5.123457, z: 1}
+  - {x: 6.546733, y: 5.123457, z: 1}
+  - {x: 8.546733, y: 5.123457, z: 1}
+  - {x: -3.3938532, y: 5.123457, z: -1}
+  - {x: -5.393853, y: 5.123457, z: -1}
+  - {x: 1, y: 5.123457, z: -1}
+  - {x: -1, y: 5.123457, z: -1}
+  - {x: 4.499736, y: 5.123457, z: -1}
+  - {x: 2.4997358, y: 5.123457, z: -1}
+  - {x: 8.546733, y: 5.123457, z: -1}
+  - {x: 6.546733, y: 5.123457, z: -1}
+  - {x: 8.546733, y: 5.123457, z: -1}
+  - {x: -3.3938532, y: 5.123457, z: -2.579856}
+  - {x: -5.393853, y: 5.123457, z: -2.579856}
+  - {x: 1, y: 5.123457, z: -2.579856}
+  - {x: -1, y: 5.123457, z: -2.579856}
+  - {x: 4.499736, y: 5.123457, z: -2.579856}
+  - {x: 2.4997358, y: 5.123457, z: -2.579856}
+  - {x: 8.546733, y: 5.123457, z: -2.579856}
+  - {x: 6.546733, y: 5.123457, z: -2.579856}
+  - {x: 8.546733, y: 5.123457, z: -2.579856}
+  m_Dering: 1
 --- !u!1 &1879879666
 GameObject:
   m_ObjectHideFlags: 0
@@ -57848,7 +58040,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 48, y: -44.3}
+  m_AnchoredPosition: {x: 50, y: -52}
   m_SizeDelta: {x: 37.481, y: 18.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1908805781
@@ -58173,7 +58365,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 61.8, y: 23.1}
+  m_AnchoredPosition: {x: 61.8, y: 21.9}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1919018760
@@ -58196,8 +58388,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "In this level, you have to click on the button with a number, then a button
-    with a letter, in ascending order and alphabetical order, respectively.\_"
+  m_text: In this level, you have to shoot the trail point with a number, then a
+    trail point with a letter, in ascending order and alphabetical order, respectively.
+    You have 3 lives and 2 minutes to complete this level successfully.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
   m_sharedMaterial: {fileID: 1276598344800977072, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
@@ -58224,13 +58417,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 9
-  m_fontSizeBase: 9
+  m_fontSize: 8.8
+  m_fontSizeBase: 8.8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -59812,7 +60005,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 64, y: 26.599998}
+  m_AnchoredPosition: {x: 65.6, y: 26.599998}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1979715894
@@ -59862,8 +60055,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -61100,7 +61293,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 65.6, y: 30.1}
+  m_AnchoredPosition: {x: 66.3, y: 29.775}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2004590733
@@ -61150,8 +61343,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -61284,7 +61477,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 64.7, y: -0.0000081062}
+  m_AnchoredPosition: {x: 65.4, y: 3.1}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2007652155
@@ -61307,8 +61500,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: In this level, you have to click on the buttons with the numbers in ascending
-    order.
+  m_text: In this level, you have to shoot the trail points with the numbers in ascending
+    order. You have only 3 lives and 30 seconds to successfully complete this level.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
   m_sharedMaterial: {fileID: 1276598344800977072, guid: 78958015c8b0ea7448632e9a3184e544, type: 2}
@@ -61335,8 +61528,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 11
-  m_fontSizeBase: 11
+  m_fontSize: 8.8
+  m_fontSizeBase: 8.8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -62026,10 +62219,11 @@ MonoBehaviour:
   trail32: {fileID: 859655411}
   levelThreeScore: 0
   mistakes: 0
+  levelThreeAccuracy: 0
+  correctCounter: 0
   levelsHandler: {fileID: 839657315}
-  completeLevel3Canvas: {fileID: 1646078928}
-  scorelvl3Text: {fileID: 1124204821}
-  instructionsLevel3RetryCanvas: {fileID: 16838696}
+  menuHandler: {fileID: 1633274981}
+  scorePercent: 0
 --- !u!1 &2028977058
 GameObject:
   m_ObjectHideFlags: 0

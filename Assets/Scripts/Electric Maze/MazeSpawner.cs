@@ -19,7 +19,7 @@ public class MazeSpawner : MonoBehaviour
     // This function chooses one maze randomly 
     public void SelectMazeRandomly()
     {
-        LevelsTransition.isGameOver = false;
+        ScoreCalculatorMaze.isGameOver = false;
         mazeIndex = Random.Range(0, mazePrefabs.Length);
         mazePrefabs[mazeIndex].SetActive(true);
         if (mazeIndex == 0)
@@ -34,52 +34,23 @@ public class MazeSpawner : MonoBehaviour
         }
     }
 
-    public void RestartGame()
+    public void ShowHideMaze(bool isVisible)
     {
-        mazePrefabs[mazeIndex].SetActive(false);
-        maze1Canvas.SetActive(false);
-        maze2Canvas.SetActive(false);
-        SelectMazeRandomly();
-        LevelsTransition.level1();
-    }
+        mazePrefabs[mazeIndex].SetActive(isVisible);
+        timerCanvas.SetActive(isVisible);
 
-    public void HideMaze()
-    {
-        mazePrefabs[mazeIndex].SetActive(false);
-        timerCanvas.SetActive(false);
-
-        if (LevelsTransition.isLevel2)
+        if (ScoreCalculatorMaze.isLevel2)
         {
-            level2.ShowHideMushrooms(false);
+            level2.ShowHideMushrooms(isVisible);
         }
 
         if (mazeIndex == 0)
         {
-            maze1Canvas.SetActive(false);
+            maze1Canvas.SetActive(isVisible);
         }
         else if (mazeIndex == 1)
         {
-            maze2Canvas.SetActive(false);
-        }
-    }
-
-    public void ShowMaze()
-    {
-        mazePrefabs[mazeIndex].SetActive(true);
-        timerCanvas.SetActive(true);
-
-        if (LevelsTransition.isLevel2)
-        {
-            level2.ShowHideMushrooms(true);
-        }
-
-        if (mazeIndex == 0)
-        {
-            maze1Canvas.SetActive(true);
-        }
-        else if (mazeIndex == 1)
-        {
-            maze2Canvas.SetActive(true);
+            maze2Canvas.SetActive(isVisible);
         }
     }
 }

@@ -1,0 +1,146 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+
+public class LevelTransitionDual : MonoBehaviour
+{
+    public DualMenuHandler dualMenuHandler;
+    public float levelsAccuracy = ScoreCalculator.accuracy;
+    int correctClicks = ScoreCalculator.correctCounter;
+    public void CheckLevel1()
+    {
+        if ((ScoreCalculator.score)/30f >= 0.7f)
+        {
+            // pass lvl 1
+            TimerDual.OverallTime();
+            Debug.Log("overall time: " + ScoreCalculator.overallTime);
+            ScoreCalculator.reinforcementText = "";
+            ScoreCalculator.scoreOnePercent = ScoreCalculator.score / 30f;
+            ShowCompleteLevel1Canvas();
+            ScoreCalculator.score = 0;
+            dualMenuHandler.level2Button.SetActive(true);
+            dualMenuHandler.level2LockButton.SetActive(false);
+            ScoreCalculator.elapsedTime = 0f;
+            ScoreCalculator.isPlayPressed = false;
+            levelsAccuracy = ScoreCalculator.AccuracyCalculation(correctClicks, 30);
+        }
+        else if ((ScoreCalculator.score) / 30f < 0.7f)
+        {
+            // retry lvl1
+            ScoreCalculator.reinforcementText = "";
+            ShowLevelOneInstructions();
+            ScoreCalculator.score = 0;
+            ScoreCalculator.elapsedTime = 0f;
+            ScoreCalculator.isPlayPressed = false;
+            ScoreCalculator.accuracy = 0;
+            ScoreCalculator.correctCounter = 0;
+        }
+    }
+
+    public void CheckLevel2()
+    {
+        if ((ScoreCalculator.score) / 45f >= 0.7f)
+        {
+            // pass lvl2
+            TimerDual.OverallTime();
+            Debug.Log("overall time: " + ScoreCalculator.overallTime);
+            ScoreCalculator.reinforcementText = "";
+            ScoreCalculator.scoreTwoPercent = ScoreCalculator.score / 45f;
+            ShowCompleteLevel2Canvas();
+            ScoreCalculator.score = 0;
+            dualMenuHandler.level3Button.SetActive(true);
+            dualMenuHandler.level3LockButton.SetActive(false);
+            ScoreCalculator.elapsedTime = 0f;
+            ScoreCalculator.isPlayPressed = false;
+            levelsAccuracy = ScoreCalculator.AccuracyCalculation(correctClicks, 45);
+            ScoreCalculator.accuracy = 0;
+            ScoreCalculator.correctCounter = 0;
+        }
+        else if ((ScoreCalculator.score) / 45f < 0.7f)
+        {
+            // retry lvl 2
+            ScoreCalculator.reinforcementText = "";
+            ShowLevelTwoInstructions();
+            ScoreCalculator.score = 0;
+            ScoreCalculator.elapsedTime = 0f;
+            ScoreCalculator.isPlayPressed = false;
+            ScoreCalculator.accuracy = 0;
+        }
+    }
+
+    public void CheckLevel3()
+    {
+        if ((ScoreCalculator.score) / 45f >= 0.7f)
+        {
+            // pass lvl3
+            ScoreCalculator.reinforcementText = "";
+            ScoreCalculator.scoreThreePercent = ScoreCalculator.score / 45f;
+            ShowCompleteLevel3Canvas();
+            ScoreCalculator.score = 0;
+            TimerDual.OverallTime();
+            Debug.Log("overall time: " + ScoreCalculator.overallTime);
+            ScoreCalculator.elapsedTime = 0f;
+            ScoreCalculator.isPlayPressed = false;
+            levelsAccuracy = ScoreCalculator.AccuracyCalculation(correctClicks, 45);
+            Debug.Log("game over test");
+        }
+        else if ((ScoreCalculator.score) / 45f < 0.7f)
+        {
+            // retry lvl3
+            ScoreCalculator.reinforcementText = "";
+            ShowLevelThreeInstructions();
+            ScoreCalculator.score = 0;
+            ScoreCalculator.elapsedTime = 0f;
+            ScoreCalculator.isPlayPressed = false;
+            ScoreCalculator.accuracy = 0;
+            ScoreCalculator.correctCounter = 0;
+        }
+    }
+
+    private void ShowLevelOneInstructions() { dualMenuHandler.instructionsLevel1RetryCanvas.SetActive(true); }
+    private void ShowLevelTwoInstructions() { dualMenuHandler.instructionsLevel2RetryCanvas.SetActive(true); }
+    private void ShowLevelThreeInstructions() { dualMenuHandler.instructionsLevel3RetryCanvas.SetActive(true); }
+
+    private void ShowCompleteLevel1Canvas()
+    {
+        dualMenuHandler.completeLevel1Canvas.SetActive(true);
+        dualMenuHandler.scorelvl1Text.text = $"Your Score: {ScoreCalculator.score}";
+    }
+
+    private void ShowCompleteLevel2Canvas()
+    {
+        dualMenuHandler.completeLevel2Canvas.SetActive(true);
+        dualMenuHandler.scorelvl2Text.text = $"Your Score: {ScoreCalculator.score}";
+    }
+
+    private void ShowCompleteLevel3Canvas()
+    {
+        dualMenuHandler.completeLevel3Canvas.SetActive(true);
+        dualMenuHandler.scorelvl3Text.text = $"Your Score: {ScoreCalculator.score}";
+    }
+
+    public void HomeButtonClicked()
+    {
+        ScoreCalculator.isHomeClicked = true;
+        ScoreCalculator.reinforcementText = "";
+
+        ScoreCalculator.isLevel1 = false;
+        ScoreCalculator.isLevel2 = false;
+        ScoreCalculator.isLevel3 = false;
+        ScoreCalculator.isGameOver = true;
+
+        ScoreCalculator.correctCounter = 0;
+        ScoreCalculator.accuracy = 0;
+        ScoreCalculator.score = 0;
+        ScoreCalculator.trialsCount = 0;
+        ScoreCalculator.maxTrials = 15;
+        ScoreCalculator.elapsedTime = 0f;
+        ScoreCalculator.isPlayPressed = false;
+        ScoreCalculator.scoreOnePercent = 0;
+        ScoreCalculator.scoreTwoPercent = 0;
+        ScoreCalculator.scoreThreePercent = 0;
+
+        ScoreCalculator.overallTime = 0f;
+    }
+}
