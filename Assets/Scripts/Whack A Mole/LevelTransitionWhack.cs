@@ -31,6 +31,7 @@ public class LevelTransitionWhack : MonoBehaviour
         {
             WhackMenuHandler.timerCanvas.SetActive(false);
             WhackMenuHandler.instructionsLevel1RetryCanvas.SetActive(true);
+            WhackMenuHandler.scorelvl1retryText.text = $"Your Score: {ScoreCalculationWhack.score}";
             ScoreCalculationWhack.score = 0;
             ScoreCalculationWhack.accuracy = 0;
             ScoreCalculationWhack.correctCounter = 0;
@@ -64,6 +65,7 @@ public class LevelTransitionWhack : MonoBehaviour
             Debug.Log("score lvl2: " + ScoreCalculationWhack.score);
             WhackMenuHandler.timerCanvas.SetActive(false);
             WhackMenuHandler.instructionsLevel2RetryCanvas.SetActive(true);
+            WhackMenuHandler.scorelvl2retryText.text = $"Your Score: {ScoreCalculationWhack.score}";
             ScoreCalculationWhack.score = 0;
             ScoreCalculationWhack.accuracy = 0;
             ScoreCalculationWhack.correctCounter = 0;

@@ -38,6 +38,9 @@ public class WhackMenuHandler : MonoBehaviour
     public GameObject level2Button;
     public GameObject level2LockButton;
 
+    public TextMeshProUGUI scorelvl1retryText;
+    public TextMeshProUGUI scorelvl2retryText;
+
     public void InstructionsHandler()
     {
         GeneralMenuHandler.InstructionsHandler(ScoreCalculationWhack.isLevel1, ScoreCalculationWhack.isLevel2, false, instructionsLevel1MenuCanvas, instructionsLevel2MenuCanvas, instructionsLevel2MenuCanvas);
