@@ -11,7 +11,7 @@ public class HapticFeedback : MonoBehaviour
     public AudioClip collisionSound;
     private XRController xrController;
     private AudioSource audioSource;
-
+    public static int checkpointCounter =15 ;
     private float lastCollisionTime;
     public float collisionCooldown = 1f; // Cooldown period to prevent multiple collisions in the same frame
 
@@ -66,7 +66,15 @@ public class HapticFeedback : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 12)
+        {
+            checkpointCounter++;
+            Debug.Log("check " + checkpointCounter);
+        }
 
+    }
     IEnumerator ResetTextAfterDelay()
     {
         yield return new WaitForSeconds(3.0f);

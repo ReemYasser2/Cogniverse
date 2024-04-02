@@ -40,7 +40,7 @@ public class LevelsTransition : MonoBehaviour
 
     private void checkLevelOne()
     {
-        if (ScoreCalculatorMaze.score <= 2 && CountDownTimer.isTimeOver)
+        if (ScoreCalculatorMaze.score <= 2 && CountDownTimer.isTimeOver && HapticFeedback.checkpointCounter>=13)
         {
             levelTwoInstructionsCanvas.SetActive(true);
             mazeSpawner.HideMaze();
@@ -54,13 +54,13 @@ public class LevelsTransition : MonoBehaviour
 
     private void CheckLevelTwo()
     {
-        if (ScoreCalculatorMaze.score <= 4 && CountDownTimer.isTimeOver)
+        if (ScoreCalculatorMaze.score <= 4 && CountDownTimer.isTimeOver )
         {
             gameOverCanvas.SetActive(true);
             mazeSpawner.HideMaze();
             isGameOver = true;
         }
-        else if (ScoreCalculatorMaze.score > 4 && CountDownTimer.isTimeOver)
+        else if (ScoreCalculatorMaze.score > 4 && CountDownTimer.isTimeOver && HapticFeedback.checkpointCounter >= 13)
         {
             levelTwoInstructionsCanvas.SetActive(true);
             mazeSpawner.HideMaze();
@@ -72,6 +72,9 @@ public class LevelsTransition : MonoBehaviour
         isLevel1 = true;
         isLevel2 = false;
         ScoreCalculatorMaze.score = 0;
+        HapticFeedback.checkpointCounter = 0;
+
+
     }
 
     public void level2() 
@@ -79,6 +82,7 @@ public class LevelsTransition : MonoBehaviour
         isLevel2 = true;
         isLevel1 = false;
         ScoreCalculatorMaze.score = 0;
+        HapticFeedback.checkpointCounter = 0;
     }
 
 }
