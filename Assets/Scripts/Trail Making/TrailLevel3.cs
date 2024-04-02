@@ -159,6 +159,7 @@ public class TrailLevel3 : MonoBehaviour
         else if(mistakes >= 3 || ReinforcementManagement.elapsedTime > 120f) // didn't pass the level, replay
         {
             menuHandler.instructionsLevel3RetryCanvas.SetActive(true);
+            menuHandler.scorelvl3retryText.text = $"Your Score: {levelThreeScore}";
             ReinforcementManagement.elapsedTime = 0f;
             ReinforcementManagement.isPlayPressed = false;
             levelThreeAccuracy = 0;

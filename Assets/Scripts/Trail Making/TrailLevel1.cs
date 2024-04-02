@@ -180,6 +180,7 @@ public class TrailLevel1 : MonoBehaviour
         else if (mistakes >= 3 || ReinforcementManagement.elapsedTime > 30f)  // didn't pass the level, replay
         {
             menuHandler.instructionsLevel1RetryCanvas.SetActive(true);
+            menuHandler.scorelvl1retryText.text = $"Your Score: {levelOneScore}";
             ReinforcementManagement.elapsedTime = 0f;
             ReinforcementManagement.isPlayPressed = false;
             levelOneAccuracy = 0;

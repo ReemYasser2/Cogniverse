@@ -44,6 +44,10 @@ public class TrailMenuHandler : MonoBehaviour
     public GameObject level3Button;
     public GameObject level3LockButton;
 
+    public TextMeshProUGUI scorelvl1retryText;
+    public TextMeshProUGUI scorelvl2retryText;
+    public TextMeshProUGUI scorelvl3retryText;
+
     public AudioSource[] audioSources;
     private List<AudioSource> pausedAudioSources = new List<AudioSource>(); // Store paused audio sources
 
