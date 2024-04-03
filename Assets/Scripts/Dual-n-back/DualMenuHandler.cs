@@ -44,6 +44,10 @@ public class DualMenuHandler : MonoBehaviour
     public GameObject level3Button;
     public GameObject level3LockButton;
 
+    public TextMeshProUGUI scorelvl1retryText;
+    public TextMeshProUGUI scorelvl2retryText;
+    public TextMeshProUGUI scorelvl3retryText;
+
     public void InstructionsHandler()
     {
         GeneralMenuHandler.InstructionsHandler(ScoreCalculator.isLevel1, ScoreCalculator.isLevel2, ScoreCalculator.isLevel3, instructionsLevel1MenuCanvas, instructionsLevel2MenuCanvas, instructionsLevel3MenuCanvas);

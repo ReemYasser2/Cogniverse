@@ -98,9 +98,21 @@ public class LevelTransitionDual : MonoBehaviour
         }
     }
 
-    private void ShowLevelOneInstructions() { dualMenuHandler.instructionsLevel1RetryCanvas.SetActive(true); }
-    private void ShowLevelTwoInstructions() { dualMenuHandler.instructionsLevel2RetryCanvas.SetActive(true); }
-    private void ShowLevelThreeInstructions() { dualMenuHandler.instructionsLevel3RetryCanvas.SetActive(true); }
+    private void ShowLevelOneInstructions() 
+    { 
+        dualMenuHandler.instructionsLevel1RetryCanvas.SetActive(true);
+        dualMenuHandler.scorelvl1retryText.text = $"Your Score: {ScoreCalculator.score}";
+    }
+    private void ShowLevelTwoInstructions() 
+    { 
+        dualMenuHandler.instructionsLevel2RetryCanvas.SetActive(true);
+        dualMenuHandler.scorelvl2retryText.text = $"Your Score: {ScoreCalculator.score}";
+    }
+    private void ShowLevelThreeInstructions() 
+    { 
+        dualMenuHandler.instructionsLevel3RetryCanvas.SetActive(true);
+        dualMenuHandler.scorelvl3retryText.text = $"Your Score: {ScoreCalculator.score}";
+    }
 
     private void ShowCompleteLevel1Canvas()
     {
