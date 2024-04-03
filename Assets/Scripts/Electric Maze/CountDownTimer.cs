@@ -42,14 +42,14 @@ public class CountDownTimer : MonoBehaviour
                 if (ScoreCalculatorMaze.isLevel1) 
                 {
                     OverallTime(1);
-                    Debug.Log("overall time: "+ ScoreCalculatorMaze.overallTime);
+                    //.Log("overall time: "+ ScoreCalculatorMaze.overallTime);
                     LevelsTransition.checkLevelOne();
                     ScoreCalculatorMaze.isLevel1 = false;
                 }
                 else if (ScoreCalculatorMaze.isLevel2) 
                 {
                     OverallTime(2);
-                    Debug.Log("overall time: " + ScoreCalculatorMaze.overallTime);
+                    //Debug.Log("overall time: " + ScoreCalculatorMaze.overallTime);
                     LevelsTransition.CheckLevelTwo(); 
                     ScoreCalculatorMaze.isLevel2 = false;
                 }

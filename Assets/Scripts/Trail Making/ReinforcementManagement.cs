@@ -17,7 +17,7 @@ public static class ReinforcementManagement
     public static bool level1_menu = false;
     public static bool level_2 = false;
     public static bool level_3 = false;
-    public static bool isGameOver;
+    public static bool isGameOver = true;
 
     public static int numberOfMistakeslvl1;
     public static int numberOfMistakeslvl2;

@@ -43,6 +43,9 @@ public class FocusMenuHandler : MonoBehaviour
     public TextMeshProUGUI scorelvl1retryText;
     public TextMeshProUGUI scorelvl2retryText;
 
+    public AudioSource[] audioSources;
+    private List<AudioSource> pausedAudioSources = new List<AudioSource>(); // Store paused audio sources
+
     public void InstructionsHandler()
     {
         GeneralMenuHandler.InstructionsHandler(ScoreCalculationFocus.isLevel1, ScoreCalculationFocus.isLevel2, false, instructionsLevel1MenuCanvas, instructionsLevel2MenuCanvas, instructionsLevel2MenuCanvas);
@@ -64,6 +67,47 @@ public class FocusMenuHandler : MonoBehaviour
         if ((instructionsLevel1RetryCanvas.activeSelf == true || instructionsLevel2RetryCanvas.activeSelf == true || instructionsLevel2NextCanvas.activeSelf == true || instructionsLevel1SelectlvlCanvas.activeSelf == true || instructionsLevel2SelectlvlCanvas.activeSelf == true || completeLevel1Canvas.activeSelf == true || completeLevel2Canvas.activeSelf == true) && mainMenuCanvas.activeSelf == false && selectLevelCanvas.activeSelf == false)
         {
             menuWithoutInstructionsCanvas.SetActive(true);
+            PauseResumeInstructionsAudio();
+        }
+    }
+
+    public void PauseResumeInstructionsAudio()
+    {
+        if (instructionsLevel1SelectlvlCanvas.activeSelf == true || instructionsLevel2SelectlvlCanvas.activeSelf == true || instructionsLevel2NextCanvas.activeSelf == true)
+        {
+            TogglePauseResume();
+        }
+    }
+
+    public void TogglePauseResume()
+    {
+        for (int i = 0; i < audioSources.Length; i++)
+        {
+            AudioSource audioSource = audioSources[i];
+            if (audioSource.isPlaying)
+            {
+                Debug.Log("Audio " + i + " is currently playing.");
+                if (audioSource.isPlaying && !pausedAudioSources.Contains(audioSource))
+                {
+                    audioSource.Pause();
+                    pausedAudioSources.Add(audioSource); // Add paused audio source to the list
+                }
+
+            }
+            else if (pausedAudioSources.Contains(audioSource))
+            {
+                audioSource.UnPause();
+                pausedAudioSources.Remove(audioSource); // Remove resumed audio source from the list
+            }
+        }
+    }
+
+    public void StopAudio()
+    {
+        for (int i = 0; i < audioSources.Length; i++)
+        {
+            AudioSource audioSource = audioSources[i];
+            pausedAudioSources.Remove(audioSource);
         }
     }
 }

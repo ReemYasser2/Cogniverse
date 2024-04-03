@@ -152,9 +152,9 @@ public class TrailLevel3 : MonoBehaviour
             ReinforcementManagement.isPlayPressed = false;
             menuHandler.completeLevel3Canvas.SetActive(true);
             menuHandler.scorelvl3Text.text = $"Your Score: {levelThreeScore}";
-            ReinforcementManagement.isGameOver = true;
             levelThreeAccuracy = CalculateAccuracy(correctCounter, 30);
             ResetIndicator();
+            LevelsHandler.ResetAllBooleans();
         } 
         else if(mistakes >= 3 || ReinforcementManagement.elapsedTime > 120f) // didn't pass the level, replay
         {
@@ -165,6 +165,7 @@ public class TrailLevel3 : MonoBehaviour
             levelThreeAccuracy = 0;
             correctCounter = 0;
             ResetIndicator();
+            LevelsHandler.ResetAllBooleans();
         }
     }
     void InitializeButtons()

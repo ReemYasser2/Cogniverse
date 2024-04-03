@@ -32,6 +32,7 @@ public class FocusLevelTransition : MonoBehaviour
             Debug.Log("Conter no go: " + ScoreCalculationFocus.totalTrialsNoGo);
 
             ResetResponseTimeTimer();
+            ScoreCalculationFocus.isGameOver = true;
         }
         else if ((ScoreCalculationFocus.score) / (ScoreCalculationFocus.totalTrialsGo + ScoreCalculationFocus.totalTrialsNoGo) < 0.7 && ScoreCalculationFocus.isTimeOver) // retry lvl1
         {
@@ -43,6 +44,7 @@ public class FocusLevelTransition : MonoBehaviour
             ScoreCalculationFocus.accuracy = 0;
             ScoreCalculationFocus.correctCounter = 0;
             ResetResponseTimeTimer();
+            ScoreCalculationFocus.isGameOver = true;
         }
     }
 
@@ -70,6 +72,7 @@ public class FocusLevelTransition : MonoBehaviour
             Debug.Log("Conter no go: " + ScoreCalculationFocus.totalTrialsNoGo);
 
             ResetResponseTimeTimer();
+            ScoreCalculationFocus.isGameOver = true;
         }
         else if ((ScoreCalculationFocus.score) / (ScoreCalculationFocus.totalTrialsGo + ScoreCalculationFocus.totalTrialsNoGo) < 0.7 && ScoreCalculationFocus.isTimeOver) // retry lvl2
         {
@@ -81,6 +84,7 @@ public class FocusLevelTransition : MonoBehaviour
             ScoreCalculationFocus.accuracy = 0;
             ScoreCalculationFocus.correctCounter = 0;
             ResetResponseTimeTimer();
+            ScoreCalculationFocus.isGameOver = true;
         }
     }
 

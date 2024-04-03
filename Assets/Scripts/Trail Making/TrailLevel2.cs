@@ -146,9 +146,7 @@ public class TrailLevel2 : MonoBehaviour
             ReinforcementManagement.numberOfMistakeslvl2 = mistakes;
             ResetButtonColors(0);
 
-            ReinforcementManagement.level_1 = false;
-            ReinforcementManagement.level_2 = false;
-            ReinforcementManagement.level_3 = true;
+            LevelsHandler.ResetAllBooleans();
             // timer end
             ReinforcementManagement.elapsedTime = 0f;
             ReinforcementManagement.isPlayPressed = false;
@@ -169,6 +167,7 @@ public class TrailLevel2 : MonoBehaviour
             levelTwoAccuracy = 0;
             correctCounter = 0; 
             ResetIndicator();
+            LevelsHandler.ResetAllBooleans();
         }
     }
     void InitializeButtons()

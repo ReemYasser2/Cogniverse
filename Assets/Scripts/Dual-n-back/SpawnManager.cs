@@ -213,7 +213,7 @@ public class SpawnManager : MonoBehaviour
         ScoreCalculator.isLevel1 = true;
         ScoreCalculator.isLevel2 = false;
         ScoreCalculator.isLevel3 = false;
-        ScoreCalculator.isGameOver = true;
+        ScoreCalculator.isGameOver = false;
         ScoreCalculator.isHomeClicked = false;
     }
 
@@ -222,7 +222,7 @@ public class SpawnManager : MonoBehaviour
         ScoreCalculator.isLevel1 = false;
         ScoreCalculator.isLevel2 = true;
         ScoreCalculator.isLevel3 = false;
-        ScoreCalculator.isGameOver = true;
+        ScoreCalculator.isGameOver = false;
         ScoreCalculator.isHomeClicked = false;
     }
 
@@ -231,7 +231,7 @@ public class SpawnManager : MonoBehaviour
         ScoreCalculator.isLevel1 = false;
         ScoreCalculator.isLevel2 = false;
         ScoreCalculator.isLevel3 = true;
-        ScoreCalculator.isGameOver = true;
+        ScoreCalculator.isGameOver = false;
         ScoreCalculator.isHomeClicked = false;
     }
 }

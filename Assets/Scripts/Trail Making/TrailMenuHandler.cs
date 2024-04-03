@@ -105,4 +105,13 @@ public class TrailMenuHandler : MonoBehaviour
             }
         }
     }
+
+    public void StopAudio()
+    {
+        for (int i = 0; i < audioSources.Length; i++)
+        {
+            AudioSource audioSource = audioSources[i];
+            pausedAudioSources.Remove(audioSource);
+        }
+    }
 }

@@ -25,6 +25,7 @@ public class LevelTransitionWhack : MonoBehaviour
             Debug.Log("Response time:" + ScoreCalculationWhack.responseTimeGo);
             Debug.Log("Counter: " + ScoreCalculationWhack.spawnsCounter);
             ResetResponseTimeTimer();
+            ScoreCalculationWhack.isGameOver = true;
 
         }
         else if (((ScoreCalculationWhack.score) / ScoreCalculationWhack.spawnsCounter) < 0.7 && ScoreCalculationWhack.isTimeOver) // retry lvl1
@@ -36,6 +37,7 @@ public class LevelTransitionWhack : MonoBehaviour
             ScoreCalculationWhack.accuracy = 0;
             ScoreCalculationWhack.correctCounter = 0;
             ResetResponseTimeTimer();
+            ScoreCalculationWhack.isGameOver = true;
         }
     }
 
@@ -69,6 +71,7 @@ public class LevelTransitionWhack : MonoBehaviour
             ScoreCalculationWhack.score = 0;
             ScoreCalculationWhack.accuracy = 0;
             ScoreCalculationWhack.correctCounter = 0;
+            ScoreCalculationWhack.isGameOver = true;
             ResetResponseTimeTimer();
         }
     }
