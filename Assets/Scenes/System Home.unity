@@ -5414,7 +5414,7 @@ GameObject:
   - component: {fileID: 770149626}
   - component: {fileID: 770149625}
   m_Layer: 5
-  m_Name: 'percentage '
+  m_Name: 'highest score percentage '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11426,7 +11426,7 @@ GameObject:
   - component: {fileID: 1604670218}
   - component: {fileID: 1604670219}
   m_Layer: 5
-  m_Name: 'percentage '
+  m_Name: 'highest accuracy percentage '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12685,8 +12685,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b989e6cf26e3a384795ff1b33adbbcf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 1604670219}
-  image: {fileID: 319871434}
+  highAccuracyText: {fileID: 1604670219}
+  highAccuracyImage: {fileID: 319871434}
+  lastAccuracyText: {fileID: 1721074936}
+  lastAccuracyImage: {fileID: 1996762345}
+  highScoreText: {fileID: 770149625}
+  highScoreImage: {fileID: 1751879153}
+  lastScoreText: {fileID: 1969620459}
+  lastScoreImage: {fileID: 504496254}
   speed: 0.5
 --- !u!1 &1713756359
 GameObject:
@@ -12968,7 +12974,7 @@ GameObject:
   - component: {fileID: 1721074937}
   - component: {fileID: 1721074936}
   m_Layer: 5
-  m_Name: 'percentage '
+  m_Name: 'last accuracy percentage '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15466,7 +15472,7 @@ GameObject:
   - component: {fileID: 1969620460}
   - component: {fileID: 1969620459}
   m_Layer: 5
-  m_Name: 'percentage '
+  m_Name: 'last score percentage '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

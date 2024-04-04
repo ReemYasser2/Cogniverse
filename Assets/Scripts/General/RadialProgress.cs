@@ -5,17 +5,28 @@ using UnityEngine.UI;
 using TMPro;
 public class RadialProgress : MonoBehaviour
 {
-    [SerializeField] TMP_Text text;
-    [SerializeField] Image image;
+    [SerializeField] TMP_Text highAccuracyText;
+    [SerializeField] Image highAccuracyImage;
+    [SerializeField] TMP_Text lastAccuracyText;
+    [SerializeField] Image lastAccuracyImage;
+    
+    [SerializeField] TMP_Text highScoreText;
+    [SerializeField] Image highScoreImage;
+    [SerializeField] TMP_Text lastScoreText;
+    [SerializeField] Image lastScoreImage;
+
     [SerializeField] float speed;
     float targetFillAmount = 0.6f;
 
     public void onClick()
     {
-        StartCoroutine(AnimateFill());
+        StartCoroutine(AnimateFill(highAccuracyImage, highAccuracyText, targetFillAmount));
+        StartCoroutine(AnimateFill(lastAccuracyImage, lastAccuracyText, targetFillAmount));
+        StartCoroutine(AnimateFill(highScoreImage, highScoreText, targetFillAmount));
+        StartCoroutine(AnimateFill(lastScoreImage, lastScoreText, targetFillAmount));
     }
 
-    IEnumerator AnimateFill()
+    IEnumerator AnimateFill(Image image, TMP_Text text, float targetFillAmount)
     {
         float currentFillAmount = 0f;
 
