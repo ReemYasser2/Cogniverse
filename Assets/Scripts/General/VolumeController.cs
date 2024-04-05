@@ -11,7 +11,7 @@ public class VolumeController : MonoBehaviour
     void Start()
     {
         // Initialize slider value to current audio volume
-        volumeSlider.value = 1f;
+        volumeSlider.value = 0.5f;
 
         // Set up listener for slider value change
         volumeSlider.onValueChanged.AddListener(OnVolumeChanged);

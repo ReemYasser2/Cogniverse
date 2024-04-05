@@ -14,7 +14,7 @@ public class LevelTransitionDual : MonoBehaviour
         {
             // pass lvl 1
             TimerDual.OverallTime();
-            Debug.Log("overall time: " + ScoreCalculator.overallTime);
+            //Debug.Log("overall time: " + ScoreCalculator.overallTime);
             ScoreCalculator.reinforcementText = "";
             ScoreCalculator.scoreOnePercent = ScoreCalculator.score / 30f;
             ShowCompleteLevel1Canvas();
@@ -24,6 +24,7 @@ public class LevelTransitionDual : MonoBehaviour
             ScoreCalculator.elapsedTime = 0f;
             ScoreCalculator.isPlayPressed = false;
             levelsAccuracy = ScoreCalculator.AccuracyCalculation(correctClicks, 30);
+            ScoreCalculator.isGameOver = true;
         }
         else if ((ScoreCalculator.score) / 30f < 0.7f)
         {
@@ -35,6 +36,7 @@ public class LevelTransitionDual : MonoBehaviour
             ScoreCalculator.isPlayPressed = false;
             ScoreCalculator.accuracy = 0;
             ScoreCalculator.correctCounter = 0;
+            ScoreCalculator.isGameOver = true;
         }
     }
 
@@ -44,7 +46,7 @@ public class LevelTransitionDual : MonoBehaviour
         {
             // pass lvl2
             TimerDual.OverallTime();
-            Debug.Log("overall time: " + ScoreCalculator.overallTime);
+            //Debug.Log("overall time: " + ScoreCalculator.overallTime);
             ScoreCalculator.reinforcementText = "";
             ScoreCalculator.scoreTwoPercent = ScoreCalculator.score / 45f;
             ShowCompleteLevel2Canvas();
@@ -56,6 +58,7 @@ public class LevelTransitionDual : MonoBehaviour
             levelsAccuracy = ScoreCalculator.AccuracyCalculation(correctClicks, 45);
             ScoreCalculator.accuracy = 0;
             ScoreCalculator.correctCounter = 0;
+            ScoreCalculator.isGameOver = true;
         }
         else if ((ScoreCalculator.score) / 45f < 0.7f)
         {
@@ -66,6 +69,7 @@ public class LevelTransitionDual : MonoBehaviour
             ScoreCalculator.elapsedTime = 0f;
             ScoreCalculator.isPlayPressed = false;
             ScoreCalculator.accuracy = 0;
+            ScoreCalculator.isGameOver = true;
         }
     }
 
@@ -79,11 +83,12 @@ public class LevelTransitionDual : MonoBehaviour
             ShowCompleteLevel3Canvas();
             ScoreCalculator.score = 0;
             TimerDual.OverallTime();
-            Debug.Log("overall time: " + ScoreCalculator.overallTime);
+            //Debug.Log("overall time: " + ScoreCalculator.overallTime);
             ScoreCalculator.elapsedTime = 0f;
             ScoreCalculator.isPlayPressed = false;
             levelsAccuracy = ScoreCalculator.AccuracyCalculation(correctClicks, 45);
             Debug.Log("game over test");
+            ScoreCalculator.isGameOver = true;
         }
         else if ((ScoreCalculator.score) / 45f < 0.7f)
         {
@@ -95,12 +100,25 @@ public class LevelTransitionDual : MonoBehaviour
             ScoreCalculator.isPlayPressed = false;
             ScoreCalculator.accuracy = 0;
             ScoreCalculator.correctCounter = 0;
+            ScoreCalculator.isGameOver = true;
         }
     }
 
-    private void ShowLevelOneInstructions() { dualMenuHandler.instructionsLevel1RetryCanvas.SetActive(true); }
-    private void ShowLevelTwoInstructions() { dualMenuHandler.instructionsLevel2RetryCanvas.SetActive(true); }
-    private void ShowLevelThreeInstructions() { dualMenuHandler.instructionsLevel3RetryCanvas.SetActive(true); }
+    private void ShowLevelOneInstructions() 
+    { 
+        dualMenuHandler.instructionsLevel1RetryCanvas.SetActive(true);
+        dualMenuHandler.scorelvl1retryText.text = $"Your Score: {ScoreCalculator.score}";
+    }
+    private void ShowLevelTwoInstructions() 
+    { 
+        dualMenuHandler.instructionsLevel2RetryCanvas.SetActive(true);
+        dualMenuHandler.scorelvl2retryText.text = $"Your Score: {ScoreCalculator.score}";
+    }
+    private void ShowLevelThreeInstructions() 
+    { 
+        dualMenuHandler.instructionsLevel3RetryCanvas.SetActive(true);
+        dualMenuHandler.scorelvl3retryText.text = $"Your Score: {ScoreCalculator.score}";
+    }
 
     private void ShowCompleteLevel1Canvas()
     {

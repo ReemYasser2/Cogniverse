@@ -44,6 +44,10 @@ public class TrailMenuHandler : MonoBehaviour
     public GameObject level3Button;
     public GameObject level3LockButton;
 
+    public TextMeshProUGUI scorelvl1retryText;
+    public TextMeshProUGUI scorelvl2retryText;
+    public TextMeshProUGUI scorelvl3retryText;
+
     public AudioSource[] audioSources;
     private List<AudioSource> pausedAudioSources = new List<AudioSource>(); // Store paused audio sources
 
@@ -99,6 +103,15 @@ public class TrailMenuHandler : MonoBehaviour
                 audioSource.UnPause();
                 pausedAudioSources.Remove(audioSource); // Remove resumed audio source from the list
             }
+        }
+    }
+
+    public void StopAudio()
+    {
+        for (int i = 0; i < audioSources.Length; i++)
+        {
+            AudioSource audioSource = audioSources[i];
+            pausedAudioSources.Remove(audioSource);
         }
     }
 }

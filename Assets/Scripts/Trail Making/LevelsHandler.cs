@@ -68,10 +68,6 @@ public class LevelsHandler : MonoBehaviour
 
     public void ReplayLevel1()
     {
-        ReinforcementManagement.level_1 = true;
-        ReinforcementManagement.level1_menu = true;
-        ReinforcementManagement.level_2 = false;
-        ReinforcementManagement.level_3 = false;
 
         // reset score and number of mistakes
         trailLevel1.levelOneScore = 0;
@@ -91,10 +87,6 @@ public class LevelsHandler : MonoBehaviour
     
     public void ReplayLevel2()
     {
-        ReinforcementManagement.level_1 = false;
-        ReinforcementManagement.level1_menu = false;
-        ReinforcementManagement.level_2 = true;
-        ReinforcementManagement.level_3 = false;
 
         // reset score and number of mistakes
         trailLevel2.levelTwoScore = 0;
@@ -114,10 +106,6 @@ public class LevelsHandler : MonoBehaviour
     
     public void ReplayLevel3()
     {
-        ReinforcementManagement.level_1 = false;
-        ReinforcementManagement.level1_menu = false;
-        ReinforcementManagement.level_2 = false;
-        ReinforcementManagement.level_3 = true;
 
         // reset score and number of mistakes
         trailLevel3.levelThreeScore = 0;
@@ -168,5 +156,16 @@ public class LevelsHandler : MonoBehaviour
 
         ReinforcementManagement.elapsedTime = 0f;
         ReinforcementManagement.isPlayPressed = false;
+
+        ResetAllBooleans();
+    }
+
+    public static void ResetAllBooleans()
+    {
+        ReinforcementManagement.level_1 = false;
+        ReinforcementManagement.level1_menu = false;
+        ReinforcementManagement.level_2 = false;
+        ReinforcementManagement.level_3 = false;
+        ReinforcementManagement.isGameOver = true;
     }
 }

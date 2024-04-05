@@ -146,9 +146,7 @@ public class TrailLevel2 : MonoBehaviour
             ReinforcementManagement.numberOfMistakeslvl2 = mistakes;
             ResetButtonColors(0);
 
-            ReinforcementManagement.level_1 = false;
-            ReinforcementManagement.level_2 = false;
-            ReinforcementManagement.level_3 = true;
+            LevelsHandler.ResetAllBooleans();
             // timer end
             ReinforcementManagement.elapsedTime = 0f;
             ReinforcementManagement.isPlayPressed = false;
@@ -163,11 +161,13 @@ public class TrailLevel2 : MonoBehaviour
         else if (mistakes >= 3 || ReinforcementManagement.elapsedTime > 60f) // didn't pass the level, replay 
         {
             menuHandler.instructionsLevel2RetryCanvas.SetActive(true);
+            menuHandler.scorelvl2retryText.text = $"Your Score: {levelTwoScore}";
             ReinforcementManagement.elapsedTime = 0f;
             ReinforcementManagement.isPlayPressed = false;
             levelTwoAccuracy = 0;
             correctCounter = 0; 
             ResetIndicator();
+            LevelsHandler.ResetAllBooleans();
         }
     }
     void InitializeButtons()
