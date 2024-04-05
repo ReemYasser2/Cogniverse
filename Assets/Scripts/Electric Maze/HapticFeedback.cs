@@ -13,7 +13,7 @@ public class HapticFeedback : MonoBehaviour
     public AudioClip obstacleSound;
     private XRController xrController;
     private AudioSource audioSource;
-    public static int checkpointCounter =15 ;
+    public static int checkpointCounter =0 ;
     private float lastCollisionTime;
     public float collisionCooldown = 1f; // Cooldown period to prevent multiple collisions in the same frame
 

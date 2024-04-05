@@ -7,7 +7,7 @@ public class LevelsTransition : MonoBehaviour
 
     public void checkLevelOne()
     {
-       if (ScoreCalculatorMaze.score <= 2)// && CountDownTimer.isTimeOver) 
+       if (ScoreCalculatorMaze.score <= 2 && HapticFeedback.checkpointCounter >= 9)// && CountDownTimer.isTimeOver) 
         {
             // pass lvl1
             ScoreCalculatorMaze.numberOfHits = ScoreCalculatorMaze.score;
@@ -18,7 +18,7 @@ public class LevelsTransition : MonoBehaviour
             ScoreCalculatorMaze.isGameOver = true;
             ScoreCalculatorMaze.score = 0;
         }
-        else if (ScoreCalculatorMaze.score > 2)// && CountDownTimer.isTimeOver) 
+        else if (ScoreCalculatorMaze.score > 2 || HapticFeedback.checkpointCounter >= 9 )// && CountDownTimer.isTimeOver) 
         {
             // retry lvl1
             menuHandler.instructionsLevel1RetryCanvas.SetActive(true);
@@ -30,7 +30,7 @@ public class LevelsTransition : MonoBehaviour
 
     public void CheckLevelTwo()
     {
-        if (ScoreCalculatorMaze.score <= 4)// && CountDownTimer.isTimeOver) 
+        if (ScoreCalculatorMaze.score <= 4 && HapticFeedback.checkpointCounter >= 9 ) // && CountDownTimer.isTimeOver) 
         {
             // pass lvl2
             ScoreCalculatorMaze.numberOfHits = ScoreCalculatorMaze.score;
@@ -39,7 +39,7 @@ public class LevelsTransition : MonoBehaviour
             ScoreCalculatorMaze.isGameOver = true;
             ScoreCalculatorMaze.score = 0;
         }
-        else if (ScoreCalculatorMaze.score > 4)// && CountDownTimer.isTimeOver) 
+        else if (ScoreCalculatorMaze.score > 4 || HapticFeedback.checkpointCounter >= 9)// && CountDownTimer.isTimeOver) 
         {
             // retry lvl2
             menuHandler.instructionsLevel2RetryCanvas.SetActive(true);
@@ -55,7 +55,7 @@ public class LevelsTransition : MonoBehaviour
         ScoreCalculatorMaze.isLevel2 = false;
         ScoreCalculatorMaze.isGameOver = false;
         ScoreCalculatorMaze.score = 0;
-        HapticFeedback.checkpointCounter = 0;
+       // HapticFeedback.checkpointCounter = 0;
 
 
     }
