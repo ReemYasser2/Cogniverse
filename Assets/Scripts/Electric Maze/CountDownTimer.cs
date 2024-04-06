@@ -7,7 +7,7 @@ public class CountDownTimer : MonoBehaviour
     [SerializeField] TMP_Text timerText;
     private float remainingTime;
     private bool isPlayPressed = false;
-    public static bool isTimeOver = false;
+    public static bool isTimeOver = true;
 
     public Color criticalColor = Color.red;
 
@@ -29,6 +29,23 @@ public class CountDownTimer : MonoBehaviour
             {
                 remainingTime -= Time.deltaTime;
 
+                /*if (ScoreCalculatorMaze.isLevel1)
+                {
+                    //CountDownTimer.OverallTime(1);
+                    //.Log("overall time: "+ ScoreCalculatorMaze.overallTime);
+                    LevelsTransition.checkLevelOneWithoutTimer();
+                    ScoreCalculatorMaze.isLevel1 = false;
+                    isTimeOver = true;
+                }
+                else if (ScoreCalculatorMaze.isLevel2)
+                {
+                    //CountDownTimer.OverallTime(2);
+                    //Debug.Log("overall time: " + ScoreCalculatorMaze.overallTime);
+                    LevelsTransition.CheckLevelTwoWithoutTimer();
+                    ScoreCalculatorMaze.isLevel2 = false;
+                    isTimeOver = true;
+                }*/
+
                 if (remainingTime <= 5)
                 {
                     timerText.color = criticalColor;
@@ -39,7 +56,20 @@ public class CountDownTimer : MonoBehaviour
                 // Timer is over
                 isTimeOver = true;
                 ScoreCalculatorMaze.reinforcementText = "";
-                
+                if (ScoreCalculatorMaze.isLevel1)
+                {
+                    //CountDownTimer.OverallTime(1);
+                    //.Log("overall time: "+ ScoreCalculatorMaze.overallTime);
+                    LevelsTransition.checkLevelOne();
+                    ScoreCalculatorMaze.isLevel1 = false;
+                }
+                else if (ScoreCalculatorMaze.isLevel2)
+                {
+                    //CountDownTimer.OverallTime(2);
+                    //Debug.Log("overall time: " + ScoreCalculatorMaze.overallTime);
+                    LevelsTransition.CheckLevelTwo();
+                    ScoreCalculatorMaze.isLevel2 = false;
+                }
                 remainingTime = 0;
             }
             int minutes = Mathf.FloorToInt(remainingTime / 60);

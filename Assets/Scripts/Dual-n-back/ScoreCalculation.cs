@@ -8,7 +8,7 @@ public static class ScoreCalculator
     public static int score = 0;
     public static TextMeshProUGUI reinforcement;
 
-    public static bool isLevel1 = true;
+    public static bool isLevel1 = false;
     public static bool isLevel2 = false;
     public static bool isLevel3 = false;
     public static bool isGameOver = true;
