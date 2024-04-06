@@ -13,9 +13,12 @@ public class SpawnManager : MonoBehaviour
 
     public Transform[] spawnPositions;
     public Material[] materials;
+    Material randomMaterial;
 
     public Vector3 currentPosition;
     private Vector3 oldPosition;
+    Material oldColor;
+    Material currentColor;
 
     public float intervalBetweenSpawns;
     public bool isAPressed = false;
@@ -89,11 +92,16 @@ public class SpawnManager : MonoBehaviour
                 int randomIndex = Random.Range(0, spawnPositions.Length);
                 Vector3 spawnPos = spawnPositions[randomIndex].position;
 
+                if (randomMaterial)
+                {
+                    oldColor = randomMaterial;
+                }
+
                 // Instantiate the cube at the chosen position
                 GameObject newObject = Instantiate(objectPrefab, spawnPos, Quaternion.identity);// Get or add a Renderer component
                 // Randomly select a material from the materials array
                 int randomMaterialIndex = Random.Range(0, materials.Length);
-                Material randomMaterial = materials[randomMaterialIndex];
+                randomMaterial = materials[randomMaterialIndex];
 
                 // Apply the material to the child object
                 Renderer childRenderer = newObject.transform.GetChild(0).GetComponent<Renderer>();
@@ -103,7 +111,7 @@ public class SpawnManager : MonoBehaviour
                 }
                 ScoreCalculator.isCalculated = false;
                 SetCurrentPosition(newObject);
-
+                currentColor = randomMaterial;
                 isAPressed = false;
                 // cube visibility time before destroying it
                 yield return new WaitForSeconds(0.76f);
@@ -137,7 +145,12 @@ public class SpawnManager : MonoBehaviour
                 yield return new WaitForSeconds(intervalBetweenSpawns);
                 ScoreCalculator.reinforcementText = "";
 
-                
+
+                if (randomMaterial)
+                {
+                    oldColor = randomMaterial;
+                }
+
                 // Randomly selecting one of the positions
                 int randomIndex = Random.Range(0, spawnPositions.Length);
                 Vector3 spawnPos = spawnPositions[randomIndex].position;
@@ -146,7 +159,7 @@ public class SpawnManager : MonoBehaviour
                 GameObject newObject = Instantiate(objectPrefab, spawnPos, Quaternion.identity);// Get or add a Renderer component
                 // Randomly select a material from the materials array
                 int randomMaterialIndex = Random.Range(0, materials.Length);
-                Material randomMaterial = materials[randomMaterialIndex];
+                randomMaterial = materials[randomMaterialIndex];
 
                 // Apply the material to the child object
                 Renderer childRenderer = newObject.transform.GetChild(0).GetComponent<Renderer>();
@@ -156,6 +169,7 @@ public class SpawnManager : MonoBehaviour
                 }
                 ScoreCalculator.isCalculated = false;
                 SetCurrentPosition(newObject);
+                currentColor = randomMaterial;
 
                 isAPressed = false;
                 // cube visibility time before destroying it
@@ -202,6 +216,15 @@ public class SpawnManager : MonoBehaviour
             ScoreCalculator.CalculateScoreWhenPressed(oldPosition, currentPosition);
         }
     }
+
+    public void TriggerColorComparison()
+    {
+        if (ScoreCalculator.trialsCount != 0)
+        {
+            ScoreCalculator.CalculateColorScoreWhenPressed(oldColor, currentColor);
+        }
+    }
+
 
     public void PlayButtonClicked(int level)
     {

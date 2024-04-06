@@ -39,20 +39,7 @@ public class CountDownTimer : MonoBehaviour
                 // Timer is over
                 isTimeOver = true;
                 ScoreCalculatorMaze.reinforcementText = "";
-                if (ScoreCalculatorMaze.isLevel1) 
-                {
-                    OverallTime(1);
-                    //.Log("overall time: "+ ScoreCalculatorMaze.overallTime);
-                    LevelsTransition.checkLevelOne();
-                    ScoreCalculatorMaze.isLevel1 = false;
-                }
-                else if (ScoreCalculatorMaze.isLevel2) 
-                {
-                    OverallTime(2);
-                    //Debug.Log("overall time: " + ScoreCalculatorMaze.overallTime);
-                    LevelsTransition.CheckLevelTwo(); 
-                    ScoreCalculatorMaze.isLevel2 = false;
-                }
+                
                 remainingTime = 0;
             }
             int minutes = Mathf.FloorToInt(remainingTime / 60);
@@ -69,7 +56,7 @@ public class CountDownTimer : MonoBehaviour
         remainingTime = GeneralCountDownTimer.TimerInitialization(timerText, ScoreCalculatorMaze.isLevel1, ScoreCalculatorMaze.isLevel2, 30, 60);
     }
 
-    private void OverallTime(int level)
+    public  void OverallTime(int level)
     {
         if (level == 1) { ScoreCalculatorMaze.overallTime = 30 - remainingTime; }
         else if (level == 2) { ScoreCalculatorMaze.overallTime = 60 - remainingTime; }

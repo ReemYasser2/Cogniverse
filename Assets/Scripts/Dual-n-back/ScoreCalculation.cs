@@ -67,6 +67,31 @@ public static class ScoreCalculator
         Debug.Log(score);
         return score;
     }
+
+
+    public static int CalculateColorScoreWhenPressed(Material oldColor, Material currentColor)
+    {
+        oldScore = score;
+
+            if (oldColor == currentColor)
+            {
+                incrementCounter++;
+                score++;
+                correctCounter++;
+                Debug.Log("Increment score after pressing ");
+            }
+            else if (oldColor != currentColor && score != 0)
+            {
+                incrementCounter--;
+                score--;
+                Debug.Log("Decrement score after pressing ");
+            }
+        
+        reinforcmentCondition();
+        Debug.Log(score);
+        return score;
+    }
+
     public static  int CalculateScoreWithoutPressing(Vector3 oldPos, Vector3 currentPos)
     {
         oldScore = score;

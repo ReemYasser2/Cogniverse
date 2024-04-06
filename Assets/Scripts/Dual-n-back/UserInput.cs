@@ -49,6 +49,7 @@ public class UserInput : MonoBehaviour
     public void whenColorButtonPressed() 
     {
         Debug.Log("color button pressed");
-        // 
+        spawnManager.TriggerColorComparison();
+
     }
 }
