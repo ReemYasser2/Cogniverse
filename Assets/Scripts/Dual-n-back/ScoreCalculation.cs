@@ -28,6 +28,14 @@ public static class ScoreCalculator
     public static float scoreTwoPercent = 0;
     public static float scoreThreePercent = 0;
     public static float overallTime;
+    public static bool isStopWatchStart = false;
+    public static bool isPausedStopWatch = false;
+    public static float elapsedTimeStopWatch;
+    public static float stopWatchtime;
+    public static float responseTimeGo;
+    public static float responseTimeNoGo;
+    public static int countGoTrials = 0;
+    public static int countNoGoTrials = 0;
 
 
     public static float elapsedTime;
@@ -55,12 +63,21 @@ public static class ScoreCalculator
                 score++;
                 correctCounter++;
                 Debug.Log("Increment score after pressing ");
+
+                isStopWatchStart = false;
+                elapsedTimeStopWatch = 0;
+                responseTimeGo = responseTimeGo + stopWatchtime;
+
             }
             else if (oldPos != currentPos && score != 0)
             {
                 incrementCounter--;
                 score--;
                 Debug.Log("Decrement score after pressing ");
+
+                isStopWatchStart = false;
+                elapsedTimeStopWatch = 0;
+                responseTimeGo = responseTimeGo + stopWatchtime;
             }
         }
         reinforcmentCondition();
@@ -79,12 +96,20 @@ public static class ScoreCalculator
                 score++;
                 correctCounter++;
                 Debug.Log("Increment score after pressing ");
+
+                isStopWatchStart = false;
+                elapsedTimeStopWatch = 0;
+                responseTimeGo = responseTimeGo + stopWatchtime;
             }
             else if (oldColor != currentColor && score != 0)
             {
                 incrementCounter--;
                 score--;
                 Debug.Log("Decrement score after pressing ");
+
+                isStopWatchStart = false;
+                elapsedTimeStopWatch = 0;
+                responseTimeGo = responseTimeGo + stopWatchtime;
             }
         
         reinforcmentCondition();
@@ -101,6 +126,10 @@ public static class ScoreCalculator
             incrementCounter--;
             score--;
             Debug.Log("Decrement score without pressing ");
+
+            isStopWatchStart = false;
+            elapsedTimeStopWatch = 0;
+            responseTimeGo = responseTimeGo + stopWatchtime;
         }
         else if (oldPos != currentPos)
         {
@@ -108,7 +137,13 @@ public static class ScoreCalculator
             score++;
             correctCounter++;
             Debug.Log("Increment Score without pressing ");
-            
+
+            countNoGoTrials++;
+            countGoTrials--;
+            isStopWatchStart = false;
+            elapsedTimeStopWatch = 0;
+            responseTimeNoGo = responseTimeNoGo + 0;
+
         }
         reinforcmentCondition();
         Debug.Log(score);
@@ -132,6 +167,10 @@ public static class ScoreCalculator
                 incrementCounter++;
                 score++;
                 correctCounter++;
+
+                isStopWatchStart = false;
+                elapsedTimeStopWatch = 0;
+                responseTimeGo = responseTimeGo + stopWatchtime;
             }
             else
             {
@@ -139,9 +178,11 @@ public static class ScoreCalculator
                 Debug.Log("Audio clips are different");
                 // Adjust the score or perform actions accordingly
                 incrementCounter--;
-                score--; 
-           
+                score--;
 
+                isStopWatchStart = false;
+                elapsedTimeStopWatch = 0;
+                responseTimeGo = responseTimeGo + stopWatchtime;
             }
         }
         Debug.Log(score);

@@ -24,7 +24,15 @@ public class LevelTransitionDual : MonoBehaviour
             ScoreCalculator.elapsedTime = 0f;
             ScoreCalculator.isPlayPressed = false;
             levelsAccuracy = ScoreCalculator.AccuracyCalculation(correctClicks, 30);
+
+            ScoreCalculator.responseTimeGo = ScoreCalculator.responseTimeGo / ScoreCalculator.countGoTrials;
+            ScoreCalculator.responseTimeNoGo = ScoreCalculator.responseTimeNoGo / ScoreCalculator.countNoGoTrials;
+            Debug.Log("count go: " + ScoreCalculator.countGoTrials);
+            Debug.Log("count no go: " + ScoreCalculator.countNoGoTrials);
+            Debug.Log("response time go: " + ScoreCalculator.responseTimeGo);
+            Debug.Log("response time no go: " + ScoreCalculator.responseTimeNoGo);
             ScoreCalculator.isGameOver = true;
+            ResetResponseTimeTimer();
         }
         else if ((ScoreCalculator.score) / 30f < 0.7f)
         {
@@ -37,6 +45,7 @@ public class LevelTransitionDual : MonoBehaviour
             ScoreCalculator.accuracy = 0;
             ScoreCalculator.correctCounter = 0;
             ScoreCalculator.isGameOver = true;
+            ResetResponseTimeTimer();
         }
     }
 
@@ -59,6 +68,14 @@ public class LevelTransitionDual : MonoBehaviour
             ScoreCalculator.accuracy = 0;
             ScoreCalculator.correctCounter = 0;
             ScoreCalculator.isGameOver = true;
+
+            ScoreCalculator.responseTimeGo = ScoreCalculator.responseTimeGo / ScoreCalculator.countGoTrials;
+            ScoreCalculator.responseTimeNoGo = ScoreCalculator.responseTimeNoGo / ScoreCalculator.countNoGoTrials;
+            Debug.Log("count go: " + ScoreCalculator.countGoTrials);
+            Debug.Log("count no go: " + ScoreCalculator.countNoGoTrials);
+            Debug.Log("response time go: " + ScoreCalculator.responseTimeGo);
+            Debug.Log("response time no go: " + ScoreCalculator.responseTimeNoGo);
+            ResetResponseTimeTimer();
         }
         else if ((ScoreCalculator.score) / 45f < 0.7f)
         {
@@ -70,6 +87,14 @@ public class LevelTransitionDual : MonoBehaviour
             ScoreCalculator.isPlayPressed = false;
             ScoreCalculator.accuracy = 0;
             ScoreCalculator.isGameOver = true;
+
+            ScoreCalculator.responseTimeGo = ScoreCalculator.responseTimeGo / ScoreCalculator.countGoTrials;
+            ScoreCalculator.responseTimeNoGo = ScoreCalculator.responseTimeNoGo / ScoreCalculator.countNoGoTrials;
+            Debug.Log("count go: " + ScoreCalculator.countGoTrials);
+            Debug.Log("count no go: " + ScoreCalculator.countNoGoTrials);
+            Debug.Log("response time go: " + ScoreCalculator.responseTimeGo);
+            Debug.Log("response time no go: " + ScoreCalculator.responseTimeNoGo);
+            ResetResponseTimeTimer();
         }
     }
 
@@ -89,6 +114,14 @@ public class LevelTransitionDual : MonoBehaviour
             levelsAccuracy = ScoreCalculator.AccuracyCalculation(correctClicks, 45);
             Debug.Log("game over test");
             ScoreCalculator.isGameOver = true;
+
+            ScoreCalculator.responseTimeGo = ScoreCalculator.responseTimeGo / ScoreCalculator.countGoTrials;
+            ScoreCalculator.responseTimeNoGo = ScoreCalculator.responseTimeNoGo / ScoreCalculator.countNoGoTrials;
+            Debug.Log("count go: " + ScoreCalculator.countGoTrials);
+            Debug.Log("count no go: " + ScoreCalculator.countNoGoTrials);
+            Debug.Log("response time go: " + ScoreCalculator.responseTimeGo);
+            Debug.Log("response time no go: " + ScoreCalculator.responseTimeNoGo);
+            ResetResponseTimeTimer();
         }
         else if ((ScoreCalculator.score) / 45f < 0.7f)
         {
@@ -101,6 +134,7 @@ public class LevelTransitionDual : MonoBehaviour
             ScoreCalculator.accuracy = 0;
             ScoreCalculator.correctCounter = 0;
             ScoreCalculator.isGameOver = true;
+            ResetResponseTimeTimer();
         }
     }
 
@@ -160,5 +194,16 @@ public class LevelTransitionDual : MonoBehaviour
         ScoreCalculator.scoreThreePercent = 0;
 
         ScoreCalculator.overallTime = 0f;
+        ResetResponseTimeTimer();
+    }
+
+    private void ResetResponseTimeTimer()
+    {
+        ScoreCalculator.countGoTrials = 0;
+        ScoreCalculator.countNoGoTrials = 0;
+        ScoreCalculator.responseTimeGo = 0;
+        ScoreCalculator.responseTimeNoGo = 0;
+        ScoreCalculator.isStopWatchStart = false;
+        ScoreCalculator.elapsedTimeStopWatch = 0;
     }
 }

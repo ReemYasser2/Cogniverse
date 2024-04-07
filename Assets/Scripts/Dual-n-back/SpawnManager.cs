@@ -53,6 +53,9 @@ public class SpawnManager : MonoBehaviour
                 ScoreCalculator.isCalculated = false;
                 SetCurrentPosition(newObject);
 
+                ScoreCalculator.countGoTrials++;
+                ScoreCalculator.isStopWatchStart = true;
+
                 isAPressed = false;
                 // cube visibility time before destroying it
                 yield return new WaitForSeconds(0.76f);
@@ -113,6 +116,10 @@ public class SpawnManager : MonoBehaviour
                 SetCurrentPosition(newObject);
                 currentColor = randomMaterial;
                 isAPressed = false;
+
+                ScoreCalculator.countGoTrials++;
+                ScoreCalculator.isStopWatchStart = true;
+
                 // cube visibility time before destroying it
                 yield return new WaitForSeconds(0.76f);
 
@@ -172,6 +179,10 @@ public class SpawnManager : MonoBehaviour
                 currentColor = randomMaterial;
 
                 isAPressed = false;
+
+                ScoreCalculator.countGoTrials++;
+                ScoreCalculator.isStopWatchStart = true;
+
                 // cube visibility time before destroying it
                 yield return new WaitForSeconds(0.76f);
 
