@@ -17,6 +17,9 @@ public class HapticFeedback : MonoBehaviour
     private float lastCollisionTime;
     public float collisionCooldown = 1f; // Cooldown period to prevent multiple collisions in the same frame
 
+    public LevelsTransition LevelsTransition;
+    public CountDownTimer CountDownTimer;
+
     void Start()
     {
         xrController = GetComponent<XRController>();
@@ -45,7 +48,25 @@ public class HapticFeedback : MonoBehaviour
                 Debug.Log("Collision detected with a maze");
                 ScoreCalculatorMaze.Increment();
                 StartCoroutine(ResetTextAfterDelay());
-
+                ///
+                if (ScoreCalculatorMaze.isLevel1)
+                {
+                    if (ScoreCalculatorMaze.score == 2)
+                    {
+                        CountDownTimer.OverallTime(1);
+                        Debug.Log("overall time: " + ScoreCalculatorMaze.overallTime);
+                        LevelsTransition.checkLevelOne();
+                    }
+                }
+                else if (ScoreCalculatorMaze.isLevel2)
+                {
+                    if (ScoreCalculatorMaze.score == 4)
+                    {
+                        CountDownTimer.OverallTime(2);
+                        Debug.Log("overall time: " + ScoreCalculatorMaze.overallTime);
+                        LevelsTransition.CheckLevelTwo();
+                    }
+                }
             }
         }
         lastCollisionTime = Time.time;
@@ -58,6 +79,21 @@ public class HapticFeedback : MonoBehaviour
             collision.gameObject.SetActive(false);
             Debug.Log("Collision with an obstacle!");
             //Destroy(collision.gameObject);
+
+            ///
+            if (ScoreCalculatorMaze.isLevel1)
+            {
+                CountDownTimer.OverallTime(1);
+                Debug.Log("overall time: " + ScoreCalculatorMaze.overallTime);
+                LevelsTransition.checkLevelOne();
+
+            }
+            else if (ScoreCalculatorMaze.isLevel2)
+            {
+                CountDownTimer.OverallTime(2);
+                Debug.Log("overall time: " + ScoreCalculatorMaze.overallTime);
+                LevelsTransition.CheckLevelTwo();
+            }
         }
         else if (collision.gameObject.CompareTag("MazePowerUp"))
         {
@@ -67,6 +103,8 @@ public class HapticFeedback : MonoBehaviour
             Debug.Log("Collision with a power-up!");
             collision.gameObject.SetActive(false);
            // Destroy(collision.gameObject); // Change to inActive
+
+            ///
         }
     }
 

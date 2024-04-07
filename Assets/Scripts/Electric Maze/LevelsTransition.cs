@@ -17,6 +17,7 @@ public class LevelsTransition : MonoBehaviour
             menuHandler.level2LockButton.SetActive(false);
             mazeSpawner.ShowHideMaze(false);
             ScoreCalculatorMaze.isGameOver = true;
+            ScoreCalculatorMaze.isLevel1 = false;
         }
         else if (ScoreCalculatorMaze.score >= 2 || HapticFeedback.checkpointCounter < 9)//  || CountDownTimer.isTimeOver) 
         {
@@ -24,6 +25,7 @@ public class LevelsTransition : MonoBehaviour
             menuHandler.instructionsLevel1RetryCanvas.SetActive(true);
             mazeSpawner.ShowHideMaze(false);
             ScoreCalculatorMaze.isGameOver = true;
+            ScoreCalculatorMaze.isLevel1 = false;
         }
     }
 
@@ -36,6 +38,7 @@ public class LevelsTransition : MonoBehaviour
             menuHandler.completeLevel2Canvas.SetActive(true);
             mazeSpawner.ShowHideMaze(false);
             ScoreCalculatorMaze.isGameOver = true;
+            ScoreCalculatorMaze.isLevel2 = false;
         }
         else if (ScoreCalculatorMaze.score >= 4 || HapticFeedback.checkpointCounter < 9)// || CountDownTimer.isTimeOver) 
         {
@@ -43,6 +46,7 @@ public class LevelsTransition : MonoBehaviour
             menuHandler.instructionsLevel2RetryCanvas.SetActive(true);
             mazeSpawner.ShowHideMaze(false);
             ScoreCalculatorMaze.isGameOver = true;
+            ScoreCalculatorMaze.isLevel2 = false;
         }
     }
     
