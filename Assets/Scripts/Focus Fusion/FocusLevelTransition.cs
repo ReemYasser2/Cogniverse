@@ -43,6 +43,12 @@ public class FocusLevelTransition : MonoBehaviour
             ScoreCalculationFocus.score = 0;
             ScoreCalculationFocus.accuracy = 0;
             ScoreCalculationFocus.correctCounter = 0;
+            ScoreCalculationFocus.responseTimeGo = ScoreCalculationFocus.responseTimeGo / ScoreCalculationFocus.totalTrialsGo;
+            ScoreCalculationFocus.responseTimeNoGo = ScoreCalculationFocus.responseTimeNoGo / ScoreCalculationFocus.totalTrialsNoGo;
+            Debug.Log("Response time Go:" + ScoreCalculationFocus.responseTimeGo);
+            Debug.Log("Response time No Go:" + ScoreCalculationFocus.responseTimeNoGo);
+            Debug.Log("Conter go: " + ScoreCalculationFocus.totalTrialsGo);
+            Debug.Log("Conter no go: " + ScoreCalculationFocus.totalTrialsNoGo);
             ResetResponseTimeTimer();
             ScoreCalculationFocus.isGameOver = true;
         }
@@ -83,6 +89,13 @@ public class FocusLevelTransition : MonoBehaviour
             ScoreCalculationFocus.score = 0;
             ScoreCalculationFocus.accuracy = 0;
             ScoreCalculationFocus.correctCounter = 0;
+            ScoreCalculationFocus.responseTimeGo = ScoreCalculationFocus.responseTimeGo / ScoreCalculationFocus.totalTrialsGo;
+            ScoreCalculationFocus.responseTimeNoGo = ScoreCalculationFocus.responseTimeNoGo / ScoreCalculationFocus.totalTrialsNoGo;
+            Debug.Log("Response time Go:" + ScoreCalculationFocus.responseTimeGo);
+            Debug.Log("Response time No Go:" + ScoreCalculationFocus.responseTimeNoGo);
+            Debug.Log("Conter go: " + ScoreCalculationFocus.totalTrialsGo);
+            Debug.Log("Conter no go: " + ScoreCalculationFocus.totalTrialsNoGo);
+
             ResetResponseTimeTimer();
             ScoreCalculationFocus.isGameOver = true;
         }
@@ -90,7 +103,9 @@ public class FocusLevelTransition : MonoBehaviour
 
     public void ToHome()
     {
+        GridSpawner.ResetText();
         ScoreCalculationFocus.isHomeClicked = true;
+        ScoreCalculationFocus.reinforcementText = "";
 
         ScoreCalculationFocus.score = 0;
         ScoreCalculationFocus.isPlayPressed = false;
@@ -107,6 +122,7 @@ public class FocusLevelTransition : MonoBehaviour
         ScoreCalculationFocus.scorePercentOne = 0;
         ScoreCalculationFocus.scorePercentTwo = 0;
         ResetResponseTimeTimer();
+        ScoreCalculationFocus.remainingTime = 0;
     }
 
     private void ResetResponseTimeTimer()
@@ -117,5 +133,28 @@ public class FocusLevelTransition : MonoBehaviour
         ScoreCalculationFocus.responseTimeNoGo = 0;
         ScoreCalculationFocus.isStopWatchStart = false;
         ScoreCalculationFocus.elapsedTimeStopWatch = 0;
+    }
+
+    public void ResetGame()
+    {
+        GridSpawner.ResetText();
+
+        ScoreCalculationFocus.score = 0;
+        ScoreCalculationFocus.isPlayPressed = false;
+        ScoreCalculationFocus.isTimeOver = true;
+
+        ScoreCalculationFocus.isLevel1 = false;
+        ScoreCalculationFocus.isLevel2 = false;
+        ScoreCalculationFocus.isGameOver = true;
+
+        ScoreCalculationFocus.isPaused = false;
+
+        ScoreCalculationFocus.accuracy = 0;
+        ScoreCalculationFocus.correctCounter = 0;
+        ScoreCalculationFocus.scorePercentOne = 0;
+        ScoreCalculationFocus.scorePercentTwo = 0;
+        ResetResponseTimeTimer();
+
+        ScoreCalculationFocus.remainingTime = 0;
     }
 }

@@ -78,6 +78,7 @@ public class LevelTransitionWhack : MonoBehaviour
 
     public void HomeButton()
     {
+        ScoreCalculationWhack.reinforcementText = "";
         ScoreCalculationWhack.isHomeButtonClicked = true;
 
         ScoreCalculationWhack.score = 0;
