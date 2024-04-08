@@ -78,7 +78,7 @@ public class MazeMenuHandler : MonoBehaviour
             AudioSource audioSource = audioSources[i];
             if (audioSource.isPlaying)
             {
-                Debug.Log("Audio " + i + " is currently playing.");
+                //Debug.Log("Audio " + i + " is currently playing.");
                 if (audioSource.isPlaying && !pausedAudioSources.Contains(audioSource))
                 {
                     audioSource.Pause();

@@ -16,7 +16,7 @@ public class CountUpTimer : MonoBehaviour
             int minutes = Mathf.FloorToInt(ReinforcementManagement.elapsedTime / 60);
             int seconds = Mathf.FloorToInt(ReinforcementManagement.elapsedTime % 60);
             timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-            Debug.Log(timerText);
+            //Debug.Log(timerText);
         }
             
     }

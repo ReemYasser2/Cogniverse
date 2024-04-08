@@ -60,7 +60,7 @@ public class FocusTimer : MonoBehaviour
         //remainingTime = GeneralCountDownTimer.TimerInitialization(timerText, isLevel1, isLevel2, 5, 10);
     }
 
-    private void OverallTime()
+    public static void OverallTime()
     {
         ScoreCalculationFocus.overallTime = 180 - ScoreCalculationFocus.remainingTime;
     }

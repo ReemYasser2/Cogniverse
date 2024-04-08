@@ -23,7 +23,7 @@ public class HapticFeedback : MonoBehaviour
     void Start()
     {
         xrController = GetComponent<XRController>();
-        Debug.Log("controller");
+        //Debug.Log("controller");
 
         audioSource = GetComponent<AudioSource>();
         audioSource = gameObject.AddComponent<AudioSource>();
@@ -45,7 +45,7 @@ public class HapticFeedback : MonoBehaviour
 
             if (Time.time - lastCollisionTime > collisionCooldown)
             {
-                Debug.Log("Collision detected with a maze");
+                //Debug.Log("Collision detected with a maze");
                 ScoreCalculatorMaze.Increment();
                 StartCoroutine(ResetTextAfterDelay());
                 ///
@@ -53,8 +53,8 @@ public class HapticFeedback : MonoBehaviour
                 {
                     if (ScoreCalculatorMaze.score == 2)
                     {
-                        CountDownTimer.OverallTime(1);
-                        Debug.Log("overall time: " + ScoreCalculatorMaze.overallTime);
+                       // CountDownTimer.OverallTime(1);
+                        //Debug.Log("overall time: " + ScoreCalculatorMaze.overallTime);
                         LevelsTransition.checkLevelOne();
                     }
                 }
@@ -62,8 +62,8 @@ public class HapticFeedback : MonoBehaviour
                 {
                     if (ScoreCalculatorMaze.score == 4)
                     {
-                        CountDownTimer.OverallTime(2);
-                        Debug.Log("overall time: " + ScoreCalculatorMaze.overallTime);
+                        //CountDownTimer.OverallTime(2);
+                       // Debug.Log("overall time: " + ScoreCalculatorMaze.overallTime);
                         LevelsTransition.CheckLevelTwo();
                     }
                 }
@@ -77,21 +77,21 @@ public class HapticFeedback : MonoBehaviour
             StartCoroutine(ResetTextAfterDelay());
             audioSource.PlayOneShot(obstacleSound);
             collision.gameObject.SetActive(false);
-            Debug.Log("Collision with an obstacle!");
+            //Debug.Log("Collision with an obstacle!");
             //Destroy(collision.gameObject);
 
             ///
             if (ScoreCalculatorMaze.isLevel1)
             {
-                CountDownTimer.OverallTime(1);
-                Debug.Log("overall time: " + ScoreCalculatorMaze.overallTime);
+                //CountDownTimer.OverallTime(1);
+                //Debug.Log("overall time: " + ScoreCalculatorMaze.overallTime);
                 LevelsTransition.checkLevelOne();
 
             }
             else if (ScoreCalculatorMaze.isLevel2)
             {
-                CountDownTimer.OverallTime(2);
-                Debug.Log("overall time: " + ScoreCalculatorMaze.overallTime);
+                //CountDownTimer.OverallTime(2);
+                //Debug.Log("overall time: " + ScoreCalculatorMaze.overallTime);
                 LevelsTransition.CheckLevelTwo();
             }
         }
@@ -100,7 +100,7 @@ public class HapticFeedback : MonoBehaviour
             ScoreCalculatorMaze.Decrement();
             StartCoroutine(ResetTextAfterDelay());
             audioSource.PlayOneShot(powerupSound);
-            Debug.Log("Collision with a power-up!");
+            //Debug.Log("Collision with a power-up!");
             collision.gameObject.SetActive(false);
            // Destroy(collision.gameObject); // Change to inActive
 
@@ -113,7 +113,7 @@ public class HapticFeedback : MonoBehaviour
         if (other.gameObject.layer == 12)
         {
             checkpointCounter++;
-            Debug.Log("check " + checkpointCounter);
+            //Debug.Log("check " + checkpointCounter);
         }
 
     }

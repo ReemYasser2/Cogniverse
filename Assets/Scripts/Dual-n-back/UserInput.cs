@@ -14,34 +14,15 @@ public class UserInput : MonoBehaviour
 
     }
 
-    /*
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            spawnManager.TriggerPositionComparison();
-            spawnManager.isAPressed = true;
-        }
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Debug.Log("Letter L pressed");
-            audioManager.TriggerAudioComparison();
-            audioManager.keyPressedDuringAudioPlayback = true;
-        }
-    }
-    */
-    // 
     public void whenPositionButtonPressed(){
-        Debug.Log("Position button pressed");
+        //Debug.Log("Position button pressed");
         spawnManager.TriggerPositionComparison();
         spawnManager.isAPressed = true;
     }
 
     // 
     public void whenAudioButtonPressed(){
-        Debug.Log("Audio button pressed");
+       // Debug.Log("Audio button pressed");
         audioManager.TriggerAudioComparison();
         audioManager.keyPressedDuringAudioPlayback = true;
 
@@ -49,7 +30,7 @@ public class UserInput : MonoBehaviour
 
     public void whenColorButtonPressed() 
     {
-        Debug.Log("color button pressed");
+        //Debug.Log("color button pressed");
         spawnManager.TriggerColorComparison();
         spawnManager.isColorPressed = true;
 

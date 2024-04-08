@@ -29,23 +29,6 @@ public class CountDownTimer : MonoBehaviour
             {
                 remainingTime -= Time.deltaTime;
 
-                /*if (ScoreCalculatorMaze.isLevel1)
-                {
-                    //CountDownTimer.OverallTime(1);
-                    //.Log("overall time: "+ ScoreCalculatorMaze.overallTime);
-                    LevelsTransition.checkLevelOneWithoutTimer();
-                    ScoreCalculatorMaze.isLevel1 = false;
-                    isTimeOver = true;
-                }
-                else if (ScoreCalculatorMaze.isLevel2)
-                {
-                    //CountDownTimer.OverallTime(2);
-                    //Debug.Log("overall time: " + ScoreCalculatorMaze.overallTime);
-                    LevelsTransition.CheckLevelTwoWithoutTimer();
-                    ScoreCalculatorMaze.isLevel2 = false;
-                    isTimeOver = true;
-                }*/
-
                 if (remainingTime <= 5)
                 {
                     timerText.color = criticalColor;
@@ -58,17 +41,11 @@ public class CountDownTimer : MonoBehaviour
                 ScoreCalculatorMaze.reinforcementText = "";
                 if (ScoreCalculatorMaze.isLevel1)
                 {
-                    //CountDownTimer.OverallTime(1);
-                    //.Log("overall time: "+ ScoreCalculatorMaze.overallTime);
                     LevelsTransition.checkLevelOne();
-                    ScoreCalculatorMaze.isLevel1 = false;
                 }
                 else if (ScoreCalculatorMaze.isLevel2)
                 {
-                    //CountDownTimer.OverallTime(2);
-                    //Debug.Log("overall time: " + ScoreCalculatorMaze.overallTime);
                     LevelsTransition.CheckLevelTwo();
-                    ScoreCalculatorMaze.isLevel2 = false;
                 }
                 remainingTime = 0;
             }

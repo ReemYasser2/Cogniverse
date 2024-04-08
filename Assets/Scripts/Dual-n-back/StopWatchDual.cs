@@ -11,7 +11,6 @@ public class StopWatchDual : MonoBehaviour
         {
             ScoreCalculator.elapsedTimeStopWatch += Time.deltaTime;
             ScoreCalculator.stopWatchtime = Mathf.Round(ScoreCalculator.elapsedTimeStopWatch * 1000f) / 1000f;
-            // Debug.Log(ScoreCalculationFocus.stopWatchtime);
         }
     }
 

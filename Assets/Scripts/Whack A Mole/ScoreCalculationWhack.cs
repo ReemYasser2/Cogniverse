@@ -54,14 +54,14 @@ public static class ScoreCalculationWhack
         score++;
         correctCounter++;
         reinforcementText = PositiveReinforcementIncrement();
-        Debug.Log(score);
+        //Debug.Log(score);
 
     }
     public static void Decrement()
     {
         score--;
         reinforcementText = PositiveReinforcementDecrement();
-        Debug.Log(score);
+        //Debug.Log(score);
 
     }
 

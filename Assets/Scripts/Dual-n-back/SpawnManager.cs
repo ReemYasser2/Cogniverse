@@ -74,7 +74,7 @@ public class SpawnManager : MonoBehaviour
             }
             yield return new WaitForSeconds(0.7f);
             score1 = ScoreCalculator.score;
-            Debug.Log("score 1:" + (ScoreCalculator.score) / 30f);
+            //Debug.Log("score 1:" + (ScoreCalculator.score) / 30f);
             if (!ScoreCalculator.isHomeClicked) { levelTransition.CheckLevel1(); }
             ScoreCalculator.isLevel1 = false;
             ScoreCalculator.overallTime = 0f;
@@ -137,7 +137,7 @@ public class SpawnManager : MonoBehaviour
 
                 if (!isColorPressed && ScoreCalculator.trialsCount != 0)
                 {
-                    Debug.Log("color no click");
+                   // Debug.Log("color no click");
 
                     ScoreCalculator.CalculateColorScoreWithoutPressing(oldColor, currentColor);
                 }
@@ -205,7 +205,7 @@ public class SpawnManager : MonoBehaviour
                 }
                 if (!isColorPressed && ScoreCalculator.trialsCount != 0)
                 {
-                    Debug.Log("color no click");
+                    //Debug.Log("color no click");
 
                     ScoreCalculator.CalculateColorScoreWithoutPressing(oldColor, currentColor);
                 }
@@ -252,7 +252,7 @@ public class SpawnManager : MonoBehaviour
 
     public void TriggerColorComparison()
     {
-        Debug.Log("color no click");
+        //Debug.Log("color no click");
         if (ScoreCalculator.trialsCount != 0)
         {
             ScoreCalculator.CalculateColorScoreWhenPressed(oldColor, currentColor);
