@@ -125,6 +125,8 @@ public class LevelsHandler : MonoBehaviour
 
     public void HomeButton()
     {
+        ReinforcementManagement.reinforcementText = "";
+
         trailLevel1.levelOneScore = 0;
         trailLevel1.mistakes = 0;
         trailLevel1.scorePercent = 0;

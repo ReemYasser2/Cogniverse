@@ -116,6 +116,7 @@ public class LevelsTransition : MonoBehaviour
 
     public void HomeButtonClicked()
     {
+        ScoreCalculatorMaze.reinforcementText = "";
         mazeSpawner.mazePrefabs[mazeSpawner.mazeIndex].SetActive(false);
         mazeSpawner.maze1Canvas.SetActive(false);
         mazeSpawner.maze2Canvas.SetActive(false);

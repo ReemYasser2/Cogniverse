@@ -1,33 +1,4 @@
-Translucent Crystals, Unity Asset Store, SineVFX
-Books, VIS GAMES,Unity Asset Store
-Dolls House Miniature Mixed Grey Irregular Surface Stone Paper, Dolls House Suppliers, ebay
-Stone Floor Texture, flickr, Simon Murray
-Wooden Texture, Manor Farm Courtyard Cottages
-Wood Texture Picture, Unsplash
-Treasure Chest, Unity Asset Store, madtowngaming
-Paper Texture, dreamstime, Pixelrobot
-Stone Texture, ROCKMOLDS
-Granite Texture, Vecteezy
-Medieval Candles, AnyRPG, OpenGameArt
-Worn Wooden Crate, Golden Pixel, Unity Asset Store
-Skull Platform, Kubiqual, Unity Asset Store
-Vintage Wall Art, Antique Farmhouse
-Real Stars Skybox Lite, Geoff Dallimore, Unity Asset Store
-Vintage Frame, Unknown
-Oak Wood Texture, Vecteezy
-Seemless Rocky Texture, SketchUp Textures
-Brown Planet Texture, Everypixel , golubovy
-Moss and Rock Texture, everytexture
-Magic Shop Background Texture, art station, Albert Valls PunsichPRO
-Button Click Sound, Pixabay
-Painted Tiles - Sleeping Forest, Tobyfredson, Unity Asset Store
-Simple, Low-Poly Decorative Plant Assets, Ultrasonic, Unity Asset Store
-Low-Poly Simple Nature Pack, JustCreate, Unity Asset Store
-forest-bird-sounds, Pixabay
-tawny-owl-and-robin-early-night, Pixabay
-Buttons Set, KartInnka, Unity Asset Store
-Game GUI Vol1, Rizwan Ashraf, Unity Asset Store
-Multicolored GUI buttons, Gest, Unity Asset Store
+-----Fonts-----
 ElectricShocker-2y8d SDF, 1001fonts.com
 exwayer SDF, 1001fonts.com
 Lunatic SDF, 1001fonts.com
@@ -37,12 +8,6 @@ GamePlayed-vYL7 SDF, fontspace.com
 GamePlayedOutline-wrX8 SDF, fontspace.com
 Godofthunder-0WO1P SDF, fontspace.com
 NobleGasLights-j8rO SDF, fontspace.com
-Fantasy Wooden GUI  Free, Black Hammer, Unity Asset Store
-Jelly Icons, ToughNutToCrack, Unity Asset Store
-UNDERPOLY: Free Hot-Air Balloons, UNDERPOLY Project, Unity Asset Store
-Low Poly Environment Park, Palmov Island, Unity Asset Store
-Low Poly Houses Free Pack, Palmov Island, Unity Asset Store
-Low Poly Pack - Environment Lite, Solum Night, Unity Asset Store
 Bumrush SDF, webtoolhub.com
 Gears_of_Peace SDF, webtoolhub.com
 Magump SDF, webtoolhub.com
@@ -52,19 +17,85 @@ GROBOLD SDF, webtoolhub.com
 Balaram SDF, webtoolhub.com
 BubbleGum SDF, webtoolhub.com
 Baldur_Regul SDF, webtoolhub.com
-RPG&Fantasy Mobile GUI, Unity Asset Store
-Dynamic floatinf Text, Unity Asset Store
-laserLarge_001 Audio, kenney
-laserSmall_004 Audio, kenney
 Space Ranger Title Font, webtoolhub.com
+
+-----Textures & Materials-----
+Painted Tiles - Sleeping Forest, Tobyfredson, Unity Asset Store
+Dolls House Miniature Mixed Grey Irregular Surface Stone Paper, Dolls House Suppliers, ebay
+Stone Floor Texture, flickr, Simon Murray
+Wooden Tabletop Texture, Manor Farm Courtyard Cottages
+Plank Wood Texture, Unsplash
+Paper Texture, dreamstime, Pixelrobot
+Stone Texture, ROCKMOLDS
+Granite Texture, Vecteezy
+Oak Wood Texture, Vecteezy
+Seemless Rocky Texture, SketchUp Textures
+Brown Planet Texture, Everypixel , golubovy
+Moss and Rock Texture, everytexture
 Customizable Road Material/Shader, GeeKo, Unity Asset Store
-Car'Toon : The Sport Car with interior, Pixtim, Unity Asset Store
-Road sign - Big pack, Mixall, Unity Asset Store
+Circus Texture, STARSUNFLOWER, Design Share
+
+-----Audio-----
+forest-bird-sounds, Pixabay
+Pop Sound Effect by floraphonic, Pixabay
+Eating sound effect Sound Effect, Pixabay
+Heavy swallow sound effect, Pixabay
+tawny-owl-and-robin-early-night, Pixabay
+spaceship-ambience-with-effects-21420, Pixabay
+laserLarge_001, kenney
+laserSmall_004, kenney
+confirmation_001, kenney
+drop_001, kenney
+select_004, kenney
+cinderblockmove2, Pixabay
+city-traffic-outdoor-6414, Pixabay
+infographic-pop-9-197876, Pixabay
+mixkit-electric-fence-buzzing-2967, Mixkit
+quiet-bird-noise-park-with-light-ambience-31901, Pixabay
+
+-----Skyboxes-----
+Real Stars Skybox Lite, Geoff Dallimore, Unity Asset Store
+
+-----Asset Packages-----
+Translucent Crystals, Unity Asset Store, SineVFX
+Books, VIS GAMES, Unity Asset Store
+Treasure Chest, Unity Asset Store, madtowngaming
+Medieval Candles, AnyRPG, OpenGameArt
+Medieval Cauldron, AnyRPG, OpenGameArt
+Worn Wooden Crate, Golden Pixel, Unity Asset Store
+Simple, Low-Poly Decorative Plant Assets, Ultrasonic, Unity Asset Store
+Low-Poly Simple Nature Pack, JustCreate, Unity Asset Store
+UNDERPOLY: Free Hot-Air Balloons, UNDERPOLY Project, Unity Asset Store
+Low Poly Environment Park, Palmov Island, Unity Asset Store
+Low Poly Houses Free Pack, Palmov Island, Unity Asset Store
+Low Poly Pack - Environment Lite, Solum Night, Unity Asset Store
 Super Rubber Duck Pack, Samer Khatib (Snowconesolid Productions), Unity Asset Store
 Free Demo Of Low Poly Space Alien Worlds 3D Asset Pack, Draftpunk Studios, Unity Asset Store
 Alien Ships Pack, Autarca, Unity Asset Store
 Stylized Cute Alien Character, gklp07, Unity Asset Store
 Lowpoly Forest Pack, Laufes, Unity Asset Store
-Pop Sound Effect by floraphonic, Pixabay
-Eating sound effect Sound Effect, Pixabay
-Heavy swallow sound effect, Pixabay
+Car'Toon : The Sport Car with interior, Pixtim, Unity Asset Store
+Road sign - Big pack, Mixall, Unity Asset Store
+10 Weapons Pack, Kinitia Studios, Unity Asset Store
+Ukraine free road roadsign cars, KOS-store, Unity Asset Store
+Cartoon low poly tree, create smth, Unity Asset Store
+Potions, Gameplan VFX, Unity Asset Store
+Road Props - Low Poly, Laxer, Unity Asset Store
+Living Birds, Dinopunch, Unity Asset Store
+Stylized NPC - Peasant Nolant (DEMO), Winged Boots Studio, Unity Asset Store
+
+-----GUI Packages-----
+Buttons Set, KartInnka, Unity Asset Store
+Game GUI Vol1, Rizwan Ashraf, Unity Asset Store
+Multicolored GUI buttons, Gest, Unity Asset Store
+Fantasy Wooden GUI Free, Black Hammer, Unity Asset Store
+Jelly Icons, ToughNutToCrack, Unity Asset Store
+RPG&Fantasy Mobile GUI, Unity Asset Store
+Dynamic floatinf Text, Unity Asset Store
+
+
+
+
+
+
+

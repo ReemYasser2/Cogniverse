@@ -220,4 +220,28 @@ public class LevelTransitionDual : MonoBehaviour
         ScoreCalculator.isStopWatchStart = false;
         ScoreCalculator.elapsedTimeStopWatch = 0;
     }
+
+    public void ResetGame()
+    {
+        ScoreCalculator.reinforcementText = "";
+
+        ScoreCalculator.isLevel1 = false;
+        ScoreCalculator.isLevel2 = false;
+        ScoreCalculator.isLevel3 = false;
+        ScoreCalculator.isGameOver = true;
+
+        ScoreCalculator.correctCounter = 0;
+        ScoreCalculator.accuracy = 0;
+        ScoreCalculator.score = 0;
+        ScoreCalculator.trialsCount = 0;
+        ScoreCalculator.maxTrials = 15;
+        ScoreCalculator.elapsedTime = 0f;
+        ScoreCalculator.isPlayPressed = false;
+        ScoreCalculator.scoreOnePercent = 0;
+        ScoreCalculator.scoreTwoPercent = 0;
+        ScoreCalculator.scoreThreePercent = 0;
+
+        ScoreCalculator.overallTime = 0f;
+        ResetResponseTimeTimer();
+    }
 }
