@@ -6,6 +6,7 @@ public class LevelsTransition : MonoBehaviour
     public MazeMenuHandler menuHandler;
     public MazeSpawner mazeSpawner;
     public CountDownTimer CountDownTimer;
+    public HapticFeedback hapticFeedback;
 
 
     public void checkLevelOne()
@@ -95,6 +96,7 @@ public class LevelsTransition : MonoBehaviour
         ScoreCalculatorMaze.numberOfHits = 0;
         ScoreCalculatorMaze.overallTime = 0;
 
+        hapticFeedback.livesCount.text = string.Format("{0}", 2);
 
     }
 
@@ -107,6 +109,7 @@ public class LevelsTransition : MonoBehaviour
         HapticFeedback.checkpointCounter = 0;
         ScoreCalculatorMaze.numberOfHits = 0;
         ScoreCalculatorMaze.overallTime = 0;
+        hapticFeedback.livesCount.text = string.Format("{0}", 4);
     }
 
     public void HomeButtonClicked()

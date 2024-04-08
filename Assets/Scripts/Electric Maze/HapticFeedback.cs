@@ -5,6 +5,9 @@ using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Inputs;
 using UnityEngine.XR.OpenXR.Input;
+using UnityEngine.UI;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
+using TMPro;
 
 public class HapticFeedback : MonoBehaviour
 {
@@ -19,6 +22,9 @@ public class HapticFeedback : MonoBehaviour
 
     public LevelsTransition LevelsTransition;
     public CountDownTimer CountDownTimer;
+    public TMP_Text livesCount;
+
+
 
     void Start()
     {
@@ -47,6 +53,14 @@ public class HapticFeedback : MonoBehaviour
             {
                 //Debug.Log("Collision detected with a maze");
                 ScoreCalculatorMaze.Increment();
+                if (ScoreCalculatorMaze.isLevel1)
+                {
+                    livesCount.text = string.Format("{0}", 2 - ScoreCalculatorMaze.score);
+                }
+                else if (ScoreCalculatorMaze.isLevel2)
+                {
+                    livesCount.text = string.Format("{0}", 4 - ScoreCalculatorMaze.score);
+                }
                 StartCoroutine(ResetTextAfterDelay());
                 ///
                 if (ScoreCalculatorMaze.isLevel1)
@@ -74,6 +88,7 @@ public class HapticFeedback : MonoBehaviour
         if (collision.gameObject.CompareTag("MazeObstacle"))
         {
             ScoreCalculatorMaze.Increment();
+            livesCount.text = string.Format("{0}", 4-ScoreCalculatorMaze.score);
             StartCoroutine(ResetTextAfterDelay());
             audioSource.PlayOneShot(obstacleSound);
             collision.gameObject.SetActive(false);
@@ -98,6 +113,7 @@ public class HapticFeedback : MonoBehaviour
         else if (collision.gameObject.CompareTag("MazePowerUp"))
         {
             ScoreCalculatorMaze.Decrement();
+            livesCount.text = string.Format("{0}", 4-ScoreCalculatorMaze.score);
             StartCoroutine(ResetTextAfterDelay());
             audioSource.PlayOneShot(powerupSound);
             //Debug.Log("Collision with a power-up!");
