@@ -41,9 +41,17 @@ Pop Sound Effect by floraphonic, Pixabay
 Eating sound effect Sound Effect, Pixabay
 Heavy swallow sound effect, Pixabay
 tawny-owl-and-robin-early-night, Pixabay
-laserLarge_001 Audio, kenney
-laserSmall_004 Audio, kenney
-
+spaceship-ambience-with-effects-21420, Pixabay
+laserLarge_001, kenney
+laserSmall_004, kenney
+confirmation_001, kenney
+drop_001, kenney
+select_004, kenney
+cinderblockmove2, Pixabay
+city-traffic-outdoor-6414, Pixabay
+infographic-pop-9-197876, Pixabay
+mixkit-electric-fence-buzzing-2967, Mixkit
+quiet-bird-noise-park-with-light-ambience-31901, Pixabay
 
 -----Skyboxes-----
 Real Stars Skybox Lite, Geoff Dallimore, Unity Asset Store
