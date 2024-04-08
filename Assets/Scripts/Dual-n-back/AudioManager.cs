@@ -31,13 +31,13 @@ public class AudioManager : MonoBehaviour
                 }
                 else
                 {
-                    yield return new WaitForSeconds(2.0f);
+                    yield return new WaitForSeconds(2.1f);
                 }
 
                 ScoreCalculator.isComparisonDone = false;
 
                 ScoreCalculator.reinforcementText = "";
-                int randomIndex = Random.Range(0, audioClips.Length - 19);
+                int randomIndex = Random.Range(0, audioClips.Length );
 
 
                 AudioClip clipToPlay = audioClips[randomIndex];
