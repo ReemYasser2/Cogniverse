@@ -120,7 +120,6 @@ public static class ScoreCalculator
     public static  int CalculateScoreWithoutPressing(Vector3 oldPos, Vector3 currentPos)
     {
         oldScore = score;
-        Debug.Log(score);
         if (oldPos == currentPos && score != 0)
         {
             incrementCounter--;
@@ -129,7 +128,7 @@ public static class ScoreCalculator
 
             isStopWatchStart = false;
             elapsedTimeStopWatch = 0;
-            responseTimeGo = responseTimeGo + stopWatchtime;
+            responseTimeNoGo = responseTimeNoGo + stopWatchtime;
         }
         else if (oldPos != currentPos)
         {
@@ -150,11 +149,46 @@ public static class ScoreCalculator
         return score;
     }
 
+
+    public static int CalculateColorScoreWithoutPressing(Material oldColor, Material currentColor)
+    { 
+        oldScore = score;
+        if (oldColor == currentColor && score != 0)
+        {
+            incrementCounter--;
+            score--;
+            Debug.Log("Decrement score without pressing ");
+
+            isStopWatchStart = false;
+            elapsedTimeStopWatch = 0;
+            responseTimeNoGo = responseTimeNoGo + stopWatchtime;
+        }
+        else if (oldColor != currentColor)
+        {
+            incrementCounter++;
+            score++;
+            correctCounter++;
+            Debug.Log("Increment Score without pressing ");
+
+            countNoGoTrials++;
+            countGoTrials--;
+            isStopWatchStart = false;
+            elapsedTimeStopWatch = 0;
+            responseTimeNoGo = responseTimeNoGo + 0;
+
+        }
+        reinforcmentCondition();
+        Debug.Log(score);
+        return score;
+    }
+
+
     public static int CalculateAudioScore(AudioClip oldAudio, AudioClip currentAudio)
     {
         // Logic to compare old and current audio clips goes here
         // You might need to modify this method based on your comparison criteria
         oldScore = score;
+
         if (!isComparisonDone)
         {
             isComparisonDone = true;
@@ -189,7 +223,50 @@ public static class ScoreCalculator
         reinforcmentCondition();
         return score;
     }
-    
+
+
+    public static int CalculateAudioScoreWithoutPressing(AudioClip oldAudio, AudioClip currentAudio)
+    {
+        // Logic to compare old and current audio clips goes here
+        // You might need to modify this method based on your comparison criteria
+        oldScore = score;
+
+        if (!isComparisonDone)
+        {
+            isComparisonDone = true;
+
+            if (oldAudio == currentAudio)
+            {
+                // Handle comparison when old and current clips are the same
+                Debug.Log("Audio clips are the same");
+                // Adjust the score or perform actions accordingly
+                incrementCounter++;
+                score++;
+                correctCounter++;
+
+                isStopWatchStart = false;
+                elapsedTimeStopWatch = 0;
+                responseTimeNoGo = responseTimeNoGo + 0;
+            }
+            else
+            {
+                // Handle comparison when old and current clips are different
+                Debug.Log("Audio clips are different");
+                // Adjust the score or perform actions accordingly
+                incrementCounter--;
+                score--;
+
+                isStopWatchStart = false;
+                elapsedTimeStopWatch = 0;
+                responseTimeNoGo = responseTimeNoGo + stopWatchtime;
+            }
+        }
+        Debug.Log(score);
+        reinforcmentCondition();
+        return score;
+    }
+
+
 
 
     public static int Increment(AudioClip oldAudio, AudioClip currentAudio)

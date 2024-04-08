@@ -44,12 +44,14 @@ public class UserInput : MonoBehaviour
         Debug.Log("Audio button pressed");
         audioManager.TriggerAudioComparison();
         audioManager.keyPressedDuringAudioPlayback = true;
+
     }
 
     public void whenColorButtonPressed() 
     {
         Debug.Log("color button pressed");
         spawnManager.TriggerColorComparison();
+        spawnManager.isColorPressed = true;
 
     }
 }

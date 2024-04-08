@@ -21,7 +21,7 @@ public class CountDownTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPlayPressed)
+        if (isPlayPressed && !isTimeOver)
         {
             // GeneralCountDownTimer.TimerUpdate(timerText, ref isTimeOver, ref remainingTime);
 

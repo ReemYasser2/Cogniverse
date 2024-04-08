@@ -22,6 +22,7 @@ public class SpawnManager : MonoBehaviour
 
     public float intervalBetweenSpawns;
     public bool isAPressed = false;
+    public bool isColorPressed = false;
 
     public int score1;
     public int score2;
@@ -57,6 +58,7 @@ public class SpawnManager : MonoBehaviour
                 ScoreCalculator.isStopWatchStart = true;
 
                 isAPressed = false;
+                isColorPressed = false;
                 // cube visibility time before destroying it
                 yield return new WaitForSeconds(0.76f);
 
@@ -116,6 +118,7 @@ public class SpawnManager : MonoBehaviour
                 SetCurrentPosition(newObject);
                 currentColor = randomMaterial;
                 isAPressed = false;
+                isColorPressed = false;
 
                 ScoreCalculator.countGoTrials++;
                 ScoreCalculator.isStopWatchStart = true;
@@ -128,7 +131,16 @@ public class SpawnManager : MonoBehaviour
                     ScoreCalculator.CalculateScoreWithoutPressing(oldPosition, currentPosition);
                 }
 
+
+
                 yield return new WaitForSeconds(1.0f);
+
+                if (!isColorPressed && ScoreCalculator.trialsCount != 0)
+                {
+                    Debug.Log("color no click");
+
+                    ScoreCalculator.CalculateColorScoreWithoutPressing(oldColor, currentColor);
+                }
                 Destroy(newObject);
                 SetOldPosition(spawnPos);
                 ScoreCalculator.trialsCount++;
@@ -179,6 +191,7 @@ public class SpawnManager : MonoBehaviour
                 currentColor = randomMaterial;
 
                 isAPressed = false;
+                isColorPressed = false;
 
                 ScoreCalculator.countGoTrials++;
                 ScoreCalculator.isStopWatchStart = true;
@@ -190,16 +203,25 @@ public class SpawnManager : MonoBehaviour
                 {
                     ScoreCalculator.CalculateScoreWithoutPressing(oldPosition, currentPosition);
                 }
+                if (!isColorPressed && ScoreCalculator.trialsCount != 0)
+                {
+                    Debug.Log("color no click");
+
+                    ScoreCalculator.CalculateColorScoreWithoutPressing(oldColor, currentColor);
+                }
 
                 yield return new WaitForSeconds(1.0f);
                 Destroy(newObject);
                 SetOldPosition(spawnPos);
                 ScoreCalculator.trialsCount++;
             }
+
             yield return new WaitForSeconds(0.7f);
             score3 = ScoreCalculator.score;
             ScoreCalculator.isLevel3 = false;
+
             if (!ScoreCalculator.isHomeClicked) { levelTransition.CheckLevel3(); }
+
             ScoreCalculator.overallTime = 0f;
         }
     }   
@@ -230,6 +252,7 @@ public class SpawnManager : MonoBehaviour
 
     public void TriggerColorComparison()
     {
+        Debug.Log("color no click");
         if (ScoreCalculator.trialsCount != 0)
         {
             ScoreCalculator.CalculateColorScoreWhenPressed(oldColor, currentColor);

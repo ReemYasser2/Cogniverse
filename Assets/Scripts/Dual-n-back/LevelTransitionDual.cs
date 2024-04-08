@@ -10,7 +10,7 @@ public class LevelTransitionDual : MonoBehaviour
     int correctClicks = ScoreCalculator.correctCounter;
     public void CheckLevel1()
     {
-        if ((ScoreCalculator.score)/30f >= 0.7f)
+        if ((ScoreCalculator.score)/28f >= 0.7f)
         {
             // pass lvl 1
             TimerDual.OverallTime();
@@ -34,7 +34,7 @@ public class LevelTransitionDual : MonoBehaviour
             ScoreCalculator.isGameOver = true;
             ResetResponseTimeTimer();
         }
-        else if ((ScoreCalculator.score) / 30f < 0.7f)
+        else if ((ScoreCalculator.score) / 28f < 0.7f)
         {
             // retry lvl1
             ScoreCalculator.reinforcementText = "";
@@ -45,13 +45,19 @@ public class LevelTransitionDual : MonoBehaviour
             ScoreCalculator.accuracy = 0;
             ScoreCalculator.correctCounter = 0;
             ScoreCalculator.isGameOver = true;
+            ScoreCalculator.responseTimeGo = ScoreCalculator.responseTimeGo / ScoreCalculator.countGoTrials;
+            ScoreCalculator.responseTimeNoGo = ScoreCalculator.responseTimeNoGo / ScoreCalculator.countNoGoTrials;
+            Debug.Log("count go: " + ScoreCalculator.countGoTrials);
+            Debug.Log("count no go: " + ScoreCalculator.countNoGoTrials);
+            Debug.Log("response time go: " + ScoreCalculator.responseTimeGo);
+            Debug.Log("response time no go: " + ScoreCalculator.responseTimeNoGo);
             ResetResponseTimeTimer();
         }
     }
 
     public void CheckLevel2()
     {
-        if ((ScoreCalculator.score) / 45f >= 0.7f)
+        if ((ScoreCalculator.score) / 42f >= 0.7f)
         {
             // pass lvl2
             TimerDual.OverallTime();
@@ -77,7 +83,7 @@ public class LevelTransitionDual : MonoBehaviour
             Debug.Log("response time no go: " + ScoreCalculator.responseTimeNoGo);
             ResetResponseTimeTimer();
         }
-        else if ((ScoreCalculator.score) / 45f < 0.7f)
+        else if ((ScoreCalculator.score) / 42f < 0.7f)
         {
             // retry lvl 2
             ScoreCalculator.reinforcementText = "";
@@ -100,7 +106,7 @@ public class LevelTransitionDual : MonoBehaviour
 
     public void CheckLevel3()
     {
-        if ((ScoreCalculator.score) / 45f >= 0.7f)
+        if ((ScoreCalculator.score) / 42f >= 0.7f)
         {
             // pass lvl3
             ScoreCalculator.reinforcementText = "";
@@ -123,7 +129,7 @@ public class LevelTransitionDual : MonoBehaviour
             Debug.Log("response time no go: " + ScoreCalculator.responseTimeNoGo);
             ResetResponseTimeTimer();
         }
-        else if ((ScoreCalculator.score) / 45f < 0.7f)
+        else if ((ScoreCalculator.score) / 42f < 0.7f)
         {
             // retry lvl3
             ScoreCalculator.reinforcementText = "";
@@ -134,6 +140,14 @@ public class LevelTransitionDual : MonoBehaviour
             ScoreCalculator.accuracy = 0;
             ScoreCalculator.correctCounter = 0;
             ScoreCalculator.isGameOver = true;
+
+            ScoreCalculator.responseTimeGo = ScoreCalculator.responseTimeGo / ScoreCalculator.countGoTrials;
+            ScoreCalculator.responseTimeNoGo = ScoreCalculator.responseTimeNoGo / ScoreCalculator.countNoGoTrials;
+            Debug.Log("count go: " + ScoreCalculator.countGoTrials);
+            Debug.Log("count no go: " + ScoreCalculator.countNoGoTrials);
+            Debug.Log("response time go: " + ScoreCalculator.responseTimeGo);
+            Debug.Log("response time no go: " + ScoreCalculator.responseTimeNoGo);
+
             ResetResponseTimeTimer();
         }
     }

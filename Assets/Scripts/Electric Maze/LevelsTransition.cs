@@ -18,6 +18,7 @@ public class LevelsTransition : MonoBehaviour
             mazeSpawner.ShowHideMaze(false);
             ScoreCalculatorMaze.isGameOver = true;
             ScoreCalculatorMaze.isLevel1 = false;
+            CountDownTimer.isTimeOver = true;
         }
         else if (ScoreCalculatorMaze.score >= 2 || HapticFeedback.checkpointCounter < 9)//  || CountDownTimer.isTimeOver) 
         {
@@ -26,6 +27,7 @@ public class LevelsTransition : MonoBehaviour
             mazeSpawner.ShowHideMaze(false);
             ScoreCalculatorMaze.isGameOver = true;
             ScoreCalculatorMaze.isLevel1 = false;
+            CountDownTimer.isTimeOver = true;
         }
     }
 
@@ -39,6 +41,7 @@ public class LevelsTransition : MonoBehaviour
             mazeSpawner.ShowHideMaze(false);
             ScoreCalculatorMaze.isGameOver = true;
             ScoreCalculatorMaze.isLevel2 = false;
+            CountDownTimer.isTimeOver = true;
         }
         else if (ScoreCalculatorMaze.score >= 4 || HapticFeedback.checkpointCounter < 9)// || CountDownTimer.isTimeOver) 
         {
@@ -47,6 +50,7 @@ public class LevelsTransition : MonoBehaviour
             mazeSpawner.ShowHideMaze(false);
             ScoreCalculatorMaze.isGameOver = true;
             ScoreCalculatorMaze.isLevel2 = false;
+            CountDownTimer.isTimeOver = true;
         }
     }
     

@@ -11,13 +11,15 @@ public class AudioManager : MonoBehaviour
     private AudioClip currentAudioClip;
     public bool keyPressedDuringAudioPlayback = false;
 
-    //void Start()
-    //{
-    //audioSource = GetComponent<AudioSource>();
-    //StartCoroutine(PlayAudioRandomly());
-    //}
+    public bool isAudioPressed = false ;
 
-    IEnumerator PlayAudioRandomly()
+   //void Start()
+   //{
+   //audioSource = GetComponent<AudioSource>();
+   //StartCoroutine(PlayAudioRandomly());
+   //}
+
+   IEnumerator PlayAudioRandomly()
     {
         while (ScoreCalculator.trialsCount < ScoreCalculator.maxTrials && !ScoreCalculator.isHomeClicked)
         {
@@ -31,7 +33,9 @@ public class AudioManager : MonoBehaviour
                 {
                     yield return new WaitForSeconds(2.0f);
                 }
+
                 ScoreCalculator.isComparisonDone = false;
+
                 ScoreCalculator.reinforcementText = "";
                 int randomIndex = Random.Range(0, audioClips.Length - 19);
 
@@ -44,7 +48,6 @@ public class AudioManager : MonoBehaviour
                 }
 
                 SetCurrentClip(clipToPlay);
-
 
 
                 if (clipToPlay != null)
@@ -65,6 +68,8 @@ public class AudioManager : MonoBehaviour
 
 
                     }
+
+
                     keyPressedDuringAudioPlayback = false;
 
                     //+AudioSpawnSharedVariables.trialsCount++;
