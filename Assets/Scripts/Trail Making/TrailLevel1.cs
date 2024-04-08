@@ -168,6 +168,7 @@ public class TrailLevel1 : MonoBehaviour
             CountUpTimer.OverallTime();
             ReinforcementManagement.numberOfMistakeslvl1 = mistakes;
             levelOneAccuracy = CalculateAccuracy(correctCounter, 15);
+            scorePercent = levelOneScore / 15;
             // score!
 
             Debug.Log("TRAIL: overall time:" + ReinforcementManagement.overallTime);
@@ -188,6 +189,7 @@ public class TrailLevel1 : MonoBehaviour
             CountUpTimer.OverallTime();
             ReinforcementManagement.numberOfMistakeslvl1 = mistakes;
             levelOneAccuracy = CalculateAccuracy(correctCounter, 15);
+            scorePercent = levelOneScore / 15;
             // score!
 
             Debug.Log("TRAIL: overall time:" + ReinforcementManagement.overallTime);
