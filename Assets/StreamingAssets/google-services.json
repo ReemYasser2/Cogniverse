@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "511632158607",
+    "firebase_url": "https://cogniverse-e330a-default-rtdb.firebaseio.com/",
+    "project_id": "cogniverse-e330a",
+    "storage_bucket": "cogniverse-e330a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:511632158607:android:6aa016cf759063aa2fa5fa",
+        "android_client_info": {
+          "package_name": "com.GP.Cogniverse"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsNtIs0e7_T6JnrYUej9XMBKEzEavvsuM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

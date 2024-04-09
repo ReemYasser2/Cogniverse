@@ -1,12 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.XR.Interaction.Toolkit.Inputs;
-using UnityEngine.XR.OpenXR.Input;
-using UnityEngine.UI;
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 using TMPro;
 
 public class HapticFeedback : MonoBehaviour
@@ -98,16 +92,21 @@ public class HapticFeedback : MonoBehaviour
             ///
             if (ScoreCalculatorMaze.isLevel1)
             {
-                //CountDownTimer.OverallTime(1);
-                //Debug.Log("overall time: " + ScoreCalculatorMaze.overallTime);
-                LevelsTransition.checkLevelOne();
-
+                if (ScoreCalculatorMaze.score == 2)
+                {
+                    // CountDownTimer.OverallTime(1);
+                    //Debug.Log("overall time: " + ScoreCalculatorMaze.overallTime);
+                    LevelsTransition.checkLevelOne();
+                }
             }
             else if (ScoreCalculatorMaze.isLevel2)
             {
-                //CountDownTimer.OverallTime(2);
-                //Debug.Log("overall time: " + ScoreCalculatorMaze.overallTime);
-                LevelsTransition.CheckLevelTwo();
+                if (ScoreCalculatorMaze.score == 4)
+                {
+                    //CountDownTimer.OverallTime(2);
+                    // Debug.Log("overall time: " + ScoreCalculatorMaze.overallTime);
+                    LevelsTransition.CheckLevelTwo();
+                }
             }
         }
         else if (collision.gameObject.CompareTag("MazePowerUp"))
