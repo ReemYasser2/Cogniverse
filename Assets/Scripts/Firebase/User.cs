@@ -13,8 +13,13 @@ public class User
     public string isYesDiagnosis;
     public string isNoDiagnosis;
     public string diagnosis;
+    public bool iscontrolGroup;
+    public bool ispositiveGroup;
+    public bool isnegativeGroup;
 
-    public User(string firstname, string lastname, string email, string password, int age, string femalegender, string malegender, string isyesdiagnosis, string isnodiagnosis, string diagnosis)
+    public User(string firstname, string lastname, string email, string password, int age, string femalegender, 
+        string malegender, string isyesdiagnosis, string isnodiagnosis, string diagnosis,
+        bool iscontrolgroup, bool ispositivegroup, bool isnegativegroup)
     {
         //this.groupNumber = groupnumber;
         this.firstName = firstname;
@@ -27,5 +32,8 @@ public class User
         this.isYesDiagnosis = isyesdiagnosis;
         this.isNoDiagnosis = isnodiagnosis;
         this.diagnosis = diagnosis;
+        this.iscontrolGroup = iscontrolgroup;
+        this.ispositiveGroup = ispositivegroup;
+        this.isnegativeGroup = isnegativegroup;
     }
 }

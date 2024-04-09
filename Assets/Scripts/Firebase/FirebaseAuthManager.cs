@@ -7,13 +7,20 @@ using TMPro;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using Firebase.Extensions;
+using Unity.VisualScripting;
+using Firebase.Database;
 
 public class FirebaseAuthManager : MonoBehaviour
 {
     Firebase.Auth.FirebaseAuth auth;
     Firebase.Auth.FirebaseUser user;
+    public static string IDcopy;
 
-    private SignupinVariables variables;
+    public SignupinVariables variables;
+    public DatabaseManager databaseManager;
+
+    public SceneHandler SceneHandler;
+    public static bool islogin = false;
 
     private void Start()
     {
@@ -34,21 +41,24 @@ public class FirebaseAuthManager : MonoBehaviour
                 // Firebase Unity SDK is not safe to use here.
             }
         });
+
     }
 
     public void Signup()
     {
         CreateUser(variables.emailField.text, variables.passwordField.text);
+        
     }
 
     public void Login()
     {
-        SignInUser(variables.emailField.text, variables.passwordField.text);
+        SignInUser(variables.emailLoginField.text, variables.passwordLoginField.text);
     }
 
     public void Logout()
     {
         auth.SignOut();
+        islogin = false;
         Debug.Log("User signed out.");
     }
 
@@ -68,9 +78,16 @@ public class FirebaseAuthManager : MonoBehaviour
 
             // Firebase user has been created.
             Firebase.Auth.AuthResult result = task.Result;
+            IDcopy = result.User.UserId;
             Debug.LogFormat("Firebase user created successfully: {0} ({1})",
                 result.User.DisplayName, result.User.UserId);
+
+            databaseManager.CreateUser(IDcopy);
+            islogin = true;
+            //SceneHandler.BackToHome();
+
         });
+
     }
 
     public void SignInUser(string email, string password)
@@ -90,6 +107,10 @@ public class FirebaseAuthManager : MonoBehaviour
             Firebase.Auth.AuthResult result = task.Result;
             Debug.LogFormat("User signed in successfully: {0} ({1})",
                 result.User.DisplayName, result.User.UserId);
+            islogin = true;
+
+            //SceneHandler.BackToHome();
+
         });
     }
 

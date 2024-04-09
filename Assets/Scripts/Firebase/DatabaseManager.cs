@@ -5,11 +5,13 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using Unity.VisualScripting;
+using Firebase.Auth;
 
 public class DatabaseManager : MonoBehaviour
 {
     private string userID;
     private DatabaseReference dbReference;
+    private FirebaseAuth auth;
     // Registration Variables
     [Space]
     [Header("Registration")]
@@ -38,13 +40,33 @@ public class DatabaseManager : MonoBehaviour
     public string yesdiagnosis;
     public string nodiagnosis;
     public string diagnosis;
+    public bool iscontrolGroup;
+    public bool ispositiveGroup;
+    public bool isnegativeGroup;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        userID = SystemInfo.deviceUniqueIdentifier;
         // Get the root reference location of the database.
         dbReference  = FirebaseDatabase.DefaultInstance.RootReference;
+
+        // Get the Firebase authentication instance.
+        auth = FirebaseAuth.DefaultInstance;
+        /*
+        // Check if a user is already signed in.
+        FirebaseUser user = auth.CurrentUser;
+        if (user != null)
+        {
+            // User is signed in, retrieve their UID and use it for database operations.
+            string userID = user.UserId;
+            Debug.Log("User is signed in with UID: " + userID);
+        }
+        else
+        {
+            Debug.Log("No user is currently signed in.");
+        }
+        */
     }
 
     public void username()
@@ -94,12 +116,58 @@ public class DatabaseManager : MonoBehaviour
         password = passwordField.text;
     }
 
-    public void CreateUser()
+    public void control()
+    {
+        iscontrolGroup = true;
+        isnegativeGroup = false;
+        ispositiveGroup = false;
+    }
+
+    public void positive()
+    {
+        iscontrolGroup = false;
+        isnegativeGroup = false;
+        ispositiveGroup = true;
+    }
+
+    public void negative()
+    {
+        iscontrolGroup = false;
+        isnegativeGroup = true;
+        ispositiveGroup = false;
+    }
+
+    public void CreateUser(string userID)
     {
         SignupCredentials();
-        User newUser = new User(firstName, lastName, email, password, age, female, male , yesdiagnosis, nodiagnosis, diagnosis);
-        string json = JsonUtility.ToJson(newUser);
+        // Check if a user is signed in.
+        //FirebaseUser user = auth.CurrentUser;
+        if (userID != null)
+        {
+            // User is signed in, retrieve their UID and use it as the key for storing user data.
+            //string userID = user.UserId;
 
-        dbReference.Child("user").Child(userID).SetRawJsonValueAsync(json);
+            User newUser = new User(firstName, lastName, email, password, age, female, male,
+                yesdiagnosis, nodiagnosis, diagnosis, iscontrolGroup, ispositiveGroup, isnegativeGroup);
+            string json = JsonUtility.ToJson(newUser);
+
+            // Add user data to the Realtime Database with the user's UID as the key
+            dbReference.Child("users").Child(userID).SetRawJsonValueAsync(json).ContinueWith(task =>
+            {
+                if (task.IsCompleted)
+                {
+                    Debug.Log("User data added to Firebase with UID: " + userID);
+                }
+                else
+                {
+                    Debug.LogError("Failed to add user data to Firebase: " + task.Exception);
+                }
+            });
+        }
+        else
+        {
+            Debug.LogWarning("Cannot add user data: No user is currently signed in.");
+        }
+
     }
 }
