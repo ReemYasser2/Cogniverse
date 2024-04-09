@@ -17,6 +17,8 @@ public class ScoreCalculatorMaze : MonoBehaviour
 
     public static float overallTime;
     public static int numberOfHits;
+   
+
 
     static List<string> positiveIncrease = new List<string>
             { " Good Job", "Keep it up", "You're on a roll", "Excellent work", "Amazing!!", "Awesome!!", "Well done!!"};
@@ -31,20 +33,21 @@ public class ScoreCalculatorMaze : MonoBehaviour
     public static void Increment()
     { 
         score++;
-        Debug.Log(score);
+        
+        //Debug.Log(score);
         reinforcementText = PositiveReinforcementDecrement();
 
-        Debug.Log(reinforcementText);
+       // Debug.Log(reinforcementText);
 
     }
     public static void Decrement()
     {
         score--;
-        Debug.Log(reinforcementText);
+       // Debug.Log(reinforcementText);
         reinforcementText = PositiveReinforcementIncrement();
 
 
-        Debug.Log("test -");
+        //Debug.Log("test -");
     }
 
     public static int getScore()
@@ -55,7 +58,7 @@ public class ScoreCalculatorMaze : MonoBehaviour
     public static string PositiveReinforcementIncrement()
     {
         int randomIndex = Random.Range(0, positiveIncrease.Count);   
-        Debug.Log(positiveIncrease[randomIndex]);
+        //Debug.Log(positiveIncrease[randomIndex]);
         return positiveIncrease[randomIndex];
 
     }

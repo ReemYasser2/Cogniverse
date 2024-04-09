@@ -13,45 +13,50 @@ public class LevelTransitionDual : MonoBehaviour
         if ((ScoreCalculator.score)/28f >= 0.7f)
         {
             // pass lvl 1
-            TimerDual.OverallTime();
-            //Debug.Log("overall time: " + ScoreCalculator.overallTime);
             ScoreCalculator.reinforcementText = "";
-            ScoreCalculator.scoreOnePercent = ScoreCalculator.score / 30f;
             ShowCompleteLevel1Canvas();
-            ScoreCalculator.score = 0;
+
             dualMenuHandler.level2Button.SetActive(true);
             dualMenuHandler.level2LockButton.SetActive(false);
-            ScoreCalculator.elapsedTime = 0f;
-            ScoreCalculator.isPlayPressed = false;
-            levelsAccuracy = ScoreCalculator.AccuracyCalculation(correctClicks, 30);
 
+            // statistics
+            TimerDual.OverallTime();
+            ScoreCalculator.scoreOnePercent = ScoreCalculator.score / 30f;
+            levelsAccuracy = ScoreCalculator.AccuracyCalculation(correctClicks, 30);
             ScoreCalculator.responseTimeGo = ScoreCalculator.responseTimeGo / ScoreCalculator.countGoTrials;
             ScoreCalculator.responseTimeNoGo = ScoreCalculator.responseTimeNoGo / ScoreCalculator.countNoGoTrials;
-            Debug.Log("count go: " + ScoreCalculator.countGoTrials);
-            Debug.Log("count no go: " + ScoreCalculator.countNoGoTrials);
-            Debug.Log("response time go: " + ScoreCalculator.responseTimeGo);
-            Debug.Log("response time no go: " + ScoreCalculator.responseTimeNoGo);
-            ScoreCalculator.isGameOver = true;
-            ResetResponseTimeTimer();
+
+            Debug.Log("DUAL: overall time: " + ScoreCalculator.overallTime);
+            Debug.Log("DUAL: score: " + ScoreCalculator.scoreOnePercent);
+            Debug.Log("DUAL: accuracy: " + levelsAccuracy);
+            Debug.Log("DUAL: response time go: " + ScoreCalculator.responseTimeGo);
+            Debug.Log("DUAL: response time no go: " + ScoreCalculator.responseTimeNoGo);
+
+            ResetLevels();
+            ScoreCalculator.isLevel1 = false;
         }
         else if ((ScoreCalculator.score) / 28f < 0.7f)
         {
             // retry lvl1
             ScoreCalculator.reinforcementText = "";
             ShowLevelOneInstructions();
-            ScoreCalculator.score = 0;
-            ScoreCalculator.elapsedTime = 0f;
-            ScoreCalculator.isPlayPressed = false;
-            ScoreCalculator.accuracy = 0;
-            ScoreCalculator.correctCounter = 0;
-            ScoreCalculator.isGameOver = true;
+
+            // statistics
+            TimerDual.OverallTime();
+            ScoreCalculator.scoreOnePercent = ScoreCalculator.score / 30f;
+            levelsAccuracy = ScoreCalculator.AccuracyCalculation(correctClicks, 30);
             ScoreCalculator.responseTimeGo = ScoreCalculator.responseTimeGo / ScoreCalculator.countGoTrials;
             ScoreCalculator.responseTimeNoGo = ScoreCalculator.responseTimeNoGo / ScoreCalculator.countNoGoTrials;
-            Debug.Log("count go: " + ScoreCalculator.countGoTrials);
-            Debug.Log("count no go: " + ScoreCalculator.countNoGoTrials);
-            Debug.Log("response time go: " + ScoreCalculator.responseTimeGo);
-            Debug.Log("response time no go: " + ScoreCalculator.responseTimeNoGo);
-            ResetResponseTimeTimer();
+            
+            Debug.Log("DUAL: overall time: " + ScoreCalculator.overallTime);
+            Debug.Log("DUAL: score: " + ScoreCalculator.scoreOnePercent);
+            Debug.Log("DUAL: accuracy: " + levelsAccuracy);
+            Debug.Log("DUAL: response time go: " + ScoreCalculator.responseTimeGo);
+            Debug.Log("DUAL: response time no go: " + ScoreCalculator.responseTimeNoGo);
+
+            ResetLevels();
+            ScoreCalculator.isLevel1 = false;
+
         }
     }
 
@@ -60,47 +65,52 @@ public class LevelTransitionDual : MonoBehaviour
         if ((ScoreCalculator.score) / 42f >= 0.7f)
         {
             // pass lvl2
-            TimerDual.OverallTime();
-            //Debug.Log("overall time: " + ScoreCalculator.overallTime);
             ScoreCalculator.reinforcementText = "";
-            ScoreCalculator.scoreTwoPercent = ScoreCalculator.score / 45f;
+
             ShowCompleteLevel2Canvas();
-            ScoreCalculator.score = 0;
+
             dualMenuHandler.level3Button.SetActive(true);
             dualMenuHandler.level3LockButton.SetActive(false);
-            ScoreCalculator.elapsedTime = 0f;
-            ScoreCalculator.isPlayPressed = false;
+            
+            // statistics
+            TimerDual.OverallTime();
+            ScoreCalculator.scoreTwoPercent = ScoreCalculator.score / 45f;
             levelsAccuracy = ScoreCalculator.AccuracyCalculation(correctClicks, 45);
-            ScoreCalculator.accuracy = 0;
-            ScoreCalculator.correctCounter = 0;
-            ScoreCalculator.isGameOver = true;
-
             ScoreCalculator.responseTimeGo = ScoreCalculator.responseTimeGo / ScoreCalculator.countGoTrials;
             ScoreCalculator.responseTimeNoGo = ScoreCalculator.responseTimeNoGo / ScoreCalculator.countNoGoTrials;
-            Debug.Log("count go: " + ScoreCalculator.countGoTrials);
-            Debug.Log("count no go: " + ScoreCalculator.countNoGoTrials);
-            Debug.Log("response time go: " + ScoreCalculator.responseTimeGo);
-            Debug.Log("response time no go: " + ScoreCalculator.responseTimeNoGo);
-            ResetResponseTimeTimer();
+
+            Debug.Log("DUAL: overall time: " + ScoreCalculator.overallTime);
+            Debug.Log("DUAL: score: " + ScoreCalculator.scoreOnePercent);
+            Debug.Log("DUAL: accuracy: " + levelsAccuracy);
+            Debug.Log("DUAL: response time go: " + ScoreCalculator.responseTimeGo);
+            Debug.Log("DUAL: response time no go: " + ScoreCalculator.responseTimeNoGo);
+
+            ResetLevels();
+            ScoreCalculator.isLevel2 = false;
         }
         else if ((ScoreCalculator.score) / 42f < 0.7f)
         {
             // retry lvl 2
             ScoreCalculator.reinforcementText = "";
-            ShowLevelTwoInstructions();
-            ScoreCalculator.score = 0;
-            ScoreCalculator.elapsedTime = 0f;
-            ScoreCalculator.isPlayPressed = false;
-            ScoreCalculator.accuracy = 0;
-            ScoreCalculator.isGameOver = true;
 
+            ShowLevelTwoInstructions();
+
+            // statistics
+            TimerDual.OverallTime();
+            ScoreCalculator.scoreTwoPercent = ScoreCalculator.score / 45f;
+            levelsAccuracy = ScoreCalculator.AccuracyCalculation(correctClicks, 45);
             ScoreCalculator.responseTimeGo = ScoreCalculator.responseTimeGo / ScoreCalculator.countGoTrials;
             ScoreCalculator.responseTimeNoGo = ScoreCalculator.responseTimeNoGo / ScoreCalculator.countNoGoTrials;
-            Debug.Log("count go: " + ScoreCalculator.countGoTrials);
-            Debug.Log("count no go: " + ScoreCalculator.countNoGoTrials);
-            Debug.Log("response time go: " + ScoreCalculator.responseTimeGo);
-            Debug.Log("response time no go: " + ScoreCalculator.responseTimeNoGo);
-            ResetResponseTimeTimer();
+
+            Debug.Log("DUAL: overall time: " + ScoreCalculator.overallTime);
+            Debug.Log("DUAL: score: " + ScoreCalculator.scoreOnePercent);
+            Debug.Log("DUAL: accuracy: " + levelsAccuracy);
+            Debug.Log("DUAL: response time go: " + ScoreCalculator.responseTimeGo);
+            Debug.Log("DUAL: response time no go: " + ScoreCalculator.responseTimeNoGo);
+
+            ResetLevels();
+            ScoreCalculator.isLevel2 = false;
+
         }
     }
 
@@ -110,45 +120,49 @@ public class LevelTransitionDual : MonoBehaviour
         {
             // pass lvl3
             ScoreCalculator.reinforcementText = "";
-            ScoreCalculator.scoreThreePercent = ScoreCalculator.score / 45f;
-            ShowCompleteLevel3Canvas();
-            ScoreCalculator.score = 0;
-            TimerDual.OverallTime();
-            //Debug.Log("overall time: " + ScoreCalculator.overallTime);
-            ScoreCalculator.elapsedTime = 0f;
-            ScoreCalculator.isPlayPressed = false;
-            levelsAccuracy = ScoreCalculator.AccuracyCalculation(correctClicks, 45);
-            Debug.Log("game over test");
-            ScoreCalculator.isGameOver = true;
 
+            ShowCompleteLevel3Canvas();
+
+            // statistics
+            TimerDual.OverallTime();
+            levelsAccuracy = ScoreCalculator.AccuracyCalculation(correctClicks, 45);
+            ScoreCalculator.scoreThreePercent = ScoreCalculator.score / 45f;
             ScoreCalculator.responseTimeGo = ScoreCalculator.responseTimeGo / ScoreCalculator.countGoTrials;
             ScoreCalculator.responseTimeNoGo = ScoreCalculator.responseTimeNoGo / ScoreCalculator.countNoGoTrials;
-            Debug.Log("count go: " + ScoreCalculator.countGoTrials);
-            Debug.Log("count no go: " + ScoreCalculator.countNoGoTrials);
-            Debug.Log("response time go: " + ScoreCalculator.responseTimeGo);
-            Debug.Log("response time no go: " + ScoreCalculator.responseTimeNoGo);
-            ResetResponseTimeTimer();
+
+            Debug.Log("DUAL: overall time: " + ScoreCalculator.overallTime);
+            Debug.Log("DUAL: score: " + ScoreCalculator.scoreOnePercent);
+            Debug.Log("DUAL: accuracy: " + levelsAccuracy);
+            Debug.Log("DUAL: response time go: " + ScoreCalculator.responseTimeGo);
+            Debug.Log("DUAL: response time no go: " + ScoreCalculator.responseTimeNoGo);
+
+            ResetLevels();
+            ScoreCalculator.isLevel3 = false;
+
         }
         else if ((ScoreCalculator.score) / 42f < 0.7f)
         {
             // retry lvl3
             ScoreCalculator.reinforcementText = "";
-            ShowLevelThreeInstructions();
-            ScoreCalculator.score = 0;
-            ScoreCalculator.elapsedTime = 0f;
-            ScoreCalculator.isPlayPressed = false;
-            ScoreCalculator.accuracy = 0;
-            ScoreCalculator.correctCounter = 0;
-            ScoreCalculator.isGameOver = true;
 
+            ShowLevelThreeInstructions();
+
+            // statistics
+            TimerDual.OverallTime();
+            levelsAccuracy = ScoreCalculator.AccuracyCalculation(correctClicks, 45);
+            ScoreCalculator.scoreThreePercent = ScoreCalculator.score / 45f;
             ScoreCalculator.responseTimeGo = ScoreCalculator.responseTimeGo / ScoreCalculator.countGoTrials;
             ScoreCalculator.responseTimeNoGo = ScoreCalculator.responseTimeNoGo / ScoreCalculator.countNoGoTrials;
-            Debug.Log("count go: " + ScoreCalculator.countGoTrials);
-            Debug.Log("count no go: " + ScoreCalculator.countNoGoTrials);
-            Debug.Log("response time go: " + ScoreCalculator.responseTimeGo);
-            Debug.Log("response time no go: " + ScoreCalculator.responseTimeNoGo);
 
-            ResetResponseTimeTimer();
+            Debug.Log("DUAL: overall time: " + ScoreCalculator.overallTime);
+            Debug.Log("DUAL: score: " + ScoreCalculator.scoreOnePercent);
+            Debug.Log("DUAL: accuracy: " + levelsAccuracy);
+            Debug.Log("DUAL: response time go: " + ScoreCalculator.responseTimeGo);
+            Debug.Log("DUAL: response time no go: " + ScoreCalculator.responseTimeNoGo);
+
+            ResetLevels();
+            ScoreCalculator.isLevel3 = false;
+
         }
     }
 
@@ -206,7 +220,9 @@ public class LevelTransitionDual : MonoBehaviour
         ScoreCalculator.scoreOnePercent = 0;
         ScoreCalculator.scoreTwoPercent = 0;
         ScoreCalculator.scoreThreePercent = 0;
-
+        ScoreCalculator.accuracy = 0;
+        levelsAccuracy = 0;
+        ScoreCalculator.correctCounter = 0;
         ScoreCalculator.overallTime = 0f;
         ResetResponseTimeTimer();
     }
@@ -223,6 +239,7 @@ public class LevelTransitionDual : MonoBehaviour
 
     public void ResetGame()
     {
+        ScoreCalculator.isHomeClicked = true;
         ScoreCalculator.reinforcementText = "";
 
         ScoreCalculator.isLevel1 = false;
@@ -240,8 +257,26 @@ public class LevelTransitionDual : MonoBehaviour
         ScoreCalculator.scoreOnePercent = 0;
         ScoreCalculator.scoreTwoPercent = 0;
         ScoreCalculator.scoreThreePercent = 0;
-
+        ScoreCalculator.accuracy = 0;
+        levelsAccuracy = 0;
+        ScoreCalculator.correctCounter = 0;
         ScoreCalculator.overallTime = 0f;
         ResetResponseTimeTimer();
+    }
+
+    private void ResetLevels()
+    {
+        ResetResponseTimeTimer();
+        ScoreCalculator.score = 0;
+        ScoreCalculator.elapsedTime = 0f;
+        ScoreCalculator.isPlayPressed = false;
+        ScoreCalculator.accuracy = 0;
+        levelsAccuracy = 0;
+        ScoreCalculator.correctCounter = 0;
+        ScoreCalculator.scoreOnePercent = 0f;
+        ScoreCalculator.scoreTwoPercent = 0;
+        ScoreCalculator.scoreThreePercent = 0;
+        ScoreCalculator.overallTime = 0f;
+        ScoreCalculator.isGameOver = true;
     }
 }

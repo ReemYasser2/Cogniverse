@@ -62,7 +62,7 @@ public static class ScoreCalculator
                 incrementCounter++;
                 score++;
                 correctCounter++;
-                Debug.Log("Increment score after pressing ");
+                //Debug.Log("Increment score after pressing ");
 
                 isStopWatchStart = false;
                 elapsedTimeStopWatch = 0;
@@ -73,7 +73,7 @@ public static class ScoreCalculator
             {
                 incrementCounter--;
                 score--;
-                Debug.Log("Decrement score after pressing ");
+                //Debug.Log("Decrement score after pressing ");
 
                 isStopWatchStart = false;
                 elapsedTimeStopWatch = 0;
@@ -81,7 +81,7 @@ public static class ScoreCalculator
             }
         }
         reinforcmentCondition();
-        Debug.Log(score);
+        //Debug.Log(score);
         return score;
     }
 
@@ -95,7 +95,7 @@ public static class ScoreCalculator
                 incrementCounter++;
                 score++;
                 correctCounter++;
-                Debug.Log("Increment score after pressing ");
+               // Debug.Log("Increment score after pressing ");
 
                 isStopWatchStart = false;
                 elapsedTimeStopWatch = 0;
@@ -105,7 +105,7 @@ public static class ScoreCalculator
             {
                 incrementCounter--;
                 score--;
-                Debug.Log("Decrement score after pressing ");
+                //Debug.Log("Decrement score after pressing ");
 
                 isStopWatchStart = false;
                 elapsedTimeStopWatch = 0;
@@ -113,7 +113,7 @@ public static class ScoreCalculator
             }
         
         reinforcmentCondition();
-        Debug.Log(score);
+        //Debug.Log(score);
         return score;
     }
 
@@ -124,7 +124,7 @@ public static class ScoreCalculator
         {
             incrementCounter--;
             score--;
-            Debug.Log("Decrement score without pressing ");
+            //Debug.Log("Decrement score without pressing ");
 
             isStopWatchStart = false;
             elapsedTimeStopWatch = 0;
@@ -135,7 +135,7 @@ public static class ScoreCalculator
             incrementCounter++;
             score++;
             correctCounter++;
-            Debug.Log("Increment Score without pressing ");
+           // Debug.Log("Increment Score without pressing ");
 
             countNoGoTrials++;
             countGoTrials--;
@@ -145,7 +145,7 @@ public static class ScoreCalculator
 
         }
         reinforcmentCondition();
-        Debug.Log(score);
+        //Debug.Log(score);
         return score;
     }
 
@@ -157,7 +157,7 @@ public static class ScoreCalculator
         {
             incrementCounter--;
             score--;
-            Debug.Log("Decrement score without pressing ");
+            //Debug.Log("Decrement score without pressing ");
 
             isStopWatchStart = false;
             elapsedTimeStopWatch = 0;
@@ -168,7 +168,7 @@ public static class ScoreCalculator
             incrementCounter++;
             score++;
             correctCounter++;
-            Debug.Log("Increment Score without pressing ");
+            //Debug.Log("Increment Score without pressing ");
 
             countNoGoTrials++;
             countGoTrials--;
@@ -178,7 +178,7 @@ public static class ScoreCalculator
 
         }
         reinforcmentCondition();
-        Debug.Log(score);
+       // Debug.Log(score);
         return score;
     }
 
@@ -196,7 +196,7 @@ public static class ScoreCalculator
             if (oldAudio == currentAudio)
             {
                 // Handle comparison when old and current clips are the same
-                Debug.Log("Audio clips are the same");
+                //Debug.Log("Audio clips are the same");
                 // Adjust the score or perform actions accordingly
                 incrementCounter++;
                 score++;
@@ -209,7 +209,7 @@ public static class ScoreCalculator
             else
             {
                 // Handle comparison when old and current clips are different
-                Debug.Log("Audio clips are different");
+                //Debug.Log("Audio clips are different");
                 // Adjust the score or perform actions accordingly
                 incrementCounter--;
                 score--;
@@ -219,7 +219,7 @@ public static class ScoreCalculator
                 responseTimeGo = responseTimeGo + stopWatchtime;
             }
         }
-        Debug.Log(score);
+        //Debug.Log(score);
         reinforcmentCondition();
         return score;
     }
@@ -238,7 +238,7 @@ public static class ScoreCalculator
             if (oldAudio == currentAudio)
             {
                 // Handle comparison when old and current clips are the same
-                Debug.Log("Audio clips are the same");
+                //Debug.Log("Audio clips are the same");
                 // Adjust the score or perform actions accordingly
                 incrementCounter++;
                 score++;
@@ -251,7 +251,7 @@ public static class ScoreCalculator
             else
             {
                 // Handle comparison when old and current clips are different
-                Debug.Log("Audio clips are different");
+                //Debug.Log("Audio clips are different");
                 // Adjust the score or perform actions accordingly
                 incrementCounter--;
                 score--;
@@ -261,7 +261,7 @@ public static class ScoreCalculator
                 responseTimeNoGo = responseTimeNoGo + stopWatchtime;
             }
         }
-        Debug.Log(score);
+       // Debug.Log(score);
         reinforcmentCondition();
         return score;
     }
@@ -279,20 +279,20 @@ public static class ScoreCalculator
             if (oldAudio != currentAudio)
             {
                 // Audio clips arent the same and the button didnt get clicked
-                Debug.Log("Audio clips arent the same and the button didnt get clicked"); 
+                //Debug.Log("Audio clips arent the same and the button didnt get clicked"); 
                 incrementCounter++;
                 correctCounter++;
                 score++;
             }
             else if (oldAudio == currentAudio && score != 0)
             {
-                Debug.Log("Audio clips are the same and the button didnt get clicked");
+               // Debug.Log("Audio clips are the same and the button didnt get clicked");
                 incrementCounter--;
 
                 score--;
             }
         }
-        Debug.Log(score);
+       // Debug.Log(score);
         reinforcmentCondition();
         return score;
     }

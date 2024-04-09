@@ -67,7 +67,7 @@ public static class ScoreCalculationWhack
     {
         score--;
         reinforcementText = PositiveReinforcementDecrement();
-        Debug.Log(score);
+        //Debug.Log(score);
 
     }
 

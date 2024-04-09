@@ -31,7 +31,7 @@ public class StickHolding : MonoBehaviour
                     // Check if the timer is paused
                     if (Mathf.Approximately(Time.timeScale, 0f))
                     {
-                        Debug.Log("Timer is paused");
+                        //Debug.Log("Timer is paused");
                         PauseGame.Pause();
                         StopWatch1Whack.PauseTimer();
                         StopWatch2Whack.PauseTimer();
@@ -54,7 +54,7 @@ public class StickHolding : MonoBehaviour
                     // Check if the timer is paused
                     if (Mathf.Approximately(Time.timeScale, 0f))
                     {
-                        Debug.Log("Timer is paused");
+                        //Debug.Log("Timer is paused");
                     }
                     else
                     {

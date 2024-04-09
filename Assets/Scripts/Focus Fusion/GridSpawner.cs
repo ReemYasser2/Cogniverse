@@ -129,7 +129,7 @@ public class GridSpawner : MonoBehaviour
             
             //FocusTimer.remainingTime = 6;
 
-            Debug.Log("Level 2 starts");
+            //Debug.Log("Level 2 starts");
             while (!ScoreCalculationFocus.isTimeOver && !ScoreCalculationFocus.isHomeClicked)
             {
 
@@ -178,7 +178,7 @@ public class GridSpawner : MonoBehaviour
         if (newObject != null)
         {
             Destroy(newObject);
-            Debug.Log("Object destroyed");
+            //Debug.Log("Object destroyed");
         }
         
         yield return  new WaitForSeconds(1f);

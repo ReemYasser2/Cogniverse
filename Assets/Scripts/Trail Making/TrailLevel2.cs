@@ -141,33 +141,46 @@ public class TrailLevel2 : MonoBehaviour
 
         if ((levelTwoScore == 20 || levelTwoScore+mistakes == 20) && (ReinforcementManagement.elapsedTime < 60f) && mistakes < 3) // pass lvl 2
         {
-            CountUpTimer.OverallTime();
-            Debug.Log("overall time: " + ReinforcementManagement.overallTime);
-            ReinforcementManagement.numberOfMistakeslvl2 = mistakes;
-            ResetButtonColors(0);
-
-            LevelsHandler.ResetAllBooleans();
-            // timer end
-            ReinforcementManagement.elapsedTime = 0f;
-            ReinforcementManagement.isPlayPressed = false;
             menuHandler.completeLevel2Canvas.SetActive(true);
             menuHandler.level3Button.SetActive(true);
             menuHandler.level3LockButton.SetActive(false);
-            levelTwoAccuracy = CalculateAccuracy(correctCounter, 20);
             menuHandler.scorelvl2Text.text = $"Your Score: {levelTwoScore}";
-            Debug.Log("Level Passed");
-            ResetIndicator();
+
+            // statisrics 
+            CountUpTimer.OverallTime();
+            levelTwoAccuracy = CalculateAccuracy(correctCounter, 20);
+            ReinforcementManagement.numberOfMistakeslvl2 = mistakes;
+            scorePercent = levelTwoScore / 20;
+            // score!!
+
+            Debug.Log("TRAIL: overall time:" + ReinforcementManagement.overallTime);
+            //Debug.Log("TRAIL: score" + );
+            Debug.Log("TRAIL: mistakes" + ReinforcementManagement.numberOfMistakeslvl2);
+            Debug.Log("TRAIL: accuracy:" + levelTwoAccuracy);
+
+            ResetLeveltwo();
+            ReinforcementManagement.level_2 = false;
         }
         else if (mistakes >= 3 || ReinforcementManagement.elapsedTime > 60f) // didn't pass the level, replay 
         {
             menuHandler.instructionsLevel2RetryCanvas.SetActive(true);
             menuHandler.scorelvl2retryText.text = $"Your Score: {levelTwoScore}";
-            ReinforcementManagement.elapsedTime = 0f;
-            ReinforcementManagement.isPlayPressed = false;
-            levelTwoAccuracy = 0;
-            correctCounter = 0; 
-            ResetIndicator();
-            LevelsHandler.ResetAllBooleans();
+
+            // statisrics 
+            CountUpTimer.OverallTime();
+            levelTwoAccuracy = CalculateAccuracy(correctCounter, 20);
+            ReinforcementManagement.numberOfMistakeslvl2 = mistakes;
+            scorePercent = levelTwoScore / 20;
+            // score!!
+
+            Debug.Log("TRAIL: overall time:" + ReinforcementManagement.overallTime);
+            //Debug.Log("TRAIL: score" + );
+            Debug.Log("TRAIL: mistakes" + ReinforcementManagement.numberOfMistakeslvl2);
+            Debug.Log("TRAIL: accuracy:" + levelTwoAccuracy);
+
+            ResetLeveltwo();
+            ReinforcementManagement.level_2 = false;
+
         }
     }
     void InitializeButtons()
@@ -259,5 +272,17 @@ public class TrailLevel2 : MonoBehaviour
     {
         float acc = correct / total;
         return acc;
+    }
+
+    private void ResetLeveltwo()
+    {
+        ReinforcementManagement.elapsedTime = 0f;
+        ReinforcementManagement.isPlayPressed = false;
+        levelTwoAccuracy = 0;
+        correctCounter = 0;
+        ReinforcementManagement.overallTime = 0f;
+        ResetIndicator();
+        ResetButtonColors(0);
+        LevelsHandler.ResetAllBooleans();
     }
 }

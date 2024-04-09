@@ -30,12 +30,12 @@ public class StickHoldingMaze : MonoBehaviour
                     // Check if the timer is paused
                     if (Mathf.Approximately(Time.timeScale, 0f))
                     {
-                        Debug.Log("Timer is paused");
+                       // Debug.Log("Timer is paused");
                         PauseGame.Pause();
                     }
                     else
                     {
-                        Debug.Log("Timer is running");
+                        //Debug.Log("Timer is running");
                     }
                 }
             }
@@ -51,11 +51,11 @@ public class StickHoldingMaze : MonoBehaviour
                     // Check if the timer is paused
                     if (Mathf.Approximately(Time.timeScale, 0f))
                     {
-                        Debug.Log("Timer is paused");
+                       // Debug.Log("Timer is paused");
                     }
                     else
                     {
-                        Debug.Log("Timer is running");
+                        //Debug.Log("Timer is running");
                         PauseGame.Pause();
                     }
                 }

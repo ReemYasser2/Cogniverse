@@ -17,7 +17,7 @@ public class CollisionDetection : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Entered collision with " + collision.gameObject.name);
+        //Debug.Log("Entered collision with " + collision.gameObject.name);
         spawner = GetComponent<Spawner>();
         if (collision.gameObject.CompareTag("Bat") && gameObject.activeSelf)
         {

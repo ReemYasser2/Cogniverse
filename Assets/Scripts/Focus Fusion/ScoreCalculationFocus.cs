@@ -48,7 +48,7 @@ public static class ScoreCalculationFocus
         incrementCounter++;
         correctCounter++;
         score++;
-        Debug.Log(score);
+        //Debug.Log(score);
         if (incrementCounter % 5 == 0)
         {
             reinforcementText = PositiveReinforcementIncrement();
@@ -59,7 +59,7 @@ public static class ScoreCalculationFocus
     {
         score--;
         reinforcementText = PositiveReinforcementDecrement();
-        Debug.Log(score);
+        //Debug.Log(score);
 
 
     }
@@ -72,7 +72,7 @@ public static class ScoreCalculationFocus
     public static string PositiveReinforcementIncrement()
     {
         int randomIndex = Random.Range(0, positiveIncrease.Count);
-        Debug.Log(positiveIncrease[randomIndex]);
+        //Debug.Log(positiveIncrease[randomIndex]);
         return positiveIncrease[randomIndex];
 
     }
