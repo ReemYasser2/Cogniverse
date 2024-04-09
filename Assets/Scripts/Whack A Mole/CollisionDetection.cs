@@ -9,7 +9,7 @@ public class CollisionDetection : MonoBehaviour
     public Spawner spawner;
     public AudioClip collisionAudio;
     private AudioSource audioSource;
-
+    public WhackReiforcement WhackReiforcement;
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -50,17 +50,27 @@ public class CollisionDetection : MonoBehaviour
                 gameObject.transform.Translate(Vector3.down * step);
             }
             //DeactivateObject();
-            if (ScoreCalculationWhack.isLevel1 ) {
-            ScoreCalculationWhack.Increment();
-            audioSource.PlayOneShot(collisionAudio);
+            if (ScoreCalculationWhack.isLevel1 ) 
+            {
+                ScoreCalculationWhack.Increment();
+                if (ScoreCalculationWhack.incrementCounter % 5 == 0)
+                {
+                    WhackReiforcement.increaseAudio(ScoreCalculationWhack.randomIndexPositiveInc);
+                }
+                audioSource.PlayOneShot(collisionAudio);
             }
             else if(ScoreCalculationWhack.isLevel2 && gameObject.layer == 11)
             {
                 ScoreCalculationWhack.Increment();
+                if (ScoreCalculationWhack.incrementCounter % 5 == 0)
+                {
+                    WhackReiforcement.increaseAudio(ScoreCalculationWhack.randomIndexPositiveInc);
+                }
                 audioSource.PlayOneShot(collisionAudio);
             }
             else if (ScoreCalculationWhack.isLevel2) {
                 ScoreCalculationWhack.Decrement();
+                WhackReiforcement.decreaseAudio(ScoreCalculationWhack.randomIndexPositiveDec);
                 audioSource.PlayOneShot(collisionAudio);
             }
             StartCoroutine(ResetTextAfterDelay());

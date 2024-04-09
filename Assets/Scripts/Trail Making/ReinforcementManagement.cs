@@ -23,6 +23,9 @@ public static class ReinforcementManagement
     public static int numberOfMistakeslvl2;
     public static int numberOfMistakeslvl3;
 
+    public static int randomIndexPositiveInc;
+    public static int randomIndexPositiveDec;
+
     static List<string> positiveIncrease = new List<string>
             { " Good Job", "Keep it up", "You're on a roll", "Excellent work", "Amazing!!", "Awesome!!", "Well done!!"};
     static List<string> positiveDecrease = new List<string>
@@ -36,6 +39,7 @@ public static class ReinforcementManagement
     {
         incrementCounter++;
         int randomIndex = Random.Range(0, positiveIncrease.Count);
+        randomIndexPositiveInc = randomIndex;
         if (incrementCounter % 5 == 0)
         {
             reinforcementText = positiveIncrease[randomIndex];
@@ -46,7 +50,7 @@ public static class ReinforcementManagement
     {
         int randomIndex = Random.Range(0, positiveDecrease.Count);
         reinforcementText = positiveDecrease[randomIndex];
-
+        randomIndexPositiveDec = randomIndex;
         return positiveDecrease[randomIndex];
     }
     public static string NegativeReinforcementIncrement()
@@ -54,7 +58,7 @@ public static class ReinforcementManagement
         incrementCounter++;
         int randomIndex = Random.Range(0, negativeIncrease.Count); 
         reinforcementText = negativeIncrease[randomIndex];
-
+        
         return negativeIncrease[randomIndex];
     }
     public static string NegativeReinforcementDecrement()

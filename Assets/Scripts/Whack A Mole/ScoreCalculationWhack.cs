@@ -40,6 +40,9 @@ public static class ScoreCalculationWhack
     public static float stopWatchtime2;
     public static float overallTime;
 
+    public static int randomIndexPositiveInc;
+    public static int randomIndexPositiveDec;
+
     static List<string> positiveIncrease = new List<string>
             { " Good Job", "Keep it up", "You're on a roll", "Excellent work", "Amazing!!", "Awesome!!", "Well done!!"};
     static List<string> positiveDecrease = new List<string>
@@ -79,12 +82,14 @@ public static class ScoreCalculationWhack
     public static string PositiveReinforcementIncrement()
     {
         int randomIndex = Random.Range(0, positiveIncrease.Count);
+        randomIndexPositiveInc = randomIndex;
         return positiveIncrease[randomIndex];
 
     }
     public static string PositiveReinforcementDecrement()
     {
         int randomIndex = Random.Range(0, positiveDecrease.Count);
+        randomIndexPositiveDec = randomIndex;
         return positiveDecrease[randomIndex];
     }
     public static string NegativeReinforcementIncrement()

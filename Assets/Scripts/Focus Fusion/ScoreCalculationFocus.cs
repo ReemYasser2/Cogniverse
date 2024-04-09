@@ -31,7 +31,8 @@ public static class ScoreCalculationFocus
 
     public static float scorePercentOne = 0;
     public static float scorePercentTwo = 0;
-
+    public static int randomIndexPositiveInc;
+    public static int randomIndexPositiveDec;
 
     static List<string> positiveIncrease = new List<string>
             { " Good Job", "Keep it up", "You're on a roll", "Excellent work", "Amazing!!", "Awesome!!", "Well done!!"};
@@ -73,12 +74,14 @@ public static class ScoreCalculationFocus
     {
         int randomIndex = Random.Range(0, positiveIncrease.Count);
         //Debug.Log(positiveIncrease[randomIndex]);
+        randomIndexPositiveInc = randomIndex;
         return positiveIncrease[randomIndex];
 
     }
     public static string PositiveReinforcementDecrement()
     {
         int randomIndex = Random.Range(0, positiveDecrease.Count);
+        randomIndexPositiveDec = randomIndex;
         return positiveDecrease[randomIndex];
     }
     public static string NegativeReinforcementIncrement()

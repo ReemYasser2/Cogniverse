@@ -6,8 +6,10 @@ using TMPro;
 public class FocusReinforcement : MonoBehaviour
 {
     public TMP_Text reinforcmentText;
-
-    // Start is called before the first frame update
+    public AudioSource[] positiveIncreaseAudios;
+    public AudioSource[] positiveDecreaseAudios;
+    public AudioSource[] negativeIncreaseAudios;
+    public AudioSource[] negativeDecreaseAudios;
 
 
     // Update is called once per frame
@@ -15,5 +17,29 @@ public class FocusReinforcement : MonoBehaviour
     {
         reinforcmentText.text = ScoreCalculationFocus.reinforcementText;
 
+    }
+
+    public void increaseAudio(int randomIndexPositiveInc)
+    {
+        for (int i = 0; i < positiveIncreaseAudios.Length; i++)
+        {
+            if (i == randomIndexPositiveInc)
+            {
+                AudioSource audioSource = positiveIncreaseAudios[i];
+                audioSource.Play();
+            }
+        }
+    }
+
+    public void decreaseAudio(int randomIndexPositiveDec)
+    {
+        for (int i = 0; i < positiveDecreaseAudios.Length; i++)
+        {
+            if (i == randomIndexPositiveDec)
+            {
+                AudioSource audioSource = positiveDecreaseAudios[i];
+                audioSource.Play();
+            }
+        }
     }
 }

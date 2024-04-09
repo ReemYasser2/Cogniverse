@@ -16,7 +16,7 @@ public class GridSpawner : MonoBehaviour
     [SerializeField] private InputActionReference leftActionReference;
     [SerializeField] private InputActionReference rightActionReference;
 
-    
+    public FocusReinforcement FocusReinforcement;
 
     public FocusLevelTransition levelTransition;
 
@@ -45,12 +45,19 @@ public class GridSpawner : MonoBehaviour
                 if (newObject.layer == 10)
                 {
                     ScoreCalculationFocus.Increment();
+                    //
+                    if (ScoreCalculationFocus.incrementCounter % 5 == 0)
+                    {
+                        FocusReinforcement.increaseAudio(ScoreCalculationFocus.randomIndexPositiveInc);
+                    }
                     StartCoroutine(ResetTextAfterDelay());
 
                 }
                 else if (newObject.layer != 10 || newObject.layer == 9)
                 {
                     ScoreCalculationFocus.Decrement();
+                    //
+                    FocusReinforcement.decreaseAudio(ScoreCalculationFocus.randomIndexPositiveDec);
                     StartCoroutine(ResetTextAfterDelay());
 
                 }
@@ -61,12 +68,19 @@ public class GridSpawner : MonoBehaviour
                 if (newObject.layer == 8)
                 {
                     ScoreCalculationFocus.Increment();
+                    //
+                    if (ScoreCalculationFocus.incrementCounter % 5 == 0)
+                    {
+                        FocusReinforcement.increaseAudio(ScoreCalculationFocus.randomIndexPositiveInc);
+                    }
                     StartCoroutine(ResetTextAfterDelay());
 
                 }
                 else if (newObject.layer != 8 || newObject.layer == 9)
                 {
                     ScoreCalculationFocus.Decrement();
+                    //
+                    FocusReinforcement.decreaseAudio(ScoreCalculationFocus.randomIndexPositiveDec);
                     StartCoroutine(ResetTextAfterDelay());
 
                 }
@@ -202,6 +216,11 @@ public class GridSpawner : MonoBehaviour
         if (newObject && newObject.layer == 9 && !isClicked)
         {
             ScoreCalculationFocus.Increment(); // Increment score if no click and layer is 9
+            //
+            if (ScoreCalculationFocus.incrementCounter % 5 == 0)
+            {
+                FocusReinforcement.increaseAudio(ScoreCalculationFocus.randomIndexPositiveInc);
+            }
             ScoreCalculationFocus.isStopWatchStart = false;
             ScoreCalculationFocus.elapsedTimeStopWatch = 0;
             ScoreCalculationFocus.responseTimeNoGo = ScoreCalculationFocus.responseTimeNoGo + 0;
@@ -209,6 +228,7 @@ public class GridSpawner : MonoBehaviour
         else if (!isClicked) 
         {
             ScoreCalculationFocus.Decrement();
+            FocusReinforcement.decreaseAudio(ScoreCalculationFocus.randomIndexPositiveDec);
         }
 
         StartCoroutine(ResetTextAfterDelay());
