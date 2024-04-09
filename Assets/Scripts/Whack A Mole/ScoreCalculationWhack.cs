@@ -12,6 +12,7 @@ public static class ScoreCalculationWhack
     public static float scoreTwoPercent = 0;
     public static float spawnerNoGoCounter = 0;
     public static float spawnerGoCounter = 0;
+    public static int incrementCounter = 0;
 
     public static string reinforcementText;
     public static string tag1;
@@ -51,9 +52,14 @@ public static class ScoreCalculationWhack
 
     public static void Increment()
     {
+        incrementCounter++;
+
         score++;
         correctCounter++;
-        reinforcementText = PositiveReinforcementIncrement();
+        if (incrementCounter % 5 == 0)
+        {
+            reinforcementText = PositiveReinforcementIncrement();
+        }
         Debug.Log(score);
 
     }
