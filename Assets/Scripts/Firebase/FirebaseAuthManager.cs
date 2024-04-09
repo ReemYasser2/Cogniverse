@@ -13,22 +13,7 @@ public class FirebaseAuthManager : MonoBehaviour
     Firebase.Auth.FirebaseAuth auth;
     Firebase.Auth.FirebaseUser user;
 
-    // Login Variables
-    [Space]
-    [Header("Login")]
-    public TMP_InputField emailLoginField;
-    public TMP_InputField passwordLoginField;
-
-    // Registration Variables
-    [Space]
-    [Header("Registration")]
-    public TMP_InputField firstNameField;
-    public TMP_InputField lastNameField;
-    public TMP_InputField ageField;
-    public TMP_InputField emailField;
-    public TMP_InputField passwordField;
-    // gender and diagnosis
-
+    private SignupinVariables variables;
 
     private void Start()
     {
@@ -53,12 +38,18 @@ public class FirebaseAuthManager : MonoBehaviour
 
     public void Signup()
     {
-        CreateUser(emailField.text, passwordField.text);
+        CreateUser(variables.emailField.text, variables.passwordField.text);
     }
 
     public void Login()
     {
-        SignInUser(emailField.text, passwordField.text);
+        SignInUser(variables.emailField.text, variables.passwordField.text);
+    }
+
+    public void Logout()
+    {
+        auth.SignOut();
+        Debug.Log("User signed out.");
     }
 
     void CreateUser(string email, string password)
