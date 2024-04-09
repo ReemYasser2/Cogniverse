@@ -8511,15 +8511,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Use the primary button on your left controller to toggle rays on your
-    controllers
+  m_text: 'Use the primary button on your controllers to toggle rays
 
 
-    Use the trigger to select the game you would like to play
+    Use the
+    grab button to select the game you would like to play
 
 
-    Use
-    the secondary button on your left controller to access the menu
+    Use the secondary
+    button on your left controller to access the menu
 
 '
   m_isRightToLeft: 0
