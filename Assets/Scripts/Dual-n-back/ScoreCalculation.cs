@@ -301,12 +301,19 @@ public static class ScoreCalculator
         if (score - oldScore == 1 && incrementCounter % 5 == 0 )
         {
             reinforcementText = "";
-            reinforcementText = PositiveReinforcementIncrement();
+            if (DatabaseGamesVariables.ispositiveGroup) { reinforcementText = PositiveReinforcementIncrement(); }
+            else if (DatabaseGamesVariables.isnegativeGroup) { reinforcementText = NegativeReinforcementIncrement(); }
+            else if (DatabaseGamesVariables.iscontrolGroup) { return; }
+            else { return; }
+            
         }
         else if (oldScore - score == 1)
         {
             reinforcementText = "";
-            reinforcementText = PositiveReinforcementDecrement();
+            if (DatabaseGamesVariables.ispositiveGroup) { reinforcementText = PositiveReinforcementDecrement(); }
+            else if (DatabaseGamesVariables.isnegativeGroup) { reinforcementText = NegativeReinforcementDecrement(); }
+            else if (DatabaseGamesVariables.iscontrolGroup) { return; }
+            else { return; }
         }
     }
     public static string PositiveReinforcementIncrement()

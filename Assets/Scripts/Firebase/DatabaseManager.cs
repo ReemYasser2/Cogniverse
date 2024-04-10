@@ -6,6 +6,8 @@ using TMPro;
 using UnityEngine.UI;
 using Unity.VisualScripting;
 using Firebase.Auth;
+using System;
+using System.Globalization;
 
 public class DatabaseManager : MonoBehaviour
 {
@@ -49,7 +51,7 @@ public class DatabaseManager : MonoBehaviour
     void Start()
     {
         // Get the root reference location of the database.
-        dbReference  = FirebaseDatabase.DefaultInstance.RootReference;
+        dbReference = FirebaseDatabase.DefaultInstance.RootReference;
 
         // Get the Firebase authentication instance.
         auth = FirebaseAuth.DefaultInstance;
@@ -85,7 +87,7 @@ public class DatabaseManager : MonoBehaviour
         female = "yes";
         male = "no";
     }
-    
+
     public void MaleGender()
     {
         female = "no";
@@ -97,7 +99,7 @@ public class DatabaseManager : MonoBehaviour
         yesdiagnosis = "yes";
         nodiagnosis = "no";
     }
-    
+
     public void NoDiagnosis()
     {
         yesdiagnosis = "no";
@@ -169,5 +171,48 @@ public class DatabaseManager : MonoBehaviour
             Debug.LogWarning("Cannot add user data: No user is currently signed in.");
         }
 
+    }
+    public void GetGroupType(string userID)
+    {
+        GetUsers(userID);
+     
+    }
+
+    public void GetUsers(string userID)
+    {
+        Firebase.Database.FirebaseDatabase dbInstance = Firebase.Database.FirebaseDatabase.DefaultInstance;
+        dbInstance.GetReference("users").GetValueAsync().ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                // Handle the error...
+            }
+            else if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+                
+                foreach (DataSnapshot user in snapshot.Children)
+                {
+                    if (user.Key == userID)
+                    {
+                        IDictionary dictUser = (IDictionary)user.Value;
+                        
+                        DatabaseGamesVariables.firstName = dictUser.Contains("firstName") ? dictUser["firstName"].ToString() : "";
+                        DatabaseGamesVariables.lastName = dictUser.Contains("lastName") ? dictUser["lastName"].ToString() : "";
+                        DatabaseGamesVariables.email = dictUser.Contains("email") ? dictUser["email"].ToString() : "";
+                        DatabaseGamesVariables.password = dictUser.Contains("password") ? dictUser["password"].ToString() : "";
+                        DatabaseGamesVariables.age = dictUser.Contains("age") ? int.Parse(dictUser["age"].ToString()) : 0;
+                        DatabaseGamesVariables.femalegender = dictUser.Contains("femalegender") ? dictUser["femalegender"].ToString() : "";
+                        DatabaseGamesVariables.malegender = dictUser.Contains("malegender") ? dictUser["malegender"].ToString() : "";
+                        DatabaseGamesVariables.isYesDiagnosis = dictUser.Contains("isYesDiagnosis") ? dictUser["isYesDiagnosis"].ToString() : "";
+                        DatabaseGamesVariables.isNoDiagnosis = dictUser.Contains("isNoDiagnosis") ? dictUser["isNoDiagnosis"].ToString() : "";
+                        DatabaseGamesVariables.diagnosis = dictUser.Contains("diagnosis") ? dictUser["diagnosis"].ToString() : "";
+                        DatabaseGamesVariables.iscontrolGroup = dictUser.Contains("iscontrolGroup") ? bool.Parse(dictUser["iscontrolGroup"].ToString()) : false;
+                        DatabaseGamesVariables.ispositiveGroup = dictUser.Contains("ispositiveGroup") ? bool.Parse(dictUser["ispositiveGroup"].ToString()) : false;
+                        DatabaseGamesVariables.isnegativeGroup = dictUser.Contains("isnegativeGroup") ? bool.Parse(dictUser["isnegativeGroup"].ToString()) : false;
+                    }
+                }
+            }
+        });
     }
 }

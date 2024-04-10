@@ -2445,7 +2445,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dual Nback
+  m_text: Potion Recall
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ac011a15c0a32a242a030b5f73c0b1d4, type: 2}
   m_sharedMaterial: {fileID: -1051033071516207551, guid: ac011a15c0a32a242a030b5f73c0b1d4, type: 2}
@@ -15943,7 +15943,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dual N-back
+  m_text: Potion Recall
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1bfdfd6d756ca3941a2f70a77f8de9f2, type: 2}
   m_sharedMaterial: {fileID: 8259751742977615116, guid: 1bfdfd6d756ca3941a2f70a77f8de9f2, type: 2}

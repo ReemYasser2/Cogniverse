@@ -85,7 +85,7 @@ public class FirebaseAuthManager : MonoBehaviour
             databaseManager.CreateUser(IDcopy);
             islogin = true;
             //SceneHandler.BackToHome();
-
+            databaseManager.GetGroupType(IDcopy);
         });
 
     }
@@ -105,11 +105,13 @@ public class FirebaseAuthManager : MonoBehaviour
             }
 
             Firebase.Auth.AuthResult result = task.Result;
+            IDcopy = result.User.UserId;
             Debug.LogFormat("User signed in successfully: {0} ({1})",
                 result.User.DisplayName, result.User.UserId);
             islogin = true;
 
             //SceneHandler.BackToHome();
+            databaseManager.GetGroupType(IDcopy);
 
         });
     }
