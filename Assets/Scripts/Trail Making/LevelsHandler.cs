@@ -22,6 +22,7 @@ public class LevelsHandler : MonoBehaviour
         ReinforcementManagement.isGameOver = false;
         if (level==1)
         {
+            trailLevel1.ResetIndicator();
             ReinforcementManagement.level_1 = true;
             ReinforcementManagement.level1_menu = true;
             ReinforcementManagement.level_2 = false;
@@ -34,6 +35,7 @@ public class LevelsHandler : MonoBehaviour
         }
         if (level==2)
         {
+            trailLevel2.ResetIndicator();
             ReinforcementManagement.level_2 = true;
             ReinforcementManagement.level_1 = false;
             ReinforcementManagement.level1_menu = false;
@@ -47,6 +49,7 @@ public class LevelsHandler : MonoBehaviour
         }
         if (level == 3)
         {
+            trailLevel1.ResetIndicator();
             ReinforcementManagement.level_3 = true;
             ReinforcementManagement.level_2 = false;
             ReinforcementManagement.level_1 = false;

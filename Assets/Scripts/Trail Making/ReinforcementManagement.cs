@@ -13,7 +13,7 @@ public static class ReinforcementManagement
 
     public static bool isPlayPressed = false;
     public static bool isPaused = false;
-    public static bool level_1 = true;
+    public static bool level_1 = false;
     public static bool level1_menu = false;
     public static bool level_2 = false;
     public static bool level_3 = false;

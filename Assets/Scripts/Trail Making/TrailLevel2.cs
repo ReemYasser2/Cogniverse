@@ -269,7 +269,7 @@ public class TrailLevel2 : MonoBehaviour
                 }
             }
     }
-    void ResetIndicator()
+    public void ResetIndicator()
     {
         for (int i = 0; i < mistakesIndicator_2.Length; i++)
             {

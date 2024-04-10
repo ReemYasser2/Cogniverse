@@ -33,11 +33,11 @@ public class TrailLevel1 : MonoBehaviour
         levelsHandler = gameObject.AddComponent<LevelsHandler>();
         trailSelection = levelsHandler.GetTrailIndex();
 
-        if (ReinforcementManagement.level_1 == true && trailSelection==0)
+        if ( trailSelection==0)
         {
             InitializeButtons();
         }
-        else if (ReinforcementManagement.level_1 == true && trailSelection == 1)
+        else if ( trailSelection == 1)
         {
             InitializeButtons2();
         }
@@ -50,9 +50,7 @@ public class TrailLevel1 : MonoBehaviour
 
     void TaskOnClick(int buttonNo)
     {
-        // Output this to the console when any button is clicked
 
-        ///Debug.Log("Button clicked = " + (buttonNo + 1)); // Adjusted index for human-friendly numbering
 
         Button clickedButton;
         if (trail11.activeSelf)
@@ -290,7 +288,7 @@ public class TrailLevel1 : MonoBehaviour
             }
         }
     }
-    void ResetIndicator()
+    public void ResetIndicator()
     {
         for (int i = 0; i < mistakesIndicator.Length; i++)
         {

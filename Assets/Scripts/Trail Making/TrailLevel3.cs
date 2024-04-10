@@ -272,7 +272,7 @@ public class TrailLevel3 : MonoBehaviour
             }
         }
     }
-    void ResetIndicator()
+    public void ResetIndicator()
     {
         for (int i = 0; i < mistakesIndicator_3.Length; i++)
         {
