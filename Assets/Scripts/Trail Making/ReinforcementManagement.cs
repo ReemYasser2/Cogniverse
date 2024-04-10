@@ -37,21 +37,49 @@ public static class ReinforcementManagement
 
     public static void PositiveReinforcementIncrement()
     {
-        incrementCounter++;
-        int randomIndex = Random.Range(0, positiveIncrease.Count);
-        randomIndexPositiveInc = randomIndex;
-        if (incrementCounter % 5 == 0)
+        if (DatabaseGamesVariables.ispositiveGroup)
         {
-            reinforcementText = positiveIncrease[randomIndex];
+            incrementCounter++;
+            int randomIndex = Random.Range(0, positiveIncrease.Count);
+            randomIndexPositiveInc = randomIndex;
+            if (incrementCounter % 5 == 0)
+            {
+                reinforcementText = positiveIncrease[randomIndex];
+            }
         }
+        else if (DatabaseGamesVariables.isnegativeGroup)
+        {
+            incrementCounter++;
+            int randomIndex = Random.Range(0, negativeIncrease.Count);
+            randomIndexPositiveInc = randomIndex;
+            if (incrementCounter % 5 == 0)
+            {
+                reinforcementText = negativeIncrease[randomIndex];
+            }
+            //return negativeIncrease[randomIndex];
+        }
+        else if (DatabaseGamesVariables.iscontrolGroup) { return; }
+        else { return; }
 
     }
     public static string PositiveReinforcementDecrement()
     {
-        int randomIndex = Random.Range(0, positiveDecrease.Count);
-        reinforcementText = positiveDecrease[randomIndex];
-        randomIndexPositiveDec = randomIndex;
-        return positiveDecrease[randomIndex];
+        if (DatabaseGamesVariables.ispositiveGroup)
+        {
+            int randomIndex = Random.Range(0, positiveDecrease.Count);
+            reinforcementText = positiveDecrease[randomIndex];
+            randomIndexPositiveDec = randomIndex;
+            return positiveDecrease[randomIndex];
+        }
+        else if (DatabaseGamesVariables.isnegativeGroup)
+        {
+            int randomIndex = Random.Range(0, negativeDecrease.Count);
+            reinforcementText = negativeDecrease[randomIndex];
+            randomIndexPositiveDec = randomIndex;
+            return negativeDecrease[randomIndex];
+        }
+        else if (DatabaseGamesVariables.iscontrolGroup) { return null; }
+        else { return null; }
     }
     public static string NegativeReinforcementIncrement()
     {

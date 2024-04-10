@@ -21,25 +21,60 @@ public class FocusReinforcement : MonoBehaviour
 
     public void increaseAudio(int randomIndexPositiveInc)
     {
-        for (int i = 0; i < positiveIncreaseAudios.Length; i++)
+        if (ScoreCalculationFocus.incrementCounter % 5 == 0)
         {
-            if (i == randomIndexPositiveInc)
+            if (DatabaseGamesVariables.ispositiveGroup)
             {
-                AudioSource audioSource = positiveIncreaseAudios[i];
-                audioSource.Play();
+                for (int i = 0; i < positiveIncreaseAudios.Length; i++)
+                {
+                    if (i == randomIndexPositiveInc)
+                    {
+                        AudioSource audioSource = positiveIncreaseAudios[i];
+                        audioSource.Play();
+                    }
+                }
             }
+            else if (DatabaseGamesVariables.isnegativeGroup)
+            {
+                for (int i = 0; i < negativeIncreaseAudios.Length; i++)
+                {
+                    if (i == randomIndexPositiveInc)
+                    {
+                        AudioSource audioSource = negativeIncreaseAudios[i];
+                        audioSource.Play();
+                    }
+                }
+            }
+            else if (DatabaseGamesVariables.iscontrolGroup) { return; }
+            else { return; }
         }
     }
 
     public void decreaseAudio(int randomIndexPositiveDec)
     {
-        for (int i = 0; i < positiveDecreaseAudios.Length; i++)
+        if (DatabaseGamesVariables.ispositiveGroup)
         {
-            if (i == randomIndexPositiveDec)
+            for (int i = 0; i < positiveDecreaseAudios.Length; i++)
             {
-                AudioSource audioSource = positiveDecreaseAudios[i];
-                audioSource.Play();
+                if (i == randomIndexPositiveDec)
+                {
+                    AudioSource audioSource = positiveDecreaseAudios[i];
+                    audioSource.Play();
+                }
             }
         }
+        else if (DatabaseGamesVariables.isnegativeGroup)
+        {
+            for (int i = 0; i < negativeDecreaseAudios.Length; i++)
+            {
+                if (i == randomIndexPositiveDec)
+                {
+                    AudioSource audioSource = negativeDecreaseAudios[i];
+                    audioSource.Play();
+                }
+            }
+        }
+        else if (DatabaseGamesVariables.iscontrolGroup) { return ; }
+        else { return; }
     }
 }

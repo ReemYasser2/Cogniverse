@@ -35,18 +35,22 @@ public class ScoreCalculatorMaze : MonoBehaviour
         score++;
         
         //Debug.Log(score);
-        reinforcementText = PositiveReinforcementDecrement();
+        if (DatabaseGamesVariables.ispositiveGroup) { reinforcementText = PositiveReinforcementDecrement(); }
+        else if (DatabaseGamesVariables.isnegativeGroup) { reinforcementText = NegativeReinforcementDecrement(); }
+        else if (DatabaseGamesVariables.iscontrolGroup) { return; }
+        else { return; }
 
-       // Debug.Log(reinforcementText);
+        // Debug.Log(reinforcementText);
 
     }
     public static void Decrement()
     {
         score--;
        // Debug.Log(reinforcementText);
-        reinforcementText = PositiveReinforcementIncrement();
-
-
+        if (DatabaseGamesVariables.ispositiveGroup) { reinforcementText = PositiveReinforcementIncrement(); }
+        else if (DatabaseGamesVariables.isnegativeGroup) { reinforcementText = NegativeReinforcementIncrement(); }
+        else if (DatabaseGamesVariables.iscontrolGroup) { return; }
+        else { return; }
         //Debug.Log("test -");
     }
 

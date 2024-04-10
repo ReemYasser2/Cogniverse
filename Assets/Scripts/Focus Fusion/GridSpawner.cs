@@ -45,11 +45,9 @@ public class GridSpawner : MonoBehaviour
                 if (newObject.layer == 10)
                 {
                     ScoreCalculationFocus.Increment();
-                    //
-                    if (ScoreCalculationFocus.incrementCounter % 5 == 0)
-                    {
-                        FocusReinforcement.increaseAudio(ScoreCalculationFocus.randomIndexPositiveInc);
-                    }
+
+                    FocusReinforcement.increaseAudio(ScoreCalculationFocus.randomIndexPositiveInc);
+                    
                     StartCoroutine(ResetTextAfterDelay());
 
                 }
@@ -68,11 +66,9 @@ public class GridSpawner : MonoBehaviour
                 if (newObject.layer == 8)
                 {
                     ScoreCalculationFocus.Increment();
-                    //
-                    if (ScoreCalculationFocus.incrementCounter % 5 == 0)
-                    {
-                        FocusReinforcement.increaseAudio(ScoreCalculationFocus.randomIndexPositiveInc);
-                    }
+                    
+                    FocusReinforcement.increaseAudio(ScoreCalculationFocus.randomIndexPositiveInc);
+                   
                     StartCoroutine(ResetTextAfterDelay());
 
                 }
@@ -216,11 +212,9 @@ public class GridSpawner : MonoBehaviour
         if (newObject && newObject.layer == 9 && !isClicked)
         {
             ScoreCalculationFocus.Increment(); // Increment score if no click and layer is 9
-            //
-            if (ScoreCalculationFocus.incrementCounter % 5 == 0)
-            {
-                FocusReinforcement.increaseAudio(ScoreCalculationFocus.randomIndexPositiveInc);
-            }
+
+            FocusReinforcement.increaseAudio(ScoreCalculationFocus.randomIndexPositiveInc);
+           
             ScoreCalculationFocus.isStopWatchStart = false;
             ScoreCalculationFocus.elapsedTimeStopWatch = 0;
             ScoreCalculationFocus.responseTimeNoGo = ScoreCalculationFocus.responseTimeNoGo + 0;

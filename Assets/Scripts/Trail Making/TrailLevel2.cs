@@ -84,10 +84,7 @@ public class TrailLevel2 : MonoBehaviour
 
                     clickedButton.GetComponent<Image>().color = Color.green;
                     ReinforcementManagement.PositiveReinforcementIncrement();
-                    if (ReinforcementManagement.incrementCounter % 5 == 0)
-                    {
-                        TrailReinforcement.increaseAudio(ReinforcementManagement.randomIndexPositiveInc);
-                    }
+                    TrailReinforcement.increaseAudio(ReinforcementManagement.randomIndexPositiveInc);
                     levelTwoScore++;
                     correctCounter++;
                     buttonNum = buttonNo;
@@ -101,10 +98,7 @@ public class TrailLevel2 : MonoBehaviour
 
                 clickedButton.GetComponent<Image>().color = Color.green;
                 ReinforcementManagement.PositiveReinforcementIncrement();
-                if (ReinforcementManagement.incrementCounter % 5 == 0)
-                {
-                    TrailReinforcement.increaseAudio(ReinforcementManagement.randomIndexPositiveInc);
-                }
+                TrailReinforcement.increaseAudio(ReinforcementManagement.randomIndexPositiveInc);
                 levelTwoScore++;
                 correctCounter++;
                 buttonNum = buttonNo;
@@ -120,10 +114,7 @@ public class TrailLevel2 : MonoBehaviour
 
                 clickedButton.GetComponent<Image>().color = Color.green;
                 ReinforcementManagement.PositiveReinforcementIncrement();
-                if (ReinforcementManagement.incrementCounter % 5 == 0)
-                {
-                    TrailReinforcement.increaseAudio(ReinforcementManagement.randomIndexPositiveInc);
-                }
+                TrailReinforcement.increaseAudio(ReinforcementManagement.randomIndexPositiveInc);
                 levelTwoScore++;
                 correctCounter++;
                 buttonNum = buttonNo;

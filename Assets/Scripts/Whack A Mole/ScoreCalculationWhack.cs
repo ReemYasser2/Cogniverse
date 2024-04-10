@@ -61,7 +61,10 @@ public static class ScoreCalculationWhack
         correctCounter++;
         if (incrementCounter % 5 == 0)
         {
-            reinforcementText = PositiveReinforcementIncrement();
+            if (DatabaseGamesVariables.ispositiveGroup) { reinforcementText = PositiveReinforcementIncrement(); }
+            else if (DatabaseGamesVariables.isnegativeGroup) { reinforcementText = NegativeReinforcementIncrement(); }
+            else if (DatabaseGamesVariables.iscontrolGroup) { return; }
+            else { return; }
         }
         Debug.Log(score);
 
@@ -69,7 +72,10 @@ public static class ScoreCalculationWhack
     public static void Decrement()
     {
         score--;
-        reinforcementText = PositiveReinforcementDecrement();
+        if (DatabaseGamesVariables.ispositiveGroup) { reinforcementText = PositiveReinforcementDecrement(); }
+        else if (DatabaseGamesVariables.isnegativeGroup) { reinforcementText = NegativeReinforcementDecrement(); }
+        else if (DatabaseGamesVariables.iscontrolGroup) { return; }
+        else { return; }
         //Debug.Log(score);
 
     }
@@ -95,11 +101,13 @@ public static class ScoreCalculationWhack
     public static string NegativeReinforcementIncrement()
     {
         int randomIndex = Random.Range(0, negativeIncrease.Count);
+        randomIndexPositiveInc = randomIndex;
         return negativeIncrease[randomIndex];
     }
     public static string NegativeReinforcementDecrement()
     {
         int randomIndex = Random.Range(0, negativeDecrease.Count);
+        randomIndexPositiveDec = randomIndex;
         return negativeDecrease[randomIndex];
     }
     public static float AccuracyCalculation(int correct, float total)

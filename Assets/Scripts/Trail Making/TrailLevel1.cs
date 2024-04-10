@@ -101,10 +101,7 @@ public class TrailLevel1 : MonoBehaviour
                     correctCounter++;
                     buttonNum = buttonNo;
                     ReinforcementManagement.PositiveReinforcementIncrement();
-                    if (ReinforcementManagement.incrementCounter % 5 == 0)
-                    {
-                        TrailReinforcement.increaseAudio(ReinforcementManagement.randomIndexPositiveInc);
-                    }
+                    TrailReinforcement.increaseAudio(ReinforcementManagement.randomIndexPositiveInc);
                     // scorePercent = levelOneScore / 15;
                 }
 
@@ -119,10 +116,7 @@ public class TrailLevel1 : MonoBehaviour
                 correctCounter++;
                 buttonNum = buttonNo;
                 ReinforcementManagement.PositiveReinforcementIncrement();
-                if (ReinforcementManagement.incrementCounter % 5 == 0)
-                {
-                    TrailReinforcement.increaseAudio(ReinforcementManagement.randomIndexPositiveInc);
-                }
+                TrailReinforcement.increaseAudio(ReinforcementManagement.randomIndexPositiveInc);
                 //scorePercent = levelOneScore / 15;
             }
             
@@ -141,10 +135,7 @@ public class TrailLevel1 : MonoBehaviour
                 buttonNum = buttonNo;
 
                 ReinforcementManagement.PositiveReinforcementIncrement();
-                if (ReinforcementManagement.incrementCounter % 5 == 0)
-                {
-                    TrailReinforcement.increaseAudio(ReinforcementManagement.randomIndexPositiveInc);
-                }
+                TrailReinforcement.increaseAudio(ReinforcementManagement.randomIndexPositiveInc);
                 //scorePercent = levelOneScore / 15;
 
             }

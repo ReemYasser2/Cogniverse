@@ -52,17 +52,21 @@ public static class ScoreCalculationFocus
         //Debug.Log(score);
         if (incrementCounter % 5 == 0)
         {
-            reinforcementText = PositiveReinforcementIncrement();
+            if (DatabaseGamesVariables.ispositiveGroup) { reinforcementText = PositiveReinforcementIncrement(); }
+            else if (DatabaseGamesVariables.isnegativeGroup) { reinforcementText = NegativeReinforcementIncrement(); }
+            else if (DatabaseGamesVariables.iscontrolGroup) { return; }
+            else { return; }
         }
 
     }
     public static void Decrement()
     {
         score--;
-        reinforcementText = PositiveReinforcementDecrement();
         //Debug.Log(score);
-
-
+        if (DatabaseGamesVariables.ispositiveGroup) { reinforcementText = PositiveReinforcementDecrement(); }
+        else if (DatabaseGamesVariables.isnegativeGroup) { reinforcementText = NegativeReinforcementDecrement(); }
+        else if (DatabaseGamesVariables.iscontrolGroup) { return; }
+        else { return; }
     }
 
     public static int getScore()
@@ -87,11 +91,13 @@ public static class ScoreCalculationFocus
     public static string NegativeReinforcementIncrement()
     {
         int randomIndex = Random.Range(0, negativeIncrease.Count);
+        randomIndexPositiveInc = randomIndex;
         return negativeIncrease[randomIndex];
     }
     public static string NegativeReinforcementDecrement()
     {
         int randomIndex = Random.Range(0, negativeDecrease.Count);
+        randomIndexPositiveDec = randomIndex;
         return negativeDecrease[randomIndex];
     }
     public static float AccuracyCalculation(float correct, float total)
