@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DatabaseGamesVariables : MonoBehaviour
 {
+    public static string userID;
 
     public static string firstName;
     public static string lastName;
@@ -19,15 +20,4 @@ public class DatabaseGamesVariables : MonoBehaviour
     public static bool ispositiveGroup;
     public static bool isnegativeGroup;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

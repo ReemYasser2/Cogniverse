@@ -27,11 +27,8 @@ public class DatabaseManager : MonoBehaviour
     public Button malegender;
     public Button yesDiagnosis;
     public Button noDiagnosis;
-    //public Button control;
-    //public Button positive;
-    //public Button negative;
-    // gender and diagnosis
 
+    // signup data
     public string firstName;
     public string lastName;
     public string email;
@@ -46,6 +43,108 @@ public class DatabaseManager : MonoBehaviour
     public bool ispositiveGroup;
     public bool isnegativeGroup;
 
+    // dual data
+    public string dateDual;
+    public string timeDual;
+    public int levelDual;
+    public float scorePercentDual;
+    public int accuracyDual;
+    public float overallTimeDual;
+    public float goResponseTimeDual;
+    public float noGoResponseTimeDual;
+    public bool islvlOnePasseddual;
+    public bool islvlTwoPasseddual;
+    public bool islvlThreePasseddual;
+    public bool islvl1dual;
+    public bool islvl2dual;
+    public bool islvl3dual;
+    public bool isgameOverdual;
+    public int highestAccuracyDual;
+    public int lastAccuracyDual;
+    public float highestScoreDual;
+    public float lastScoreDual;
+    public float highestGoRTDual;
+    public float lastGoRTDual;
+    public float highestNoRTDual;
+    public float lastNoRTDual;
+
+    // maze data
+    public string dateMaze;
+    public string timeMaze;
+    public int levelMaze;
+    public float overallTimeMaze;
+    public int numberOfHitsMaze;
+    public bool islvlOnePassedmaze;
+    public bool islvlTwoPassedmaze;
+    public bool islvl1maze;
+    public bool islvl2maze;
+    public bool isgameOvermaze;
+
+    // Trail data
+    public string dateTrail;
+    public string timeTrail;
+    public int levelTrail;
+    public float scorePercentTrail;
+    public int accuracyTrail;
+    public float overallTimeTrail;
+    public int numberOfMistakesTrail;
+    public bool islvlOnePassedtrail;
+    public bool islvlTwoPassedtrail;
+    public bool islvlThreePassedtrail;
+    public bool islvl1trail;
+    public bool islvl2trail;
+    public bool islvl3trail;
+    public bool isgameOvertrail;
+    public int highestAccuracyTrail;
+    public int lastAccuracyTrail;
+    public float highestScoreTrail;
+    public float lastScoreTrail;
+
+    // Focus data
+    public string dateFF;
+    public string timeFF;
+    public int levelFF;
+    public float scorePercentFF;
+    public int accuracyFF;
+    public float overallTimeFF;
+    public float goResponseTimeFF;
+    public float noGoResponseTimeFF;
+    public bool islvlOnePassedFF;
+    public bool islvlTwoPassedFF;
+    public bool islvl1FF;
+    public bool islvl2FF;
+    public bool isgameOverFF;
+    public int highestAccuracyFF;
+    public int lastAccuracyFF;
+    public float highestScoreFF;
+    public float lastScoreFF;
+    public float highestGoRTFF;
+    public float lastGoRTFF;
+    public float highestNoRTFF;
+    public float lastNoRTFF;
+
+    // whack data
+    public string dateWhack;
+    public string timeWhack;
+    public int levelWhack;
+    public float scorePercentWhack;
+    public int accuracyWhack;
+    public float overallTimeWhack;
+    public float goResponseTimeWhack;
+    public float noGoResponseTimeWhack;
+    public bool islvlOnePassedwhack;
+    public bool islvlTwoPassedwhack;
+    public bool islvl1whack;
+    public bool islvl2whack;
+    public bool isgameOverwhack;
+    public int highestAccuracyWhack;
+    public int lastAccuracyWhack;
+    public float highestScoreWhack;
+    public float lastScoreWhack;
+    public float highestGoRTWhack;
+    public float lastGoRTWhack;
+    public float highestNoRTWhack;
+    public float lastNoRTWhack;
 
     // Start is called before the first frame update
     void Start()
@@ -55,20 +154,6 @@ public class DatabaseManager : MonoBehaviour
 
         // Get the Firebase authentication instance.
         auth = FirebaseAuth.DefaultInstance;
-        /*
-        // Check if a user is already signed in.
-        FirebaseUser user = auth.CurrentUser;
-        if (user != null)
-        {
-            // User is signed in, retrieve their UID and use it for database operations.
-            string userID = user.UserId;
-            Debug.Log("User is signed in with UID: " + userID);
-        }
-        else
-        {
-            Debug.Log("No user is currently signed in.");
-        }
-        */
     }
 
     public void username()
@@ -142,29 +227,28 @@ public class DatabaseManager : MonoBehaviour
     public void CreateUser(string userID)
     {
         SignupCredentials();
-        // Check if a user is signed in.
-        //FirebaseUser user = auth.CurrentUser;
+
         if (userID != null)
         {
-            // User is signed in, retrieve their UID and use it as the key for storing user data.
-            //string userID = user.UserId;
 
             User newUser = new User(firstName, lastName, email, password, age, female, male,
                 yesdiagnosis, nodiagnosis, diagnosis, iscontrolGroup, ispositiveGroup, isnegativeGroup);
+
             string json = JsonUtility.ToJson(newUser);
 
-            // Add user data to the Realtime Database with the user's UID as the key
             dbReference.Child("users").Child(userID).SetRawJsonValueAsync(json).ContinueWith(task =>
             {
                 if (task.IsCompleted)
                 {
                     Debug.Log("User data added to Firebase with UID: " + userID);
+                    CreateDualData(DatabaseGamesVariables.userID);
                 }
                 else
                 {
                     Debug.LogError("Failed to add user data to Firebase: " + task.Exception);
                 }
             });
+
         }
         else
         {
@@ -172,13 +256,9 @@ public class DatabaseManager : MonoBehaviour
         }
 
     }
-    public void GetGroupType(string userID)
-    {
-        GetUsers(userID);
-     
-    }
+    public void GetGroupType(string userID) { GetUserData(userID); }
 
-    public void GetUsers(string userID)
+    public void GetUserData(string userID)
     {
         Firebase.Database.FirebaseDatabase dbInstance = Firebase.Database.FirebaseDatabase.DefaultInstance;
         dbInstance.GetReference("users").GetValueAsync().ContinueWith(task =>
@@ -215,4 +295,309 @@ public class DatabaseManager : MonoBehaviour
             }
         });
     }
+
+    public void CreateDualData(string userID)
+    {
+        if (userID != null)
+        {
+            DualNback newDual = new DualNback(dateDual, timeDual, levelDual, scorePercentDual,accuracyDual, 
+                overallTimeDual, goResponseTimeDual, noGoResponseTimeDual);
+
+            string json = JsonUtility.ToJson(newDual);
+
+            DatabaseReference Ref = dbReference.Child("users").Child(userID).Child("dualNback");
+
+            Ref.Push().SetRawJsonValueAsync(json).ContinueWith(task =>
+            {
+                if (task.IsCompleted)
+                {
+                    Debug.Log("dual data added to Firebase with UID: " + userID);
+                }
+                else
+                {
+                    Debug.LogError("Failed to add dual data to Firebase: " + task.Exception);
+                }
+            });
+
+        }
+        else
+        {
+            Debug.LogWarning("Cannot add dual data: No user is currently signed in.");
+        }
+    }
+
+    public void CreateMazeData(string userID)
+    {
+        if (userID != null)
+        {
+            Maze newMaze = new Maze(dateMaze, timeMaze, levelMaze, overallTimeMaze, numberOfHitsMaze);
+
+            string json = JsonUtility.ToJson(newMaze);
+
+            DatabaseReference Ref = dbReference.Child("users").Child(userID).Child("maze");
+
+            Ref.Push().SetRawJsonValueAsync(json).ContinueWith(task =>
+            {
+                if (task.IsCompleted)
+                {
+                    Debug.Log("maze data added to Firebase with UID: " + userID);
+                }
+                else
+                {
+                    Debug.LogError("Failed to add maze data to Firebase: " + task.Exception);
+                }
+            });
+
+        }
+        else
+        {
+            Debug.LogWarning("Cannot add maze data: No user is currently signed in.");
+        }
+    }
+
+    public void CreateTrailData(string userID)
+    {
+        if (userID != null)
+        {
+            TrailMaking newTrail = new TrailMaking(dateTrail, timeTrail, levelTrail, scorePercentTrail, accuracyTrail,
+                overallTimeTrail, numberOfMistakesTrail);
+
+            string json = JsonUtility.ToJson(newTrail);
+
+            DatabaseReference Ref = dbReference.Child("users").Child(userID).Child("trail");
+
+            Ref.Push().SetRawJsonValueAsync(json).ContinueWith(task =>
+            {
+                if (task.IsCompleted)
+                {
+                    Debug.Log("trail data added to Firebase with UID: " + userID);
+                }
+                else
+                {
+                    Debug.LogError("Failed to add trail data to Firebase: " + task.Exception);
+                }
+            });
+
+        }
+        else
+        {
+            Debug.LogWarning("Cannot add trail data: No user is currently signed in.");
+        }
+    }
+
+    public void CreateWhackData(string userID)
+    {
+        if (userID != null)
+        {
+            WhackAmole newWhack = new WhackAmole(dateWhack, timeWhack, levelWhack, scorePercentWhack, accuracyWhack,
+                overallTimeWhack, goResponseTimeWhack, noGoResponseTimeWhack);
+
+            string json = JsonUtility.ToJson(newWhack);
+
+            DatabaseReference Ref = dbReference.Child("users").Child(userID).Child("whack");
+
+            Ref.Push().SetRawJsonValueAsync(json).ContinueWith(task =>
+            {
+                if (task.IsCompleted)
+                {
+                    Debug.Log("whack data added to Firebase with UID: " + userID);
+                }
+                else
+                {
+                    Debug.LogError("Failed to add whack data to Firebase: " + task.Exception);
+                }
+            });
+
+        }
+        else
+        {
+            Debug.LogWarning("Cannot add whack data: No user is currently signed in.");
+        }
+    }
+
+    public void CreateFocusData(string userID)
+    {
+        if (userID != null)
+        {
+            FocusFusion newfocus = new FocusFusion(dateFF, timeFF, levelFF, scorePercentFF, accuracyFF,
+                overallTimeFF, goResponseTimeFF, noGoResponseTimeFF);
+
+            string json = JsonUtility.ToJson(newfocus);
+
+            DatabaseReference Ref = dbReference.Child("users").Child(userID).Child("focus");
+
+            Ref.Push().SetRawJsonValueAsync(json).ContinueWith(task =>
+            {
+                if (task.IsCompleted)
+                {
+                    Debug.Log("focus data added to Firebase with UID: " + userID);
+                }
+                else
+                {
+                    Debug.LogError("Failed to add focus data to Firebase: " + task.Exception);
+                }
+            });
+
+        }
+        else
+        {
+            Debug.LogWarning("Cannot add focus data: No user is currently signed in.");
+        }
+    }
+
+    public void CreateDualBoolStat(string userID)
+    {
+        if (userID != null)
+        {
+            DualGame newdata = new DualGame(islvlOnePasseddual, islvlTwoPasseddual, islvlThreePasseddual,
+                islvl1dual, islvl2dual, islvl3dual, isgameOverdual, highestAccuracyDual, lastAccuracyDual,
+                highestScoreDual, lastScoreDual, highestGoRTDual, lastGoRTDual, highestNoRTDual, lastNoRTDual);
+
+            string json = JsonUtility.ToJson(newdata);
+
+            DatabaseReference Ref = dbReference.Child("users").Child(userID).Child("GameHandler").Child("dual");
+
+            Ref.Push().SetRawJsonValueAsync(json).ContinueWith(task =>
+            {
+                if (task.IsCompleted)
+                {
+                    Debug.Log("data added to Firebase with UID: " + userID);
+                }
+                else
+                {
+                    Debug.LogError("Failed to add data to Firebase: " + task.Exception);
+                }
+            });
+
+        }
+        else
+        {
+            Debug.LogWarning("Cannot add data: No user is currently signed in.");
+        }
+    }
+
+    public void CreateMazeBoolStat(string userID)
+    {
+        if (userID != null)
+        {
+            MazeGame newdata = new MazeGame(islvlOnePassedmaze, islvlTwoPassedmaze,
+                islvl1maze, islvl2maze, isgameOvermaze);
+
+            string json = JsonUtility.ToJson(newdata);
+
+            DatabaseReference Ref = dbReference.Child("users").Child(userID).Child("GameHandler").Child("maze");
+
+            Ref.Push().SetRawJsonValueAsync(json).ContinueWith(task =>
+            {
+                if (task.IsCompleted)
+                {
+                    Debug.Log("data added to Firebase with UID: " + userID);
+                }
+                else
+                {
+                    Debug.LogError("Failed to add data to Firebase: " + task.Exception);
+                }
+            });
+
+        }
+        else
+        {
+            Debug.LogWarning("Cannot add data: No user is currently signed in.");
+        }
+    }
+
+    public void CreateTrailBoolStat(string userID)
+    {
+        if (userID != null)
+        {
+            TrailGame newdata = new TrailGame(islvlOnePassedtrail, islvlTwoPassedtrail, islvlThreePassedtrail,
+                islvl1trail, islvl2trail, islvl3trail, isgameOvertrail, highestAccuracyTrail, lastAccuracyTrail,
+                highestScoreTrail, lastScoreTrail);
+
+            string json = JsonUtility.ToJson(newdata);
+
+            DatabaseReference Ref = dbReference.Child("users").Child(userID).Child("GameHandler").Child("trail");
+
+            Ref.Push().SetRawJsonValueAsync(json).ContinueWith(task =>
+            {
+                if (task.IsCompleted)
+                {
+                    Debug.Log("data added to Firebase with UID: " + userID);
+                }
+                else
+                {
+                    Debug.LogError("Failed to add data to Firebase: " + task.Exception);
+                }
+            });
+
+        }
+        else
+        {
+            Debug.LogWarning("Cannot add data: No user is currently signed in.");
+        }
+    }
+
+    public void CreateFocusBoolStat(string userID)
+    {
+        if (userID != null)
+        {
+            FocusGame newdata = new FocusGame(islvlOnePassedFF, islvlTwoPassedFF,
+                islvl1FF, islvl2FF, isgameOverFF, highestAccuracyFF, lastAccuracyFF, highestScoreFF, lastScoreFF,
+                highestGoRTFF, lastGoRTFF, highestNoRTFF, lastNoRTFF);
+
+            string json = JsonUtility.ToJson(newdata);
+
+            DatabaseReference Ref = dbReference.Child("users").Child(userID).Child("GameHandler").Child("focus");
+
+            Ref.Push().SetRawJsonValueAsync(json).ContinueWith(task =>
+            {
+                if (task.IsCompleted)
+                {
+                    Debug.Log("data added to Firebase with UID: " + userID);
+                }
+                else
+                {
+                    Debug.LogError("Failed to add data to Firebase: " + task.Exception);
+                }
+            });
+
+        }
+        else
+        {
+            Debug.LogWarning("Cannot add data: No user is currently signed in.");
+        }
+    }
+
+    public void CreateWhackBoolStat(string userID)
+    {
+        if (userID != null)
+        {
+            WhackGame newdata = new WhackGame(islvlOnePassedwhack, islvlTwoPassedwhack,
+                islvl1whack, islvl2whack, isgameOverwhack, highestAccuracyWhack, lastAccuracyWhack, 
+                highestScoreWhack, lastScoreWhack, highestGoRTWhack, lastGoRTWhack, highestNoRTWhack, lastNoRTWhack);
+
+            string json = JsonUtility.ToJson(newdata);
+
+            DatabaseReference Ref = dbReference.Child("users").Child(userID).Child("GameHandler").Child("dual");
+
+            Ref.Push().SetRawJsonValueAsync(json).ContinueWith(task =>
+            {
+                if (task.IsCompleted)
+                {
+                    Debug.Log("data added to Firebase with UID: " + userID);
+                }
+                else
+                {
+                    Debug.LogError("Failed to add data to Firebase: " + task.Exception);
+                }
+            });
+
+        }
+        else
+        {
+            Debug.LogWarning("Cannot add data: No user is currently signed in.");
+        }
+    }
+
+
 }

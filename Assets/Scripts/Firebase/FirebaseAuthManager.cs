@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Firebase.Extensions;
 using Unity.VisualScripting;
 using Firebase.Database;
+using System;
 
 public class FirebaseAuthManager : MonoBehaviour
 {
@@ -78,14 +79,15 @@ public class FirebaseAuthManager : MonoBehaviour
 
             // Firebase user has been created.
             Firebase.Auth.AuthResult result = task.Result;
-            IDcopy = result.User.UserId;
+            //IDcopy = result.User.UserId;
+            DatabaseGamesVariables.userID = result.User.UserId;
             Debug.LogFormat("Firebase user created successfully: {0} ({1})",
                 result.User.DisplayName, result.User.UserId);
 
-            databaseManager.CreateUser(IDcopy);
+            databaseManager.CreateUser(DatabaseGamesVariables.userID);
             islogin = true;
             //SceneHandler.BackToHome();
-            databaseManager.GetGroupType(IDcopy);
+            databaseManager.GetGroupType(DatabaseGamesVariables.userID);
         });
 
     }
@@ -105,13 +107,20 @@ public class FirebaseAuthManager : MonoBehaviour
             }
 
             Firebase.Auth.AuthResult result = task.Result;
-            IDcopy = result.User.UserId;
+            //IDcopy = result.User.UserId;
+            DatabaseGamesVariables.userID = result.User.UserId;
             Debug.LogFormat("User signed in successfully: {0} ({1})",
                 result.User.DisplayName, result.User.UserId);
             islogin = true;
 
             //SceneHandler.BackToHome();
-            databaseManager.GetGroupType(IDcopy);
+            databaseManager.GetGroupType(DatabaseGamesVariables.userID);
+            databaseManager.CreateDualData(DatabaseGamesVariables.userID);
+            DateTime currentDateTime = DateTime.Now;
+            string date = currentDateTime.ToString("dd/MM/yyyy");
+            string time = currentDateTime.ToString("HH:mm");
+            Debug.Log("Date: " + date);
+            Debug.Log("Time: " + time);
 
         });
     }
@@ -134,6 +143,7 @@ public class FirebaseAuthManager : MonoBehaviour
             if (!signedIn && user != null)
             {
                 Debug.Log("Signed out " + user.UserId);
+                DatabaseGamesVariables.userID = null;
             }
             user = auth.CurrentUser;
             if (signedIn)
