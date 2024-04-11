@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,9 +7,17 @@ using UnityEngine;
 public class FocusLevelTransition : MonoBehaviour
 {
     public FocusMenuHandler menuHandler;
+    public DatabaseManager databaseManager;
+
+    private void Start()
+    {
+        databaseManager.GetStatisticsFFData(DatabaseGamesVariables.userID);
+        Unlocklvl();
+    }
 
     public void CheckLevel1()
     {
+        databaseManager.GetStatisticsFFData(DatabaseGamesVariables.userID);
         if ((ScoreCalculationFocus.score)/ (ScoreCalculationFocus.totalTrialsGo+ ScoreCalculationFocus.totalTrialsNoGo) >= 0.7 && ScoreCalculationFocus.isTimeOver) // complete lvl1
         {
             menuHandler.timerCanvas.SetActive(false);
@@ -27,12 +36,20 @@ public class FocusLevelTransition : MonoBehaviour
             ScoreCalculationFocus.responseTimeGo = ScoreCalculationFocus.responseTimeGo / ScoreCalculationFocus.totalTrialsGo;
             ScoreCalculationFocus.responseTimeNoGo = ScoreCalculationFocus.responseTimeNoGo / ScoreCalculationFocus.totalTrialsNoGo;
 
-            Debug.Log("FF: score: " + ScoreCalculationFocus.scorePercentOne);
-            Debug.Log("FF: overall time: " + ScoreCalculationFocus.overallTime);
-            Debug.Log("FF: accuracy: " + ScoreCalculationFocus.accuracy);
-            Debug.Log("FF: RT GO: " + ScoreCalculationFocus.responseTimeGo);
-            Debug.Log("FF: RT NO GO: " + ScoreCalculationFocus.responseTimeNoGo);
-            
+            databaseManager.CreateFocusData(DatabaseGamesVariables.userID, ScoreCalculationFocus.date, ScoreCalculationFocus.time,
+                1, ScoreCalculationFocus.scorePercentOne, ScoreCalculationFocus.accuracy, ScoreCalculationFocus.overallTime,
+                ScoreCalculationFocus.responseTimeGo, ScoreCalculationFocus.responseTimeNoGo);
+
+            databaseManager.UpdatelvlStatus(DatabaseGamesVariables.userID, DatabaseGamesVariables.focusname, "islvlOnePassed", true);
+
+            float highestScore = CheckHighest(ScoreCalculationFocus.scorePercentOne, DatabaseGamesVariables.highestScoreDual);
+            float highestAccuracy = CheckHighest(ScoreCalculationFocus.accuracy, DatabaseGamesVariables.highestAccuracyDual);
+            float highestGoRT = CheckLeast(ScoreCalculationFocus.responseTimeGo, DatabaseGamesVariables.highestGoRTDual);
+            float highestNoGoRT = CheckLeast(ScoreCalculationFocus.responseTimeNoGo, DatabaseGamesVariables.highestNoRTDual);
+
+            updateStat(highestScore, ScoreCalculationFocus.scorePercentOne, highestAccuracy, ScoreCalculationFocus.accuracy,
+                highestGoRT, ScoreCalculationFocus.responseTimeGo, highestNoGoRT, ScoreCalculationFocus.responseTimeNoGo);
+
             ResetLevels();
             ScoreCalculationFocus.isLevel1 = false;
         }
@@ -50,19 +67,27 @@ public class FocusLevelTransition : MonoBehaviour
             ScoreCalculationFocus.responseTimeGo = ScoreCalculationFocus.responseTimeGo / ScoreCalculationFocus.totalTrialsGo;
             ScoreCalculationFocus.responseTimeNoGo = ScoreCalculationFocus.responseTimeNoGo / ScoreCalculationFocus.totalTrialsNoGo;
 
-            Debug.Log("FF: score: " + ScoreCalculationFocus.scorePercentOne);
-            Debug.Log("FF: overall time: " + ScoreCalculationFocus.overallTime);
-            Debug.Log("FF: accuracy: " + ScoreCalculationFocus.accuracy);
-            Debug.Log("FF: RT GO: " + ScoreCalculationFocus.responseTimeGo);
-            Debug.Log("FF: RT NO GO: " + ScoreCalculationFocus.responseTimeNoGo);
+            databaseManager.CreateFocusData(DatabaseGamesVariables.userID, ScoreCalculationFocus.date, ScoreCalculationFocus.time,
+                1, ScoreCalculationFocus.scorePercentOne, ScoreCalculationFocus.accuracy, ScoreCalculationFocus.overallTime,
+                ScoreCalculationFocus.responseTimeGo, ScoreCalculationFocus.responseTimeNoGo);
+
+            float highestScore = CheckHighest(ScoreCalculationFocus.scorePercentOne, DatabaseGamesVariables.highestScoreDual);
+            float highestAccuracy = CheckHighest(ScoreCalculationFocus.accuracy, DatabaseGamesVariables.highestAccuracyDual);
+            float highestGoRT = CheckLeast(ScoreCalculationFocus.responseTimeGo, DatabaseGamesVariables.highestGoRTDual);
+            float highestNoGoRT = CheckLeast(ScoreCalculationFocus.responseTimeNoGo, DatabaseGamesVariables.highestNoRTDual);
+
+            updateStat(highestScore, ScoreCalculationFocus.scorePercentOne, highestAccuracy, ScoreCalculationFocus.accuracy,
+                highestGoRT, ScoreCalculationFocus.responseTimeGo, highestNoGoRT, ScoreCalculationFocus.responseTimeNoGo);
 
             ResetLevels();
             ScoreCalculationFocus.isLevel1 = false;
         }
+        databaseManager.GetStatisticsFFData(DatabaseGamesVariables.userID);
     }
 
     public void CheckLevel2()
     {
+        databaseManager.GetStatisticsFFData(DatabaseGamesVariables.userID);
         if ((ScoreCalculationFocus.score) / (ScoreCalculationFocus.totalTrialsGo + ScoreCalculationFocus.totalTrialsNoGo) >= 0.7 && ScoreCalculationFocus.isTimeOver) // complete lvl2
         {
             menuHandler.timerCanvas.SetActive(false);
@@ -77,11 +102,19 @@ public class FocusLevelTransition : MonoBehaviour
             ScoreCalculationFocus.responseTimeNoGo = ScoreCalculationFocus.responseTimeNoGo / ScoreCalculationFocus.totalTrialsNoGo;
             ScoreCalculationFocus.accuracy = ScoreCalculationFocus.AccuracyCalculation(ScoreCalculationFocus.correctCounter, (ScoreCalculationFocus.totalTrialsGo + ScoreCalculationFocus.totalTrialsNoGo));
 
-            Debug.Log("FF: score: " + ScoreCalculationFocus.scorePercentTwo);
-            Debug.Log("FF: overall time: " + ScoreCalculationFocus.overallTime);
-            Debug.Log("FF: accuracy: " + ScoreCalculationFocus.accuracy);
-            Debug.Log("FF: RT GO: " + ScoreCalculationFocus.responseTimeGo);
-            Debug.Log("FF: RT NO GO: " + ScoreCalculationFocus.responseTimeNoGo);
+            databaseManager.CreateFocusData(DatabaseGamesVariables.userID, ScoreCalculationFocus.date, ScoreCalculationFocus.time,
+                2, ScoreCalculationFocus.scorePercentTwo, ScoreCalculationFocus.accuracy, ScoreCalculationFocus.overallTime,
+                ScoreCalculationFocus.responseTimeGo, ScoreCalculationFocus.responseTimeNoGo);
+
+            databaseManager.UpdatelvlStatus(DatabaseGamesVariables.userID, DatabaseGamesVariables.focusname, "islvlTwoPassed", true);
+
+            float highestScore = CheckHighest(ScoreCalculationFocus.scorePercentTwo, DatabaseGamesVariables.highestScoreDual);
+            float highestAccuracy = CheckHighest(ScoreCalculationFocus.accuracy, DatabaseGamesVariables.highestAccuracyDual);
+            float highestGoRT = CheckLeast(ScoreCalculationFocus.responseTimeGo, DatabaseGamesVariables.highestGoRTDual);
+            float highestNoGoRT = CheckLeast(ScoreCalculationFocus.responseTimeNoGo, DatabaseGamesVariables.highestNoRTDual);
+
+            updateStat(highestScore, ScoreCalculationFocus.scorePercentTwo, highestAccuracy, ScoreCalculationFocus.accuracy,
+                highestGoRT, ScoreCalculationFocus.responseTimeGo, highestNoGoRT, ScoreCalculationFocus.responseTimeNoGo);
 
             ResetLevels();
             ScoreCalculationFocus.isLevel2 = false;
@@ -100,15 +133,22 @@ public class FocusLevelTransition : MonoBehaviour
             ScoreCalculationFocus.responseTimeNoGo = ScoreCalculationFocus.responseTimeNoGo / ScoreCalculationFocus.totalTrialsNoGo;
             ScoreCalculationFocus.accuracy = ScoreCalculationFocus.AccuracyCalculation(ScoreCalculationFocus.correctCounter, (ScoreCalculationFocus.totalTrialsGo + ScoreCalculationFocus.totalTrialsNoGo));
 
-            Debug.Log("FF: score: " + ScoreCalculationFocus.scorePercentTwo);
-            Debug.Log("FF: overall time: " + ScoreCalculationFocus.overallTime);
-            Debug.Log("FF: accuracy: " + ScoreCalculationFocus.accuracy);
-            Debug.Log("FF: RT GO: " + ScoreCalculationFocus.responseTimeGo);
-            Debug.Log("FF: RT NO GO: " + ScoreCalculationFocus.responseTimeNoGo);
+            databaseManager.CreateFocusData(DatabaseGamesVariables.userID, ScoreCalculationFocus.date, ScoreCalculationFocus.time,
+                2, ScoreCalculationFocus.scorePercentTwo, ScoreCalculationFocus.accuracy, ScoreCalculationFocus.overallTime,
+                ScoreCalculationFocus.responseTimeGo, ScoreCalculationFocus.responseTimeNoGo);
+
+            float highestScore = CheckHighest(ScoreCalculationFocus.scorePercentTwo, DatabaseGamesVariables.highestScoreDual);
+            float highestAccuracy = CheckHighest(ScoreCalculationFocus.accuracy, DatabaseGamesVariables.highestAccuracyDual);
+            float highestGoRT = CheckLeast(ScoreCalculationFocus.responseTimeGo, DatabaseGamesVariables.highestGoRTDual);
+            float highestNoGoRT = CheckLeast(ScoreCalculationFocus.responseTimeNoGo, DatabaseGamesVariables.highestNoRTDual);
+
+            updateStat(highestScore, ScoreCalculationFocus.scorePercentTwo, highestAccuracy, ScoreCalculationFocus.accuracy,
+                highestGoRT, ScoreCalculationFocus.responseTimeGo, highestNoGoRT, ScoreCalculationFocus.responseTimeNoGo);
 
             ResetLevels();
             ScoreCalculationFocus.isLevel2 = false;
         }
+        databaseManager.GetStatisticsFFData(DatabaseGamesVariables.userID);
     }
 
     public void ToHome()
@@ -182,5 +222,60 @@ public class FocusLevelTransition : MonoBehaviour
         ScoreCalculationFocus.overallTime = 0;
         ScoreCalculationFocus.accuracy = 0;
         ScoreCalculationFocus.correctCounter = 0;
+    }
+    public void updateStat(float hScore, float lScore, float hAccuray, float lAccuracy,
+        float hGoRT, float lGoRT, float hNoGoRT, float lNoGoRT)
+    {
+        databaseManager.UpdateStatistics(DatabaseGamesVariables.userID, DatabaseGamesVariables.focusname, "highestScore", hScore);
+        databaseManager.UpdateStatistics(DatabaseGamesVariables.userID, DatabaseGamesVariables.focusname, "lastScore", lScore);
+        databaseManager.UpdateStatistics(DatabaseGamesVariables.userID, DatabaseGamesVariables.focusname, "highestAccuracy", hAccuray);
+        databaseManager.UpdateStatistics(DatabaseGamesVariables.userID, DatabaseGamesVariables.focusname, "lastAccuracy", lAccuracy);
+        databaseManager.UpdateStatistics(DatabaseGamesVariables.userID, DatabaseGamesVariables.focusname, "highestGoRT", hGoRT);
+        databaseManager.UpdateStatistics(DatabaseGamesVariables.userID, DatabaseGamesVariables.focusname, "lastGoRT", lGoRT);
+        databaseManager.UpdateStatistics(DatabaseGamesVariables.userID, DatabaseGamesVariables.focusname, "highestNoRT", hNoGoRT);
+        databaseManager.UpdateStatistics(DatabaseGamesVariables.userID, DatabaseGamesVariables.focusname, "lastNoRT", lNoGoRT);
+    }
+
+    public float CheckHighest(float current, float last)
+    {
+        if (current >= last)
+        {
+            return current;
+        }
+        else if (current < last)
+        {
+            return last;
+        }
+        else { return 0; }
+    }
+
+    public float CheckLeast(float current, float last)
+    {
+        if (current <= last)
+        {
+            return current;
+        }
+        else if (current > last)
+        {
+            return last;
+        }
+        else { return 0; }
+    }
+
+    private void Unlocklvl()
+    {
+        if (DatabaseGamesVariables.islvlOnePassedFF)
+        {
+            menuHandler.level2Button.SetActive(true);
+            menuHandler.level2LockButton.SetActive(false);
+        }
+        else { return; }
+    }
+
+    public void GetDateTime()
+    {
+        DateTime currentDateTime = DateTime.Now;
+        ScoreCalculationFocus.date = currentDateTime.ToString("dd/MM/yyyy");
+        ScoreCalculationFocus.time = currentDateTime.ToString("HH:mm");
     }
 }

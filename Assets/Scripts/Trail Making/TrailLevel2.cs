@@ -177,6 +177,7 @@ public class TrailLevel2 : MonoBehaviour
 
             ResetLeveltwo();
             ReinforcementManagement.level_2 = false;
+            databaseManager.GetStatisticsDataTrail(DatabaseGamesVariables.userID);
         }
         else if (mistakes >= 3 || ReinforcementManagement.elapsedTime > 60f) // didn't pass the level, replay 
         {
@@ -200,6 +201,7 @@ public class TrailLevel2 : MonoBehaviour
 
             ResetLeveltwo();
             ReinforcementManagement.level_2 = false;
+            databaseManager.GetStatisticsDataTrail(DatabaseGamesVariables.userID);
         }
     }
     void InitializeButtons()

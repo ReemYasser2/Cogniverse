@@ -173,6 +173,7 @@ public class TrailLevel3 : MonoBehaviour
 
             ResetLevelthree();
             ReinforcementManagement.level_3 = false;
+            databaseManager.GetStatisticsDataTrail(DatabaseGamesVariables.userID);
         } 
         else if(mistakes >= 3 || ReinforcementManagement.elapsedTime > 120f) // didn't pass the level, replay
         {
@@ -196,6 +197,7 @@ public class TrailLevel3 : MonoBehaviour
 
             ResetLevelthree();
             ReinforcementManagement.level_3 = false;
+            databaseManager.GetStatisticsDataTrail(DatabaseGamesVariables.userID);
 
         }
     }

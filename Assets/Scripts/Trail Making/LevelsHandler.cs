@@ -24,6 +24,7 @@ public class LevelsHandler : MonoBehaviour
         ReinforcementManagement.isGameOver = false;
         if (level==1)
         {
+            trailLevel1.GetDateTime();
             trailLevel1.ResetIndicator();
             ReinforcementManagement.level_1 = true;
             ReinforcementManagement.level1_menu = true;
@@ -37,6 +38,7 @@ public class LevelsHandler : MonoBehaviour
         }
         if (level==2)
         {
+            trailLevel1.GetDateTime();
             trailLevel2.ResetIndicator();
             ReinforcementManagement.level_2 = true;
             ReinforcementManagement.level_1 = false;
@@ -51,6 +53,7 @@ public class LevelsHandler : MonoBehaviour
         }
         if (level == 3)
         {
+            trailLevel1.GetDateTime();
             trailLevel1.ResetIndicator();
             ReinforcementManagement.level_3 = true;
             ReinforcementManagement.level_2 = false;
@@ -188,5 +191,4 @@ public class LevelsHandler : MonoBehaviour
         }
         else { return 0; }
     }
-
 }

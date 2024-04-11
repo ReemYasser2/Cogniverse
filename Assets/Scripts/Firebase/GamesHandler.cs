@@ -37,17 +37,11 @@ public class MazeGame
 {
     public bool islvlOnePassed;
     public bool islvlTwoPassed;
-    public bool islvl1;
-    public bool islvl2;
-    public bool isgameOver;
 
-    public MazeGame(bool islvlOnePassed, bool islvlTwoPassed, bool islvl1, bool islvl2, bool isgameOver)
+    public MazeGame(bool islvlOnePassed, bool islvlTwoPassed)
     {
         this.islvlOnePassed = islvlOnePassed;
         this.islvlTwoPassed = islvlTwoPassed;
-        this.islvl1 = islvl1;
-        this.islvl2 = islvl2;
-        this.isgameOver =isgameOver;
     }
 }
 
@@ -78,9 +72,6 @@ public class FocusGame
 {
     public bool islvlOnePassed;
     public bool islvlTwoPassed;
-    public bool islvl1;
-    public bool islvl2;
-    public bool isgameOver;
     public float highestAccuracy;
     public float lastAccuracy;
     public float highestScore;
@@ -90,15 +81,12 @@ public class FocusGame
     public float highestNoRT;
     public float lastNoRT;
 
-    public FocusGame(bool islvlOnePassed, bool islvlTwoPassed, bool islvl1, bool islvl2, bool isgameOver,
+    public FocusGame(bool islvlOnePassed, bool islvlTwoPassed,
         float highestAccuracy, float lastAccuracy, float highestScore, float lastScore, float highestGoRT,
         float lastGoRT, float highestNoRT, float lastNoRT)
     {
         this.islvlOnePassed = islvlOnePassed;
         this.islvlTwoPassed = islvlTwoPassed;
-        this.islvl1 = islvl1;
-        this.islvl2 = islvl2;
-        this.isgameOver = isgameOver;
         this.highestAccuracy = highestAccuracy;
         this.lastAccuracy = lastAccuracy;
         this.highestScore = highestScore;
@@ -114,9 +102,6 @@ public class WhackGame
 {
     public bool islvlOnePassed;
     public bool islvlTwoPassed;
-    public bool islvl1;
-    public bool islvl2;
-    public bool isgameOver;
     public float highestAccuracy;
     public float lastAccuracy;
     public float highestScore;
@@ -126,15 +111,11 @@ public class WhackGame
     public float highestNoRT;
     public float lastNoRT;
 
-    public WhackGame(bool islvlOnePassed, bool islvlTwoPassed, bool islvl1, bool islvl2, bool isgameOver,
-        float highestAccuracy, float lastAccuracy, float highestScore, float lastScore, float highestGoRT,
-        float lastGoRT, float highestNoRT, float lastNoRT)
+    public WhackGame(bool islvlOnePassed, bool islvlTwoPassed, float highestAccuracy, float lastAccuracy, float highestScore,
+        float lastScore, float highestGoRT, float lastGoRT, float highestNoRT, float lastNoRT)
     {
         this.islvlOnePassed = islvlOnePassed;
         this.islvlTwoPassed = islvlTwoPassed;
-        this.islvl1 = islvl1;
-        this.islvl2 = islvl2;
-        this.isgameOver = isgameOver;
         this.highestAccuracy = highestAccuracy;
         this.lastAccuracy = lastAccuracy;
         this.highestScore = highestScore;

@@ -91,7 +91,7 @@ public class GridSpawner : MonoBehaviour
     {
         if (level == 1)
         {
-            
+            levelTransition.GetDateTime();   
             //FocusTimer.remainingTime = 15;
 
             while (!ScoreCalculationFocus.isTimeOver && !ScoreCalculationFocus.isHomeClicked)
@@ -136,7 +136,7 @@ public class GridSpawner : MonoBehaviour
         }
         else if (level == 2)
         {
-            
+            levelTransition.GetDateTime();
             //FocusTimer.remainingTime = 6;
 
             //Debug.Log("Level 2 starts");

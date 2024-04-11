@@ -529,6 +529,41 @@ public class DatabaseManager : MonoBehaviour
         });
     }
 
+    public void GetStatisticsFFData(string userID)
+    {
+        Firebase.Database.FirebaseDatabase dbInstance = Firebase.Database.FirebaseDatabase.DefaultInstance;
+        dbInstance.GetReference("users").Child(userID).Child("GameHandler").GetValueAsync().ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                // Handle the error...
+            }
+            else if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+
+                foreach (DataSnapshot data in snapshot.Children)
+                {
+                    if (data.Key == "focus")
+                    {
+                        IDictionary dictUser = (IDictionary)data.Value;
+
+                        DatabaseGamesVariables.islvlOnePassedFF = dictUser.Contains("islvlOnePassed") ? bool.Parse(dictUser["islvlOnePassed"].ToString()) : false;
+                        DatabaseGamesVariables.islvlTwoPassedFF = dictUser.Contains("islvlTwoPassed") ? bool.Parse(dictUser["islvlTwoPassed"].ToString()) : false;
+                        DatabaseGamesVariables.highestAccuracyFF = dictUser.Contains("highestAccuracy") ? float.Parse(dictUser["highestAccuracy"].ToString()) : 0;
+                        DatabaseGamesVariables.lastAccuracyFF = dictUser.Contains("lastAccuracy") ? float.Parse(dictUser["lastAccuracy"].ToString()) : 0;
+                        DatabaseGamesVariables.highestScoreFF = dictUser.Contains("highestScore") ? float.Parse(dictUser["highestScore"].ToString()) : 0;
+                        DatabaseGamesVariables.lastScoreFF = dictUser.Contains("lastScore") ? float.Parse(dictUser["lastScore"].ToString()) : 0;
+                        DatabaseGamesVariables.highestGoRTFF = dictUser.Contains("highestGoRT") ? float.Parse(dictUser["highestGoRT"].ToString()) : 0;
+                        DatabaseGamesVariables.lastGoRTFF = dictUser.Contains("lastGoRT") ? float.Parse(dictUser["lastGoRT"].ToString()) : 0;
+                        DatabaseGamesVariables.highestNoRTFF = dictUser.Contains("highestNoRT") ? float.Parse(dictUser["highestNoRT"].ToString()) : 0;
+                        DatabaseGamesVariables.lastNoRTFF = dictUser.Contains("lastNoRT") ? float.Parse(dictUser["lastNoRT"].ToString()) : 0;
+                    }
+                }
+            }
+        });
+    }
+
     public void UpdatelvlStatus(string userID, string gameName, string varName, bool isPassed)
     {
         dbReference.Child("users").Child(userID).Child("GameHandler").Child(gameName).Child(varName).SetValueAsync(isPassed);

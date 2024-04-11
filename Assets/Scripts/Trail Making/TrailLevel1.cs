@@ -56,7 +56,6 @@ public class TrailLevel1 : MonoBehaviour
 
     void TaskOnClick(int buttonNo)
     {
-        databaseManager.GetStatisticsDataTrail(DatabaseGamesVariables.userID);
 
         Button clickedButton;
         if (trail11.activeSelf)
@@ -197,6 +196,7 @@ public class TrailLevel1 : MonoBehaviour
             ResetLevelone();
             ReinforcementManagement.level1_menu = false;
             ReinforcementManagement.level_1 = false;
+            databaseManager.GetStatisticsDataTrail(DatabaseGamesVariables.userID);
         }
         else if (mistakes >= 3 || ReinforcementManagement.elapsedTime > 30f)  // didn't pass the level, replay
         {
@@ -221,8 +221,8 @@ public class TrailLevel1 : MonoBehaviour
             ResetLevelone();
             ReinforcementManagement.level1_menu = false;
             ReinforcementManagement.level_1 = false;
+            databaseManager.GetStatisticsDataTrail(DatabaseGamesVariables.userID);
         }
-        databaseManager.GetStatisticsDataTrail(DatabaseGamesVariables.userID);
     }
 
     void InitializeButtons()
@@ -347,6 +347,13 @@ public class TrailLevel1 : MonoBehaviour
         databaseManager.UpdateStatistics(DatabaseGamesVariables.userID, DatabaseGamesVariables.trailname, "lastScore", lScore);
         databaseManager.UpdateStatistics(DatabaseGamesVariables.userID, DatabaseGamesVariables.trailname, "highestAccuracy", hAccuray);
         databaseManager.UpdateStatistics(DatabaseGamesVariables.userID, DatabaseGamesVariables.trailname, "lastAccuracy", lAccuracy);
+    }
+
+    public void GetDateTime()
+    {
+        DateTime currentDateTime = DateTime.Now;
+        ReinforcementManagement.date = currentDateTime.ToString("dd/MM/yyyy");
+        ReinforcementManagement.time = currentDateTime.ToString("HH:mm");
     }
 }
 

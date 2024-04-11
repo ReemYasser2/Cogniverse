@@ -22,15 +22,6 @@ public class RadialProgress : MonoBehaviour
 
     public GameObject RTcanvase;
     [SerializeField] float speed;
-    float targetFillAmount = 0.6f;
-
-    public void onClick()
-    {
-        StartCoroutine(AnimateFill(highAccuracyImage, highAccuracyText, targetFillAmount));
-        StartCoroutine(AnimateFill(lastAccuracyImage, lastAccuracyText, targetFillAmount));
-        StartCoroutine(AnimateFill(highScoreImage, highScoreText, targetFillAmount));
-        StartCoroutine(AnimateFill(lastScoreImage, lastScoreText, targetFillAmount));
-    }
 
     public void ShowDualStat()
     {
@@ -42,9 +33,9 @@ public class RadialProgress : MonoBehaviour
         RTcanvase.SetActive(true);
 
         lastRTGOText.text = "Latest Go Response Time: " + Mathf.Round(DatabaseGamesVariables.lastGoRTDual * 100f) / 100f;
-        highRTGOText.text = "Highest Go Response Time: " + Mathf.Round(DatabaseGamesVariables.highestGoRTDual * 100f) / 100f;
+        highRTGOText.text = "Lowest Go Response Time: " + Mathf.Round(DatabaseGamesVariables.highestGoRTDual * 100f) / 100f;
         lastRTNOGOText.text = "Latest No Go Response Time: " + Mathf.Round(DatabaseGamesVariables.lastNoRTDual * 100f) / 100f;
-        highRTNOGOText.text = "Highest No Go Response Time: " + Mathf.Round(DatabaseGamesVariables.highestNoRTDual * 100f) / 100f;
+        highRTNOGOText.text = "Lowest No Go Response Time: " + Mathf.Round(DatabaseGamesVariables.highestNoRTDual * 100f) / 100f;
     }
 
     public void ShowTrailStat()
@@ -55,6 +46,21 @@ public class RadialProgress : MonoBehaviour
         StartCoroutine(AnimateFill(lastScoreImage, lastScoreText, DatabaseGamesVariables.lastScoreTrail));
 
         RTcanvase.SetActive(false);
+    }
+
+    public void ShowFocusStat()
+    {
+        StartCoroutine(AnimateFill(highAccuracyImage, highAccuracyText, DatabaseGamesVariables.highestAccuracyFF));
+        StartCoroutine(AnimateFill(lastAccuracyImage, lastAccuracyText, DatabaseGamesVariables.lastAccuracyFF));
+        StartCoroutine(AnimateFill(highScoreImage, highScoreText, DatabaseGamesVariables.highestScoreFF));
+        StartCoroutine(AnimateFill(lastScoreImage, lastScoreText, DatabaseGamesVariables.lastScoreFF));
+
+        RTcanvase.SetActive(true);
+
+        lastRTGOText.text = "Latest Go Response Time: " + Mathf.Round(DatabaseGamesVariables.lastGoRTFF * 100f) / 100f;
+        highRTGOText.text = "Lowest Go Response Time: " + Mathf.Round(DatabaseGamesVariables.highestGoRTFF * 100f) / 100f;
+        lastRTNOGOText.text = "Latest No Go Response Time: " + Mathf.Round(DatabaseGamesVariables.lastNoRTFF * 100f) / 100f;
+        highRTNOGOText.text = "Lowest No Go Response Time: " + Mathf.Round(DatabaseGamesVariables.highestNoRTFF * 100f) / 100f;
     }
 
     IEnumerator AnimateFill(Image image, TMP_Text text, float targetFillAmount)

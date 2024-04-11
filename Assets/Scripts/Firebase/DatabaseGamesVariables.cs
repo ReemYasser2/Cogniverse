@@ -57,6 +57,8 @@ public class DatabaseGamesVariables : MonoBehaviour
     public static float lastGoRTFF;
     public static float highestNoRTFF;
     public static float lastNoRTFF;
+    public static bool islvlOnePassedFF;
+    public static bool islvlTwoPassedFF;
 
     // whack
     public static float highestAccuracyWhack;
@@ -67,7 +69,12 @@ public class DatabaseGamesVariables : MonoBehaviour
     public static float lastGoRTWhack;
     public static float highestNoRTWhack;
     public static float lastNoRTWhack;
+    public static bool islvlOnePassedWhack;
+    public static bool islvlTwoPassedWhack;
 
+    // maze
+    public static bool islvlOnePassedMaze;
+    public static bool islvlTwoPassedMaze;
 
     private void Awake()
     {

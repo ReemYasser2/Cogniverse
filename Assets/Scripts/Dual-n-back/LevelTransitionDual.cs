@@ -83,10 +83,12 @@ public class LevelTransitionDual : MonoBehaviour
             ScoreCalculator.isLevel1 = false;
 
         }
+        databaseManager.GetStatisticsData(DatabaseGamesVariables.userID);
     }
 
     public void CheckLevel2()
     {
+        databaseManager.GetStatisticsData(DatabaseGamesVariables.userID);
         if ((ScoreCalculator.score) / 42f >= 0.7f)
         {
             // pass lvl2
@@ -150,10 +152,12 @@ public class LevelTransitionDual : MonoBehaviour
             ScoreCalculator.isLevel2 = false;
 
         }
+        databaseManager.GetStatisticsData(DatabaseGamesVariables.userID);
     }
 
     public void CheckLevel3()
     {
+        databaseManager.GetStatisticsData(DatabaseGamesVariables.userID);
         if ((ScoreCalculator.score) / 42f >= 0.7f)
         {
             // pass lvl3
@@ -216,6 +220,7 @@ public class LevelTransitionDual : MonoBehaviour
             ScoreCalculator.isLevel3 = false;
 
         }
+        databaseManager.GetStatisticsData(DatabaseGamesVariables.userID);
     }
 
     private void ShowLevelOneInstructions() 
@@ -344,6 +349,7 @@ public class LevelTransitionDual : MonoBehaviour
             dualMenuHandler.level3Button.SetActive(true);
             dualMenuHandler.level3LockButton.SetActive(false);
         }
+        else { return; }
     }
 
     public void updateStat(float hScore, float lScore, float hAccuray, float lAccuracy, 
