@@ -130,10 +130,11 @@ public class HapticFeedback : MonoBehaviour
         if (other.gameObject.layer == 12)
         {
             checkpointCounter++;
-            //Debug.Log("check " + checkpointCounter);
+           Debug.Log("check " + checkpointCounter);
         }
         else if (other.gameObject.layer == 14) {
             isEnd = true;
+            Debug.Log("end " + checkpointCounter);
         }
 
     }

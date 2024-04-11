@@ -53,21 +53,26 @@ public class CollisionDetection : MonoBehaviour
             if (ScoreCalculationWhack.isLevel1 ) 
             {
                 ScoreCalculationWhack.Increment();
+                StartCoroutine(ResetTextAfterDelay());
+
                 WhackReiforcement.increaseAudio(ScoreCalculationWhack.randomIndexPositiveInc);
                 audioSource.PlayOneShot(collisionAudio);
             }
             else if(ScoreCalculationWhack.isLevel2 && gameObject.layer == 11)
             {
                 ScoreCalculationWhack.Increment();
+                StartCoroutine(ResetTextAfterDelay());
+
                 WhackReiforcement.increaseAudio(ScoreCalculationWhack.randomIndexPositiveInc);
                 audioSource.PlayOneShot(collisionAudio);
             }
             else if (ScoreCalculationWhack.isLevel2) {
                 ScoreCalculationWhack.Decrement();
+                StartCoroutine(ResetTextAfterDelay());
+
                 WhackReiforcement.decreaseAudio(ScoreCalculationWhack.randomIndexPositiveDec);
                 audioSource.PlayOneShot(collisionAudio);
             }
-            StartCoroutine(ResetTextAfterDelay());
 
         }
     }
