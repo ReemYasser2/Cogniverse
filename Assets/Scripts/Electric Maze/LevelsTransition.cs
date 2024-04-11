@@ -20,7 +20,7 @@ public class LevelsTransition : MonoBehaviour
     public void checkLevelOne()
     {
         databaseManager.GetStatisticsMazeData(DatabaseGamesVariables.userID);
-        if (ScoreCalculatorMaze.score <= 2 && HapticFeedback.checkpointCounter >= 9)// || CountDownTimer.isTimeOver)
+        if (ScoreCalculatorMaze.score <= 2 && HapticFeedback.checkpointCounter >= 8 && HapticFeedback.isEnd)// || CountDownTimer.isTimeOver)
         {     // pass lvl1
             menuHandler.completeLevel1Canvas.SetActive(true);
             mazeSpawner.ShowHideMaze(false);
@@ -64,7 +64,7 @@ public class LevelsTransition : MonoBehaviour
     public void CheckLevelTwo()
     {
         databaseManager.GetStatisticsMazeData(DatabaseGamesVariables.userID);
-        if (ScoreCalculatorMaze.score <= 4 && HapticFeedback.checkpointCounter >= 9)// || CountDownTimer.isTimeOver) 
+        if (ScoreCalculatorMaze.score <= 4 && HapticFeedback.checkpointCounter >= 8 && HapticFeedback.isEnd)// || CountDownTimer.isTimeOver) 
         {
             // pass lvl2
             menuHandler.completeLevel2Canvas.SetActive(true);
