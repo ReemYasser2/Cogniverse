@@ -115,7 +115,6 @@ public class FirebaseAuthManager : MonoBehaviour
 
             //SceneHandler.BackToHome();
             databaseManager.GetGroupType(DatabaseGamesVariables.userID);
-            databaseManager.CreateDualData(DatabaseGamesVariables.userID);
             DateTime currentDateTime = DateTime.Now;
             string date = currentDateTime.ToString("dd/MM/yyyy");
             string time = currentDateTime.ToString("HH:mm");

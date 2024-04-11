@@ -22,7 +22,7 @@ public static class ScoreCalculator
     static int incrementCounter=0;
     public static int trialsCount = 0;
     public static int maxTrials = 15;
-    public static int accuracy = 0;
+    public static float accuracy = 0;
     public static int correctCounter = 0;
     public static float scoreOnePercent = 0;
     public static float scoreTwoPercent = 0;
@@ -42,6 +42,8 @@ public static class ScoreCalculator
 
     public static string reinforcementText;
 
+    public static string date;
+    public static string time;
 
     static List<string> positiveIncrease = new List<string>
             { " Good Job", "Keep it up", "You're on a roll", "Excellent work", "Amazing!!", "Awesome!!", "Well done!!"};
@@ -336,7 +338,7 @@ public static class ScoreCalculator
         int randomIndex = Random.Range(0, negativeDecrease.Count);
         return negativeDecrease[randomIndex];
     }
-    public static float AccuracyCalculation(int correct, int total)
+    public static float AccuracyCalculation(float correct, float total)
     {
         accuracy = correct / total;
         return accuracy;

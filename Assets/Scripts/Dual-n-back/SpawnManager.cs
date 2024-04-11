@@ -34,6 +34,7 @@ public class SpawnManager : MonoBehaviour
     {
         if (level == 1)
         {
+            levelTransition.GetDateTime();
             ScoreCalculator.trialsCount = 0;
             ScoreCalculator.maxTrials = 15;
             ScoreCalculator.score = 0;
@@ -82,6 +83,7 @@ public class SpawnManager : MonoBehaviour
         }
         else if (level == 2)
         {
+            levelTransition.GetDateTime();
             ScoreCalculator.trialsCount = 0;
             ScoreCalculator.maxTrials = 15;
             ScoreCalculator.score = 0;
@@ -153,6 +155,7 @@ public class SpawnManager : MonoBehaviour
         }
         else if (level == 3)
         {
+            levelTransition.GetDateTime();
             ScoreCalculator.trialsCount = 0;
             ScoreCalculator.maxTrials = 15;
             ScoreCalculator.score = 0;

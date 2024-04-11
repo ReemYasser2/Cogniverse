@@ -241,7 +241,6 @@ public class DatabaseManager : MonoBehaviour
                 if (task.IsCompleted)
                 {
                     Debug.Log("User data added to Firebase with UID: " + userID);
-                    CreateDualData(DatabaseGamesVariables.userID);
                 }
                 else
                 {
@@ -256,7 +255,11 @@ public class DatabaseManager : MonoBehaviour
         }
 
     }
-    public void GetGroupType(string userID) { GetUserData(userID); }
+    public void GetGroupType(string userID) 
+    { 
+        GetUserData(userID);
+        GetStatisticsData(userID);
+    }
 
     public void GetUserData(string userID)
     {
@@ -294,14 +297,54 @@ public class DatabaseManager : MonoBehaviour
                 }
             }
         });
+
+        
     }
 
-    public void CreateDualData(string userID)
+    public void GetStatisticsData(string userID)
+    {
+        Firebase.Database.FirebaseDatabase dbInstance = Firebase.Database.FirebaseDatabase.DefaultInstance;
+        dbInstance.GetReference("users").Child(userID).Child("GameHandler").GetValueAsync().ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                // Handle the error...
+            }
+            else if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+                
+                foreach (DataSnapshot data in snapshot.Children)
+                {
+                    if (data.Key == "dual")
+                    {
+                        IDictionary dictUser = (IDictionary)data.Value;
+                        Debug.Log("acc: " + dictUser["highestAccuracy"]);
+                        Debug.Log("accu" + float.Parse(dictUser["lastAccuracy"].ToString()));
+
+                        DatabaseGamesVariables.islvlOnePasseddual = dictUser.Contains("islvlOnePassed") ? bool.Parse(dictUser["islvlOnePassed"].ToString()) : false;
+                        DatabaseGamesVariables.islvlTwoPasseddual = dictUser.Contains("islvlTwoPassed") ? bool.Parse(dictUser["islvlTwoPassed"].ToString()) : false;
+                        DatabaseGamesVariables.islvlThreePasseddual = dictUser.Contains("islvlThreePassed") ? bool.Parse(dictUser["islvlThreePassed"].ToString()) : false;
+                        DatabaseGamesVariables.highestAccuracyDual = dictUser.Contains("highestAccuracy") ? float.Parse(dictUser["highestAccuracy"].ToString()) : 0;
+                        DatabaseGamesVariables.lastAccuracyDual = dictUser.Contains("lastAccuracy") ? float.Parse(dictUser["lastAccuracy"].ToString()) : 0;
+                        DatabaseGamesVariables.highestScoreDual = dictUser.Contains("highestScore") ? float.Parse(dictUser["highestScore"].ToString()) : 0;
+                        DatabaseGamesVariables.lastScoreDual = dictUser.Contains("lastScore") ? float.Parse(dictUser["lastScore"].ToString()) : 0;
+                        DatabaseGamesVariables.highestGoRTDual = dictUser.Contains("highestGoRT") ? float.Parse(dictUser["highestGoRT"].ToString()) : 0;
+                        DatabaseGamesVariables.lastGoRTDual = dictUser.Contains("lastGoRT") ? float.Parse(dictUser["lastGoRT"].ToString()) : 0;
+                        DatabaseGamesVariables.highestNoRTDual = dictUser.Contains("highestNoRT") ? float.Parse(dictUser["highestNoRT"].ToString()) : 0;
+                        DatabaseGamesVariables.lastNoRTDual = dictUser.Contains("lastNoRT") ? float.Parse(dictUser["lastNoRT"].ToString()) : 0;
+                    }
+                }
+            }
+        });
+    }
+    public void CreateDualData(string userID, string date, string time, int level, float scorePercent,
+        float accuracy, float overallTime, float goResponseTime, float noGoResponseTime)
     {
         if (userID != null)
         {
-            DualNback newDual = new DualNback(dateDual, timeDual, levelDual, scorePercentDual,accuracyDual, 
-                overallTimeDual, goResponseTimeDual, noGoResponseTimeDual);
+            DualNback newDual = new DualNback(date, time, level, scorePercent,accuracy, 
+                overallTime, goResponseTime, noGoResponseTime);
 
             string json = JsonUtility.ToJson(newDual);
 
@@ -445,13 +488,15 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
-    public void CreateDualBoolStat(string userID)
+    public void CreateDualBoolStat(string userID, bool islvlOnePassed, bool islvlTwoPassed, bool islvlThreePassed,
+        float highestAccuracy, float lastAccuracy, float highestScore, float lastScore,
+        float highestGoRT, float lastGoRT, float highestNoRT, float lastNoRT)
     {
         if (userID != null)
         {
-            DualGame newdata = new DualGame(islvlOnePasseddual, islvlTwoPasseddual, islvlThreePasseddual,
-                islvl1dual, islvl2dual, islvl3dual, isgameOverdual, highestAccuracyDual, lastAccuracyDual,
-                highestScoreDual, lastScoreDual, highestGoRTDual, lastGoRTDual, highestNoRTDual, lastNoRTDual);
+            DualGame newdata = new DualGame(islvlOnePassed, islvlTwoPassed, islvlThreePassed,
+             highestAccuracy, lastAccuracy, highestScore, lastScore, highestGoRT, lastGoRT,
+             highestNoRT, lastNoRT);
 
             string json = JsonUtility.ToJson(newdata);
 
@@ -578,7 +623,7 @@ public class DatabaseManager : MonoBehaviour
 
             string json = JsonUtility.ToJson(newdata);
 
-            DatabaseReference Ref = dbReference.Child("users").Child(userID).Child("GameHandler").Child("dual");
+            DatabaseReference Ref = dbReference.Child("users").Child(userID).Child("GameHandler").Child("whack");
 
             Ref.Push().SetRawJsonValueAsync(json).ContinueWith(task =>
             {
@@ -599,5 +644,13 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
+    public void UpdatelvlStatus(string userID, string gameName, string varName, bool isPassed)
+    {
+        dbReference.Child("users").Child(userID).Child("GameHandler").Child(gameName).Child(varName).SetValueAsync(isPassed);
+    }
 
+    public void UpdateStatistics(string userID, string gameName, string varName, float value)
+    {
+        dbReference.Child("users").Child(userID).Child("GameHandler").Child(gameName).Child(varName).SetValueAsync(value);
+    }
 }
