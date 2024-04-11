@@ -3257,7 +3257,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Welcome Ahmed
+  m_text: Welcome
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1bfdfd6d756ca3941a2f70a77f8de9f2, type: 2}
   m_sharedMaterial: {fileID: 8259751742977615116, guid: 1bfdfd6d756ca3941a2f70a77f8de9f2, type: 2}

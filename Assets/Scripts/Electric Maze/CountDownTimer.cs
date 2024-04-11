@@ -61,6 +61,7 @@ public class CountDownTimer : MonoBehaviour
         isPlayPressed = true;
         isTimeOver = false;
         remainingTime = GeneralCountDownTimer.TimerInitialization(timerText, ScoreCalculatorMaze.isLevel1, ScoreCalculatorMaze.isLevel2, 30, 60);
+        LevelsTransition.GetDateTime();
     }
 
     public  void OverallTime(int level)

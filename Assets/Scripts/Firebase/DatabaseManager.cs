@@ -158,6 +158,9 @@ public class DatabaseManager : MonoBehaviour
         GetUserData(userID);
         GetStatisticsData(userID);
         GetStatisticsDataTrail(userID);
+        GetStatisticsMazeData(userID);
+        GetStatisticsWhackData(userID);
+        GetStatisticsFFData(userID);
     }
 
     public void GetUserData(string userID)
