@@ -17,8 +17,9 @@ public class ScoreCalculatorMaze : MonoBehaviour
 
     public static float overallTime;
     public static int numberOfHits;
-   
 
+    public static string date;
+    public static string time;
 
     static List<string> positiveIncrease = new List<string>
             { " Good Job", "Keep it up", "You're on a roll", "Excellent work", "Amazing!!", "Awesome!!", "Well done!!"};
