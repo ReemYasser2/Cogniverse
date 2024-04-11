@@ -18,7 +18,7 @@ public class TrailLevel2 : MonoBehaviour
     public TrailMenuHandler menuHandler;
     public float scorePercent = 0;
     public float levelTwoAccuracy = 0;
-    public int correctCounter = 0;
+    public float correctCounter = 0;
     public TrailReinforcement TrailReinforcement;
     // Start is called before the first frame update
     void Start()

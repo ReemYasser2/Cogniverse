@@ -5,7 +5,7 @@ using UnityEngine;
 public static class ScoreCalculationWhack
 {
     public static int score = 0;
-    public static int correctCounter = 0;
+    public static float correctCounter = 0;
     public static float spawnsCounter = 0;
     public static float accuracy = 0;
     public static float scoreOnePercent = 0;

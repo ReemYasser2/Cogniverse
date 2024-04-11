@@ -16,7 +16,7 @@ public class TrailLevel3 : MonoBehaviour
     public int levelThreeScore = 0;
     public int mistakes = 0;
     public float levelThreeAccuracy = 0;
-    public  int correctCounter = 0;
+    public  float correctCounter = 0;
     private int buttonNum = 0;
 
     public LevelsHandler levelsHandler;
