@@ -9,7 +9,7 @@ public class TrailLevel2 : MonoBehaviour
     public Button[] trail21Buttons = new Button[20];
     public Button[] trail22Buttons = new Button[20];
     public Button[] mistakesIndicator_2 = new Button[3];
-    public int levelTwoScore = 0;
+    public float levelTwoScore = 0;
     public GameObject trail21;
     public GameObject trail22;
     public int mistakes = 0;
