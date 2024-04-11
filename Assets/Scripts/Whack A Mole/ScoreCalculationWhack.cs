@@ -110,7 +110,7 @@ public static class ScoreCalculationWhack
         randomIndexPositiveDec = randomIndex;
         return negativeDecrease[randomIndex];
     }
-    public static float AccuracyCalculation(int correct, float total)
+    public static float AccuracyCalculation(float correct, float total)
     {
         accuracy = correct / total;
         return accuracy;

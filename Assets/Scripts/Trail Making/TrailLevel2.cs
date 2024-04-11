@@ -276,7 +276,7 @@ public class TrailLevel2 : MonoBehaviour
                 mistakesIndicator_2[i].GetComponent<Image>().color = Color.green;
             }
     }
-    float CalculateAccuracy(int correct, int total)
+    float CalculateAccuracy(float correct, float total)
     {
         float acc = correct / total;
         return acc;
