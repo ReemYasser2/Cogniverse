@@ -62,6 +62,21 @@ public class RadialProgress : MonoBehaviour
         lastRTNOGOText.text = "Latest No Go Response Time: " + Mathf.Round(DatabaseGamesVariables.lastNoRTFF * 100f) / 100f;
         highRTNOGOText.text = "Lowest No Go Response Time: " + Mathf.Round(DatabaseGamesVariables.highestNoRTFF * 100f) / 100f;
     }
+    
+    public void ShowWhackStat()
+    {
+        StartCoroutine(AnimateFill(highAccuracyImage, highAccuracyText, DatabaseGamesVariables.highestAccuracyWhack));
+        StartCoroutine(AnimateFill(lastAccuracyImage, lastAccuracyText, DatabaseGamesVariables.lastAccuracyWhack));
+        StartCoroutine(AnimateFill(highScoreImage, highScoreText, DatabaseGamesVariables.highestScoreWhack));
+        StartCoroutine(AnimateFill(lastScoreImage, lastScoreText, DatabaseGamesVariables.lastScoreWhack));
+
+        RTcanvase.SetActive(true);
+
+        lastRTGOText.text = "Latest Go Response Time: " + Mathf.Round(DatabaseGamesVariables.lastGoRTWhack * 100f) / 100f;
+        highRTGOText.text = "Lowest Go Response Time: " + Mathf.Round(DatabaseGamesVariables.highestGoRTWhack * 100f) / 100f;
+        lastRTNOGOText.text = "Latest No Go Response Time: " + Mathf.Round(DatabaseGamesVariables.lastNoRTWhack * 100f) / 100f;
+        highRTNOGOText.text = "Lowest No Go Response Time: " + Mathf.Round(DatabaseGamesVariables.highestNoRTWhack * 100f) / 100f;
+    }
 
     IEnumerator AnimateFill(Image image, TMP_Text text, float targetFillAmount)
     {

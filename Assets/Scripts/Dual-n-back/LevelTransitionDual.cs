@@ -396,8 +396,6 @@ public class LevelTransitionDual : MonoBehaviour
         DateTime currentDateTime = DateTime.Now;
         ScoreCalculator.date = currentDateTime.ToString("dd/MM/yyyy");
         ScoreCalculator.time = currentDateTime.ToString("HH:mm");
-        Debug.Log("Date: " + ScoreCalculator.date);
-        Debug.Log("Time: " + ScoreCalculator.time);
     }
 
 }

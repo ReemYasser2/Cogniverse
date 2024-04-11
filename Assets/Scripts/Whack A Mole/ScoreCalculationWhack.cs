@@ -40,6 +40,9 @@ public static class ScoreCalculationWhack
     public static float stopWatchtime2;
     public static float overallTime;
 
+    public static string date;
+    public static string time;
+
     public static int randomIndexPositiveInc;
     public static int randomIndexPositiveDec;
 

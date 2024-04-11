@@ -20,6 +20,8 @@ public class SceneHandler : MonoBehaviour
         databaseManager.GetStatisticsData(DatabaseGamesVariables.userID);
         databaseManager.GetStatisticsDataTrail(DatabaseGamesVariables.userID);
         databaseManager.GetStatisticsFFData(DatabaseGamesVariables.userID);
+        databaseManager.GetStatisticsWhackData(DatabaseGamesVariables.userID);
+        databaseManager.GetStatisticsMazeData(DatabaseGamesVariables.userID);
     }
 
     // function that opens the dual n-back game

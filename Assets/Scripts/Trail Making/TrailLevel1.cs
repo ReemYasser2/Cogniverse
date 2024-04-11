@@ -17,7 +17,7 @@ public class TrailLevel1 : MonoBehaviour
     public GameObject trail11;
     public GameObject trail12;
     int trailSelection;
-    public int levelOneScore = 0;
+    public float levelOneScore = 0;
     public int mistakes = 0;
     private int buttonNum = 0;
 

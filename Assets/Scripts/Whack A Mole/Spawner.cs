@@ -18,6 +18,7 @@ public class Spawner : MonoBehaviour
     IEnumerator AliensSpawner(int level)
     { if (level == 1 )
         {
+            levelTransition.GetDateTime();
             while (!ScoreCalculationWhack.isTimeOver && !ScoreCalculationWhack.isHomeButtonClicked)
             {
                 ScoreCalculationWhack.isFirstObjectCollide = false;
@@ -88,7 +89,8 @@ public class Spawner : MonoBehaviour
         }
     else if (level == 2)
         {
-            
+            levelTransition.GetDateTime();
+
             //deactivate all objects for level 1
             foreach (GameObject obj in alienOne)
             {

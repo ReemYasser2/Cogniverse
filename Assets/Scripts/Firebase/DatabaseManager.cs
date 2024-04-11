@@ -43,110 +43,6 @@ public class DatabaseManager : MonoBehaviour
     public bool ispositiveGroup;
     public bool isnegativeGroup;
 
-    // dual data
-    public string dateDual;
-    public string timeDual;
-    public int levelDual;
-    public float scorePercentDual;
-    public int accuracyDual;
-    public float overallTimeDual;
-    public float goResponseTimeDual;
-    public float noGoResponseTimeDual;
-    public bool islvlOnePasseddual;
-    public bool islvlTwoPasseddual;
-    public bool islvlThreePasseddual;
-    public bool islvl1dual;
-    public bool islvl2dual;
-    public bool islvl3dual;
-    public bool isgameOverdual;
-    public int highestAccuracyDual;
-    public int lastAccuracyDual;
-    public float highestScoreDual;
-    public float lastScoreDual;
-    public float highestGoRTDual;
-    public float lastGoRTDual;
-    public float highestNoRTDual;
-    public float lastNoRTDual;
-
-    // maze data
-    public string dateMaze;
-    public string timeMaze;
-    public int levelMaze;
-    public float overallTimeMaze;
-    public int numberOfHitsMaze;
-    public bool islvlOnePassedmaze;
-    public bool islvlTwoPassedmaze;
-    public bool islvl1maze;
-    public bool islvl2maze;
-    public bool isgameOvermaze;
-
-    // Trail data
-    public string dateTrail;
-    public string timeTrail;
-    public int levelTrail;
-    public float scorePercentTrail;
-    public int accuracyTrail;
-    public float overallTimeTrail;
-    public int numberOfMistakesTrail;
-    public bool islvlOnePassedtrail;
-    public bool islvlTwoPassedtrail;
-    public bool islvlThreePassedtrail;
-    public bool islvl1trail;
-    public bool islvl2trail;
-    public bool islvl3trail;
-    public bool isgameOvertrail;
-    public int highestAccuracyTrail;
-    public int lastAccuracyTrail;
-    public float highestScoreTrail;
-    public float lastScoreTrail;
-
-    // Focus data
-    public string dateFF;
-    public string timeFF;
-    public int levelFF;
-    public float scorePercentFF;
-    public int accuracyFF;
-    public float overallTimeFF;
-    public float goResponseTimeFF;
-    public float noGoResponseTimeFF;
-    public bool islvlOnePassedFF;
-    public bool islvlTwoPassedFF;
-    public bool islvl1FF;
-    public bool islvl2FF;
-    public bool isgameOverFF;
-    public int highestAccuracyFF;
-    public int lastAccuracyFF;
-    public float highestScoreFF;
-    public float lastScoreFF;
-    public float highestGoRTFF;
-    public float lastGoRTFF;
-    public float highestNoRTFF;
-    public float lastNoRTFF;
-
-    // whack data
-    public string dateWhack;
-    public string timeWhack;
-    public int levelWhack;
-    public float scorePercentWhack;
-    public int accuracyWhack;
-    public float overallTimeWhack;
-    public float goResponseTimeWhack;
-    public float noGoResponseTimeWhack;
-    public bool islvlOnePassedwhack;
-    public bool islvlTwoPassedwhack;
-    public bool islvl1whack;
-    public bool islvl2whack;
-    public bool isgameOverwhack;
-    public int highestAccuracyWhack;
-    public int lastAccuracyWhack;
-    public float highestScoreWhack;
-    public float lastScoreWhack;
-    public float highestGoRTWhack;
-    public float lastGoRTWhack;
-    public float highestNoRTWhack;
-    public float lastNoRTWhack;
-
-
     public SceneHandler sceneHandler;
     // Start is called before the first frame update
     void Start()
@@ -558,6 +454,68 @@ public class DatabaseManager : MonoBehaviour
                         DatabaseGamesVariables.lastGoRTFF = dictUser.Contains("lastGoRT") ? float.Parse(dictUser["lastGoRT"].ToString()) : 0;
                         DatabaseGamesVariables.highestNoRTFF = dictUser.Contains("highestNoRT") ? float.Parse(dictUser["highestNoRT"].ToString()) : 0;
                         DatabaseGamesVariables.lastNoRTFF = dictUser.Contains("lastNoRT") ? float.Parse(dictUser["lastNoRT"].ToString()) : 0;
+                    }
+                }
+            }
+        });
+    }
+
+    public void GetStatisticsWhackData(string userID)
+    {
+        Firebase.Database.FirebaseDatabase dbInstance = Firebase.Database.FirebaseDatabase.DefaultInstance;
+        dbInstance.GetReference("users").Child(userID).Child("GameHandler").GetValueAsync().ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                // Handle the error...
+            }
+            else if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+
+                foreach (DataSnapshot data in snapshot.Children)
+                {
+                    if (data.Key == "whack")
+                    {
+                        IDictionary dictUser = (IDictionary)data.Value;
+
+                        DatabaseGamesVariables.islvlOnePassedWhack = dictUser.Contains("islvlOnePassed") ? bool.Parse(dictUser["islvlOnePassed"].ToString()) : false;
+                        DatabaseGamesVariables.islvlTwoPassedWhack = dictUser.Contains("islvlTwoPassed") ? bool.Parse(dictUser["islvlTwoPassed"].ToString()) : false;
+                        DatabaseGamesVariables.highestAccuracyWhack = dictUser.Contains("highestAccuracy") ? float.Parse(dictUser["highestAccuracy"].ToString()) : 0;
+                        DatabaseGamesVariables.lastAccuracyWhack = dictUser.Contains("lastAccuracy") ? float.Parse(dictUser["lastAccuracy"].ToString()) : 0;
+                        DatabaseGamesVariables.highestScoreWhack = dictUser.Contains("highestScore") ? float.Parse(dictUser["highestScore"].ToString()) : 0;
+                        DatabaseGamesVariables.lastScoreWhack = dictUser.Contains("lastScore") ? float.Parse(dictUser["lastScore"].ToString()) : 0;
+                        DatabaseGamesVariables.highestGoRTWhack = dictUser.Contains("highestGoRT") ? float.Parse(dictUser["highestGoRT"].ToString()) : 0;
+                        DatabaseGamesVariables.lastGoRTWhack = dictUser.Contains("lastGoRT") ? float.Parse(dictUser["lastGoRT"].ToString()) : 0;
+                        DatabaseGamesVariables.highestNoRTWhack = dictUser.Contains("highestNoRT") ? float.Parse(dictUser["highestNoRT"].ToString()) : 0;
+                        DatabaseGamesVariables.lastNoRTWhack = dictUser.Contains("lastNoRT") ? float.Parse(dictUser["lastNoRT"].ToString()) : 0;
+                    }
+                }
+            }
+        });
+    }
+
+    public void GetStatisticsMazeData(string userID)
+    {
+        Firebase.Database.FirebaseDatabase dbInstance = Firebase.Database.FirebaseDatabase.DefaultInstance;
+        dbInstance.GetReference("users").Child(userID).Child("GameHandler").GetValueAsync().ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                // Handle the error...
+            }
+            else if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+
+                foreach (DataSnapshot data in snapshot.Children)
+                {
+                    if (data.Key == "maze")
+                    {
+                        IDictionary dictUser = (IDictionary)data.Value;
+
+                        DatabaseGamesVariables.islvlOnePassedMaze = dictUser.Contains("islvlOnePassed") ? bool.Parse(dictUser["islvlOnePassed"].ToString()) : false;
+                        DatabaseGamesVariables.islvlTwoPassedMaze = dictUser.Contains("islvlTwoPassed") ? bool.Parse(dictUser["islvlTwoPassed"].ToString()) : false;
                     }
                 }
             }
