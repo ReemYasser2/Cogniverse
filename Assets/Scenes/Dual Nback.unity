@@ -2078,6 +2078,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9c20a0ba91dc34391ce3069f0cf69a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowUserData: {fileID: 0}
+  databaseManager: {fileID: 0}
 --- !u!114 &123167884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9196,6 +9198,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9c20a0ba91dc34391ce3069f0cf69a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowUserData: {fileID: 0}
+  databaseManager: {fileID: 0}
 --- !u!114 &669138434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14241,32 +14245,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClips:
-  - {fileID: 8300000, guid: f6abaec566e63684c94369ada09a40e3, type: 3}
-  - {fileID: 8300000, guid: b78c55774b335bd45aa11870551bb003, type: 3}
-  - {fileID: 8300000, guid: e97b66c5adbc7f846a40287e46a74068, type: 3}
-  - {fileID: 8300000, guid: d82dde552b111c54399aa6af02e25380, type: 3}
-  - {fileID: 8300000, guid: f2708934ad1bc274f8dcab1973900122, type: 3}
-  - {fileID: 8300000, guid: a709b04c4735cea49b3fd672927ca167, type: 3}
-  - {fileID: 8300000, guid: adee696a62e8a59428d72b855d97989d, type: 3}
-  - {fileID: 8300000, guid: 402fee61034b8ac4793980becbb43d83, type: 3}
-  - {fileID: 8300000, guid: e910400e590b1dc4d80e269874ab79f7, type: 3}
-  - {fileID: 8300000, guid: 0551843fa3cf9734eaa66069fff138eb, type: 3}
-  - {fileID: 8300000, guid: 0ddb05bff02cb0d4c9e3baa9d11a8a7b, type: 3}
-  - {fileID: 8300000, guid: 018b369cbff8ee546921028621523346, type: 3}
-  - {fileID: 8300000, guid: 9893ffdfeb863874c8ec54f5556436ae, type: 3}
-  - {fileID: 8300000, guid: f58dd0afc1fe3384aa5b9545ecd6244f, type: 3}
-  - {fileID: 8300000, guid: 1427087c5d497c04daf3b3d84d7d3061, type: 3}
-  - {fileID: 8300000, guid: 79d40a52dc431ee4d8188c2dbf719201, type: 3}
-  - {fileID: 8300000, guid: 1bccd9b6a6684e84e9460f213f4e8589, type: 3}
-  - {fileID: 8300000, guid: 66b7ddde4cc18e5488ed463a214f9342, type: 3}
-  - {fileID: 8300000, guid: 2059b551d81aa434ab3e0ac5c10667c1, type: 3}
-  - {fileID: 8300000, guid: cd5210290028c61409643f078151784c, type: 3}
-  - {fileID: 8300000, guid: caca16ce27969444a940b49f6deb14d7, type: 3}
-  - {fileID: 8300000, guid: 9dda27735a9d1a740819531b957e6b14, type: 3}
-  - {fileID: 8300000, guid: f08e21ddf550b4e439f6c84ed05607dd, type: 3}
-  - {fileID: 8300000, guid: 47d088864f82d0f4fbbb7442b31a82ff, type: 3}
-  - {fileID: 8300000, guid: 233842e4a75dae44997d05dbc672ca7d, type: 3}
-  - {fileID: 8300000, guid: 2e7ea84f3e3730744991da335bd80ff9, type: 3}
+  - {fileID: 8300000, guid: 104e0257eea30c6448fade6eb78ae286, type: 3}
+  - {fileID: 8300000, guid: 4a9ed072e41f84f44818d5ca7f450cd7, type: 3}
+  - {fileID: 8300000, guid: 0ed1052ea45ad174b8c829d72ae1e23d, type: 3}
+  - {fileID: 8300000, guid: c2cf6c0847ba5a949a0a032d90bc1334, type: 3}
+  - {fileID: 8300000, guid: 723664339afb4ad4782b6cb6901316a0, type: 3}
+  - {fileID: 8300000, guid: f95fd9fb33a0f9643a14bb407c879e90, type: 3}
+  - {fileID: 8300000, guid: 09e4e2318abd78040b916e3bde5453db, type: 3}
+  - {fileID: 8300000, guid: 2593f06fef5226745b3baa436735f454, type: 3}
+  - {fileID: 8300000, guid: 710252e8a1320454fb4f8a184c67d30c, type: 3}
   keyPressedDuringAudioPlayback: 0
   isAudioPressed: 0
 --- !u!82 &1006412542
@@ -14281,7 +14268,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -14325,7 +14312,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -20257,6 +20244,7 @@ MonoBehaviour:
   lastGoRTWhack: 0
   highestNoRTWhack: 0
   lastNoRTWhack: 0
+  sceneHandler: {fileID: 0}
 --- !u!1 &1461547500
 GameObject:
   m_ObjectHideFlags: 0
@@ -25116,6 +25104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9c20a0ba91dc34391ce3069f0cf69a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowUserData: {fileID: 0}
+  databaseManager: {fileID: 0}
 --- !u!114 &1866396476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25198,6 +25188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9c20a0ba91dc34391ce3069f0cf69a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowUserData: {fileID: 0}
+  databaseManager: {fileID: 0}
 --- !u!1 &1875557587
 GameObject:
   m_ObjectHideFlags: 0
