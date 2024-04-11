@@ -166,7 +166,7 @@ public class TrailLevel2 : MonoBehaviour
             // score!!
 
             databaseManager.CreateTrailData(DatabaseGamesVariables.userID, ReinforcementManagement.date, ReinforcementManagement.time,
-                1, scorePercent, levelTwoAccuracy, ReinforcementManagement.overallTime, ReinforcementManagement.numberOfMistakeslvl2);
+                2, scorePercent, levelTwoAccuracy, ReinforcementManagement.overallTime, ReinforcementManagement.numberOfMistakeslvl2);
 
             databaseManager.UpdatelvlStatus(DatabaseGamesVariables.userID, DatabaseGamesVariables.trailname, "islvlTwoPassed", true);
 
@@ -192,7 +192,7 @@ public class TrailLevel2 : MonoBehaviour
             // score!!
 
             databaseManager.CreateTrailData(DatabaseGamesVariables.userID, ReinforcementManagement.date, ReinforcementManagement.time,
-                1, scorePercent, levelTwoAccuracy, ReinforcementManagement.overallTime, ReinforcementManagement.numberOfMistakeslvl2);
+                2, scorePercent, levelTwoAccuracy, ReinforcementManagement.overallTime, ReinforcementManagement.numberOfMistakeslvl2);
 
             float highestScore = LevelsHandler.CheckHighest(scorePercent, DatabaseGamesVariables.highestScoreTrail);
             float highestAccuracy = LevelsHandler.CheckHighest(levelTwoAccuracy, DatabaseGamesVariables.highestAccuracyTrail);
