@@ -23,6 +23,7 @@ public class FirebaseAuthManager : MonoBehaviour
     public SceneHandler SceneHandler;
     public static bool islogin = false;
 
+
     private void Start()
     {
         Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task => {
@@ -115,11 +116,6 @@ public class FirebaseAuthManager : MonoBehaviour
 
             //SceneHandler.BackToHome();
             databaseManager.GetGroupType(DatabaseGamesVariables.userID);
-            DateTime currentDateTime = DateTime.Now;
-            string date = currentDateTime.ToString("dd/MM/yyyy");
-            string time = currentDateTime.ToString("HH:mm");
-            Debug.Log("Date: " + date);
-            Debug.Log("Time: " + time);
 
         });
     }

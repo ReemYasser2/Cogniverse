@@ -146,6 +146,8 @@ public class DatabaseManager : MonoBehaviour
     public float highestNoRTWhack;
     public float lastNoRTWhack;
 
+
+    public SceneHandler sceneHandler;
     // Start is called before the first frame update
     void Start()
     {
@@ -293,11 +295,13 @@ public class DatabaseManager : MonoBehaviour
                         DatabaseGamesVariables.iscontrolGroup = dictUser.Contains("iscontrolGroup") ? bool.Parse(dictUser["iscontrolGroup"].ToString()) : false;
                         DatabaseGamesVariables.ispositiveGroup = dictUser.Contains("ispositiveGroup") ? bool.Parse(dictUser["ispositiveGroup"].ToString()) : false;
                         DatabaseGamesVariables.isnegativeGroup = dictUser.Contains("isnegativeGroup") ? bool.Parse(dictUser["isnegativeGroup"].ToString()) : false;
+
+                        sceneHandler.BackToHome();
                     }
                 }
             }
         });
-
+        
         
     }
 

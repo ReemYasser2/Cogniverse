@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ShowUserData : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] TMP_Text welcomeText;
+    [SerializeField] TMP_Text usernameRecordText;
+
+
+    public void ShowWelcomeUserName()
     {
-        
+        welcomeText.text = "Welcome, " + DatabaseGamesVariables.firstName;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void ShowUserNameRecords() 
+    { 
+        usernameRecordText.text = DatabaseGamesVariables.firstName;
     }
 }
