@@ -17,6 +17,8 @@ public class LevelsHandler : MonoBehaviour
     public TrailLevel3 trailLevel3;
 
     public int trailIndex_copy;
+    public DatabaseManager databaseManager;
+
     public void TrailSelection(int level)
     {
         ReinforcementManagement.isGameOver = false;
@@ -173,4 +175,18 @@ public class LevelsHandler : MonoBehaviour
         ReinforcementManagement.level_3 = false;
         ReinforcementManagement.isGameOver = true;
     }
+
+    public static float CheckHighest(float current, float last)
+    {
+        if (current >= last)
+        {
+            return current;
+        }
+        else if (current < last)
+        {
+            return last;
+        }
+        else { return 0; }
+    }
+
 }

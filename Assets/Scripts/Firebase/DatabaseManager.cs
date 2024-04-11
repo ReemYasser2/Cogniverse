@@ -257,10 +257,11 @@ public class DatabaseManager : MonoBehaviour
         }
 
     }
-    public void GetGroupType(string userID) 
-    { 
+    public void GetGroupType(string userID)
+    {
         GetUserData(userID);
         GetStatisticsData(userID);
+        GetStatisticsDataTrail(userID);
     }
 
     public void GetUserData(string userID)
@@ -275,13 +276,13 @@ public class DatabaseManager : MonoBehaviour
             else if (task.IsCompleted)
             {
                 DataSnapshot snapshot = task.Result;
-                
+
                 foreach (DataSnapshot user in snapshot.Children)
                 {
                     if (user.Key == userID)
                     {
                         IDictionary dictUser = (IDictionary)user.Value;
-                        
+
                         DatabaseGamesVariables.firstName = dictUser.Contains("firstName") ? dictUser["firstName"].ToString() : "";
                         DatabaseGamesVariables.lastName = dictUser.Contains("lastName") ? dictUser["lastName"].ToString() : "";
                         DatabaseGamesVariables.email = dictUser.Contains("email") ? dictUser["email"].ToString() : "";
@@ -295,14 +296,12 @@ public class DatabaseManager : MonoBehaviour
                         DatabaseGamesVariables.iscontrolGroup = dictUser.Contains("iscontrolGroup") ? bool.Parse(dictUser["iscontrolGroup"].ToString()) : false;
                         DatabaseGamesVariables.ispositiveGroup = dictUser.Contains("ispositiveGroup") ? bool.Parse(dictUser["ispositiveGroup"].ToString()) : false;
                         DatabaseGamesVariables.isnegativeGroup = dictUser.Contains("isnegativeGroup") ? bool.Parse(dictUser["isnegativeGroup"].ToString()) : false;
-
-                        sceneHandler.BackToHome();
                     }
                 }
             }
         });
-        
-        
+
+
     }
 
     public void GetStatisticsData(string userID)
@@ -317,7 +316,7 @@ public class DatabaseManager : MonoBehaviour
             else if (task.IsCompleted)
             {
                 DataSnapshot snapshot = task.Result;
-                
+
                 foreach (DataSnapshot data in snapshot.Children)
                 {
                     if (data.Key == "dual")
@@ -347,7 +346,7 @@ public class DatabaseManager : MonoBehaviour
     {
         if (userID != null)
         {
-            DualNback newDual = new DualNback(date, time, level, scorePercent,accuracy, 
+            DualNback newDual = new DualNback(date, time, level, scorePercent, accuracy,
                 overallTime, goResponseTime, noGoResponseTime);
 
             string json = JsonUtility.ToJson(newDual);
@@ -373,11 +372,11 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
-    public void CreateMazeData(string userID)
+    public void CreateMazeData(string userID, string date, string time, int level, float overallTime, int numberOfHits)
     {
         if (userID != null)
         {
-            Maze newMaze = new Maze(dateMaze, timeMaze, levelMaze, overallTimeMaze, numberOfHitsMaze);
+            Maze newMaze = new Maze(date, time, level, overallTime, numberOfHits);
 
             string json = JsonUtility.ToJson(newMaze);
 
@@ -402,12 +401,13 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
-    public void CreateTrailData(string userID)
+    public void CreateTrailData(string userID, string date, string time, int level, float scorePercent,
+        float accuracy, float overallTime, int numberOfMistakes)
     {
         if (userID != null)
         {
-            TrailMaking newTrail = new TrailMaking(dateTrail, timeTrail, levelTrail, scorePercentTrail, accuracyTrail,
-                overallTimeTrail, numberOfMistakesTrail);
+            TrailMaking newTrail = new TrailMaking(date, time, level, scorePercent,
+            accuracy, overallTime, numberOfMistakes);
 
             string json = JsonUtility.ToJson(newTrail);
 
@@ -432,12 +432,13 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
-    public void CreateWhackData(string userID)
+    public void CreateWhackData(string userID, string date, string time, int level, float scorePercent,
+        float accuracy, float overallTime, float goResponseTime, float noGoResponseTime)
     {
         if (userID != null)
         {
-            WhackAmole newWhack = new WhackAmole(dateWhack, timeWhack, levelWhack, scorePercentWhack, accuracyWhack,
-                overallTimeWhack, goResponseTimeWhack, noGoResponseTimeWhack);
+            WhackAmole newWhack = new WhackAmole(date, time, level, scorePercent,
+            accuracy, overallTime, goResponseTime, noGoResponseTime);
 
             string json = JsonUtility.ToJson(newWhack);
 
@@ -462,12 +463,13 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
-    public void CreateFocusData(string userID)
+    public void CreateFocusData(string userID, string date, string time, int level, float scorePercent,
+        float accuracy, float overallTime, float goResponseTime, float noGoResponseTime)
     {
         if (userID != null)
         {
-            FocusFusion newfocus = new FocusFusion(dateFF, timeFF, levelFF, scorePercentFF, accuracyFF,
-                overallTimeFF, goResponseTimeFF, noGoResponseTimeFF);
+            FocusFusion newfocus = new FocusFusion(date, time, level, scorePercent,
+            accuracy, overallTime, goResponseTime, noGoResponseTime);
 
             string json = JsonUtility.ToJson(newfocus);
 
@@ -492,160 +494,39 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
-    public void CreateDualBoolStat(string userID, bool islvlOnePassed, bool islvlTwoPassed, bool islvlThreePassed,
-        float highestAccuracy, float lastAccuracy, float highestScore, float lastScore,
-        float highestGoRT, float lastGoRT, float highestNoRT, float lastNoRT)
+    public void GetStatisticsDataTrail(string userID)
     {
-        if (userID != null)
+        Firebase.Database.FirebaseDatabase dbInstance = Firebase.Database.FirebaseDatabase.DefaultInstance;
+        dbInstance.GetReference("users").Child(userID).Child("GameHandler").GetValueAsync().ContinueWith(task =>
         {
-            DualGame newdata = new DualGame(islvlOnePassed, islvlTwoPassed, islvlThreePassed,
-             highestAccuracy, lastAccuracy, highestScore, lastScore, highestGoRT, lastGoRT,
-             highestNoRT, lastNoRT);
-
-            string json = JsonUtility.ToJson(newdata);
-
-            DatabaseReference Ref = dbReference.Child("users").Child(userID).Child("GameHandler").Child("dual");
-
-            Ref.Push().SetRawJsonValueAsync(json).ContinueWith(task =>
+            if (task.IsFaulted)
             {
-                if (task.IsCompleted)
-                {
-                    Debug.Log("data added to Firebase with UID: " + userID);
-                }
-                else
-                {
-                    Debug.LogError("Failed to add data to Firebase: " + task.Exception);
-                }
-            });
-
-        }
-        else
-        {
-            Debug.LogWarning("Cannot add data: No user is currently signed in.");
-        }
-    }
-
-    public void CreateMazeBoolStat(string userID)
-    {
-        if (userID != null)
-        {
-            MazeGame newdata = new MazeGame(islvlOnePassedmaze, islvlTwoPassedmaze,
-                islvl1maze, islvl2maze, isgameOvermaze);
-
-            string json = JsonUtility.ToJson(newdata);
-
-            DatabaseReference Ref = dbReference.Child("users").Child(userID).Child("GameHandler").Child("maze");
-
-            Ref.Push().SetRawJsonValueAsync(json).ContinueWith(task =>
+                // Handle the error...
+            }
+            else if (task.IsCompleted)
             {
-                if (task.IsCompleted)
+                DataSnapshot snapshot = task.Result;
+
+                foreach (DataSnapshot data in snapshot.Children)
                 {
-                    Debug.Log("data added to Firebase with UID: " + userID);
+                    if (data.Key == "trail")
+                    {
+                        IDictionary dictUser = (IDictionary)data.Value;
+                        Debug.Log("acc: " + dictUser["highestAccuracy"]);
+                        Debug.Log("accu" + float.Parse(dictUser["lastAccuracy"].ToString()));
+
+                        DatabaseGamesVariables.islvlOnePassedtrail = dictUser.Contains("islvlOnePassed") ? bool.Parse(dictUser["islvlOnePassed"].ToString()) : false;
+                        DatabaseGamesVariables.islvlTwoPassedtrail = dictUser.Contains("islvlTwoPassed") ? bool.Parse(dictUser["islvlTwoPassed"].ToString()) : false;
+                        DatabaseGamesVariables.islvlThreePassedtrail = dictUser.Contains("islvlThreePassed") ? bool.Parse(dictUser["islvlThreePassed"].ToString()) : false;
+                        DatabaseGamesVariables.highestAccuracyTrail = dictUser.Contains("highestAccuracy") ? float.Parse(dictUser["highestAccuracy"].ToString()) : 0;
+                        DatabaseGamesVariables.lastAccuracyTrail = dictUser.Contains("lastAccuracy") ? float.Parse(dictUser["lastAccuracy"].ToString()) : 0;
+                        DatabaseGamesVariables.highestScoreTrail = dictUser.Contains("highestScore") ? float.Parse(dictUser["highestScore"].ToString()) : 0;
+                        DatabaseGamesVariables.lastScoreTrail = dictUser.Contains("lastScore") ? float.Parse(dictUser["lastScore"].ToString()) : 0;
+
+                    }
                 }
-                else
-                {
-                    Debug.LogError("Failed to add data to Firebase: " + task.Exception);
-                }
-            });
-
-        }
-        else
-        {
-            Debug.LogWarning("Cannot add data: No user is currently signed in.");
-        }
-    }
-
-    public void CreateTrailBoolStat(string userID)
-    {
-        if (userID != null)
-        {
-            TrailGame newdata = new TrailGame(islvlOnePassedtrail, islvlTwoPassedtrail, islvlThreePassedtrail,
-                islvl1trail, islvl2trail, islvl3trail, isgameOvertrail, highestAccuracyTrail, lastAccuracyTrail,
-                highestScoreTrail, lastScoreTrail);
-
-            string json = JsonUtility.ToJson(newdata);
-
-            DatabaseReference Ref = dbReference.Child("users").Child(userID).Child("GameHandler").Child("trail");
-
-            Ref.Push().SetRawJsonValueAsync(json).ContinueWith(task =>
-            {
-                if (task.IsCompleted)
-                {
-                    Debug.Log("data added to Firebase with UID: " + userID);
-                }
-                else
-                {
-                    Debug.LogError("Failed to add data to Firebase: " + task.Exception);
-                }
-            });
-
-        }
-        else
-        {
-            Debug.LogWarning("Cannot add data: No user is currently signed in.");
-        }
-    }
-
-    public void CreateFocusBoolStat(string userID)
-    {
-        if (userID != null)
-        {
-            FocusGame newdata = new FocusGame(islvlOnePassedFF, islvlTwoPassedFF,
-                islvl1FF, islvl2FF, isgameOverFF, highestAccuracyFF, lastAccuracyFF, highestScoreFF, lastScoreFF,
-                highestGoRTFF, lastGoRTFF, highestNoRTFF, lastNoRTFF);
-
-            string json = JsonUtility.ToJson(newdata);
-
-            DatabaseReference Ref = dbReference.Child("users").Child(userID).Child("GameHandler").Child("focus");
-
-            Ref.Push().SetRawJsonValueAsync(json).ContinueWith(task =>
-            {
-                if (task.IsCompleted)
-                {
-                    Debug.Log("data added to Firebase with UID: " + userID);
-                }
-                else
-                {
-                    Debug.LogError("Failed to add data to Firebase: " + task.Exception);
-                }
-            });
-
-        }
-        else
-        {
-            Debug.LogWarning("Cannot add data: No user is currently signed in.");
-        }
-    }
-
-    public void CreateWhackBoolStat(string userID)
-    {
-        if (userID != null)
-        {
-            WhackGame newdata = new WhackGame(islvlOnePassedwhack, islvlTwoPassedwhack,
-                islvl1whack, islvl2whack, isgameOverwhack, highestAccuracyWhack, lastAccuracyWhack, 
-                highestScoreWhack, lastScoreWhack, highestGoRTWhack, lastGoRTWhack, highestNoRTWhack, lastNoRTWhack);
-
-            string json = JsonUtility.ToJson(newdata);
-
-            DatabaseReference Ref = dbReference.Child("users").Child(userID).Child("GameHandler").Child("whack");
-
-            Ref.Push().SetRawJsonValueAsync(json).ContinueWith(task =>
-            {
-                if (task.IsCompleted)
-                {
-                    Debug.Log("data added to Firebase with UID: " + userID);
-                }
-                else
-                {
-                    Debug.LogError("Failed to add data to Firebase: " + task.Exception);
-                }
-            });
-
-        }
-        else
-        {
-            Debug.LogWarning("Cannot add data: No user is currently signed in.");
-        }
+            }
+        });
     }
 
     public void UpdatelvlStatus(string userID, string gameName, string varName, bool isPassed)

@@ -20,9 +20,13 @@ public class TrailLevel2 : MonoBehaviour
     public float levelTwoAccuracy = 0;
     public float correctCounter = 0;
     public TrailReinforcement TrailReinforcement;
+    public DatabaseManager databaseManager;
     // Start is called before the first frame update
     void Start()
     {
+        databaseManager.GetStatisticsDataTrail(DatabaseGamesVariables.userID);
+        Unlocklevel3();
+
         levelsHandler = GetComponent<LevelsHandler>();
         levelsHandler = gameObject.AddComponent<LevelsHandler>();
         int trailSelection = levelsHandler.GetTrailIndex();
@@ -161,10 +165,15 @@ public class TrailLevel2 : MonoBehaviour
             scorePercent = levelTwoScore / 20;
             // score!!
 
-            Debug.Log("TRAIL: overall time:" + ReinforcementManagement.overallTime);
-            //Debug.Log("TRAIL: score" + );
-            Debug.Log("TRAIL: mistakes" + ReinforcementManagement.numberOfMistakeslvl2);
-            Debug.Log("TRAIL: accuracy:" + levelTwoAccuracy);
+            databaseManager.CreateTrailData(DatabaseGamesVariables.userID, ReinforcementManagement.date, ReinforcementManagement.time,
+                1, scorePercent, levelTwoAccuracy, ReinforcementManagement.overallTime, ReinforcementManagement.numberOfMistakeslvl2);
+
+            databaseManager.UpdatelvlStatus(DatabaseGamesVariables.userID, DatabaseGamesVariables.trailname, "islvlTwoPassed", true);
+
+            float highestScore = LevelsHandler.CheckHighest(scorePercent, DatabaseGamesVariables.highestScoreTrail);
+            float highestAccuracy = LevelsHandler.CheckHighest(levelTwoAccuracy, DatabaseGamesVariables.highestAccuracyTrail);
+
+            updateStat(highestScore, scorePercent, highestAccuracy, levelTwoAccuracy);
 
             ResetLeveltwo();
             ReinforcementManagement.level_2 = false;
@@ -181,14 +190,16 @@ public class TrailLevel2 : MonoBehaviour
             scorePercent = levelTwoScore / 20;
             // score!!
 
-            Debug.Log("TRAIL: overall time:" + ReinforcementManagement.overallTime);
-            //Debug.Log("TRAIL: score" + );
-            Debug.Log("TRAIL: mistakes" + ReinforcementManagement.numberOfMistakeslvl2);
-            Debug.Log("TRAIL: accuracy:" + levelTwoAccuracy);
+            databaseManager.CreateTrailData(DatabaseGamesVariables.userID, ReinforcementManagement.date, ReinforcementManagement.time,
+                1, scorePercent, levelTwoAccuracy, ReinforcementManagement.overallTime, ReinforcementManagement.numberOfMistakeslvl2);
+
+            float highestScore = LevelsHandler.CheckHighest(scorePercent, DatabaseGamesVariables.highestScoreTrail);
+            float highestAccuracy = LevelsHandler.CheckHighest(levelTwoAccuracy, DatabaseGamesVariables.highestAccuracyTrail);
+
+            updateStat(highestScore, scorePercent, highestAccuracy, levelTwoAccuracy);
 
             ResetLeveltwo();
             ReinforcementManagement.level_2 = false;
-
         }
     }
     void InitializeButtons()
@@ -292,5 +303,21 @@ public class TrailLevel2 : MonoBehaviour
         ResetIndicator();
         ResetButtonColors(0);
         LevelsHandler.ResetAllBooleans();
+    }
+    private void Unlocklevel3()
+    {
+        if (DatabaseGamesVariables.islvlTwoPassedtrail)
+        {
+            menuHandler.level3Button.SetActive(true);
+            menuHandler.level3LockButton.SetActive(false);
+        }
+    }
+
+    public void updateStat(float hScore, float lScore, float hAccuray, float lAccuracy)
+    {
+        databaseManager.UpdateStatistics(DatabaseGamesVariables.userID, DatabaseGamesVariables.trailname, "highestScore", hScore);
+        databaseManager.UpdateStatistics(DatabaseGamesVariables.userID, DatabaseGamesVariables.trailname, "lastScore", lScore);
+        databaseManager.UpdateStatistics(DatabaseGamesVariables.userID, DatabaseGamesVariables.trailname, "highestAccuracy", hAccuray);
+        databaseManager.UpdateStatistics(DatabaseGamesVariables.userID, DatabaseGamesVariables.trailname, "lastAccuracy", lAccuracy);
     }
 }

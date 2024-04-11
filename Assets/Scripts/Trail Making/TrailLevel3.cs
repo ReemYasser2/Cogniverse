@@ -23,6 +23,7 @@ public class TrailLevel3 : MonoBehaviour
     public TrailMenuHandler menuHandler;
     public float scorePercent = 0;
     public TrailReinforcement TrailReinforcement;
+    public DatabaseManager databaseManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -160,10 +161,15 @@ public class TrailLevel3 : MonoBehaviour
             scorePercent = levelThreeScore / 30;
             // score!
 
-            Debug.Log("TRAIL: overall time:" + ReinforcementManagement.overallTime);
-            //Debug.Log("TRAIL: score" + );
-            Debug.Log("TRAIL: mistakes" + ReinforcementManagement.numberOfMistakeslvl2);
-            Debug.Log("TRAIL: accuracy:" + levelThreeAccuracy);
+            databaseManager.CreateTrailData(DatabaseGamesVariables.userID, ReinforcementManagement.date, ReinforcementManagement.time,
+                1, scorePercent, levelThreeAccuracy, ReinforcementManagement.overallTime, ReinforcementManagement.numberOfMistakeslvl3);
+
+            databaseManager.UpdatelvlStatus(DatabaseGamesVariables.userID, DatabaseGamesVariables.trailname, "islvlThreePassed", true);
+
+            float highestScore = LevelsHandler.CheckHighest(scorePercent, DatabaseGamesVariables.highestScoreTrail);
+            float highestAccuracy = LevelsHandler.CheckHighest(levelThreeAccuracy, DatabaseGamesVariables.highestAccuracyTrail);
+
+            updateStat(highestScore, scorePercent, highestAccuracy, levelThreeAccuracy);
 
             ResetLevelthree();
             ReinforcementManagement.level_3 = false;
@@ -180,10 +186,13 @@ public class TrailLevel3 : MonoBehaviour
             scorePercent = levelThreeScore / 30;
             // score!
 
-            Debug.Log("TRAIL: overall time:" + ReinforcementManagement.overallTime);
-            //Debug.Log("TRAIL: score" + );
-            Debug.Log("TRAIL: mistakes" + ReinforcementManagement.numberOfMistakeslvl2);
-            Debug.Log("TRAIL: accuracy:" + levelThreeAccuracy);
+            databaseManager.CreateTrailData(DatabaseGamesVariables.userID, ReinforcementManagement.date, ReinforcementManagement.time,
+                1, scorePercent, levelThreeAccuracy, ReinforcementManagement.overallTime, ReinforcementManagement.numberOfMistakeslvl3);
+
+            float highestScore = LevelsHandler.CheckHighest(scorePercent, DatabaseGamesVariables.highestScoreTrail);
+            float highestAccuracy = LevelsHandler.CheckHighest(levelThreeAccuracy, DatabaseGamesVariables.highestAccuracyTrail);
+
+            updateStat(highestScore, scorePercent, highestAccuracy, levelThreeAccuracy);
 
             ResetLevelthree();
             ReinforcementManagement.level_3 = false;
@@ -294,5 +303,13 @@ public class TrailLevel3 : MonoBehaviour
         ResetIndicator();
         LevelsHandler.ResetAllBooleans();
         ReinforcementManagement.overallTime = 0f;
+    }
+
+    public void updateStat(float hScore, float lScore, float hAccuray, float lAccuracy)
+    {
+        databaseManager.UpdateStatistics(DatabaseGamesVariables.userID, DatabaseGamesVariables.trailname, "highestScore", hScore);
+        databaseManager.UpdateStatistics(DatabaseGamesVariables.userID, DatabaseGamesVariables.trailname, "lastScore", lScore);
+        databaseManager.UpdateStatistics(DatabaseGamesVariables.userID, DatabaseGamesVariables.trailname, "highestAccuracy", hAccuray);
+        databaseManager.UpdateStatistics(DatabaseGamesVariables.userID, DatabaseGamesVariables.trailname, "lastAccuracy", lAccuracy);
     }
 }

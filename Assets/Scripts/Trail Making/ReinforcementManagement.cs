@@ -26,6 +26,9 @@ public static class ReinforcementManagement
     public static int randomIndexPositiveInc;
     public static int randomIndexPositiveDec;
 
+    public static string date;
+    public static string time;
+
     static List<string> positiveIncrease = new List<string>
             { " Good Job", "Keep it up", "You're on a roll", "Excellent work", "Amazing!!", "Awesome!!", "Well done!!"};
     static List<string> positiveDecrease = new List<string>

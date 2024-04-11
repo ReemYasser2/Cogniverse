@@ -6591,6 +6591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9c20a0ba91dc34391ce3069f0cf69a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  databaseManager: {fileID: 0}
 --- !u!114 &178735995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7653,6 +7654,7 @@ MonoBehaviour:
   levelOneAccuracy: 0
   correctCounter: 0
   TrailReinforcement: {fileID: 1388980466}
+  databaseManager: {fileID: 2087553426}
 --- !u!1 &221139400
 GameObject:
   m_ObjectHideFlags: 0
@@ -27451,6 +27453,7 @@ MonoBehaviour:
   trailLevel2: {fileID: 1636977214}
   trailLevel3: {fileID: 2028320269}
   trailIndex_copy: 0
+  databaseManager: {fileID: 2087553426}
 --- !u!4 &839657316
 Transform:
   m_ObjectHideFlags: 0
@@ -53348,6 +53351,7 @@ MonoBehaviour:
   levelTwoAccuracy: 0
   correctCounter: 0
   TrailReinforcement: {fileID: 1388980466}
+  databaseManager: {fileID: 2087553426}
 --- !u!1 &1644905735
 GameObject:
   m_ObjectHideFlags: 0
@@ -53534,6 +53538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9c20a0ba91dc34391ce3069f0cf69a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  databaseManager: {fileID: 0}
 --- !u!114 &1646078931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62711,6 +62716,7 @@ Transform:
   - {fileID: 1388980464}
   - {fileID: 1633274980}
   - {fileID: 2028022918}
+  - {fileID: 2087553427}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1970027980
@@ -65557,6 +65563,7 @@ MonoBehaviour:
   menuHandler: {fileID: 1633274981}
   scorePercent: 0
   TrailReinforcement: {fileID: 1388980466}
+  databaseManager: {fileID: 2087553426}
 --- !u!1 &2028977058
 GameObject:
   m_ObjectHideFlags: 0
@@ -65769,6 +65776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9c20a0ba91dc34391ce3069f0cf69a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  databaseManager: {fileID: 0}
 --- !u!114 &2042453756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68048,6 +68056,167 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2084672012}
   m_CullTransparentMesh: 1
+--- !u!1 &2087553425
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2087553427}
+  - component: {fileID: 2087553426}
+  m_Layer: 0
+  m_Name: Database Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2087553426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087553425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b28dbfdecd1bc4ebcc0696759c3312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstNameField: {fileID: 0}
+  lastNameField: {fileID: 0}
+  ageField: {fileID: 0}
+  emailField: {fileID: 0}
+  passwordField: {fileID: 0}
+  diagnosisField: {fileID: 0}
+  femalegender: {fileID: 0}
+  malegender: {fileID: 0}
+  yesDiagnosis: {fileID: 0}
+  noDiagnosis: {fileID: 0}
+  firstName: 
+  lastName: 
+  email: 
+  password: 
+  age: 0
+  female: 
+  male: 
+  yesdiagnosis: 
+  nodiagnosis: 
+  diagnosis: 
+  iscontrolGroup: 0
+  ispositiveGroup: 0
+  isnegativeGroup: 0
+  dateDual: 
+  timeDual: 
+  levelDual: 0
+  scorePercentDual: 0
+  accuracyDual: 0
+  overallTimeDual: 0
+  goResponseTimeDual: 0
+  noGoResponseTimeDual: 0
+  islvlOnePasseddual: 0
+  islvlTwoPasseddual: 0
+  islvlThreePasseddual: 0
+  islvl1dual: 0
+  islvl2dual: 0
+  islvl3dual: 0
+  isgameOverdual: 0
+  highestAccuracyDual: 0
+  lastAccuracyDual: 0
+  highestScoreDual: 0
+  lastScoreDual: 0
+  highestGoRTDual: 0
+  lastGoRTDual: 0
+  highestNoRTDual: 0
+  lastNoRTDual: 0
+  dateMaze: 
+  timeMaze: 
+  levelMaze: 0
+  overallTimeMaze: 0
+  numberOfHitsMaze: 0
+  islvlOnePassedmaze: 0
+  islvlTwoPassedmaze: 0
+  islvl1maze: 0
+  islvl2maze: 0
+  isgameOvermaze: 0
+  dateTrail: 
+  timeTrail: 
+  levelTrail: 0
+  scorePercentTrail: 0
+  accuracyTrail: 0
+  overallTimeTrail: 0
+  numberOfMistakesTrail: 0
+  islvlOnePassedtrail: 0
+  islvlTwoPassedtrail: 0
+  islvlThreePassedtrail: 0
+  islvl1trail: 0
+  islvl2trail: 0
+  islvl3trail: 0
+  isgameOvertrail: 0
+  highestAccuracyTrail: 0
+  lastAccuracyTrail: 0
+  highestScoreTrail: 0
+  lastScoreTrail: 0
+  dateFF: 
+  timeFF: 
+  levelFF: 0
+  scorePercentFF: 0
+  accuracyFF: 0
+  overallTimeFF: 0
+  goResponseTimeFF: 0
+  noGoResponseTimeFF: 0
+  islvlOnePassedFF: 0
+  islvlTwoPassedFF: 0
+  islvl1FF: 0
+  islvl2FF: 0
+  isgameOverFF: 0
+  highestAccuracyFF: 0
+  lastAccuracyFF: 0
+  highestScoreFF: 0
+  lastScoreFF: 0
+  highestGoRTFF: 0
+  lastGoRTFF: 0
+  highestNoRTFF: 0
+  lastNoRTFF: 0
+  dateWhack: 
+  timeWhack: 
+  levelWhack: 0
+  scorePercentWhack: 0
+  accuracyWhack: 0
+  overallTimeWhack: 0
+  goResponseTimeWhack: 0
+  noGoResponseTimeWhack: 0
+  islvlOnePassedwhack: 0
+  islvlTwoPassedwhack: 0
+  islvl1whack: 0
+  islvl2whack: 0
+  isgameOverwhack: 0
+  highestAccuracyWhack: 0
+  lastAccuracyWhack: 0
+  highestScoreWhack: 0
+  lastScoreWhack: 0
+  highestGoRTWhack: 0
+  lastGoRTWhack: 0
+  highestNoRTWhack: 0
+  lastNoRTWhack: 0
+  sceneHandler: {fileID: 0}
+--- !u!4 &2087553427
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087553425}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1965151649}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2094029526 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4468513243297896938, guid: 0feba03cd86bc8a4e8f7ada56dfaec0e, type: 3}

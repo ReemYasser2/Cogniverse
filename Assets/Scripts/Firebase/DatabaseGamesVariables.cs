@@ -40,10 +40,13 @@ public class DatabaseGamesVariables : MonoBehaviour
     public static bool islvlThreePasseddual;
 
     // trail
-    public static int highestAccuracyTrail;
-    public static int lastAccuracyTrail;
+    public static float highestAccuracyTrail;
+    public static float lastAccuracyTrail;
     public static float highestScoreTrail;
     public static float lastScoreTrail;
+    public static bool islvlOnePassedtrail;
+    public static bool islvlTwoPassedtrail;
+    public static bool islvlThreePassedtrail;
 
     // focus
     public static float highestAccuracyFF;
@@ -65,4 +68,9 @@ public class DatabaseGamesVariables : MonoBehaviour
     public static float highestNoRTWhack;
     public static float lastNoRTWhack;
 
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 }

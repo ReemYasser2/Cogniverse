@@ -7,8 +7,11 @@ public class ShowUserData : MonoBehaviour
 {
     [SerializeField] TMP_Text welcomeText;
     [SerializeField] TMP_Text usernameRecordText;
-
-
+    //ShowUserData()
+    //{
+    //    welcomeText.text = "Welcome, " + DatabaseGamesVariables.firstName;
+    //}
+    
     public void ShowWelcomeUserName()
     {
         welcomeText.text = "Welcome, " + DatabaseGamesVariables.firstName;

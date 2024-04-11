@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -27,7 +28,8 @@ public class CountUpTimer : MonoBehaviour
         ReinforcementManagement.isPlayPressed = true;
         // Reset the timer to zero
         ReinforcementManagement.elapsedTime = 0f;
-        ReinforcementManagement.isPaused = false;   
+        ReinforcementManagement.isPaused = false;
+        GetDateTime();
     }
 
     // Function to pause the timer
@@ -45,5 +47,14 @@ public class CountUpTimer : MonoBehaviour
     public static void OverallTime()
     {
         ReinforcementManagement.overallTime = Mathf.Round(ReinforcementManagement.elapsedTime * 100f) / 100f;
+    }
+
+    public void GetDateTime()
+    {
+        DateTime currentDateTime = DateTime.Now;
+        ScoreCalculator.date = currentDateTime.ToString("dd/MM/yyyy");
+        ScoreCalculator.time = currentDateTime.ToString("HH:mm");
+        Debug.Log("Date: " + ScoreCalculator.date);
+        Debug.Log("Time: " + ScoreCalculator.time);
     }
 }

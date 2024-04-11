@@ -1,3 +1,5 @@
+using Firebase.Database;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,7 +8,7 @@ using UnityEngine.UI;
 
 public class TrailLevel1 : MonoBehaviour
 {
-   
+
     public LevelsHandler levelsHandler;
 
     public Button[] trail11Buttons = new Button[15];
@@ -26,18 +28,22 @@ public class TrailLevel1 : MonoBehaviour
     public float correctCounter = 0;
 
     public TrailReinforcement TrailReinforcement;
+    public DatabaseManager databaseManager;
     // Start is called before the first frame update
     void Start()
     {
+        databaseManager.GetStatisticsDataTrail(DatabaseGamesVariables.userID);
+        Unlocklevel2();
+
         levelsHandler = GetComponent<LevelsHandler>();
         levelsHandler = gameObject.AddComponent<LevelsHandler>();
         trailSelection = levelsHandler.GetTrailIndex();
 
-        if ( trailSelection==0)
+        if (trailSelection == 0)
         {
             InitializeButtons();
         }
-        else if ( trailSelection == 1)
+        else if (trailSelection == 1)
         {
             InitializeButtons2();
         }
@@ -50,7 +56,7 @@ public class TrailLevel1 : MonoBehaviour
 
     void TaskOnClick(int buttonNo)
     {
-
+        databaseManager.GetStatisticsDataTrail(DatabaseGamesVariables.userID);
 
         Button clickedButton;
         if (trail11.activeSelf)
@@ -64,7 +70,7 @@ public class TrailLevel1 : MonoBehaviour
 
         // Check if the button is pressed in the correct order relative to the previous button
         if (buttonNo == buttonNum + 1)
-        { 
+        {
             if (buttonNo == 1 && buttonNum == 0)
             {
                 if (levelOneScore <= 0 && mistakes == 0)
@@ -87,7 +93,7 @@ public class TrailLevel1 : MonoBehaviour
                     ReinforcementManagement.PositiveReinforcementDecrement();
                     TrailReinforcement.decreaseAudio(ReinforcementManagement.randomIndexPositiveDec);
                     buttonNum = buttonNo;
-                   // scorePercent = levelOneScore / 15;  
+                    // scorePercent = levelOneScore / 15;  
                 }
                 else
                 {
@@ -104,7 +110,7 @@ public class TrailLevel1 : MonoBehaviour
                 }
 
             }
-            else 
+            else
             {
                 ResetButtonColors(buttonNo);
                 ColorCorrectorDoubleClick(buttonNo);
@@ -117,11 +123,11 @@ public class TrailLevel1 : MonoBehaviour
                 TrailReinforcement.increaseAudio(ReinforcementManagement.randomIndexPositiveInc);
                 //scorePercent = levelOneScore / 15;
             }
-            
+
 
         }
         else if (buttonNo == 0)
-        { 
+        {
             if (levelOneScore <= 0)
             {
                 ResetButtonColors(buttonNo);
@@ -137,7 +143,8 @@ public class TrailLevel1 : MonoBehaviour
                 //scorePercent = levelOneScore / 15;
 
             }
-            else {
+            else
+            {
                 levelOneScore--;
                 mistakes++;
                 MistakesIndicator();
@@ -146,7 +153,7 @@ public class TrailLevel1 : MonoBehaviour
                 TrailReinforcement.decreaseAudio(ReinforcementManagement.randomIndexPositiveDec);
                 //Debug.Log(levelOneScore);
                 //  scorePercent = levelOneScore / 15;
-            } 
+            }
         }
         else
         {
@@ -163,7 +170,7 @@ public class TrailLevel1 : MonoBehaviour
         scorePercent = levelOneScore / 15;
         StartCoroutine(ResetTextAfterDelay());
 
-        if ((levelOneScore == 15 || levelOneScore + mistakes == 15) && (ReinforcementManagement.elapsedTime < 30f ) && mistakes < 3) // pass lvl1
+        if ((levelOneScore == 15 || levelOneScore + mistakes == 15) && (ReinforcementManagement.elapsedTime < 30f) && mistakes < 3) // pass lvl1
         {
             menuHandler.completeLevel1Canvas.SetActive(true);
             menuHandler.level2Button.SetActive(true);
@@ -177,10 +184,15 @@ public class TrailLevel1 : MonoBehaviour
             scorePercent = levelOneScore / 15;
             // score!
 
-            Debug.Log("TRAIL: overall time:" + ReinforcementManagement.overallTime);
-            //Debug.Log("TRAIL: score" + );
-            Debug.Log("TRAIL: mistakes" + ReinforcementManagement.numberOfMistakeslvl1);
-            Debug.Log("TRAIL: accuracy:" + levelOneAccuracy);
+            databaseManager.CreateTrailData(DatabaseGamesVariables.userID, ReinforcementManagement.date, ReinforcementManagement.time,
+                1, scorePercent, levelOneAccuracy, ReinforcementManagement.overallTime, ReinforcementManagement.numberOfMistakeslvl1);
+
+            databaseManager.UpdatelvlStatus(DatabaseGamesVariables.userID, DatabaseGamesVariables.trailname, "islvlOnePassed", true);
+
+            float highestScore = LevelsHandler.CheckHighest(scorePercent, DatabaseGamesVariables.highestScoreTrail);
+            float highestAccuracy = LevelsHandler.CheckHighest(levelOneAccuracy, DatabaseGamesVariables.highestAccuracyTrail);
+            
+            updateStat(highestScore, scorePercent, highestAccuracy, levelOneAccuracy);
 
             ResetLevelone();
             ReinforcementManagement.level1_menu = false;
@@ -196,32 +208,36 @@ public class TrailLevel1 : MonoBehaviour
             ReinforcementManagement.numberOfMistakeslvl1 = mistakes;
             levelOneAccuracy = CalculateAccuracy(correctCounter, 15);
             scorePercent = levelOneScore / 15;
-            // score!
 
-            Debug.Log("TRAIL: overall time:" + ReinforcementManagement.overallTime);
-            //Debug.Log("TRAIL: score" + );
-            Debug.Log("TRAIL: mistakes" + ReinforcementManagement.numberOfMistakeslvl1);
-            Debug.Log("TRAIL: accuracy:" + levelOneAccuracy);
+            databaseManager.CreateTrailData(DatabaseGamesVariables.userID, ReinforcementManagement.date, ReinforcementManagement.time,
+                1, scorePercent, levelOneAccuracy, ReinforcementManagement.overallTime, ReinforcementManagement.numberOfMistakeslvl1);
+
+            float highestScore = LevelsHandler.CheckHighest(scorePercent, DatabaseGamesVariables.highestScoreTrail);
+            float highestAccuracy = LevelsHandler.CheckHighest(levelOneAccuracy, DatabaseGamesVariables.highestAccuracyTrail);
+
+            updateStat(highestScore, scorePercent, highestAccuracy, levelOneAccuracy);
+
 
             ResetLevelone();
             ReinforcementManagement.level1_menu = false;
             ReinforcementManagement.level_1 = false;
         }
+        databaseManager.GetStatisticsDataTrail(DatabaseGamesVariables.userID);
     }
-    
+
     void InitializeButtons()
     {
-            for (int i = 0; i < trail11Buttons.Length; i++)
-            {
-                int buttonIndex = i; // Capture the current index to avoid closure issues
-                trail11Buttons[i].onClick.AddListener(() => TaskOnClick(buttonIndex));
-            }
-            for (int i = 0; i < trail12Buttons.Length; i++)
-            {
-                int buttonIndex = i; // Capture the current index to avoid closure issues
-                trail12Buttons[i].onClick.AddListener(() => TaskOnClick(buttonIndex));
-            }
-        
+        for (int i = 0; i < trail11Buttons.Length; i++)
+        {
+            int buttonIndex = i; // Capture the current index to avoid closure issues
+            trail11Buttons[i].onClick.AddListener(() => TaskOnClick(buttonIndex));
+        }
+        for (int i = 0; i < trail12Buttons.Length; i++)
+        {
+            int buttonIndex = i; // Capture the current index to avoid closure issues
+            trail12Buttons[i].onClick.AddListener(() => TaskOnClick(buttonIndex));
+        }
+
     }
     void InitializeButtons2()
     {
@@ -238,11 +254,11 @@ public class TrailLevel1 : MonoBehaviour
         Color normalColor = new Color(0.98f, 0.98f, 0.7f);
         for (int i = startIndex; i < trail11Buttons.Length; i++)
         {
-            trail11Buttons[i].GetComponent<Image>().color = normalColor; 
+            trail11Buttons[i].GetComponent<Image>().color = normalColor;
         }
         for (int i = startIndex; i < trail12Buttons.Length; i++)
         {
-            trail12Buttons[i].GetComponent<Image>().color = normalColor; 
+            trail12Buttons[i].GetComponent<Image>().color = normalColor;
         }
     }
 
@@ -314,6 +330,23 @@ public class TrailLevel1 : MonoBehaviour
         ReinforcementManagement.overallTime = 0f;
         ReinforcementManagement.numberOfMistakeslvl1 = 0;
         levelOneAccuracy = 0f;
+    }
+
+    private void Unlocklevel2()
+    {
+        if (DatabaseGamesVariables.islvlOnePassedtrail)
+        {
+            menuHandler.level2Button.SetActive(true);
+            menuHandler.level2LockButton.SetActive(false);
+        }
+    }
+
+    public void updateStat(float hScore, float lScore, float hAccuray, float lAccuracy)
+    {
+        databaseManager.UpdateStatistics(DatabaseGamesVariables.userID, DatabaseGamesVariables.trailname, "highestScore", hScore);
+        databaseManager.UpdateStatistics(DatabaseGamesVariables.userID, DatabaseGamesVariables.trailname, "lastScore", lScore);
+        databaseManager.UpdateStatistics(DatabaseGamesVariables.userID, DatabaseGamesVariables.trailname, "highestAccuracy", hAccuray);
+        databaseManager.UpdateStatistics(DatabaseGamesVariables.userID, DatabaseGamesVariables.trailname, "lastAccuracy", lAccuracy);
     }
 }
 

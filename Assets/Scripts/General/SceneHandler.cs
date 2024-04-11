@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneHandler : MonoBehaviour
 {
-    public ShowUserData ShowUserData;
     public DatabaseManager databaseManager;
     // A script that handles moving between scenes to open games from the home screen
     // & exit games returning to the home screen
@@ -18,8 +17,8 @@ public class SceneHandler : MonoBehaviour
     public  void BackToHome()
     {
         SceneManager.LoadScene(1);
-        ShowUserData.ShowWelcomeUserName();
         databaseManager.GetStatisticsData(DatabaseGamesVariables.userID);
+        databaseManager.GetStatisticsDataTrail(DatabaseGamesVariables.userID);
     }
 
     // function that opens the dual n-back game
