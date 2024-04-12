@@ -12580,6 +12580,8 @@ MonoBehaviour:
   levelTwoSpawnPos: []
   leftActionReference: {fileID: 7431108850620702684, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   rightActionReference: {fileID: 5615426505607579712, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  menuCanvas: {fileID: 0}
+  menuInGameCanvas: {fileID: 0}
   FocusReinforcement: {fileID: 0}
   levelTransition: {fileID: 0}
 --- !u!1 &1062237120
@@ -15780,6 +15782,8 @@ MonoBehaviour:
   - {fileID: 472562449}
   leftActionReference: {fileID: 7431108850620702684, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   rightActionReference: {fileID: 5615426505607579712, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  menuCanvas: {fileID: 52851260}
+  menuInGameCanvas: {fileID: 1538636916}
   FocusReinforcement: {fileID: 1478651549}
   levelTransition: {fileID: 849517186}
 --- !u!1 &1242411575

@@ -16,6 +16,7 @@ public class GridSpawner : MonoBehaviour
     [SerializeField] private InputActionReference leftActionReference;
     [SerializeField] private InputActionReference rightActionReference;
         public GameObject menuCanvas;
+    public GameObject menuInGameCanvas;
 
     public FocusReinforcement FocusReinforcement;
 
@@ -31,7 +32,7 @@ public class GridSpawner : MonoBehaviour
 
     private void OnClickCustom(InputAction.CallbackContext obj)
     {
-        if(menuCanvas.activeSelf == false) {
+        if(menuCanvas.activeSelf == false && menuInGameCanvas.activeSelf == false) {
         isClicked = true;
         ScoreCalculationFocus.isStopWatchStart = false;
         ScoreCalculationFocus.elapsedTimeStopWatch = 0;
