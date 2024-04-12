@@ -53,6 +53,8 @@ public class DatabaseManager : MonoBehaviour
     public GameObject groupTypeCanvas; 
     public GameObject messageCanvas;
     public TMP_Text messageText;
+    public TMP_Text validMessageText;
+    public GameObject validMessageCanvas;
 
     public static bool isGroupChoosen = false;
     public static bool isGenderChoosen = false;
@@ -201,7 +203,7 @@ public class DatabaseManager : MonoBehaviour
         else
         {
             demographicsCanvas.SetActive(false);
-            signupCanvas.SetActive(true);
+            diagnosisCanvas.SetActive(true);
         }
     }
 

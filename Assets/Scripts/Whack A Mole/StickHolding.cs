@@ -25,7 +25,7 @@ public class StickHolding : MonoBehaviour
             HideHoldMessage();
             if ((ScoreCalculationWhack.isLevel1 || ScoreCalculationWhack.isLevel2) && !ScoreCalculationWhack.isGameOver)
             {
-                if (!whackMenuHandler.menuCanvas.activeSelf)
+                if (!whackMenuHandler.menuCanvas.activeSelf && !whackMenuHandler.instructionsLevel1MenuCanvas.activeSelf && !whackMenuHandler.instructionsLevel2MenuCanvas.activeSelf)
                 {
 
                     // Check if the timer is paused
@@ -49,7 +49,7 @@ public class StickHolding : MonoBehaviour
             ShowHoldMessage();
            if ((ScoreCalculationWhack.isLevel1 || ScoreCalculationWhack.isLevel2) && !ScoreCalculationWhack.isGameOver)
             {
-                if (!whackMenuHandler.menuCanvas.activeSelf)
+                if (!whackMenuHandler.menuCanvas.activeSelf && !whackMenuHandler.instructionsLevel1MenuCanvas.activeSelf && !whackMenuHandler.instructionsLevel2MenuCanvas.activeSelf)
                 {
                     // Check if the timer is paused
                     if (Mathf.Approximately(Time.timeScale, 0f))

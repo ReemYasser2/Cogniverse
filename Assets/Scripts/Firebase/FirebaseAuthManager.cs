@@ -115,7 +115,8 @@ public class FirebaseAuthManager : MonoBehaviour
                 }
                 return;
             }
-
+            //databaseManager.validMessageText.text = "You account has been successfully created.";
+            //databaseManager.validMessageCanvas.SetActive(true);
             // Firebase user has been created.
             Firebase.Auth.AuthResult result = task.Result;
             DatabaseGamesVariables.userID = result.User.UserId;
@@ -125,6 +126,8 @@ public class FirebaseAuthManager : MonoBehaviour
             databaseManager.CreateUser(DatabaseGamesVariables.userID);
             databaseManager.GetGroupType(DatabaseGamesVariables.userID);
             sceneLoaded = false;
+
+            
         });
 
     }
@@ -183,13 +186,16 @@ public class FirebaseAuthManager : MonoBehaviour
                 return;
             }
             islogin = true;
-
+            //databaseManager.validMessageText.text = "Login Successful.";
+            //databaseManager.validMessageCanvas.SetActive(true);
             Firebase.Auth.AuthResult result = task.Result;
             DatabaseGamesVariables.userID = result.User.UserId;
             Debug.LogFormat("User signed in successfully: {0} ({1})",
                 result.User.DisplayName, result.User.UserId);
             databaseManager.GetGroupType(DatabaseGamesVariables.userID);
             sceneLoaded = false;
+
+            
         });
     }
 

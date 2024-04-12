@@ -25,7 +25,7 @@ public class StickHoldingMaze : MonoBehaviour
 
             if ((ScoreCalculatorMaze.isLevel1 || ScoreCalculatorMaze.isLevel2) && !ScoreCalculatorMaze.isGameOver)
             {
-                if (!menuHandler.menuCanvas.activeSelf)
+                if (!menuHandler.menuCanvas.activeSelf && !menuHandler.instructionsLevel1MenuCanvas.activeSelf && !menuHandler.instructionsLevel2MenuCanvas.activeSelf)
                 {
                     // Check if the timer is paused
                     if (Mathf.Approximately(Time.timeScale, 0f))
@@ -46,7 +46,7 @@ public class StickHoldingMaze : MonoBehaviour
             ShowHoldMessage();
             if ((ScoreCalculatorMaze.isLevel1 || ScoreCalculatorMaze.isLevel2) && !ScoreCalculatorMaze.isGameOver)
             {
-                if (!menuHandler.menuCanvas.activeSelf)
+                if (!menuHandler.menuCanvas.activeSelf && !menuHandler.instructionsLevel1MenuCanvas.activeSelf && !menuHandler.instructionsLevel2MenuCanvas.activeSelf)
                 {
                     // Check if the timer is paused
                     if (Mathf.Approximately(Time.timeScale, 0f))
