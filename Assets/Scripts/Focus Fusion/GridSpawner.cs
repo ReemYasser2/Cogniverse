@@ -32,62 +32,63 @@ public class GridSpawner : MonoBehaviour
 
     private void OnClickCustom(InputAction.CallbackContext obj)
     {
-        if(menuCanvas.activeSelf == false && menuInGameCanvas.activeSelf == false) {
-        isClicked = true;
-        ScoreCalculationFocus.isStopWatchStart = false;
-        ScoreCalculationFocus.elapsedTimeStopWatch = 0;
-        if (newObject && newObject.layer != 9)
+        if ((ScoreCalculationFocus.isLevel1 || ScoreCalculationFocus.isLevel2)  && menuInGameCanvas.activeSelf == false)
         {
-            ScoreCalculationFocus.responseTimeGo = ScoreCalculationFocus.responseTimeGo + ScoreCalculationFocus.stopWatchtime;
-        }
-
-        if (newObject && !ScoreCalculationFocus.isHomeClicked)
-        {
-            if (obj.action.name == "PrimaryRight")
+            isClicked = true;
+            ScoreCalculationFocus.isStopWatchStart = false;
+            ScoreCalculationFocus.elapsedTimeStopWatch = 0;
+            if (newObject && newObject.layer != 9)
             {
-                if (newObject.layer == 10)
-                {
-                    ScoreCalculationFocus.Increment();
+                ScoreCalculationFocus.responseTimeGo = ScoreCalculationFocus.responseTimeGo + ScoreCalculationFocus.stopWatchtime;
+            }
 
-                    FocusReinforcement.increaseAudio(ScoreCalculationFocus.randomIndexPositiveInc);
-                    
-                    StartCoroutine(ResetTextAfterDelay());
+            if (newObject && !ScoreCalculationFocus.isHomeClicked)
+            {
+                if (obj.action.name == "PrimaryRight")
+                {
+                    if (newObject.layer == 10)
+                    {
+                        ScoreCalculationFocus.Increment();
+
+                        FocusReinforcement.increaseAudio(ScoreCalculationFocus.randomIndexPositiveInc);
+
+                        StartCoroutine(ResetTextAfterDelay());
+
+                    }
+                    else if (newObject.layer == 9 || newObject.layer == 8)
+                    {
+                        ScoreCalculationFocus.Decrement();
+                        //
+                        FocusReinforcement.decreaseAudio(ScoreCalculationFocus.randomIndexPositiveDec);
+                        StartCoroutine(ResetTextAfterDelay());
+
+                    }
 
                 }
-                else if ( newObject.layer == 9 || newObject.layer == 8)
+                else if (obj.action.name == "PrimaryLeft")
                 {
-                    ScoreCalculationFocus.Decrement();
-                    //
-                    FocusReinforcement.decreaseAudio(ScoreCalculationFocus.randomIndexPositiveDec);
-                    StartCoroutine(ResetTextAfterDelay());
+                    if (newObject.layer == 8)
+                    {
+                        ScoreCalculationFocus.Increment();
+
+                        FocusReinforcement.increaseAudio(ScoreCalculationFocus.randomIndexPositiveInc);
+
+                        StartCoroutine(ResetTextAfterDelay());
+
+                    }
+                    else if (newObject.layer == 9 || newObject.layer == 10)
+                    {
+                        ScoreCalculationFocus.Decrement();
+                        //
+                        FocusReinforcement.decreaseAudio(ScoreCalculationFocus.randomIndexPositiveDec);
+                        StartCoroutine(ResetTextAfterDelay());
+
+                    }
 
                 }
 
             }
-            else if (obj.action.name == "PrimaryLeft")
-            {
-                if (newObject.layer == 8)
-                {
-                    ScoreCalculationFocus.Increment();
-                    
-                    FocusReinforcement.increaseAudio(ScoreCalculationFocus.randomIndexPositiveInc);
-                   
-                    StartCoroutine(ResetTextAfterDelay());
 
-                }
-                else if ( newObject.layer == 9 || newObject.layer == 10)
-                {
-                    ScoreCalculationFocus.Decrement();
-                    //
-                    FocusReinforcement.decreaseAudio(ScoreCalculationFocus.randomIndexPositiveDec);
-                    StartCoroutine(ResetTextAfterDelay());
-
-                }
-
-            }
-
-        }
-    
         }
     }
 
