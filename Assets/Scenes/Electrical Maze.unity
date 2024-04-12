@@ -25499,7 +25499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1889711143137863986, guid: 41c59bce181539e4f92cdeadd341b0d2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1889711143137863986, guid: 41c59bce181539e4f92cdeadd341b0d2, type: 3}
       propertyPath: m_TagString
@@ -31888,7 +31888,7 @@ MonoBehaviour:
   mazeSpawner: {fileID: 858308114}
   CountDownTimer: {fileID: 1196722579}
   hapticFeedback: {fileID: 485218377}
-  databaseManager: {fileID: 0}
+  databaseManager: {fileID: 959112379}
 --- !u!4 &2007701194
 Transform:
   m_ObjectHideFlags: 0
