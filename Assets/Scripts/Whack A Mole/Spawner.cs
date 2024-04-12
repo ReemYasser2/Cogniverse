@@ -107,8 +107,8 @@ public class Spawner : MonoBehaviour
                 firstObject.SetActive(true);
                 ScoreCalculationWhack.spawnsCounter++;
 
-                if (firstObject.layer == 11) { ScoreCalculationWhack.spawnerNoGoCounter++; }
-                else { ScoreCalculationWhack.spawnerGoCounter++; }
+                if (firstObject.layer == 11) { ScoreCalculationWhack.spawnerGoCounter++; }
+                else { ScoreCalculationWhack.spawnerNoGoCounter++; }
 
                 int randomIndex2 = Random.Range(0, alienOne.Length);
                 if (randomIndex2 == randomIndex)
@@ -119,8 +119,8 @@ public class Spawner : MonoBehaviour
                 secondObject.SetActive(true);
                 ScoreCalculationWhack.spawnsCounter++;
 
-                if (secondObject.layer == 11) { ScoreCalculationWhack.spawnerNoGoCounter++; }
-                else { ScoreCalculationWhack.spawnerGoCounter++; }
+                if (secondObject.layer == 11) { ScoreCalculationWhack.spawnerGoCounter++; }
+                else { ScoreCalculationWhack.spawnerNoGoCounter++; }
 
                 yield return new WaitForSeconds(0.35f);
 
