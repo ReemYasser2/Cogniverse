@@ -23,8 +23,20 @@ public class RadialProgress : MonoBehaviour
     public GameObject RTcanvase;
     [SerializeField] float speed;
 
+    public DatabaseManager DatabaseManager;
+    public GameObject statisticsCanvas;
+
+    private void Start()
+    {
+       statisticsCanvas.SetActive(false);
+
+    }
     public void ShowDualStat()
     {
+        DatabaseManager.GetStatisticsData(DatabaseGamesVariables.userID);
+
+        statisticsCanvas.SetActive(true);
+
         StartCoroutine(AnimateFill(highAccuracyImage, highAccuracyText, DatabaseGamesVariables.highestAccuracyDual));
         StartCoroutine(AnimateFill(lastAccuracyImage, lastAccuracyText, DatabaseGamesVariables.lastAccuracyDual));
         StartCoroutine(AnimateFill(highScoreImage, highScoreText, DatabaseGamesVariables.highestScoreDual));
@@ -40,6 +52,10 @@ public class RadialProgress : MonoBehaviour
 
     public void ShowTrailStat()
     {
+        DatabaseManager.GetStatisticsDataTrail(DatabaseGamesVariables.userID);
+
+        statisticsCanvas.SetActive(true);
+
         StartCoroutine(AnimateFill(highAccuracyImage, highAccuracyText, DatabaseGamesVariables.highestAccuracyTrail));
         StartCoroutine(AnimateFill(lastAccuracyImage, lastAccuracyText, DatabaseGamesVariables.lastAccuracyTrail));
         StartCoroutine(AnimateFill(highScoreImage, highScoreText, DatabaseGamesVariables.highestScoreTrail));
@@ -50,6 +66,10 @@ public class RadialProgress : MonoBehaviour
 
     public void ShowFocusStat()
     {
+        DatabaseManager.GetStatisticsFFData(DatabaseGamesVariables.userID);
+
+        statisticsCanvas.SetActive(true);
+
         StartCoroutine(AnimateFill(highAccuracyImage, highAccuracyText, DatabaseGamesVariables.highestAccuracyFF));
         StartCoroutine(AnimateFill(lastAccuracyImage, lastAccuracyText, DatabaseGamesVariables.lastAccuracyFF));
         StartCoroutine(AnimateFill(highScoreImage, highScoreText, DatabaseGamesVariables.highestScoreFF));
@@ -65,6 +85,10 @@ public class RadialProgress : MonoBehaviour
     
     public void ShowWhackStat()
     {
+        DatabaseManager.GetStatisticsWhackData(DatabaseGamesVariables.userID);
+
+        statisticsCanvas.SetActive(true);
+
         StartCoroutine(AnimateFill(highAccuracyImage, highAccuracyText, DatabaseGamesVariables.highestAccuracyWhack));
         StartCoroutine(AnimateFill(lastAccuracyImage, lastAccuracyText, DatabaseGamesVariables.lastAccuracyWhack));
         StartCoroutine(AnimateFill(highScoreImage, highScoreText, DatabaseGamesVariables.highestScoreWhack));

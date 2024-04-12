@@ -19,7 +19,7 @@ public class LevelsTransition : MonoBehaviour
 
     public void checkLevelOne()
     {
-        databaseManager.GetStatisticsMazeData(DatabaseGamesVariables.userID);
+        //databaseManager.GetStatisticsMazeData(DatabaseGamesVariables.userID);
         if (ScoreCalculatorMaze.score <= 2 && HapticFeedback.checkpointCounter >= 8 && HapticFeedback.isEnd)// || CountDownTimer.isTimeOver)
         {     // pass lvl1
             menuHandler.completeLevel1Canvas.SetActive(true);
@@ -63,7 +63,7 @@ public class LevelsTransition : MonoBehaviour
 
     public void CheckLevelTwo()
     {
-        databaseManager.GetStatisticsMazeData(DatabaseGamesVariables.userID);
+        //databaseManager.GetStatisticsMazeData(DatabaseGamesVariables.userID);
         if (ScoreCalculatorMaze.score <= 4 && HapticFeedback.checkpointCounter >= 8 && HapticFeedback.isEnd)// || CountDownTimer.isTimeOver) 
         {
             // pass lvl2
@@ -113,6 +113,7 @@ public class LevelsTransition : MonoBehaviour
         ScoreCalculatorMaze.overallTime = 0;
 
         hapticFeedback.livesCount.text = string.Format("{0}", 2);
+        databaseManager.GetStatisticsMazeData(DatabaseGamesVariables.userID);
 
     }
 
@@ -126,6 +127,7 @@ public class LevelsTransition : MonoBehaviour
         ScoreCalculatorMaze.numberOfHits = 0;
         ScoreCalculatorMaze.overallTime = 0;
         hapticFeedback.livesCount.text = string.Format("{0}", 4);
+        databaseManager.GetStatisticsMazeData(DatabaseGamesVariables.userID);
     }
 
     public void HomeButtonClicked()

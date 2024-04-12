@@ -261,11 +261,11 @@ public class DatabaseManager : MonoBehaviour
     public void GetGroupType(string userID)
     {
         GetUserData(userID);
-        GetStatisticsData(userID);
-        GetStatisticsDataTrail(userID);
-        GetStatisticsMazeData(userID);
-        GetStatisticsWhackData(userID);
-        GetStatisticsFFData(userID);
+        //GetStatisticsData(userID);
+        //GetStatisticsDataTrail(userID);
+        //GetStatisticsMazeData(userID);
+        //GetStatisticsWhackData(userID);
+        //GetStatisticsFFData(userID);
     }
 
     public void GetUserData(string userID)
@@ -300,6 +300,9 @@ public class DatabaseManager : MonoBehaviour
                         DatabaseGamesVariables.iscontrolGroup = dictUser.Contains("iscontrolGroup") ? bool.Parse(dictUser["iscontrolGroup"].ToString()) : false;
                         DatabaseGamesVariables.ispositiveGroup = dictUser.Contains("ispositiveGroup") ? bool.Parse(dictUser["ispositiveGroup"].ToString()) : false;
                         DatabaseGamesVariables.isnegativeGroup = dictUser.Contains("isnegativeGroup") ? bool.Parse(dictUser["isnegativeGroup"].ToString()) : false;
+
+                        Debug.Log("getting data done.");
+                        return;
                     }
                 }
             }

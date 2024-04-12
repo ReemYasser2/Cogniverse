@@ -13032,6 +13032,8 @@ MonoBehaviour:
   highRTNOGOText: {fileID: 1302958893}
   RTcanvase: {fileID: 13759382}
   speed: 0.5
+  DatabaseManager: {fileID: 1806429788}
+  statisticsCanvas: {fileID: 695806426}
 --- !u!1 &1713756359
 GameObject:
   m_ObjectHideFlags: 0
@@ -14681,6 +14683,14 @@ MonoBehaviour:
   ispositiveGroup: 0
   isnegativeGroup: 0
   sceneHandler: {fileID: 119422761}
+  usernameCanvas: {fileID: 0}
+  demographicsCanvas: {fileID: 0}
+  diagnosisCanvas: {fileID: 0}
+  loginCanvas: {fileID: 0}
+  signupCanvas: {fileID: 0}
+  groupTypeCanvas: {fileID: 0}
+  messageCanvas: {fileID: 0}
+  messageText: {fileID: 0}
 --- !u!1001 &1808865749
 PrefabInstance:
   m_ObjectHideFlags: 0
