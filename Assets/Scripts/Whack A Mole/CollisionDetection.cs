@@ -34,14 +34,14 @@ public class CollisionDetection : MonoBehaviour
             if (ScoreCalculationWhack.isLevel2 && gameObject.tag == ScoreCalculationWhack.tag1)
             {
                 TimerStop(1);
-                if (gameObject.layer == 11) { ScoreCalculationWhack.responseTimeNoGo = ScoreCalculationWhack.responseTimeNoGo + ScoreCalculationWhack.stopWatchtime1; }
-                else { ScoreCalculationWhack.responseTimeGo = ScoreCalculationWhack.responseTimeGo + ScoreCalculationWhack.stopWatchtime1; }
+                if (gameObject.layer == 11) { ScoreCalculationWhack.responseTimeGo = ScoreCalculationWhack.responseTimeGo + ScoreCalculationWhack.stopWatchtime1; }
+                else { ScoreCalculationWhack.responseTimeNoGo = ScoreCalculationWhack.responseTimeNoGo + ScoreCalculationWhack.stopWatchtime1; }
             }
             if (ScoreCalculationWhack.isLevel2 &&  gameObject.tag == ScoreCalculationWhack.tag2)
             {
                 TimerStop(2);
-                if (gameObject.layer == 11) { ScoreCalculationWhack.responseTimeNoGo = ScoreCalculationWhack.responseTimeNoGo + ScoreCalculationWhack.stopWatchtime2; }
-                else { ScoreCalculationWhack.responseTimeGo = ScoreCalculationWhack.responseTimeGo + ScoreCalculationWhack.stopWatchtime2; }
+                if (gameObject.layer == 11) { ScoreCalculationWhack.responseTimeGo = ScoreCalculationWhack.responseTimeGo + ScoreCalculationWhack.stopWatchtime2; }
+                else { ScoreCalculationWhack.responseTimeNoGo = ScoreCalculationWhack.responseTimeNoGo + ScoreCalculationWhack.stopWatchtime2; }
             }
 
             while (gameObject.transform.position.y > 3.7f)

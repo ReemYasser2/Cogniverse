@@ -65,10 +65,10 @@ public static class ScoreCalculator
                 score++;
                 correctCounter++;
                 //Debug.Log("Increment score after pressing ");
-
+                
                 isStopWatchStart = false;
                 elapsedTimeStopWatch = 0;
-                responseTimeGo = responseTimeGo + stopWatchtime;
+                responseTimeGo = responseTimeGo + stopWatchtime; // go
 
             }
             else if (oldPos != currentPos && score != 0)
@@ -79,7 +79,7 @@ public static class ScoreCalculator
 
                 isStopWatchStart = false;
                 elapsedTimeStopWatch = 0;
-                responseTimeGo = responseTimeGo + stopWatchtime;
+                responseTimeNoGo = responseTimeNoGo + stopWatchtime; //no go
             }
         }
         reinforcmentCondition();
@@ -111,7 +111,7 @@ public static class ScoreCalculator
 
                 isStopWatchStart = false;
                 elapsedTimeStopWatch = 0;
-                responseTimeGo = responseTimeGo + stopWatchtime;
+                responseTimeNoGo = responseTimeNoGo + stopWatchtime;
             }
         
         reinforcmentCondition();
@@ -130,7 +130,7 @@ public static class ScoreCalculator
 
             isStopWatchStart = false;
             elapsedTimeStopWatch = 0;
-            responseTimeNoGo = responseTimeNoGo + stopWatchtime;
+            responseTimeGo = responseTimeGo + stopWatchtime;
         }
         else if (oldPos != currentPos)
         {
@@ -163,7 +163,7 @@ public static class ScoreCalculator
 
             isStopWatchStart = false;
             elapsedTimeStopWatch = 0;
-            responseTimeNoGo = responseTimeNoGo + stopWatchtime;
+            responseTimeGo = responseTimeGo + stopWatchtime;
         }
         else if (oldColor != currentColor)
         {
@@ -218,7 +218,7 @@ public static class ScoreCalculator
 
                 isStopWatchStart = false;
                 elapsedTimeStopWatch = 0;
-                responseTimeGo = responseTimeGo + stopWatchtime;
+                responseTimeNoGo = responseTimeNoGo + stopWatchtime;
             }
         }
         //Debug.Log(score);
@@ -248,7 +248,7 @@ public static class ScoreCalculator
 
                 isStopWatchStart = false;
                 elapsedTimeStopWatch = 0;
-                responseTimeNoGo = responseTimeNoGo + 0;
+                responseTimeGo = responseTimeGo + stopWatchtime;
             }
             else
             {
@@ -260,7 +260,7 @@ public static class ScoreCalculator
 
                 isStopWatchStart = false;
                 elapsedTimeStopWatch = 0;
-                responseTimeNoGo = responseTimeNoGo + stopWatchtime;
+                responseTimeNoGo = responseTimeNoGo + 0;
             }
         }
        // Debug.Log(score);
@@ -285,13 +285,20 @@ public static class ScoreCalculator
                 incrementCounter++;
                 correctCounter++;
                 score++;
+
+                isStopWatchStart = false;
+                elapsedTimeStopWatch = 0;
+                responseTimeGo = responseTimeGo + stopWatchtime;
             }
             else if (oldAudio == currentAudio && score != 0)
             {
                // Debug.Log("Audio clips are the same and the button didnt get clicked");
                 incrementCounter--;
-
                 score--;
+
+                isStopWatchStart = false;
+                elapsedTimeStopWatch = 0;
+                responseTimeNoGo = responseTimeNoGo + 0;
             }
         }
        // Debug.Log(score);

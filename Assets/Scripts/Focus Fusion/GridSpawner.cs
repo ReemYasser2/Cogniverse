@@ -107,9 +107,9 @@ public class GridSpawner : MonoBehaviour
                 }
                 yield return new WaitForSeconds(0.25f);
                 int randomIndex = Random.Range(0, gridsPrefabs.Length);
-                
-                if (ScoreCalculationFocus.isStopWatchStart) 
-                { 
+
+                if (ScoreCalculationFocus.isStopWatchStart)
+                {
                     ScoreCalculationFocus.isStopWatchStart = false;
                     ScoreCalculationFocus.elapsedTimeStopWatch = 0;
                     ScoreCalculationFocus.responseTimeGo = ScoreCalculationFocus.responseTimeGo + ScoreCalculationFocus.stopWatchtime;
@@ -134,6 +134,7 @@ public class GridSpawner : MonoBehaviour
 
                 yield return new WaitForSeconds(0.85f);
 
+                
             }
             yield return new WaitForSeconds(0.5f);
             ScoreCalculationFocus.isLevel1 = false;

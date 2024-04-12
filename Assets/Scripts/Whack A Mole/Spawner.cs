@@ -147,8 +147,8 @@ public class Spawner : MonoBehaviour
                 {
                     ScoreCalculationWhack.isStopWatch1Start = false;
                     ScoreCalculationWhack.elapsedTimeStopWatch1 = 0;
-                    if (firstObject.layer == 11) { ScoreCalculationWhack.responseTimeNoGo = ScoreCalculationWhack.responseTimeNoGo + ScoreCalculationWhack.stopWatchtime1; }
-                    else { ScoreCalculationWhack.responseTimeGo = ScoreCalculationWhack.responseTimeGo + ScoreCalculationWhack.stopWatchtime1; }
+                    if (firstObject.layer == 11) { ScoreCalculationWhack.responseTimeGo = ScoreCalculationWhack.responseTimeGo + ScoreCalculationWhack.stopWatchtime1; }
+                    else { ScoreCalculationWhack.responseTimeNoGo = ScoreCalculationWhack.responseTimeNoGo + 0; }
                 }
 
                 firstObject.SetActive(false);
@@ -160,8 +160,8 @@ public class Spawner : MonoBehaviour
                 {
                     ScoreCalculationWhack.isStopWatch2Start = false;
                     ScoreCalculationWhack.elapsedTimeStopWatch2 = 0;
-                    if (secondObject.layer == 11) { ScoreCalculationWhack.responseTimeNoGo = ScoreCalculationWhack.responseTimeNoGo + ScoreCalculationWhack.stopWatchtime2; }
-                    else { ScoreCalculationWhack.responseTimeGo = ScoreCalculationWhack.responseTimeGo + ScoreCalculationWhack.stopWatchtime2; }
+                    if (secondObject.layer == 11) { ScoreCalculationWhack.responseTimeGo = ScoreCalculationWhack.responseTimeGo + ScoreCalculationWhack.stopWatchtime2; }
+                    else { ScoreCalculationWhack.responseTimeNoGo = ScoreCalculationWhack.responseTimeNoGo + 0; }
                 }
 
                 secondObject.SetActive(false);
