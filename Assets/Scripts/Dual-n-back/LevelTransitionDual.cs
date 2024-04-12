@@ -344,7 +344,7 @@ public class LevelTransitionDual : MonoBehaviour
             dualMenuHandler.level2Button.SetActive(true);
             dualMenuHandler.level2LockButton.SetActive(false);
         }
-        else if (DatabaseGamesVariables.islvlTwoPasseddual)
+        if (DatabaseGamesVariables.islvlTwoPasseddual)
         {
             dualMenuHandler.level3Button.SetActive(true);
             dualMenuHandler.level3LockButton.SetActive(false);
