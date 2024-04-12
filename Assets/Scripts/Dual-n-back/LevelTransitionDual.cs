@@ -380,7 +380,7 @@ public class LevelTransitionDual : MonoBehaviour
 
     public float CheckLeast(float current, float last)
     {
-        if (current <= last)
+        if (current <= last && current > 0)
         {
             return current;
         }
