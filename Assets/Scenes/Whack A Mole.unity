@@ -8676,7 +8676,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cff2074e06df54190876089e6dbf29d5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dbd5b058829a93647873cf830a7d12ac, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11108,7 +11108,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cff2074e06df54190876089e6dbf29d5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dbd5b058829a93647873cf830a7d12ac, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -28811,6 +28811,14 @@ MonoBehaviour:
   ispositiveGroup: 0
   isnegativeGroup: 0
   sceneHandler: {fileID: 325023743}
+  usernameCanvas: {fileID: 0}
+  demographicsCanvas: {fileID: 0}
+  diagnosisCanvas: {fileID: 0}
+  loginCanvas: {fileID: 0}
+  signupCanvas: {fileID: 0}
+  groupTypeCanvas: {fileID: 0}
+  messageCanvas: {fileID: 0}
+  messageText: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
