@@ -32,8 +32,8 @@ public class LevelTransitionDual : MonoBehaviour
 
             // statistics
             TimerDual.OverallTime();
-            ScoreCalculator.scoreOnePercent = ScoreCalculator.score / 30f;
-            levelsAccuracy = ScoreCalculator.AccuracyCalculation(ScoreCalculator.correctCounter, 30);
+            ScoreCalculator.scoreOnePercent = ScoreCalculator.score / 28f;
+            levelsAccuracy = ScoreCalculator.AccuracyCalculation(ScoreCalculator.correctCounter, 28);
             ScoreCalculator.responseTimeGo = ScoreCalculator.responseTimeGo / ScoreCalculator.countGoTrials;
             ScoreCalculator.responseTimeNoGo = ScoreCalculator.responseTimeNoGo / ScoreCalculator.countNoGoTrials;
 
@@ -62,8 +62,8 @@ public class LevelTransitionDual : MonoBehaviour
 
             // statistics
             TimerDual.OverallTime();
-            ScoreCalculator.scoreOnePercent = ScoreCalculator.score / 30f;
-            levelsAccuracy = ScoreCalculator.AccuracyCalculation(ScoreCalculator.correctCounter, 30);
+            ScoreCalculator.scoreOnePercent = ScoreCalculator.score / 28f;
+            levelsAccuracy = ScoreCalculator.AccuracyCalculation(ScoreCalculator.correctCounter, 28);
             ScoreCalculator.responseTimeGo = ScoreCalculator.responseTimeGo / ScoreCalculator.countGoTrials;
             ScoreCalculator.responseTimeNoGo = ScoreCalculator.responseTimeNoGo / ScoreCalculator.countNoGoTrials;
 
@@ -100,8 +100,8 @@ public class LevelTransitionDual : MonoBehaviour
 
             // statistics
             TimerDual.OverallTime();
-            ScoreCalculator.scoreTwoPercent = ScoreCalculator.score / 45f;
-            levelsAccuracy = ScoreCalculator.AccuracyCalculation(ScoreCalculator.correctCounter, 45);
+            ScoreCalculator.scoreTwoPercent = ScoreCalculator.score / 42f;
+            levelsAccuracy = ScoreCalculator.AccuracyCalculation(ScoreCalculator.correctCounter, 42);
             ScoreCalculator.responseTimeGo = ScoreCalculator.responseTimeGo / ScoreCalculator.countGoTrials;
             ScoreCalculator.responseTimeNoGo = ScoreCalculator.responseTimeNoGo / ScoreCalculator.countNoGoTrials;
 
@@ -131,8 +131,8 @@ public class LevelTransitionDual : MonoBehaviour
 
             // statistics
             TimerDual.OverallTime();
-            ScoreCalculator.scoreTwoPercent = ScoreCalculator.score / 45f;
-            levelsAccuracy = ScoreCalculator.AccuracyCalculation(ScoreCalculator.correctCounter, 45);
+            ScoreCalculator.scoreTwoPercent = ScoreCalculator.score / 42f;
+            levelsAccuracy = ScoreCalculator.AccuracyCalculation(ScoreCalculator.correctCounter, 42);
             ScoreCalculator.responseTimeGo = ScoreCalculator.responseTimeGo / ScoreCalculator.countGoTrials;
             ScoreCalculator.responseTimeNoGo = ScoreCalculator.responseTimeNoGo / ScoreCalculator.countNoGoTrials;
 
@@ -167,8 +167,8 @@ public class LevelTransitionDual : MonoBehaviour
 
             // statistics
             TimerDual.OverallTime();
-            levelsAccuracy = ScoreCalculator.AccuracyCalculation(ScoreCalculator.correctCounter, 45);
-            ScoreCalculator.scoreThreePercent = ScoreCalculator.score / 45f;
+            levelsAccuracy = ScoreCalculator.AccuracyCalculation(ScoreCalculator.correctCounter, 42);
+            ScoreCalculator.scoreThreePercent = ScoreCalculator.score / 42f;
             ScoreCalculator.responseTimeGo = ScoreCalculator.responseTimeGo / ScoreCalculator.countGoTrials;
             ScoreCalculator.responseTimeNoGo = ScoreCalculator.responseTimeNoGo / ScoreCalculator.countNoGoTrials;
 
@@ -199,8 +199,8 @@ public class LevelTransitionDual : MonoBehaviour
 
             // statistics
             TimerDual.OverallTime();
-            levelsAccuracy = ScoreCalculator.AccuracyCalculation(ScoreCalculator.correctCounter, 45);
-            ScoreCalculator.scoreThreePercent = ScoreCalculator.score / 45f;
+            levelsAccuracy = ScoreCalculator.AccuracyCalculation(ScoreCalculator.correctCounter, 42);
+            ScoreCalculator.scoreThreePercent = ScoreCalculator.score / 42f;
             ScoreCalculator.responseTimeGo = ScoreCalculator.responseTimeGo / ScoreCalculator.countGoTrials;
             ScoreCalculator.responseTimeNoGo = ScoreCalculator.responseTimeNoGo / ScoreCalculator.countNoGoTrials;
 
