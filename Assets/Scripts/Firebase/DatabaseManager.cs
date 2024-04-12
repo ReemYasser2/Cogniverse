@@ -74,7 +74,23 @@ public class DatabaseManager : MonoBehaviour
 
     public void Age()
     {
-        age = int.Parse(ageField.text);
+
+        if (string.IsNullOrEmpty(ageField.text))
+        {
+            Debug.Log("Please enter your age.");
+            messageText.text = "Please, Enter your age.";
+            messageCanvas.SetActive(true);
+            return;
+        }
+
+        if (!int.TryParse(ageField.text, out int parsedAge))
+        {
+            Debug.Log("Invalid age format. Please enter a valid number.");
+            messageText.text = "Invalid age format. Please enter a valid number.";
+            messageCanvas.SetActive(true);
+            return;
+        }
+        age = parsedAge;
     }
 
     public void FemaleGender()
@@ -157,9 +173,10 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
-    private void ageValidation(int age)
+    private void ageValidation(string age)
     {
-        if (string.IsNullOrEmpty(age.ToString()))
+
+        if (string.IsNullOrEmpty(age))
         {
             Debug.Log("Please, Enter your age.");
             messageText.text = "Please, Enter your age.";
@@ -170,6 +187,14 @@ public class DatabaseManager : MonoBehaviour
         {
             Debug.Log("Please, Enter your age.");
             messageText.text = "Please, Enter choose your gender.";
+            messageCanvas.SetActive(true);
+            return;
+        }
+        else if (!int.TryParse(age, out int ageInteger))
+        {
+            Debug.Log("Invalid age format. Please enter a valid number.");
+            // Handle the case where the age text is not a valid integer
+            messageText.text = "Invalid age format. Please enter a valid number.";
             messageCanvas.SetActive(true);
             return;
         }
@@ -198,7 +223,10 @@ public class DatabaseManager : MonoBehaviour
 
     public void checkUsername() { usernameValidation(firstNameField.text, lastNameField.text); }
 
-    public void checkDemographics() { ageValidation(int.Parse(ageField.text)); }
+    public void checkDemographics() 
+    {
+        ageValidation(ageField.text.ToString());
+    }
     public void CreateUser(string userID)
     {
         SignupCredentials();
@@ -298,8 +326,7 @@ public class DatabaseManager : MonoBehaviour
                     if (data.Key == "dual")
                     {
                         IDictionary dictUser = (IDictionary)data.Value;
-                        Debug.Log("acc: " + dictUser["highestAccuracy"]);
-                        Debug.Log("accu" + float.Parse(dictUser["lastAccuracy"].ToString()));
+                        
 
                         DatabaseGamesVariables.islvlOnePasseddual = dictUser.Contains("islvlOnePassed") ? bool.Parse(dictUser["islvlOnePassed"].ToString()) : false;
                         DatabaseGamesVariables.islvlTwoPasseddual = dictUser.Contains("islvlTwoPassed") ? bool.Parse(dictUser["islvlTwoPassed"].ToString()) : false;
@@ -312,6 +339,9 @@ public class DatabaseManager : MonoBehaviour
                         DatabaseGamesVariables.lastGoRTDual = dictUser.Contains("lastGoRT") ? float.Parse(dictUser["lastGoRT"].ToString()) : 0;
                         DatabaseGamesVariables.highestNoRTDual = dictUser.Contains("highestNoRT") ? float.Parse(dictUser["highestNoRT"].ToString()) : 0;
                         DatabaseGamesVariables.lastNoRTDual = dictUser.Contains("lastNoRT") ? float.Parse(dictUser["lastNoRT"].ToString()) : 0;
+
+                        Debug.Log("acc: " + dictUser["highestAccuracy"]);
+                        Debug.Log("accu" + float.Parse(dictUser["lastAccuracy"].ToString()));
                     }
                 }
             }
@@ -488,8 +518,7 @@ public class DatabaseManager : MonoBehaviour
                     if (data.Key == "trail")
                     {
                         IDictionary dictUser = (IDictionary)data.Value;
-                        Debug.Log("acc: " + dictUser["highestAccuracy"]);
-                        Debug.Log("accu" + float.Parse(dictUser["lastAccuracy"].ToString()));
+                        
 
                         DatabaseGamesVariables.islvlOnePassedtrail = dictUser.Contains("islvlOnePassed") ? bool.Parse(dictUser["islvlOnePassed"].ToString()) : false;
                         DatabaseGamesVariables.islvlTwoPassedtrail = dictUser.Contains("islvlTwoPassed") ? bool.Parse(dictUser["islvlTwoPassed"].ToString()) : false;
@@ -499,6 +528,8 @@ public class DatabaseManager : MonoBehaviour
                         DatabaseGamesVariables.highestScoreTrail = dictUser.Contains("highestScore") ? float.Parse(dictUser["highestScore"].ToString()) : 0;
                         DatabaseGamesVariables.lastScoreTrail = dictUser.Contains("lastScore") ? float.Parse(dictUser["lastScore"].ToString()) : 0;
 
+                        Debug.Log("acc: " + dictUser["highestAccuracy"]);
+                        Debug.Log("accu" + float.Parse(dictUser["lastAccuracy"].ToString()));
                     }
                 }
             }
@@ -534,6 +565,9 @@ public class DatabaseManager : MonoBehaviour
                         DatabaseGamesVariables.lastGoRTFF = dictUser.Contains("lastGoRT") ? float.Parse(dictUser["lastGoRT"].ToString()) : 0;
                         DatabaseGamesVariables.highestNoRTFF = dictUser.Contains("highestNoRT") ? float.Parse(dictUser["highestNoRT"].ToString()) : 0;
                         DatabaseGamesVariables.lastNoRTFF = dictUser.Contains("lastNoRT") ? float.Parse(dictUser["lastNoRT"].ToString()) : 0;
+
+                        Debug.Log("acc: " + dictUser["highestAccuracy"]);
+                        Debug.Log("accu" + float.Parse(dictUser["lastAccuracy"].ToString()));
                     }
                 }
             }
@@ -569,6 +603,9 @@ public class DatabaseManager : MonoBehaviour
                         DatabaseGamesVariables.lastGoRTWhack = dictUser.Contains("lastGoRT") ? float.Parse(dictUser["lastGoRT"].ToString()) : 0;
                         DatabaseGamesVariables.highestNoRTWhack = dictUser.Contains("highestNoRT") ? float.Parse(dictUser["highestNoRT"].ToString()) : 0;
                         DatabaseGamesVariables.lastNoRTWhack = dictUser.Contains("lastNoRT") ? float.Parse(dictUser["lastNoRT"].ToString()) : 0;
+
+                        Debug.Log("acc: " + dictUser["highestAccuracy"]);
+                        Debug.Log("accu" + float.Parse(dictUser["lastAccuracy"].ToString()));
                     }
                 }
             }

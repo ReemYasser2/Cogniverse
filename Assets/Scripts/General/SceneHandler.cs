@@ -17,11 +17,7 @@ public class SceneHandler : MonoBehaviour
     public  void BackToHome()
     {
         SceneManager.LoadScene(1);
-        databaseManager.GetStatisticsData(DatabaseGamesVariables.userID);
-        databaseManager.GetStatisticsDataTrail(DatabaseGamesVariables.userID);
-        databaseManager.GetStatisticsFFData(DatabaseGamesVariables.userID);
-        databaseManager.GetStatisticsWhackData(DatabaseGamesVariables.userID);
-        databaseManager.GetStatisticsMazeData(DatabaseGamesVariables.userID);
+        databaseManager.GetGroupType(DatabaseGamesVariables.userID);
     }
 
     // function that opens the dual n-back game
@@ -55,6 +51,13 @@ public class SceneHandler : MonoBehaviour
         SceneManager.LoadScene(6);
     }
 
-    
+    public void LoadSceneWhenLogin()
+    {
+        if (FirebaseAuthManager.islogin)
+        {
+            SceneManager.LoadScene(1);
+        }
+        else { return; }
+    }
 
 }

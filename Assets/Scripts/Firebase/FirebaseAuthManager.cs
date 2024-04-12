@@ -10,6 +10,7 @@ using Firebase.Extensions;
 using Unity.VisualScripting;
 using Firebase.Database;
 using System;
+using UnityEngine.SceneManagement;
 
 public class FirebaseAuthManager : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class FirebaseAuthManager : MonoBehaviour
 
     public SceneHandler SceneHandler;
     public static bool islogin = false;
-
+    private bool sceneLoaded = false;
 
     private void Awake()
     {
@@ -64,6 +65,7 @@ public class FirebaseAuthManager : MonoBehaviour
         DatabaseManager.isGroupChoosen = false;
         DatabaseManager.isGenderChoosen = false;
         Debug.Log("User signed out.");
+        sceneLoaded = false;
     }
 
     void CreateUser(string email, string password)
@@ -113,18 +115,16 @@ public class FirebaseAuthManager : MonoBehaviour
                 }
                 return;
             }
-            SceneHandler.BackToHome();
 
             // Firebase user has been created.
             Firebase.Auth.AuthResult result = task.Result;
-            //IDcopy = result.User.UserId;
             DatabaseGamesVariables.userID = result.User.UserId;
             Debug.LogFormat("Firebase user created successfully: {0} ({1})",
                 result.User.DisplayName, result.User.UserId);
-
-            databaseManager.CreateUser(DatabaseGamesVariables.userID);
             islogin = true;
+            databaseManager.CreateUser(DatabaseGamesVariables.userID);
             databaseManager.GetGroupType(DatabaseGamesVariables.userID);
+            sceneLoaded = false;
         });
 
     }
@@ -182,20 +182,14 @@ public class FirebaseAuthManager : MonoBehaviour
                 }
                 return;
             }
+            islogin = true;
 
-            SceneHandler.BackToHome();
             Firebase.Auth.AuthResult result = task.Result;
-            //IDcopy = result.User.UserId;
             DatabaseGamesVariables.userID = result.User.UserId;
             Debug.LogFormat("User signed in successfully: {0} ({1})",
                 result.User.DisplayName, result.User.UserId);
-            islogin = true;
-
-            //SceneHandler.BackToHome();
             databaseManager.GetGroupType(DatabaseGamesVariables.userID);
-            
-
-
+            sceneLoaded = false;
         });
     }
 
@@ -220,9 +214,11 @@ public class FirebaseAuthManager : MonoBehaviour
                 DatabaseGamesVariables.userID = null;
             }
             user = auth.CurrentUser;
-            if (signedIn)
+            if (signedIn && !sceneLoaded)
             {
                 Debug.Log("Signed in " + user.UserId);
+                //SceneManager.LoadScene(1);
+                sceneLoaded = true; 
             }
         }
     }
