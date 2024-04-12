@@ -65776,7 +65776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9c20a0ba91dc34391ce3069f0cf69a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  databaseManager: {fileID: 0}
+  databaseManager: {fileID: 2087553426}
 --- !u!114 &2042453756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68108,100 +68108,7 @@ MonoBehaviour:
   iscontrolGroup: 0
   ispositiveGroup: 0
   isnegativeGroup: 0
-  dateDual: 
-  timeDual: 
-  levelDual: 0
-  scorePercentDual: 0
-  accuracyDual: 0
-  overallTimeDual: 0
-  goResponseTimeDual: 0
-  noGoResponseTimeDual: 0
-  islvlOnePasseddual: 0
-  islvlTwoPasseddual: 0
-  islvlThreePasseddual: 0
-  islvl1dual: 0
-  islvl2dual: 0
-  islvl3dual: 0
-  isgameOverdual: 0
-  highestAccuracyDual: 0
-  lastAccuracyDual: 0
-  highestScoreDual: 0
-  lastScoreDual: 0
-  highestGoRTDual: 0
-  lastGoRTDual: 0
-  highestNoRTDual: 0
-  lastNoRTDual: 0
-  dateMaze: 
-  timeMaze: 
-  levelMaze: 0
-  overallTimeMaze: 0
-  numberOfHitsMaze: 0
-  islvlOnePassedmaze: 0
-  islvlTwoPassedmaze: 0
-  islvl1maze: 0
-  islvl2maze: 0
-  isgameOvermaze: 0
-  dateTrail: 
-  timeTrail: 
-  levelTrail: 0
-  scorePercentTrail: 0
-  accuracyTrail: 0
-  overallTimeTrail: 0
-  numberOfMistakesTrail: 0
-  islvlOnePassedtrail: 0
-  islvlTwoPassedtrail: 0
-  islvlThreePassedtrail: 0
-  islvl1trail: 0
-  islvl2trail: 0
-  islvl3trail: 0
-  isgameOvertrail: 0
-  highestAccuracyTrail: 0
-  lastAccuracyTrail: 0
-  highestScoreTrail: 0
-  lastScoreTrail: 0
-  dateFF: 
-  timeFF: 
-  levelFF: 0
-  scorePercentFF: 0
-  accuracyFF: 0
-  overallTimeFF: 0
-  goResponseTimeFF: 0
-  noGoResponseTimeFF: 0
-  islvlOnePassedFF: 0
-  islvlTwoPassedFF: 0
-  islvl1FF: 0
-  islvl2FF: 0
-  isgameOverFF: 0
-  highestAccuracyFF: 0
-  lastAccuracyFF: 0
-  highestScoreFF: 0
-  lastScoreFF: 0
-  highestGoRTFF: 0
-  lastGoRTFF: 0
-  highestNoRTFF: 0
-  lastNoRTFF: 0
-  dateWhack: 
-  timeWhack: 
-  levelWhack: 0
-  scorePercentWhack: 0
-  accuracyWhack: 0
-  overallTimeWhack: 0
-  goResponseTimeWhack: 0
-  noGoResponseTimeWhack: 0
-  islvlOnePassedwhack: 0
-  islvlTwoPassedwhack: 0
-  islvl1whack: 0
-  islvl2whack: 0
-  isgameOverwhack: 0
-  highestAccuracyWhack: 0
-  lastAccuracyWhack: 0
-  highestScoreWhack: 0
-  lastScoreWhack: 0
-  highestGoRTWhack: 0
-  lastGoRTWhack: 0
-  highestNoRTWhack: 0
-  lastNoRTWhack: 0
-  sceneHandler: {fileID: 0}
+  sceneHandler: {fileID: 2042453755}
 --- !u!4 &2087553427
 Transform:
   m_ObjectHideFlags: 0

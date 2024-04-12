@@ -24,7 +24,7 @@ public class FirebaseAuthManager : MonoBehaviour
     public static bool islogin = false;
 
 
-    private void Start()
+    private void Awake()
     {
         Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task => {
             var dependencyStatus = task.Result;

@@ -981,7 +981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9c20a0ba91dc34391ce3069f0cf69a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  databaseManager: {fileID: 0}
+  databaseManager: {fileID: 1806429788}
 --- !u!114 &119422762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7625,7 +7625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9c20a0ba91dc34391ce3069f0cf69a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  databaseManager: {fileID: 0}
+  databaseManager: {fileID: 1806429788}
 --- !u!114 &1098924150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9961,7 +9961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9c20a0ba91dc34391ce3069f0cf69a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  databaseManager: {fileID: 0}
+  databaseManager: {fileID: 1806429788}
 --- !u!54 &1425466304
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10384,7 +10384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9c20a0ba91dc34391ce3069f0cf69a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  databaseManager: {fileID: 0}
+  databaseManager: {fileID: 1806429788}
 --- !u!114 &1470420879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14680,7 +14680,7 @@ MonoBehaviour:
   iscontrolGroup: 0
   ispositiveGroup: 0
   isnegativeGroup: 0
-  sceneHandler: {fileID: 0}
+  sceneHandler: {fileID: 119422761}
 --- !u!1001 &1808865749
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16619,7 +16619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9c20a0ba91dc34391ce3069f0cf69a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  databaseManager: {fileID: 0}
+  databaseManager: {fileID: 1806429788}
 --- !u!114 &2031705196
 MonoBehaviour:
   m_ObjectHideFlags: 0
