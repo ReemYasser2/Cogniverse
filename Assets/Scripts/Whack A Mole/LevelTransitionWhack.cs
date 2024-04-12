@@ -65,7 +65,7 @@ public class LevelTransitionWhack : MonoBehaviour
             WhackTimer.OverallTime();
             ScoreCalculationWhack.scoreOnePercent = ScoreCalculationWhack.score / ScoreCalculationWhack.spawnsCounter;
             ScoreCalculationWhack.responseTimeGo = ScoreCalculationWhack.responseTimeGo / ScoreCalculationWhack.spawnsCounter;
-            ScoreCalculationFocus.accuracy = ScoreCalculationFocus.AccuracyCalculation(ScoreCalculationWhack.correctCounter, ScoreCalculationWhack.spawnsCounter);
+            ScoreCalculationWhack.accuracy = ScoreCalculationWhack.AccuracyCalculation(ScoreCalculationWhack.correctCounter, ScoreCalculationWhack.spawnsCounter);
 
             databaseManager.CreateWhackData(DatabaseGamesVariables.userID, ScoreCalculationWhack.date, ScoreCalculationWhack.time,
                 1, ScoreCalculationWhack.scoreOnePercent, ScoreCalculationWhack.accuracy, ScoreCalculationWhack.overallTime,
