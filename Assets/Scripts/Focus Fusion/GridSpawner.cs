@@ -51,7 +51,7 @@ public class GridSpawner : MonoBehaviour
                     StartCoroutine(ResetTextAfterDelay());
 
                 }
-                else if (newObject.layer != 10 || newObject.layer == 9)
+                else if ( newObject.layer == 9)
                 {
                     ScoreCalculationFocus.Decrement();
                     //
@@ -72,7 +72,7 @@ public class GridSpawner : MonoBehaviour
                     StartCoroutine(ResetTextAfterDelay());
 
                 }
-                else if (newObject.layer != 8 || newObject.layer == 9)
+                else if ( newObject.layer == 9)
                 {
                     ScoreCalculationFocus.Decrement();
                     //
