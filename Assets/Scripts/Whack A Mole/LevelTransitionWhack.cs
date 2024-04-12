@@ -39,9 +39,9 @@ public class LevelTransitionWhack : MonoBehaviour
 
             databaseManager.UpdatelvlStatus(DatabaseGamesVariables.userID, DatabaseGamesVariables.whackname, "islvlOnePassed", true);
 
-            float highestScore = CheckHighest(ScoreCalculationWhack.scoreOnePercent, DatabaseGamesVariables.highestScoreDual);
-            float highestAccuracy = CheckHighest(ScoreCalculationWhack.accuracy, DatabaseGamesVariables.highestAccuracyDual);
-            float highestGoRT = CheckLeast(ScoreCalculationWhack.responseTimeGo, DatabaseGamesVariables.highestGoRTDual);
+            float highestScore = CheckHighest(ScoreCalculationWhack.scoreOnePercent, DatabaseGamesVariables.highestScoreWhack);
+            float highestAccuracy = CheckHighest(ScoreCalculationWhack.accuracy, DatabaseGamesVariables.highestAccuracyWhack);
+            float highestGoRT = CheckLeast(ScoreCalculationWhack.responseTimeGo, DatabaseGamesVariables.highestGoRTWhack);
 
             updateStat(highestScore, ScoreCalculationWhack.scoreOnePercent, highestAccuracy, ScoreCalculationWhack.accuracy,
                 highestGoRT, ScoreCalculationWhack.responseTimeGo, 0, 0);
@@ -71,9 +71,9 @@ public class LevelTransitionWhack : MonoBehaviour
                 1, ScoreCalculationWhack.scoreOnePercent, ScoreCalculationWhack.accuracy, ScoreCalculationWhack.overallTime,
                 ScoreCalculationWhack.responseTimeGo, 0);
 
-            float highestScore = CheckHighest(ScoreCalculationWhack.scoreOnePercent, DatabaseGamesVariables.highestScoreDual);
-            float highestAccuracy = CheckHighest(ScoreCalculationWhack.accuracy, DatabaseGamesVariables.highestAccuracyDual);
-            float highestGoRT = CheckLeast(ScoreCalculationWhack.responseTimeGo, DatabaseGamesVariables.highestGoRTDual);
+            float highestScore = CheckHighest(ScoreCalculationWhack.scoreOnePercent, DatabaseGamesVariables.highestScoreWhack);
+            float highestAccuracy = CheckHighest(ScoreCalculationWhack.accuracy, DatabaseGamesVariables.highestAccuracyWhack);
+            float highestGoRT = CheckLeast(ScoreCalculationWhack.responseTimeGo, DatabaseGamesVariables.highestGoRTWhack);
 
             updateStat(highestScore, ScoreCalculationWhack.scoreOnePercent, highestAccuracy, ScoreCalculationWhack.accuracy,
                 highestGoRT, ScoreCalculationWhack.responseTimeGo, 0, 0);
@@ -111,9 +111,9 @@ public class LevelTransitionWhack : MonoBehaviour
 
             databaseManager.UpdatelvlStatus(DatabaseGamesVariables.userID, DatabaseGamesVariables.whackname, "islvlTwoPassed", true);
 
-            float highestScore = CheckHighest(ScoreCalculationWhack.scoreOnePercent, DatabaseGamesVariables.highestScoreDual);
-            float highestAccuracy = CheckHighest(ScoreCalculationWhack.accuracy, DatabaseGamesVariables.highestAccuracyDual);
-            float highestGoRT = CheckLeast(ScoreCalculationWhack.responseTimeGo, DatabaseGamesVariables.highestGoRTDual);
+            float highestScore = CheckHighest(ScoreCalculationWhack.scoreOnePercent, DatabaseGamesVariables.highestScoreWhack);
+            float highestAccuracy = CheckHighest(ScoreCalculationWhack.accuracy, DatabaseGamesVariables.highestAccuracyWhack);
+            float highestGoRT = CheckLeast(ScoreCalculationWhack.responseTimeGo, DatabaseGamesVariables.highestGoRTWhack);
             float highestNoGoRT = CheckLeast(ScoreCalculationWhack.responseTimeNoGo, DatabaseGamesVariables.highestNoRTWhack);
 
             updateStat(highestScore, ScoreCalculationWhack.scoreOnePercent, highestAccuracy, ScoreCalculationWhack.accuracy,
@@ -143,10 +143,17 @@ public class LevelTransitionWhack : MonoBehaviour
             ScoreCalculationWhack.responseTimeNoGo = ScoreCalculationWhack.responseTimeNoGo / ScoreCalculationWhack.spawnerNoGoCounter;
             ScoreCalculationWhack.AccuracyCalculation(ScoreCalculationWhack.correctCounter, ScoreCalculationWhack.spawnsCounter);
 
-            Debug.Log("WHACK: Response time:" + ScoreCalculationWhack.responseTimeGo);
-            Debug.Log("WHACK: accuracy:" + ScoreCalculationWhack.accuracy);
-            Debug.Log("WHACK: score:" + ScoreCalculationWhack.scoreTwoPercent);
-            Debug.Log("WHACK: overall time:" + ScoreCalculationWhack.overallTime);
+            databaseManager.CreateWhackData(DatabaseGamesVariables.userID, ScoreCalculationWhack.date, ScoreCalculationWhack.time,
+                2, ScoreCalculationWhack.scoreOnePercent, ScoreCalculationWhack.accuracy, ScoreCalculationWhack.overallTime,
+                ScoreCalculationWhack.responseTimeGo, ScoreCalculationWhack.responseTimeNoGo);
+
+            float highestScore = CheckHighest(ScoreCalculationWhack.scoreOnePercent, DatabaseGamesVariables.highestScoreWhack);
+            float highestAccuracy = CheckHighest(ScoreCalculationWhack.accuracy, DatabaseGamesVariables.highestAccuracyWhack);
+            float highestGoRT = CheckLeast(ScoreCalculationWhack.responseTimeGo, DatabaseGamesVariables.highestGoRTWhack);
+            float highestNoGoRT = CheckLeast(ScoreCalculationWhack.responseTimeNoGo, DatabaseGamesVariables.highestNoRTWhack);
+
+            updateStat(highestScore, ScoreCalculationWhack.scoreOnePercent, highestAccuracy, ScoreCalculationWhack.accuracy,
+                highestGoRT, ScoreCalculationWhack.responseTimeGo, highestNoGoRT, ScoreCalculationWhack.responseTimeNoGo);
 
             ScoreCalculationWhack.isLevel2 = false;
 

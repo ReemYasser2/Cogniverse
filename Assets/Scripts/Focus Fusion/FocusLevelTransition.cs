@@ -42,10 +42,10 @@ public class FocusLevelTransition : MonoBehaviour
 
             databaseManager.UpdatelvlStatus(DatabaseGamesVariables.userID, DatabaseGamesVariables.focusname, "islvlOnePassed", true);
 
-            float highestScore = CheckHighest(ScoreCalculationFocus.scorePercentOne, DatabaseGamesVariables.highestScoreDual);
-            float highestAccuracy = CheckHighest(ScoreCalculationFocus.accuracy, DatabaseGamesVariables.highestAccuracyDual);
-            float highestGoRT = CheckLeast(ScoreCalculationFocus.responseTimeGo, DatabaseGamesVariables.highestGoRTDual);
-            float highestNoGoRT = CheckLeast(ScoreCalculationFocus.responseTimeNoGo, DatabaseGamesVariables.highestNoRTDual);
+            float highestScore = CheckHighest(ScoreCalculationFocus.scorePercentOne, DatabaseGamesVariables.highestScoreFF);
+            float highestAccuracy = CheckHighest(ScoreCalculationFocus.accuracy, DatabaseGamesVariables.highestAccuracyFF);
+            float highestGoRT = CheckLeast(ScoreCalculationFocus.responseTimeGo, DatabaseGamesVariables.highestGoRTFF);
+            float highestNoGoRT = CheckLeast(ScoreCalculationFocus.responseTimeNoGo, DatabaseGamesVariables.highestNoRTFF);
 
             updateStat(highestScore, ScoreCalculationFocus.scorePercentOne, highestAccuracy, ScoreCalculationFocus.accuracy,
                 highestGoRT, ScoreCalculationFocus.responseTimeGo, highestNoGoRT, ScoreCalculationFocus.responseTimeNoGo);
@@ -71,10 +71,10 @@ public class FocusLevelTransition : MonoBehaviour
                 1, ScoreCalculationFocus.scorePercentOne, ScoreCalculationFocus.accuracy, ScoreCalculationFocus.overallTime,
                 ScoreCalculationFocus.responseTimeGo, ScoreCalculationFocus.responseTimeNoGo);
 
-            float highestScore = CheckHighest(ScoreCalculationFocus.scorePercentOne, DatabaseGamesVariables.highestScoreDual);
-            float highestAccuracy = CheckHighest(ScoreCalculationFocus.accuracy, DatabaseGamesVariables.highestAccuracyDual);
-            float highestGoRT = CheckLeast(ScoreCalculationFocus.responseTimeGo, DatabaseGamesVariables.highestGoRTDual);
-            float highestNoGoRT = CheckLeast(ScoreCalculationFocus.responseTimeNoGo, DatabaseGamesVariables.highestNoRTDual);
+            float highestScore = CheckHighest(ScoreCalculationFocus.scorePercentOne, DatabaseGamesVariables.highestScoreFF);
+            float highestAccuracy = CheckHighest(ScoreCalculationFocus.accuracy, DatabaseGamesVariables.highestAccuracyFF);
+            float highestGoRT = CheckLeast(ScoreCalculationFocus.responseTimeGo, DatabaseGamesVariables.highestGoRTFF);
+            float highestNoGoRT = CheckLeast(ScoreCalculationFocus.responseTimeNoGo, DatabaseGamesVariables.highestNoRTFF);
 
             updateStat(highestScore, ScoreCalculationFocus.scorePercentOne, highestAccuracy, ScoreCalculationFocus.accuracy,
                 highestGoRT, ScoreCalculationFocus.responseTimeGo, highestNoGoRT, ScoreCalculationFocus.responseTimeNoGo);
@@ -108,10 +108,10 @@ public class FocusLevelTransition : MonoBehaviour
 
             databaseManager.UpdatelvlStatus(DatabaseGamesVariables.userID, DatabaseGamesVariables.focusname, "islvlTwoPassed", true);
 
-            float highestScore = CheckHighest(ScoreCalculationFocus.scorePercentTwo, DatabaseGamesVariables.highestScoreDual);
-            float highestAccuracy = CheckHighest(ScoreCalculationFocus.accuracy, DatabaseGamesVariables.highestAccuracyDual);
-            float highestGoRT = CheckLeast(ScoreCalculationFocus.responseTimeGo, DatabaseGamesVariables.highestGoRTDual);
-            float highestNoGoRT = CheckLeast(ScoreCalculationFocus.responseTimeNoGo, DatabaseGamesVariables.highestNoRTDual);
+            float highestScore = CheckHighest(ScoreCalculationFocus.scorePercentTwo, DatabaseGamesVariables.highestScoreFF);
+            float highestAccuracy = CheckHighest(ScoreCalculationFocus.accuracy, DatabaseGamesVariables.highestAccuracyFF);
+            float highestGoRT = CheckLeast(ScoreCalculationFocus.responseTimeGo, DatabaseGamesVariables.highestGoRTFF);
+            float highestNoGoRT = CheckLeast(ScoreCalculationFocus.responseTimeNoGo, DatabaseGamesVariables.highestNoRTFF);
 
             updateStat(highestScore, ScoreCalculationFocus.scorePercentTwo, highestAccuracy, ScoreCalculationFocus.accuracy,
                 highestGoRT, ScoreCalculationFocus.responseTimeGo, highestNoGoRT, ScoreCalculationFocus.responseTimeNoGo);
@@ -137,10 +137,10 @@ public class FocusLevelTransition : MonoBehaviour
                 2, ScoreCalculationFocus.scorePercentTwo, ScoreCalculationFocus.accuracy, ScoreCalculationFocus.overallTime,
                 ScoreCalculationFocus.responseTimeGo, ScoreCalculationFocus.responseTimeNoGo);
 
-            float highestScore = CheckHighest(ScoreCalculationFocus.scorePercentTwo, DatabaseGamesVariables.highestScoreDual);
-            float highestAccuracy = CheckHighest(ScoreCalculationFocus.accuracy, DatabaseGamesVariables.highestAccuracyDual);
-            float highestGoRT = CheckLeast(ScoreCalculationFocus.responseTimeGo, DatabaseGamesVariables.highestGoRTDual);
-            float highestNoGoRT = CheckLeast(ScoreCalculationFocus.responseTimeNoGo, DatabaseGamesVariables.highestNoRTDual);
+            float highestScore = CheckHighest(ScoreCalculationFocus.scorePercentTwo, DatabaseGamesVariables.highestScoreFF);
+            float highestAccuracy = CheckHighest(ScoreCalculationFocus.accuracy, DatabaseGamesVariables.highestAccuracyFF);
+            float highestGoRT = CheckLeast(ScoreCalculationFocus.responseTimeGo, DatabaseGamesVariables.highestGoRTFF);
+            float highestNoGoRT = CheckLeast(ScoreCalculationFocus.responseTimeNoGo, DatabaseGamesVariables.highestNoRTFF);
 
             updateStat(highestScore, ScoreCalculationFocus.scorePercentTwo, highestAccuracy, ScoreCalculationFocus.accuracy,
                 highestGoRT, ScoreCalculationFocus.responseTimeGo, highestNoGoRT, ScoreCalculationFocus.responseTimeNoGo);
