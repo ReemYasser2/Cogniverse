@@ -51,7 +51,7 @@ public class GridSpawner : MonoBehaviour
                     StartCoroutine(ResetTextAfterDelay());
 
                 }
-                else if ( newObject.layer == 9)
+                else if ( newObject.layer == 9 || newObject.layer == 8)
                 {
                     ScoreCalculationFocus.Decrement();
                     //
@@ -72,7 +72,7 @@ public class GridSpawner : MonoBehaviour
                     StartCoroutine(ResetTextAfterDelay());
 
                 }
-                else if ( newObject.layer == 9)
+                else if ( newObject.layer == 9 || newObject.layer == 10)
                 {
                     ScoreCalculationFocus.Decrement();
                     //
@@ -120,7 +120,8 @@ public class GridSpawner : MonoBehaviour
                 {
                     HandleNoClickOnLayerNine();
                 }
-                
+
+                yield return new WaitForSeconds(0.1f);
 
                 if (newObject != null)
                 {
@@ -168,6 +169,7 @@ public class GridSpawner : MonoBehaviour
                 {
                     HandleNoClickOnLayerNine();
                 }
+                yield return new WaitForSeconds(0.1f);
 
                 if (newObject != null)
                 {
@@ -219,7 +221,7 @@ public class GridSpawner : MonoBehaviour
             ScoreCalculationFocus.elapsedTimeStopWatch = 0;
             ScoreCalculationFocus.responseTimeNoGo = ScoreCalculationFocus.responseTimeNoGo + 0;
         } 
-        else if (!isClicked) 
+        else if (newObject &&  !isClicked) 
         {
             ScoreCalculationFocus.Decrement();
             FocusReinforcement.decreaseAudio(ScoreCalculationFocus.randomIndexPositiveDec);
