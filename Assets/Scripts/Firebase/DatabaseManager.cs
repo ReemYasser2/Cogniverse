@@ -44,6 +44,18 @@ public class DatabaseManager : MonoBehaviour
     public bool isnegativeGroup;
 
     public SceneHandler sceneHandler;
+
+    public GameObject usernameCanvas;
+    public GameObject demographicsCanvas;
+    public GameObject diagnosisCanvas;
+    public GameObject loginCanvas;
+    public GameObject signupCanvas;
+    public GameObject groupTypeCanvas; 
+    public GameObject messageCanvas;
+    public TMP_Text messageText;
+
+    public static bool isGroupChoosen = false;
+    public static bool isGenderChoosen = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -69,12 +81,14 @@ public class DatabaseManager : MonoBehaviour
     {
         female = "yes";
         male = "no";
+        isGenderChoosen = true;
     }
 
     public void MaleGender()
     {
         female = "no";
         male = "yes";
+        isGenderChoosen = true;
     }
 
     public void YesDiagnosis()
@@ -106,6 +120,7 @@ public class DatabaseManager : MonoBehaviour
         iscontrolGroup = true;
         isnegativeGroup = false;
         ispositiveGroup = false;
+        isGroupChoosen = true;
     }
 
     public void positive()
@@ -113,6 +128,7 @@ public class DatabaseManager : MonoBehaviour
         iscontrolGroup = false;
         isnegativeGroup = false;
         ispositiveGroup = true;
+        isGroupChoosen = true;
     }
 
     public void negative()
@@ -120,8 +136,69 @@ public class DatabaseManager : MonoBehaviour
         iscontrolGroup = false;
         isnegativeGroup = true;
         ispositiveGroup = false;
+        isGroupChoosen = true;
     }
 
+
+    // input validation 
+    private void usernameValidation(string fname, string lname)
+    {
+        if (string.IsNullOrEmpty(fname) || string.IsNullOrEmpty(lname))
+        {
+            Debug.Log("Please, Enter your name.");
+            messageText.text = "Please, Enter your name.";
+            messageCanvas.SetActive(true);
+            return;
+        }
+        else 
+        { 
+            usernameCanvas.SetActive(false);
+            demographicsCanvas.SetActive(true);
+        }
+    }
+
+    private void ageValidation(int age)
+    {
+        if (string.IsNullOrEmpty(age.ToString()))
+        {
+            Debug.Log("Please, Enter your age.");
+            messageText.text = "Please, Enter your age.";
+            messageCanvas.SetActive(true);
+            return;
+        }
+        else if (!isGenderChoosen)
+        {
+            Debug.Log("Please, Enter your age.");
+            messageText.text = "Please, Enter choose your gender.";
+            messageCanvas.SetActive(true);
+            return;
+        }
+        else
+        {
+            demographicsCanvas.SetActive(false);
+            signupCanvas.SetActive(true);
+        }
+    }
+
+    public void groupValidation()
+    {
+        if (!isGroupChoosen)
+        {
+            Debug.Log("Please, Choose a number.");
+            messageText.text = "Please, Choose a number.";
+            messageCanvas.SetActive(true);
+            return;
+        }
+        else
+        {
+            groupTypeCanvas.SetActive(false);
+            usernameCanvas.SetActive(true);
+        }
+    }
+
+    public void checkUsername() { usernameValidation(firstNameField.text, lastNameField.text); }
+
+    public void checkDemographics() { ageValidation(int.Parse(ageField.text)); }
     public void CreateUser(string userID)
     {
         SignupCredentials();

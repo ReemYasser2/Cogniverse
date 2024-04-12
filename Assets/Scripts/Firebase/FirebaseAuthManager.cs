@@ -38,7 +38,7 @@ public class FirebaseAuthManager : MonoBehaviour
             }
             else
             {
-                UnityEngine.Debug.LogError(System.String.Format(
+                UnityEngine.Debug.Log(System.String.Format(
                   "Could not resolve all Firebase dependencies: {0}", dependencyStatus));
                 // Firebase Unity SDK is not safe to use here.
             }
@@ -61,22 +61,59 @@ public class FirebaseAuthManager : MonoBehaviour
     {
         auth.SignOut();
         islogin = false;
+        DatabaseManager.isGroupChoosen = false;
+        DatabaseManager.isGenderChoosen = false;
         Debug.Log("User signed out.");
     }
 
     void CreateUser(string email, string password)
     {
+        // Check if email and password are valid
+        if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+        {
+            Debug.Log("Invalid email or password.");
+            databaseManager.messageText.text = "Invalid email or password.";
+            databaseManager.messageCanvas.SetActive(true);
+            return;
+        }
+
         auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWith(task => {
             if (task.IsCanceled)
             {
-                Debug.LogError("CreateUserWithEmailAndPasswordAsync was canceled.");
+                Debug.Log("CreateUserWithEmailAndPasswordAsync was canceled.");
+                databaseManager.messageText.text = "Process was canceled.";
+                databaseManager.messageCanvas.SetActive(true);
                 return;
             }
             if (task.IsFaulted)
             {
-                Debug.LogError("CreateUserWithEmailAndPasswordAsync encountered an error: " + task.Exception);
+                // Parse the exception message to determine the error
+                string errorMessage = task.Exception?.InnerException?.Message;
+
+                if (errorMessage != null)
+                {
+                    if (errorMessage.Contains("email is already in use"))
+                    {
+                        Debug.Log("Email is already in use. Please use a different email.");
+                        databaseManager.messageText.text = "Email is already in use. Please use a different email.";
+                        databaseManager.messageCanvas.SetActive(true);
+                    }
+                    else
+                    {
+                        Debug.Log("CreateUserWithEmailAndPasswordAsync encountered an error: " + errorMessage);
+                        databaseManager.messageText.text = "An error occurs, please try again..";
+                        databaseManager.messageCanvas.SetActive(true);
+                    }
+                }
+                else
+                {
+                    Debug.Log("CreateUserWithEmailAndPasswordAsync encountered an error: " + task.Exception);
+                    databaseManager.messageText.text = "An error occurs, please try again..";
+                    databaseManager.messageCanvas.SetActive(true);
+                }
                 return;
             }
+            SceneHandler.BackToHome();
 
             // Firebase user has been created.
             Firebase.Auth.AuthResult result = task.Result;
@@ -87,7 +124,6 @@ public class FirebaseAuthManager : MonoBehaviour
 
             databaseManager.CreateUser(DatabaseGamesVariables.userID);
             islogin = true;
-            //SceneHandler.BackToHome();
             databaseManager.GetGroupType(DatabaseGamesVariables.userID);
         });
 
@@ -95,18 +131,59 @@ public class FirebaseAuthManager : MonoBehaviour
 
     public void SignInUser(string email, string password)
     {
+        // Check if email and password are valid
+        if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+        {
+            Debug.Log("Invalid email or password.");
+            databaseManager.messageText.text = "Invalid email or password.";
+            databaseManager.messageCanvas.SetActive(true);
+            return;
+        }
+
         auth.SignInWithEmailAndPasswordAsync(email, password).ContinueWith(task => {
             if (task.IsCanceled)
             {
-                Debug.LogError("SignInWithEmailAndPasswordAsync was canceled.");
+                Debug.Log("SignInWithEmailAndPasswordAsync was canceled.");
+                databaseManager.messageText.text = "Process was canceled.";
+                databaseManager.messageCanvas.SetActive(true);
                 return;
             }
             if (task.IsFaulted)
             {
-                Debug.LogError("SignInWithEmailAndPasswordAsync encountered an error: " + task.Exception);
+                // Parse the exception message to determine the error
+                string errorMessage = task.Exception?.InnerException?.Message;
+
+                if (errorMessage != null)
+                {
+                    if (errorMessage.Contains("password is invalid"))
+                    {
+                        Debug.Log("Invalid password. Please enter the correct password.");
+                        databaseManager.messageText.text = "Invalid password. Please enter the correct password.";
+                        databaseManager.messageCanvas.SetActive(true);
+                    }
+                    else if (errorMessage.Contains("no user record"))
+                    {
+                        Debug.Log("No user found with this email address. Please sign up first.");
+                        databaseManager.messageText.text = "No user found with this email address. Please sign up first.";
+                        databaseManager.messageCanvas.SetActive(true);
+                    }
+                    else
+                    {
+                        Debug.Log("SignInWithEmailAndPasswordAsync encountered an error: " + errorMessage);
+                        databaseManager.messageText.text = "An error occurs, please try again..";
+                        databaseManager.messageCanvas.SetActive(true);
+                    }
+                }
+                else
+                {
+                    Debug.Log("SignInWithEmailAndPasswordAsync encountered an error: " + task.Exception);
+                    databaseManager.messageText.text = "An error occurs, please try again..";
+                    databaseManager.messageCanvas.SetActive(true);
+                }
                 return;
             }
 
+            SceneHandler.BackToHome();
             Firebase.Auth.AuthResult result = task.Result;
             //IDcopy = result.User.UserId;
             DatabaseGamesVariables.userID = result.User.UserId;
@@ -116,6 +193,8 @@ public class FirebaseAuthManager : MonoBehaviour
 
             //SceneHandler.BackToHome();
             databaseManager.GetGroupType(DatabaseGamesVariables.userID);
+            
+
 
         });
     }
