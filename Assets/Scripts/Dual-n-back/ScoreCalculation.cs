@@ -76,7 +76,8 @@ public static class ScoreCalculator
                 incrementCounter--;
                 score--;
                 //Debug.Log("Decrement score after pressing ");
-
+                countNoGoTrials++;
+                countGoTrials--;
                 isStopWatchStart = false;
                 elapsedTimeStopWatch = 0;
                 responseTimeNoGo = responseTimeNoGo + stopWatchtime; //no go
@@ -108,7 +109,8 @@ public static class ScoreCalculator
                 incrementCounter--;
                 score--;
                 //Debug.Log("Decrement score after pressing ");
-
+                countNoGoTrials++;
+                countGoTrials--;
                 isStopWatchStart = false;
                 elapsedTimeStopWatch = 0;
                 responseTimeNoGo = responseTimeNoGo + stopWatchtime;
@@ -215,7 +217,8 @@ public static class ScoreCalculator
                 // Adjust the score or perform actions accordingly
                 incrementCounter--;
                 score--;
-
+                countNoGoTrials++;
+                countGoTrials--;
                 isStopWatchStart = false;
                 elapsedTimeStopWatch = 0;
                 responseTimeNoGo = responseTimeNoGo + stopWatchtime;
@@ -257,7 +260,8 @@ public static class ScoreCalculator
                 // Adjust the score or perform actions accordingly
                 incrementCounter--;
                 score--;
-
+                countNoGoTrials++;
+                countGoTrials--;
                 isStopWatchStart = false;
                 elapsedTimeStopWatch = 0;
                 responseTimeNoGo = responseTimeNoGo + 0;
@@ -295,7 +299,8 @@ public static class ScoreCalculator
                // Debug.Log("Audio clips are the same and the button didnt get clicked");
                 incrementCounter--;
                 score--;
-
+                countNoGoTrials++;
+                countGoTrials--;
                 isStopWatchStart = false;
                 elapsedTimeStopWatch = 0;
                 responseTimeNoGo = responseTimeNoGo + 0;
