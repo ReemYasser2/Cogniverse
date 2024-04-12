@@ -15,6 +15,7 @@ public class GridSpawner : MonoBehaviour
     private bool isClicked = false;
     [SerializeField] private InputActionReference leftActionReference;
     [SerializeField] private InputActionReference rightActionReference;
+        public GameObject menuCanvas;
 
     public FocusReinforcement FocusReinforcement;
 
@@ -28,8 +29,9 @@ public class GridSpawner : MonoBehaviour
 
     }
 
-    private void OnClickCustom( InputAction.CallbackContext obj)
+    private void OnClickCustom(InputAction.CallbackContext obj)
     {
+        if(menuCanvas.activeSelf == false) {
         isClicked = true;
         ScoreCalculationFocus.isStopWatchStart = false;
         ScoreCalculationFocus.elapsedTimeStopWatch = 0;
@@ -84,7 +86,8 @@ public class GridSpawner : MonoBehaviour
             }
 
         }
-        //GetUserResponse();
+    
+        }
     }
 
     IEnumerator RandomSpawner(int level)
