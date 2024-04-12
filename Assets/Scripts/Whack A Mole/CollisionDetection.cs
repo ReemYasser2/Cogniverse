@@ -53,7 +53,7 @@ public class CollisionDetection : MonoBehaviour
             if (ScoreCalculationWhack.isLevel1 ) 
             {
                 ScoreCalculationWhack.Increment();
-                StartCoroutine(ResetTextAfterDelay());
+ 
 
                 WhackReiforcement.increaseAudio(ScoreCalculationWhack.randomIndexPositiveInc);
                 audioSource.PlayOneShot(collisionAudio);
@@ -61,20 +61,20 @@ public class CollisionDetection : MonoBehaviour
             else if(ScoreCalculationWhack.isLevel2 && gameObject.layer == 11)
             {
                 ScoreCalculationWhack.Increment();
-                StartCoroutine(ResetTextAfterDelay());
 
                 WhackReiforcement.increaseAudio(ScoreCalculationWhack.randomIndexPositiveInc);
                 audioSource.PlayOneShot(collisionAudio);
             }
             else if (ScoreCalculationWhack.isLevel2) {
                 ScoreCalculationWhack.Decrement();
-                StartCoroutine(ResetTextAfterDelay());
 
                 WhackReiforcement.decreaseAudio(ScoreCalculationWhack.randomIndexPositiveDec);
                 audioSource.PlayOneShot(collisionAudio);
             }
+            StartCoroutine(ResetTextAfterDelay());
 
         }
+
     }
     void DeactivateObject()
     {
@@ -83,8 +83,8 @@ public class CollisionDetection : MonoBehaviour
 
     IEnumerator ResetTextAfterDelay()
     {
-        yield return new WaitForSeconds(2.0f);
-
+        yield return new WaitForSeconds(0.5f);
+        Debug.Log("delay");
         // After waiting for the specified duration, reset the text to nothing
         ScoreCalculationWhack.reinforcementText = "";
     }
