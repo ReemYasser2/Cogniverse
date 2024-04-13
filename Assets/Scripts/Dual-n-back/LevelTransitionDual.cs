@@ -34,8 +34,8 @@ public class LevelTransitionDual : MonoBehaviour
             TimerDual.OverallTime();
             ScoreCalculator.scoreOnePercent = ScoreCalculator.score / 28f;
             levelsAccuracy = ScoreCalculator.AccuracyCalculation(ScoreCalculator.correctCounter, 28);
-            ScoreCalculator.responseTimeGo = ScoreCalculator.responseTimeGo / ScoreCalculator.countGoTrials;
-            ScoreCalculator.responseTimeNoGo = ScoreCalculator.responseTimeNoGo / ScoreCalculator.countNoGoTrials;
+            ScoreCalculator.responseTimeGo = Math.Abs(ScoreCalculator.responseTimeGo / Math.Abs(ScoreCalculator.countGoTrials));
+            ScoreCalculator.responseTimeNoGo = Math.Abs(ScoreCalculator.responseTimeNoGo / Math.Abs(ScoreCalculator.countNoGoTrials));
 
             databaseManager.CreateDualData(DatabaseGamesVariables.userID, ScoreCalculator.date, ScoreCalculator.time,
                 1, ScoreCalculator.scoreOnePercent, levelsAccuracy, ScoreCalculator.overallTime, 
@@ -64,8 +64,8 @@ public class LevelTransitionDual : MonoBehaviour
             TimerDual.OverallTime();
             ScoreCalculator.scoreOnePercent = ScoreCalculator.score / 28f;
             levelsAccuracy = ScoreCalculator.AccuracyCalculation(ScoreCalculator.correctCounter, 28);
-            ScoreCalculator.responseTimeGo = ScoreCalculator.responseTimeGo / ScoreCalculator.countGoTrials;
-            ScoreCalculator.responseTimeNoGo = ScoreCalculator.responseTimeNoGo / ScoreCalculator.countNoGoTrials;
+            ScoreCalculator.responseTimeGo = Math.Abs(ScoreCalculator.responseTimeGo / Math.Abs(ScoreCalculator.countGoTrials));
+            ScoreCalculator.responseTimeNoGo = Math.Abs(ScoreCalculator.responseTimeNoGo / Math.Abs(ScoreCalculator.countNoGoTrials));
 
             databaseManager.CreateDualData(DatabaseGamesVariables.userID, ScoreCalculator.date, ScoreCalculator.time,
                 1, ScoreCalculator.scoreOnePercent, levelsAccuracy, ScoreCalculator.overallTime,
@@ -102,8 +102,8 @@ public class LevelTransitionDual : MonoBehaviour
             TimerDual.OverallTime();
             ScoreCalculator.scoreTwoPercent = ScoreCalculator.score / 42f;
             levelsAccuracy = ScoreCalculator.AccuracyCalculation(ScoreCalculator.correctCounter, 42);
-            ScoreCalculator.responseTimeGo = ScoreCalculator.responseTimeGo / ScoreCalculator.countGoTrials;
-            ScoreCalculator.responseTimeNoGo = ScoreCalculator.responseTimeNoGo / ScoreCalculator.countNoGoTrials;
+            ScoreCalculator.responseTimeGo = Math.Abs(ScoreCalculator.responseTimeGo / Math.Abs(ScoreCalculator.countGoTrials));
+            ScoreCalculator.responseTimeNoGo = Math.Abs(ScoreCalculator.responseTimeNoGo / Math.Abs(ScoreCalculator.countNoGoTrials));
 
             databaseManager.CreateDualData(DatabaseGamesVariables.userID, ScoreCalculator.date, ScoreCalculator.time,
                 2, ScoreCalculator.scoreTwoPercent, levelsAccuracy, ScoreCalculator.overallTime,
@@ -133,8 +133,8 @@ public class LevelTransitionDual : MonoBehaviour
             TimerDual.OverallTime();
             ScoreCalculator.scoreTwoPercent = ScoreCalculator.score / 42f;
             levelsAccuracy = ScoreCalculator.AccuracyCalculation(ScoreCalculator.correctCounter, 42);
-            ScoreCalculator.responseTimeGo = ScoreCalculator.responseTimeGo / ScoreCalculator.countGoTrials;
-            ScoreCalculator.responseTimeNoGo = ScoreCalculator.responseTimeNoGo / ScoreCalculator.countNoGoTrials;
+            ScoreCalculator.responseTimeGo = Math.Abs(ScoreCalculator.responseTimeGo / Math.Abs(ScoreCalculator.countGoTrials));
+            ScoreCalculator.responseTimeNoGo = Math.Abs(ScoreCalculator.responseTimeNoGo / Math.Abs(ScoreCalculator.countNoGoTrials));
 
             databaseManager.CreateDualData(DatabaseGamesVariables.userID, ScoreCalculator.date, ScoreCalculator.time,
                 2, ScoreCalculator.scoreTwoPercent, levelsAccuracy, ScoreCalculator.overallTime,
@@ -169,8 +169,8 @@ public class LevelTransitionDual : MonoBehaviour
             TimerDual.OverallTime();
             levelsAccuracy = ScoreCalculator.AccuracyCalculation(ScoreCalculator.correctCounter, 42);
             ScoreCalculator.scoreThreePercent = ScoreCalculator.score / 42f;
-            ScoreCalculator.responseTimeGo = ScoreCalculator.responseTimeGo / ScoreCalculator.countGoTrials;
-            ScoreCalculator.responseTimeNoGo = ScoreCalculator.responseTimeNoGo / ScoreCalculator.countNoGoTrials;
+            ScoreCalculator.responseTimeGo = Math.Abs(ScoreCalculator.responseTimeGo / Math.Abs(ScoreCalculator.countGoTrials));
+            ScoreCalculator.responseTimeNoGo = Math.Abs(ScoreCalculator.responseTimeNoGo / Math.Abs(ScoreCalculator.countNoGoTrials));
 
             databaseManager.CreateDualData(DatabaseGamesVariables.userID, ScoreCalculator.date, ScoreCalculator.time,
                 3, ScoreCalculator.scoreThreePercent, levelsAccuracy, ScoreCalculator.overallTime,
@@ -201,8 +201,8 @@ public class LevelTransitionDual : MonoBehaviour
             TimerDual.OverallTime();
             levelsAccuracy = ScoreCalculator.AccuracyCalculation(ScoreCalculator.correctCounter, 42);
             ScoreCalculator.scoreThreePercent = ScoreCalculator.score / 42f;
-            ScoreCalculator.responseTimeGo = ScoreCalculator.responseTimeGo / ScoreCalculator.countGoTrials;
-            ScoreCalculator.responseTimeNoGo = ScoreCalculator.responseTimeNoGo / ScoreCalculator.countNoGoTrials;
+            ScoreCalculator.responseTimeGo = Math.Abs(ScoreCalculator.responseTimeGo / Math.Abs(ScoreCalculator.countGoTrials));
+            ScoreCalculator.responseTimeNoGo = Math.Abs(ScoreCalculator.responseTimeNoGo / Math.Abs(ScoreCalculator.countNoGoTrials));
 
             databaseManager.CreateDualData(DatabaseGamesVariables.userID, ScoreCalculator.date, ScoreCalculator.time,
                 3, ScoreCalculator.scoreThreePercent, levelsAccuracy, ScoreCalculator.overallTime,
