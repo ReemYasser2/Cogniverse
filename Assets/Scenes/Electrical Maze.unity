@@ -11417,6 +11417,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 858308114}
+        m_TargetAssemblyTypeName: MazeSpawner, Assembly-CSharp
+        m_MethodName: SelectMazeRandomly
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 381978195}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -17022,6 +17034,16 @@ MonoBehaviour:
   ispositiveGroup: 0
   isnegativeGroup: 0
   sceneHandler: {fileID: 599248592}
+  usernameCanvas: {fileID: 0}
+  demographicsCanvas: {fileID: 0}
+  diagnosisCanvas: {fileID: 0}
+  loginCanvas: {fileID: 0}
+  signupCanvas: {fileID: 0}
+  groupTypeCanvas: {fileID: 0}
+  messageCanvas: {fileID: 0}
+  messageText: {fileID: 0}
+  validMessageText: {fileID: 0}
+  validMessageCanvas: {fileID: 0}
 --- !u!1001 &967975029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30891,6 +30913,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 858308114}
+        m_TargetAssemblyTypeName: MazeSpawner, Assembly-CSharp
+        m_MethodName: SelectMazeRandomly
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 560986676}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -33468,6 +33502,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 858308114}
+        m_TargetAssemblyTypeName: MazeSpawner, Assembly-CSharp
+        m_MethodName: SelectMazeRandomly
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 40352713}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
