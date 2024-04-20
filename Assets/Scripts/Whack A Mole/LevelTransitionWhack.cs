@@ -52,6 +52,7 @@ public class LevelTransitionWhack : MonoBehaviour
             ScoreCalculationWhack.score = 0;
             ScoreCalculationWhack.accuracy = 0;
             ScoreCalculationWhack.scoreOnePercent = 0;
+            ScoreCalculationWhack.correctCounter = 0;
             ScoreCalculationWhack.isGameOver = true;
 
         }
@@ -84,6 +85,7 @@ public class LevelTransitionWhack : MonoBehaviour
             ScoreCalculationWhack.score = 0;
             ScoreCalculationWhack.accuracy = 0;
             ScoreCalculationWhack.scoreOnePercent = 0;
+            ScoreCalculationWhack.correctCounter = 0;
             ScoreCalculationWhack.isGameOver = true;
         }
         databaseManager.GetStatisticsWhackData(DatabaseGamesVariables.userID);
@@ -100,10 +102,10 @@ public class LevelTransitionWhack : MonoBehaviour
 
             // statistics
             WhackTimer.OverallTime();
-            ScoreCalculationWhack.scoreTwoPercent = ScoreCalculationWhack.score / ScoreCalculationWhack.spawnsCounter;
+            ScoreCalculationWhack.scoreTwoPercent = ScoreCalculationWhack.score / (ScoreCalculationWhack.spawnsCounter / 2);
             ScoreCalculationWhack.responseTimeGo = ScoreCalculationWhack.responseTimeGo / ScoreCalculationWhack.spawnerGoCounter;
             ScoreCalculationWhack.responseTimeNoGo = ScoreCalculationWhack.responseTimeNoGo / ScoreCalculationWhack.spawnerNoGoCounter;
-            ScoreCalculationWhack.accuracy = ScoreCalculationWhack.AccuracyCalculation(ScoreCalculationWhack.correctCounter, ScoreCalculationWhack.spawnsCounter);
+            ScoreCalculationWhack.accuracy = ScoreCalculationWhack.AccuracyCalculation(ScoreCalculationWhack.correctCounter, ScoreCalculationWhack.spawnsCounter/2);
 
             databaseManager.CreateWhackData(DatabaseGamesVariables.userID, ScoreCalculationWhack.date, ScoreCalculationWhack.time,
                 2, ScoreCalculationWhack.scoreOnePercent, ScoreCalculationWhack.accuracy, ScoreCalculationWhack.overallTime,
