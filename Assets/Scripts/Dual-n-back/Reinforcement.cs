@@ -12,7 +12,7 @@ public class Reinforcement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //reinforcmentText.text = ScoreCalculator.reinforcementText;
-        DynamicTextManager.CreateText(new Vector3 (0.2f, 0f, -7.2f), ScoreCalculator.reinforcementText, DynamicTextManager.defaultData);
+        reinforcmentText.text = ScoreCalculator.reinforcementText;
+        //DynamicTextManager.CreateText(new Vector3 (0.2f, 0f, -7.2f), ScoreCalculator.reinforcementText, DynamicTextManager.defaultData);
     }
 }

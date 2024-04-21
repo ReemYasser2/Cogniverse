@@ -66,6 +66,7 @@ public class SpawnManager : MonoBehaviour
                 if (!isAPressed && ScoreCalculator.trialsCount != 0)
                 {
                     ScoreCalculator.CalculateScoreWithoutPressing(oldPosition, currentPosition);
+
                 }
 
                 yield return new WaitForSeconds(1.0f);
@@ -131,6 +132,8 @@ public class SpawnManager : MonoBehaviour
                 if (!isAPressed && ScoreCalculator.trialsCount != 0)
                 {
                     ScoreCalculator.CalculateScoreWithoutPressing(oldPosition, currentPosition);
+                    StartCoroutine(ResetTextAfterDelay());
+
                 }
 
 
@@ -142,6 +145,8 @@ public class SpawnManager : MonoBehaviour
                    // Debug.Log("color no click");
 
                     ScoreCalculator.CalculateColorScoreWithoutPressing(oldColor, currentColor);
+                    StartCoroutine(ResetTextAfterDelay());
+
                 }
                 Destroy(newObject);
                 SetOldPosition(spawnPos);
@@ -205,12 +210,16 @@ public class SpawnManager : MonoBehaviour
                 if (!isAPressed && ScoreCalculator.trialsCount != 0)
                 {
                     ScoreCalculator.CalculateScoreWithoutPressing(oldPosition, currentPosition);
+                    StartCoroutine(ResetTextAfterDelay());
+
                 }
                 if (!isColorPressed && ScoreCalculator.trialsCount != 0)
                 {
                     //Debug.Log("color no click");
 
                     ScoreCalculator.CalculateColorScoreWithoutPressing(oldColor, currentColor);
+                    StartCoroutine(ResetTextAfterDelay());
+
                 }
 
                 yield return new WaitForSeconds(1.0f);
@@ -237,6 +246,14 @@ public class SpawnManager : MonoBehaviour
     {
         return currentPosition;
     }
+
+    IEnumerator ResetTextAfterDelay()
+    {
+        yield return new WaitForSeconds(1.0f);
+
+        // After waiting for the specified duration, reset the text to nothing
+        ScoreCalculationFocus.reinforcementText = "";
+    }
     void SetOldPosition(Vector3 position)
     {
         oldPosition = position;
@@ -250,6 +267,8 @@ public class SpawnManager : MonoBehaviour
         if (ScoreCalculator.trialsCount != 0)
         {
             ScoreCalculator.CalculateScoreWhenPressed(oldPosition, currentPosition);
+            StartCoroutine(ResetTextAfterDelay());
+
         }
     }
 
@@ -259,6 +278,8 @@ public class SpawnManager : MonoBehaviour
         if (ScoreCalculator.trialsCount != 0)
         {
             ScoreCalculator.CalculateColorScoreWhenPressed(oldColor, currentColor);
+            StartCoroutine(ResetTextAfterDelay());
+
         }
     }
 

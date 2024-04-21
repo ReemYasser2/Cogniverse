@@ -66,8 +66,10 @@ public class AudioManager : MonoBehaviour
                     {
                         ScoreCalculator.Increment(oldAudioClip, currentAudioClip);
 
+                        StartCoroutine(ResetTextAfterDelay());
 
                     }
+
 
 
                     keyPressedDuringAudioPlayback = false;
@@ -85,6 +87,14 @@ public class AudioManager : MonoBehaviour
     void SetCurrentClip(AudioClip audio)
     {
         currentAudioClip = audio;
+    }
+
+    IEnumerator ResetTextAfterDelay()
+    {
+        yield return new WaitForSeconds(1.0f);
+
+        // After waiting for the specified duration, reset the text to nothing
+        ScoreCalculationFocus.reinforcementText = "";
     }
 
     void SetOldClip(AudioClip audio)
@@ -107,6 +117,8 @@ public class AudioManager : MonoBehaviour
         if (currentAudioClip != null && oldAudioClip != null)
         {
             ScoreCalculator.CalculateAudioScore(oldAudioClip, currentAudioClip);
+            StartCoroutine(ResetTextAfterDelay());
+
         }
     }
 
