@@ -108,17 +108,17 @@ public class LevelTransitionWhack : MonoBehaviour
             ScoreCalculationWhack.accuracy = ScoreCalculationWhack.AccuracyCalculation(ScoreCalculationWhack.correctCounter, ScoreCalculationWhack.spawnsCounter/2);
 
             databaseManager.CreateWhackData(DatabaseGamesVariables.userID, ScoreCalculationWhack.date, ScoreCalculationWhack.time,
-                2, ScoreCalculationWhack.scoreOnePercent, ScoreCalculationWhack.accuracy, ScoreCalculationWhack.overallTime,
+                2, ScoreCalculationWhack.scoreTwoPercent, ScoreCalculationWhack.accuracy, ScoreCalculationWhack.overallTime,
                 ScoreCalculationWhack.responseTimeGo, ScoreCalculationWhack.responseTimeNoGo);
 
             databaseManager.UpdatelvlStatus(DatabaseGamesVariables.userID, DatabaseGamesVariables.whackname, "islvlTwoPassed", true);
 
-            float highestScore = CheckHighest(ScoreCalculationWhack.scoreOnePercent, DatabaseGamesVariables.highestScoreWhack);
+            float highestScore = CheckHighest(ScoreCalculationWhack.scoreTwoPercent, DatabaseGamesVariables.highestScoreWhack);
             float highestAccuracy = CheckHighest(ScoreCalculationWhack.accuracy, DatabaseGamesVariables.highestAccuracyWhack);
             float highestGoRT = CheckLeast(ScoreCalculationWhack.responseTimeGo, DatabaseGamesVariables.highestGoRTWhack);
             float highestNoGoRT = CheckLeast(ScoreCalculationWhack.responseTimeNoGo, DatabaseGamesVariables.highestNoRTWhack);
 
-            updateStat(highestScore, ScoreCalculationWhack.scoreOnePercent, highestAccuracy, ScoreCalculationWhack.accuracy,
+            updateStat(highestScore, ScoreCalculationWhack.scoreTwoPercent, highestAccuracy, ScoreCalculationWhack.accuracy,
                 highestGoRT, ScoreCalculationWhack.responseTimeGo, highestNoGoRT, ScoreCalculationWhack.responseTimeNoGo);
 
             ScoreCalculationWhack.isLevel2 = false;
@@ -146,15 +146,15 @@ public class LevelTransitionWhack : MonoBehaviour
             ScoreCalculationWhack.accuracy = ScoreCalculationWhack.AccuracyCalculation(ScoreCalculationWhack.correctCounter, ScoreCalculationWhack.spawnsCounter);
 
             databaseManager.CreateWhackData(DatabaseGamesVariables.userID, ScoreCalculationWhack.date, ScoreCalculationWhack.time,
-                2, ScoreCalculationWhack.scoreOnePercent, ScoreCalculationWhack.accuracy, ScoreCalculationWhack.overallTime,
+                2, ScoreCalculationWhack.scoreTwoPercent, ScoreCalculationWhack.accuracy, ScoreCalculationWhack.overallTime,
                 ScoreCalculationWhack.responseTimeGo, ScoreCalculationWhack.responseTimeNoGo);
 
-            float highestScore = CheckHighest(ScoreCalculationWhack.scoreOnePercent, DatabaseGamesVariables.highestScoreWhack);
+            float highestScore = CheckHighest(ScoreCalculationWhack.scoreTwoPercent, DatabaseGamesVariables.highestScoreWhack);
             float highestAccuracy = CheckHighest(ScoreCalculationWhack.accuracy, DatabaseGamesVariables.highestAccuracyWhack);
             float highestGoRT = CheckLeast(ScoreCalculationWhack.responseTimeGo, DatabaseGamesVariables.highestGoRTWhack);
             float highestNoGoRT = CheckLeast(ScoreCalculationWhack.responseTimeNoGo, DatabaseGamesVariables.highestNoRTWhack);
 
-            updateStat(highestScore, ScoreCalculationWhack.scoreOnePercent, highestAccuracy, ScoreCalculationWhack.accuracy,
+            updateStat(highestScore, ScoreCalculationWhack.scoreTwoPercent, highestAccuracy, ScoreCalculationWhack.accuracy,
                 highestGoRT, ScoreCalculationWhack.responseTimeGo, highestNoGoRT, ScoreCalculationWhack.responseTimeNoGo);
 
             ScoreCalculationWhack.isLevel2 = false;
