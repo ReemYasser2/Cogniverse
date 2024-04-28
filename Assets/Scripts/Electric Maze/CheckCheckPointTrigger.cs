@@ -12,7 +12,7 @@ public class CheckCheckPointTrigger : MonoBehaviour
         if (other.CompareTag("Bat"))
         {
             //Debug.Log("lvl passed!!");
-            if (HapticFeedback.checkpointCounter >= 9)
+            if (HapticFeedback.checkpointCounter >= 8)
             {
                 if (ScoreCalculatorMaze.isLevel1)
                 {
